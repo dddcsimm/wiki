@@ -93,6 +93,6 @@ which means it can't be defeated by anything the intruder might do.
 
 
 That was also the impetus I needed to incorporate patches that people
-had worked on to enable [[shortcut debpkg="kernel-package"]] uml
+had worked on to enable [[debpkg kernel-package]] uml
 and xen images (incidentally, I need feedback about this new
 functionality from xen and uml users).
