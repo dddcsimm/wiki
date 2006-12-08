@@ -647,26 +647,29 @@ div.taglink {
   background-color: #E6FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
   font-variant: small-caps;
   text-transform: capitalize;
-  width: 25%;
-  border: 2px outset #0040A4;    /* #6f7b34; */
+  padding: 0px;
+  margin: 2px;
+  border: 2px outset #0040A4;   /*  #6f7b34; */
 }
 div.taglink ul {
   list-style: none;
+  display: inline;
+  padding: 0px;
+  margin: 0px;
 }
-li.tag {
+div.taglink ul li {
   list-style: none;
   display: inline;
-  padding: 10px;
 }
-li.tag a {
+div.taglink ul li a {
   font-variant: small-caps;
   text-transform: capitalize;
 }
 
-li.tag a:link, li.tag a:visited { 
+div.taglink ul li a:link, div.taglink ul li  a:visited { 
   text-decoration: none;
 }
-li.tag a:hover { 
+div.taglink ul li a:hover { 
   text-decoration: none;
   border-bottom: solid #030003 1px;
 }
