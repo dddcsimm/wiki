@@ -7,6 +7,15 @@
 
 ---
 
+####Categories
+* [[Debian|categories/debian]]
+     * [[Debian official|categories/debian/official]]
+* [[Miscellaneous|categories/misc]]
+* [[Software|categories/software]]
+     * [[Debian Software|categories/software/debian]]
+     * [[Miscellaneous Software|categories/software/misc]]
+     * [[Security|categories/software/security]]
+
 ---
 
 [ ![Valid XHTML 1.1](/media/images/valid-xhtml11.png)](http://validator.w3.org/check?uri=referer)

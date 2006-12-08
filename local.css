@@ -2,7 +2,7 @@
 /* <blosxcss name="Golden Gryphon" > */
 
 body { 
-  font-family: Helvetica, Times New Roman, Georgia, Utopia, serif;
+  font-family: Helvetica, "Times New Roman", Georgia, Utopia, serif;
   color: #313373;
   background-color: #EBFFFF; /* #D3EBD2; #dee3ff; */
   margin: 0;
@@ -45,7 +45,7 @@ div#masthead h1 {
   text-align: left;
   padding-left: 5%;
   font-variant: small-caps;
-  font-family: helvetica, Verdana, Myriad Web, Syntax, sans-serif; 
+  font-family: helvetica, Verdana, "Myriad Web", Syntax, sans-serif; 
   font-weight: bold; 
   font-size: xx-large;
   text-transform: capitalize;
@@ -111,7 +111,6 @@ div#menubar-right {
 /* And, finally, the closing parts of the menu */
 div#menubar-close{ 
   clear: both;
-  border: solix yellow 3px;
 }
 
 
@@ -134,8 +133,7 @@ div.breadcrumbs {
  */
 div#wrapper { 
   clear: both;
-  padding: 0.75em;
-  padding-bottom: 2ex;
+  padding: 0.75em 0.75em 2ex 0.75em ;
 }
 
 /* Now comes the acual navigation panel, which contains blocks for navigation */
@@ -143,8 +141,7 @@ div#navpanel {
   background-color: #83CEFF;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
   font-family: Verdana,Geneva,Arial,sans-serif; 
   font-size: x-small;
-  padding: 5px;
-  padding-right: 10px;
+  padding: 5px 10px 5px 5px;
   margin-right: 10px;
   margin-top: 1em;
   width: 20em;
@@ -171,8 +168,7 @@ div.navblock p img {
 div.navblock { 
   background-color: #83CEFE;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
   width: 20em;
-  padding: 0.05em;
-  padding-top: 1px;
+  padding: 1px 0.05em 0.05em 0.05em;
 }
 
 div.navblock h4 { 
@@ -203,7 +199,7 @@ div.navblock ul li {
 div.navblock li a {
   display: block;
   color: black;
-  background-color: #ace;  /* #cea; */
+  background-color: #dfd;
   padding: 5px;
   font-size:125%;
   width: 100%;
@@ -219,17 +215,27 @@ div.navblock li a:hover {
 }
 
 div.style_list div.navblock li { 
-  margin-left: 12px;
+  margin-left: 1em;
 }
 
 /* Second level */
+div.navblock ul li ul li {
+  display: block;
+  float: right;
+  color: black;
+  width: 19em;
+  margin: 2px 0px 0px 0px;
+  padding: 0px;
+  text-align: right;
+  font-weight: bold;
+}
 div.navblock ul li ul li a {
   width: 100%;
   border: 1px dotted black;
-  background-color: #dfd;
+  background-color: #ace;  /* #cea; */
 }
 div.navblock ul li ul li {
-  width: 21em;
+  width: 19em;
 }
 div.navblock hr {
   clear: both;
@@ -349,7 +355,7 @@ td.month-calendar-day-link,
 td.month-calendar-day-nolink,
 td.month-calendar-day-this-day,
 td.month-calendar-day-future {
-	font-family:		Georgia,New Century Schoolbook,Times,serif;
+  font-family:		Georgia,"New Century Schoolbook",Times,serif;
 }
 
 td.year-calendar-month-link, 
@@ -413,13 +419,13 @@ div#altpanel {
 
 /* Now, we have the main panel */
 div#main-panel { 
-  margin-left: 13.9em;
+  margin-left: 16em;
   padding-bottom: 5ex;
 }
 
 /* Now, a small amount of content before the stories start */
 div#content { 
-  padding: 5px;
+  padding-bottom: 5px;
   padding-right: 10px;
   padding-top: 0px;
   margin-left: 0.5em;
@@ -555,9 +561,7 @@ div.imagerow {
 }
 div.image {
   float: left;
-  margin: 5px;
-  margin-left: 8%;
-  margin-right: 8%;
+  margin: 5px 8% 5px 8%;
   text-align:center;
 }
 
@@ -621,8 +625,7 @@ div.postedby{
   margin-top: 3pt;
   margin-right: 4pt;
   margin-left: 3pt;
-  padding: 0px;
-  padding-left: 1em;
+  padding: 0px 0px 0px 1em;
   font-size: smaller;
 }
 span.author:first-letter, p.postedby:first-letter 
@@ -691,12 +694,12 @@ div#backlinks li a:hover {
 }
 
 div#feedlink { 
-  margin: 15px;
-  padding: 5px;
+  margin:  2px;
+  padding: 2px;
 }
 a.feedbutton { 
-  margin: 15px;
-  padding: 5px;
+  margin:  2px;
+  padding: 2px;
   background-color: #FFF2F8; 
   border: 2px outset #0040A4;;    /* #0040A4; #6f7b34; */
 }
@@ -713,7 +716,6 @@ a.feedbutton:hover {
 div.referer {
   padding: 2px;
   margin: 2px;
-  margin-right: 2px;
   font-size: x-small;
 }
 div#menureferer {
@@ -736,7 +738,7 @@ div#footer {
   clear: both;
   font-size: 0.81em; 
   text-align: center;
-  border-bottom: solid LightBlue 2px;
+  border-bottom: solid Blue 2px;
 }
 
 div#footer hr { 
@@ -789,7 +791,7 @@ p.initial:first-letter
   background-color: red;
   color: white;
   font-size: 28pt;
-  font-family: Impact;
+  font-family: Impact, sans-serif;
 }
 
 /* 
@@ -863,7 +865,7 @@ p.caption {text-indent: 0; }
 
 .try  { border:  solid  4px; }
 .name { font-size: 4em; text-align: center }
-.oops { font-family: Jester, "Comic Sans MS" }
+.oops { font-family: Jester, "Comic Sans MS", sans-serif }
 
 
 /*
@@ -943,7 +945,7 @@ ol.upperalpha { list-style-type: upper-alpha }
 ol.withalpha  { list-style-type: lower-alpha }
 
 li.serif      { font-family: Georgia, serif, Helvetica }
-li.sans-serif { font-family: Times New Roman, Helvetica, sans-serif; }
+li.sans-serif { font-family: "Times New Roman", Helvetica, sans-serif; }
 li.fantasy    { font-family: fantasy   }
 li.monospace  { font-family: monospace }
 li.cursive    { font-family: cursive   }
