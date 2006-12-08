@@ -1,0 +1,98 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software software/security]]
+
+
+I have blogged <a href="/blog/manoj/software/misc/manoj.2004.07.27.html">before</a>
+about the trials and travails of trying to set up 
+<a href="http://user-mode-linux.sourceforge.net/">user-mode-linux</a>,
+but the power of perseverance has changed things a bit. What has also
+helped is that both  
+<a href="http://www.nsa.gov/selinux/">SELinux</a> and UML are getting
+incorporated in the mainline kernel, and I managed to research a load
+of places to look for more recent patches and fixes. To cut a long
+story short, I have created a 
+<a href="/software/security/selinux-uml.xhtml">recipe</a> (see
+<a href="/software/security/selinux-uml-2.6.8.1.xhtml">here</a> for an
+older version) to create your very own UML + SELinux setup, complete
+with a <kbd>root_fs</kbd>. This is a recipe, rather than a HOWTO,
+since it provides a step by step recipe that should work, and does not
+pretend to be an answer in the general case -- though I hope it would
+still be a guide.
+
+<!-- more -->
+
+The reasons I embarked on this were manifold: firstly, I have given up
+on strict policy for my laptop for the time being, too many things
+have not yet been tuned for desktop machines. Maybe the targeted
+policy would work out better, but that has yet to be packaged (more on
+that later).  Next, the packaged user-mode-linux died on me, and
+refused to work on 2.6.x hosts. Furthermore, I could no longer even
+build root file systems on my 2.6.x boxes -- so I decided to root
+around in mailing lists, find out the patches floating around to make
+the whole shebang work, and to provide the glue between the uml crowd
+and the SELinux crowd. This way, I can continue my SELinux experiments
+in sane, controlled, UML environments, play with policies and
+networks, all without compromising my real machine. 
+
+
+One can set up a whole network of UML machines on a single host,
+allowing for more complex attack vectors to be studied, as well as
+prototyping MAC policies to defend against the simulated attacks. 
+The kernel can be debugged like any other process, profiled, run under
+gdb; one may set up break points in system calls and do analysis of
+kernel and security subsystems that would be impossible on a real
+hosted system.
+
+
+I am also thinking of running services (like bind, postfix, sendmail)
+in a secure UML as opposed to semi-secure chroot jails (which do not
+come close to the isolation provided by a virtual machine running
+SELinux). Since the user-mode kernel is not running directly on the
+hardware, it has no access to it unless you provide it.  This is
+important, since while mandatory access control prevents a large
+number of exploits, it can't protect against kernel exploits (buffer
+overruns, etc).
+
+One can run the uml with the original root file system read-only, and
+an additional (initially empty) file that that gets populated when
+things are written to disk (Copy-on-write ). This OW file can be
+discarded, or merged with a copy of the original root file system, as
+desired. So it is very easy to see any changes that are taking place
+on the file system of the uml.
+
+
+Using SKAS has several advantages: The UML kernel runs in an entirely
+different host address space from its processes. This solves the
+security and honeypot fingerprinting problems by making the UML kernel
+totally inaccessible to UML processes. Their address spaces are
+identical to what they would be on the host. This also provides a
+noticable speedup by eliminating the signal delivery that used to
+happen for every UML system call.
+
+
+Once I had UML more or less working, along with a SELinux enabled
+root_fs, I decided to more or less automate the process, and document
+it, hence the web page you see above. At some point I shall enhance it
+to provide an out of the box honeypot variant -- complete with tty
+logging (well, once that is supported again by UML).
+
+Since the logging is performed on the host system, the logging would
+be invisible to any attacker.  Just sniffing the network doesn't help
+since that traffic is encrypted. So, you need to capture keystrokes by
+running something on the honeypot. This is problematic since you have
+to assume that it has been thoroughly compromised, so the logging
+mechanism may also have been compromised.
+
+UML solves this problem with a patch to the tty driver which logs all
+traffic through tty devices out to the host. In contrast to the
+physical honeypot logging mechanisms, this is undetectable and
+unsubvertable. It causes no network traffic or anything else which can
+be detected from within the honeypot. It's also in the UML kernel,
+which means it can't be defeated by anything the intruder might do. 
+
+
+That was also the impetus I needed to incorporate patches that people
+had worked on to enable [[shortcut debpkg="kernel-package"]] uml
+and xen images (incidentally, I need feedback about this new
+functionality from xen and uml users).

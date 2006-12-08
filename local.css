@@ -1,0 +1,995 @@
+/* <blosxcss description="An original Blosxcss compliant style for the Golden Gryphon." > */
+/* <blosxcss name="Golden Gryphon" > */
+
+body { 
+  font-family: Helvetica, Times New Roman, Georgia, Utopia, serif;
+  color: #313373;
+  background-color: #EBFFFF; /* #D3EBD2; #dee3ff; */
+  margin: 0;
+}
+
+div {
+        margin: 0;
+        /* border: solid black 6px; */
+}
+span {
+        margin: 0;
+        /* border: solid black 1px; */
+}
+
+/* 
+ * Layout. This is where we determine how the page is laid out.
+ * Indeed, this is all the layout specific segment, the rest can be
+ * abstracted out.
+ */
+
+/* 
+   The masthead is at the top of the page. It contains the title of
+   the page, and the description.
+ */
+
+div#masthead { 
+  padding: 0.01em 0.1em 0.01em 0.01em;
+  margin: 0;
+}
+/* Make the titles stand out */
+div#masthead h1 {
+  color: White;
+  background-color: #00276C; /* #6f7b34; #1A344B;#5D97CF #AA889A; #0040A4;  */
+  background-image: url('/media/images/gryphon.png');
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  height: 150px;
+  vertical-align: 20%;
+  line-height: 150px;  
+  text-align: left;
+  padding-left: 5%;
+  font-variant: small-caps;
+  font-family: helvetica, Verdana, Myriad Web, Syntax, sans-serif; 
+  font-weight: bold; 
+  font-size: xx-large;
+  text-transform: capitalize;
+  margin: 0.1em;
+}
+
+/* This is the description */
+div#masthead h4 {
+  color: #313373;
+  text-align: right; 
+  margin: 0.1em;
+}
+/* Just a placeholder. Probably should not even be here */
+div#links { 
+}
+
+/* 
+   This should hold all the other segemtns that make up this page --
+   all the way up to the footer.
+ */
+div#container{ 
+  padding-bottom: 10px;
+}
+
+/*
+ * This contains the menu at the top. The menu contains three parts
+ */
+div#menubar { 
+  clear: both;
+  text-align: center;
+  vertical-align: middle;
+  width: 99%;
+  padding: 0px;
+  margin: 0px;
+  border-bottom: solid 1px #EBFFFF;
+}
+/* The leftmost bits of the menubar */
+div#menubar-left { 
+  float: left;
+  width: 33%;
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+  /* margin-bottom: 3px;
+  margin-top: 2px; */
+}
+
+/* Then come the right side of the mneu */
+div#menubar-right { 
+  text-align: right;
+  float: right;
+  width: 33%;
+  display: inline;
+  padding: 0px;
+  margin: 0px;
+  /* margin-right: 5px;
+  margin-bottom: 3px;
+  margin-top: 2px;
+  padding: 0.3em 0.3em; */
+  font-size: 70%;
+  line-height: 130%;
+}
+/* And, finally, the closing parts of the menu */
+div#menubar-close{ 
+  clear: both;
+  border: solix yellow 3px;
+}
+
+
+/* This is where the breadcrumbs go to. */
+breadcrumb a:link, breadcrumb a:visited, breadcrumb a:hover { 
+  color: #1A344B;
+}
+
+div.breadcrumbs { 
+  padding: 0.3em 0.3em;
+  font-size: 70%;
+  line-height: 130%;
+  display: inline;
+}
+
+
+/* 
+   Now we come to the navigation bar at the left. First, there is the
+   wrapper that contains all:
+ */
+div#wrapper { 
+  clear: both;
+  padding: 0.75em;
+  padding-bottom: 2ex;
+}
+
+/* Now comes the acual navigation panel, which contains blocks for navigation */
+div#navpanel { 
+  background-color: #83CEFF;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
+  font-family: Verdana,Geneva,Arial,sans-serif; 
+  font-size: x-small;
+  padding: 5px;
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-top: 1em;
+  width: 20em;
+  float: left;
+  border-right: solid 2px;
+  border-bottom: solid 2px;
+  border-right-color: #1A344B;   /* #6f7b34; */
+  border-bottom-color: #1A344B;   /* #6f7b34; */
+}
+
+
+div#navpanel h4 {
+  margin-bottom: 0.05in;
+}
+
+div.navblock p img {
+  border: none;
+}
+
+/* 
+   These litle blocks contain individual navigation. Each contains a
+   little h4 block as a title
+ */
+div.navblock { 
+  background-color: #83CEFE;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
+  width: 20em;
+  padding: 0.05em;
+  padding-top: 1px;
+}
+
+div.navblock h4 { 
+  margin-top: 2px;
+  font-size:155%;
+  line-height: 80%;
+}
+
+div.navblock li {
+  list-style: none;
+}
+
+div.navblock ul {
+  margin: 0px;
+  padding: 0px;
+}
+div.navblock ul li {
+  display: block;
+  float: left;
+  color: black;
+  width: 21em;
+  margin: 2px 0px 0px 0px;
+  padding: 0px;
+  text-align: right;
+  font-weight: bold;
+}
+/* Make the links stick out a bit. */
+div.navblock li a {
+  display: block;
+  color: black;
+  background-color: #ace;  /* #cea; */
+  padding: 5px;
+  font-size:125%;
+  width: 100%;
+  border: 1px dotted black; 
+}
+div.navblock li a:link, div.navblock li a:visited { 
+  text-decoration: none;
+}
+
+div.navblock li a:hover { 
+  text-decoration: underline;
+  border-bottom: solid blue 1px;
+}
+
+div.style_list div.navblock li { 
+  margin-left: 12px;
+}
+
+/* Second level */
+div.navblock ul li ul li a {
+  width: 100%;
+  border: 1px dotted black;
+  background-color: #dfd;
+}
+div.navblock ul li ul li {
+  width: 21em;
+}
+div.navblock hr {
+  clear: both;
+  padding-top: 0.5ex;
+}
+
+div.actions { 
+  float: right;
+  padding: 0px;
+  margin: 0px;
+}
+div.actions ul li {
+  display: inline;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+div.actions ul li img {
+  border: none;
+}
+div.actions ul li a:link, div.actions ul li a:visited {
+  text-decoration: none;
+}
+
+div.actions ul li a:hover { 
+  text-decoration: underline;
+  border-bottom: solid blue 1px;
+}
+
+ul.headlines { 
+  display: compact;
+}
+        
+li.headlines_date { 
+  padding-left: 2px;
+}
+li.headlines_item { 
+  padding-left: 1.5em;
+}
+/* 
+   These are autogenerated sections for the navbar 
+ */
+div.navcategories { 
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 3px;
+   font-size: 150%;
+}
+div.navcategories ul.categories {
+  padding: 2px;
+  margin-top: 5px;
+  margin-bottom:5px;
+  border-top: 1px dotted #00276C;
+}
+
+div.navcategories ul.categories a {
+  padding: 2px;
+  margin-right: 5px;
+}
+
+div.navcategories li {
+  font-size: 90%;
+}
+div.navheadlines { 
+}
+div.navsearch { 
+}
+
+div.navyearcalendar{ 
+  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calendar { }
+.calendar table {
+	margin-left:		auto; 
+	margin-right:		auto;
+}
+.calendar table .prev-link {
+	margin-left:		0; 
+	text-align:		left;
+}
+.calendar table .next-link {
+	margin-right:		0;
+	text-align:		right;
+}
+table.month-calendar, table.year-calendar {
+	border-collapse:	collapse; 
+}
+table.month-calendar  {
+  margin-left:		auto; 
+  margin-right:		auto;
+  padding: 1px;
+}
+table.year-calendar {
+  margin-left:		auto; 
+  margin-right:		auto;
+  padding: 2px;
+}
+
+caption.month-calendar-head, caption.year-calendar-head {
+	font-size:		110%;
+	font-weight:		bold;
+}
+th.month-calendar-day-head, th.year-calendar-subhead {
+	font-weight:		normal;
+}
+
+table.month-calendar {
+	text-align: 		center;
+}
+
+td.month-calendar-day-noday,
+td.month-calendar-day-link,
+td.month-calendar-day-nolink,
+td.month-calendar-day-this-day,
+td.month-calendar-day-future {
+	font-family:		Georgia,New Century Schoolbook,Times,serif;
+}
+
+td.year-calendar-month-link, 
+td.year-calendar-month-nolink,
+td.year-calendar-this-month, 
+td.year-calendar-month-future {
+}
+
+td.month-calendar-day-future, td.year-calendar-month-future {
+	color:			#83660F;
+}
+
+table.month-calendar {
+  background:		#C0C7E3;
+  border: 		1px solid #83660f;
+}
+.calendar th {
+  border-bottom: 		1px dotted #83660f;
+}
+.Saturday {
+  border-left:		1px dotted #83660f;
+}
+.Sunday {
+  border-right:		1px dotted #83660f;
+}
+.Saturday, .Sunday {
+  background:		#D9FFB7; /* #F7DFDB; */
+}
+.month-calendar-day-this-day, .year-calendar-this-month {
+  background:		#ECE1ED;
+}
+.year-calendar {
+  background:		#C0C7E3;
+  border: 		1px dotted #83660f;
+}
+
+ul.archives li ul li { 
+  padding: 2px;
+  display: inline;
+}
+
+
+/* 
+   Just a list of validation badges
+ */
+div.badges { 
+  text-align: center;
+}
+img.badge {
+  margin: 1px;
+  border: 0px;
+  text-align:center;
+}
+
+/* The navigation panel ends here */
+/* An alternate panel */
+div#altpanel { 
+  float: right;
+  display: none;
+}
+
+/* Now, we have the main panel */
+div#main-panel { 
+  margin-left: 13.9em;
+  padding-bottom: 5ex;
+}
+
+/* Now, a small amount of content before the stories start */
+div#content { 
+  padding: 5px;
+  padding-right: 10px;
+  padding-top: 0px;
+  margin-left: 0.5em;
+  clear: none;
+}
+
+div#content h3 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #336699;
+}
+
+/* 
+   Then we have a small area for a message, where the results from
+   find, etc come
+ */
+
+div.message { 
+}
+/* 
+   Finally, any static content goes in here.
+ */
+div.content-header { 
+}
+
+div.gotchi {
+  float:right;
+  margin: 0;
+  border: 0;
+}
+
+
+/* 
+ * Here are the actual web logs. This is why we are doing this
+ * page. The following elements are repeated for each entry.
+ */
+
+/* The date, at the top of each entry 
+ */
+div.blogDate { 
+  clear:right;
+  background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+  color: #dee3ff;                    /* #dee3ff; #D3EBD2; */
+  font-size: small;
+  line-height: 110%;
+  font-weight: normal;
+  padding: 3px 2px;
+  margin-bottom: 10px;
+  margin-top: 3px;
+}
+/* The day of the week */
+span.day { 
+  float: left;
+  font-size: xx-large;
+  line-height: 100%;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin-left: 4pt;
+  margin-right: 3pt;
+  padding-right: 3pt;
+  border-right: 4px solid #dee3ff;
+}
+/* The year */
+span.dow { 
+  float:right;
+  font-size: xx-large;
+  line-height: 100%;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  margin-right: 4pt;
+  margin-left: 3pt;
+  padding-left: 3pt;
+  border-left: 4px solid #dee3ff;
+}
+span.year { 
+  padding-left: 1.5em;
+}
+span.month { 
+  padding-left: 1.5em;
+}
+
+/* 
+ * The story starts here
+ */
+div.story { 
+  width: 100%;
+  clear:right;
+  margin-bottom: 0.3em;
+}
+
+/* Each story has headers */
+div.headers { 
+  background-color: #C3FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+  width: 16em;
+  float: left;
+  margin-right: 0.3em;
+  margin-bottom: 0.3em;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  border: 1px outset #0040A4;    /* #6f7b34; */
+}
+div.story div.headers h4 {
+  font-size: large;
+  margin: 0 0.2em 0.1em 0em;
+  border-bottom: 1px dotted #000000;
+}
+
+/* An icon may be associated with the story */
+div.icon {
+  background-color: #dee3ff; 	/* #D3EBD2;  */
+  float:right;
+  margin: 0;
+  border: 0;
+}
+/* and an image gallery */
+div.imagegallery {
+  padding: 4px;
+  width: auto;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+div.imagegal { 
+}
+
+
+div.imagerow { 
+  clear: left;
+  margin-left: auto;
+  margin-right: auto;
+  padding:1px;
+  width:  80%;
+}
+div.image {
+  float: left;
+  margin: 5px;
+  margin-left: 8%;
+  margin-right: 8%;
+  text-align:center;
+}
+
+div.single-image img {
+	/* max-width: 100%;		Not well supported yet */
+  width: 100%;
+}
+
+div.image img {
+  width: auto;
+}
+
+div.imagegallery div.image p {
+	text-align: center;
+}
+div.imagecomments { 
+}
+
+
+span.storypic { 
+  float: right;
+  padding: 0;
+  margin: 3px 3px 15px 15px;
+  /* 
+     border-left: 2px solid #6f7b34;
+     border-bottom: 2px solid #6f7b34;
+     */
+}
+
+
+/* The permalinks associated with the story */
+div.story-links { 
+  margin-left: 0.15in;
+  margin-right: 0.15in;
+}
+div.story-comments { 
+  display: inline;
+}
+a.story-category { 
+  text-align: left;
+  display: inline;
+}
+
+a.story-permalink { 
+  float: right;
+}
+
+/* And, finally, the story itself */
+div.value { 
+  margin-left: 0.5em;
+  padding-left: 2px;
+}
+/* The body of the story is here */
+div.story-body{ 
+  margin-left: 0.15in;
+  margin-right: 0.15in;
+}
+/* And the author's name */
+div.postedby{ 
+  text-align: right;
+  margin-top: 3pt;
+  margin-right: 4pt;
+  margin-left: 3pt;
+  padding: 0px;
+  padding-left: 1em;
+  font-size: smaller;
+}
+span.author:first-letter, p.postedby:first-letter 
+{
+  text-transform: uppercase;
+  color: #739e60;
+  font-family: cursive;
+  font-size: 215%;
+  padding: 0em;
+  line-height: 90%;
+  /*  padding: 0em; float: left; */
+}
+span.author, p.postedby { 
+  padding: 2px;
+  margin: 2px;
+}
+
+div.taglink { 
+  background-color: #E6FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+  font-variant: small-caps;
+  text-transform: capitalize;
+  width: 25%;
+  border: 2px outset #0040A4;    /* #6f7b34; */
+}
+div.taglink ul {
+  list-style: none;
+}
+li.tag {
+  list-style: none;
+  display: inline;
+  padding: 10px;
+}
+li.tag a {
+  font-variant: small-caps;
+  text-transform: capitalize;
+}
+
+li.tag a:link, li.tag a:visited { 
+  text-decoration: none;
+}
+li.tag a:hover { 
+  text-decoration: none;
+  border-bottom: solid #030003 1px;
+}
+
+div#feedlink { 
+  clear: right;
+  margin: 15px;
+  padding: 5px;
+}
+a.feedbutton { 
+  margin: 15px;
+  padding: 5px;
+  background-color: #FFF2F8; 
+  border: 2px outset #0040A4;;    /* #0040A4; #6f7b34; */
+}
+a.feedbutton:link, a.feedbutton:visited { 
+  text-decoration: none;
+}
+
+a.feedbutton:hover { 
+  text-decoration: none;
+  border-bottom: solid #030003 1px;
+}
+
+/* Link of people who came here */
+div.referer {
+  padding: 2px;
+  margin: 2px;
+  margin-right: 2px;
+  font-size: x-small;
+}
+div#menureferer {
+  padding: 2px;
+  margin: 2px;
+  font-size: small;
+}
+
+span.message{ 
+}
+/* If there are more entries than can be displayed, here goes the
+ * navigation
+ */
+div.more_entries {
+
+}
+
+/* We are at the foot of the page. */
+div#footer { 
+  clear: both;
+  font-size: 0.81em; 
+  text-align: center;
+  border-bottom: solid LightBlue 2px;
+}
+
+div#footer hr { 
+  margin-top: 1ex;
+}
+div.footinfo { 
+  padding-top: 5px;
+  padding-bottom: 0.1px;
+  margin: 1px;
+  background-color: #00276C;
+  color: White;   /* #1A344B #6f7b34; */   
+}
+
+div.footinfo address { 
+  float: right;
+  width: 33%;
+  margin-right: 1em;
+  text-align: right;
+}
+div.footinfo address a:link, div.footinfo address a:visited { 
+  text-decoration: none;
+  color: #FAFFFA;
+}
+div.footinfo address a:hover { 
+  text-decoration: none;
+  color: #FAFFFA;
+  border-bottom: solid #FAFFFA 1px;
+}
+div.updated p {
+  margin-top: -0.2ex;
+  width: 99%;
+  text-align: center;
+}
+div.commitinfo { 
+  width: 33%;
+  float: left;
+  margin-left: 1em;
+  text-align: left;
+}
+/* The rest of this should be pretty generic */
+
+tt, code, kbd, samp      { font-family: monospace }
+
+p.initial:first-letter 
+{
+  font-size: 215%;
+  /*  padding: 0em; float: left; */
+}
+#bigchar {
+  background-color: red;
+  color: white;
+  font-size: 28pt;
+  font-family: Impact;
+}
+
+/* 
+   The trick here is to only indent paragraphs that follow other
+   paragraphs. The first paragaph of a page doesn't need to be
+   indented, and neither do paragraphs that follow a diagram, a
+   heading or something else that is offset from the text. The rule
+   is in fact very simple:
+   */
+p + p { text-indent: 1.5em; margin-top : 0  }
+/*
+   This indents the first line of only those paragraphs that follow
+   another paragraph. But in practice you will find that you still
+   need exceptions.
+
+   For example, there are P elements that are used as captions for
+   images, and are centered, and thus they should not be
+   indented. A simple rule 'p.caption {text-indent: 0}' takes care
+of it. 
+
+We can now use various amounts of whitespace between paragraphs
+to indicate important breaks in the text. Let's define three
+different classes: stb (small thematic break), mtb (medium
+thematic break) and ltb (large thematic break). 
+*/
+p.stb { text-indent: 0; margin-top: 0.83em }
+p.mtb { text-indent: 0; margin-top: 2.17em }
+p.ltb { text-indent: 0; margin-top: 3.08em }
+
+/*
+   * For example, there are P elements that are used as captions for
+   * images, and are centered, and thus they should not be indented. A
+   * simple rule '' takes care of it.
+   */
+p.caption {text-indent: 0; }
+
+/* letter and word spacing */
+.letterspaced    {letter-spacing: 10pt;}
+.wordspaced      {word-spacing: 20px;}
+
+/* vertical alignment examples */
+.sub     {vertical-align: sub;}
+.super   {vertical-align: super;}
+
+/* text alignment properties */ 
+.right   {text-align: right;}
+.left    {text-align: left;}
+.justify {text-align: justify;}
+.center  {text-align: center;}
+
+
+/*
+ *   Effects
+ */
+.underline   { text-decoration: underline;   }
+.overline    { text-decoration: overline;    }
+.blink       { text-decoration: blink;       }
+.line-through{ text-decoration: line-through;}
+
+/* white space control */
+.normal      { white-space: normal; }
+.pre         { white-space: pre;    }
+.nowrap      { white-space: nowrap; }
+.obeylines-h { white-space: nowrap; }
+.obeylines-v { white-space: nowrap; }
+
+/* text transformation properties */
+.uppercase  { text-transform: uppercase; }
+.lowercase  { text-transform: lowercase; }
+.capitalize { text-transform: capitalize;}
+
+.try  { border:  solid  4px; }
+.name { font-size: 4em; text-align: center }
+.oops { font-family: Jester, "Comic Sans MS" }
+
+
+/*
+   * This is used to create rules and additional markers for
+   * browsers like w3m, which do not support css at all.
+   */
+.nocss {display: none; }
+.colophon    { display:        none;      }
+.invisible {  display: none; margin: 0; padding: 0; }
+.hide        {
+  display: none;
+  color: white;
+}
+
+span.skip                 { display: none }
+div.skip                  { display: none }
+
+
+/*
+   * Get a nice, 3d look for tables
+   */
+table.raised {
+  border-collapse: collapse; /*separate; */
+  border: outset 5pt;
+  border-spacing: 0pt;
+  /* border-spacing: 5pt; */
+}
+
+/*
+   td { border: inset 2pt }
+th { border: inset 2pt }
+*/
+table.raised td             { border: 1px solid; padding: 1em; }
+table.raised th             { border: 2px solid; padding: 1em; }
+
+/* Shouldn't the definition term be bold by default? */
+dt {font-weight: bold;}
+/* 
+   * Add space at the bottom of the list, or else it seems to run
+   * into the following content
+   */
+dd {margin-bottom: 0.66em;}
+
+.titletext
+{
+  color: black;
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: -10px;
+}
+
+div.titlepage {
+  margin: 1em 0;
+  padding: 1em;
+  border:   solid thin;
+  border-color:   blue;
+}
+
+h2.section 
+{
+  text-transform: capitalize; 
+  text-decoration: underline; 
+  margin-left: 5%; 
+}
+/* Make the list numbering sane */
+OL OL    { list-style: lower-roman; }
+UL OL    { list-style: decimal; }
+OL OL OL { list-style: lower-alpha; }
+
+
+/*
+   * Ordered Lists
+   */
+ol.withroman  { list-style-type: lower-roman }
+ol.upperroman { list-style-type: upper-roman }
+ol.upperalpha { list-style-type: upper-alpha }
+ol.withalpha  { list-style-type: lower-alpha }
+
+li.serif      { font-family: Georgia, serif, Helvetica }
+li.sans-serif { font-family: Times New Roman, Helvetica, sans-serif; }
+li.fantasy    { font-family: fantasy   }
+li.monospace  { font-family: monospace }
+li.cursive    { font-family: cursive   }
+ul.padded     { line-height: 120%      }
+li.overskrift { margin-top: 2ex; font-weight: bold }
+
+small { font-size:      .92em;  }
+big   { font-size:      1.17em; }
+
+
+del                       {       
+  text-decoration:        line-through;
+  background:     #900;
+}       
+
+ins     {       
+  text-decoration:        none;
+  background:     #060;
+}       
+acronym {
+  font-variant:   small-caps;
+  letter-spacing: 0.1em;
+}
+
+/* PAGECLOUD */
+
+.pagecloud {
+	float: left;
+	width: 90%;
+	padding: 5px;
+}
+
+.pagecloud a:hover {
+	text-decoration: underline;
+}
+
+.smallestPC a {
+	font-size: 0.8em;
+	color: #CFCFCF;
+	background-color: #FFFFFF;
+	text-decoration: none;
+}
+
+.smallPC a {
+	font-size: 0.8em;
+	color: #6A6A6A;
+	background-color: #FFFFFF;
+	text-decoration: none;
+}
+
+.normalPC a {
+	font-size: 1.0em;
+	color: #6A6A6A;
+	background-color: #FFFFFF;
+	text-decoration: none;
+}
+
+.bigPC a {
+	font-size: 1.0em;
+	color: #8A0606;
+	background-color: #FFFFFF;
+	text-decoration: none;
+}
+
+.biggestPC a {
+	font-size: 1.2em;
+	color: #FF0000;
+	background-color: #FFFFFF;
+	text-decoration: none;
+}

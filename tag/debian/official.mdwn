@@ -1,0 +1,5 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+
+This is the category for all posts that have something related to my
+official tasks for the Debian project.

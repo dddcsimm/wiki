@@ -1,0 +1,15 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian debian/official]]
+
+I finally got time from my day job to set up the infrastructure for a
+vote. This entailed setting up a temporary vote key (the key I had set
+up earlier for the draft ballot had expired), adding the latest
+proposal (F). And set up the cron jobs, and so on.
+
+Any way, head out over to the 
+<a href="http://www.debian.org/vote/2004/vote_004">vote page</a>
+for the juicy details. Take care in reading over the details, for
+this is not just a GR, it is a GR that changes foundation documents,
+and as the last vote has shown, any foundation doc change merits a
+modicum of diligence.

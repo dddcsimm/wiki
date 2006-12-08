@@ -1,0 +1,55 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag misc]]
+
+Now that the tmpfs patch has come out in an official
+[2.6.9-selinux1.patch.gz](http://www.nsa.gov/selinux/patches/2.6.9-selinux1.patch.gz),
+and blaisorblade issued a [new
+SKAS](http://www.user-mode-linux.org/~blaisorblade/patches/host-skas3-2.6.9-v7.patch)
+patch, I decided to recompile kernels for my active everyday non
+server machines, and also update my [SELINUX UML
+page](/software/security/selinux-uml.xhtml). Of course, not everything
+goes off without a hitch, and this time it was the fact that I use
+proprietary binary only drivers (boo!  hiss!) that brought me down. Of
+course, the newer version of the drivers is the one supposed to work
+with software suspend. I really need to re-examine whether running
+glxgears really fast at LUGs is worth this aggravation -- and the
+further tainting of my almost-vrms-clean box.
+
+Oh, and at this point, I don't see any reason not to have SELinux
+compiled in for all my kernels -- while there is a performance hit and
+a scalability hit when SELInux is enabled, as far as compile-time
+enabling of SELinux is concerned is what performance hit is imposed by
+LSM itself. Setting the defaults for the boot-time parameter to 0
+allows one to enable SELinux without rebuilding the kernel, while only
+imposing the overhead of LSM itself otherwise..
+
+<!-- more -->
+
+(The baseline performance hit seems to be around 7% (although it needs
+to be evaluated again after the code is tuned), although on some
+networking benchmarks it is as high as 20% for gigabit networking (no
+significant performance hit is seen at 100Mbps).  Work is being done
+on both the baseline and networking performance for intensive
+workloads)
+
+Oh, and what was the problem with the nvidia drivers? Well, I had
+everything working fine under 1.0.6111 (nvidia-glx and
+nvidia-kernel-source), but then 1.0.6629 came out, so I tried
+that. The new nvidia driver now pays a lot of attention to EDID values
+it now reads, and it turns out my laptop gave out hsync and vsync
+frequencies far lower than what I was using -- and nvidia decided to
+use the intersection of the ranges; thus deciding the best my laptop's
+display could take was 1280x1024. Of course, the native resolution is
+1600x1200 (which is what I had been using), so now it tiled a
+1280x1024 display across the physical 1600x1200 LCD.
+
+Telling the nvidia driver to ignore EDID in XF86Config-4 did not help,
+as the driver proceeded to tile the display twice vertically (1600x600
+times 2). 
+
+In the end, I had to downgrade back to the 1.0.6111 versions (have to
+downgrade both the kernel module and glx package, since mismatched
+versions just failed to load the nvidia.ko). I guess no software
+suspend for the laptop, unless I drop down to the console, and kill
+xdm. Kinda defeats the purpose, though.

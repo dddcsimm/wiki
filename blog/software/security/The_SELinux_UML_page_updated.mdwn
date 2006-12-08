@@ -1,0 +1,14 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software software/security]]
+
+I finally got around to updating the SELinux UML
+<a href="/software/security/Se-Linux-uml.xhtml">recipe</a>
+page to the latest 2.6.11.2 kernel. Of course, the new
+<code>linux</code> UML kernel expects a newer version of SELinux
+policy (19) than I had in my <tt>root_fs</tt>, so I'll have to rebuild
+a new root file system. I wanted to get the newest version of the
+SELinux tools into Sid, but I seem to be coming down with a flu like
+thing.  Since I would like to see Etch be SELinux capable, it is
+important that the barrier of entry be low for people wanting to play
+around with it.

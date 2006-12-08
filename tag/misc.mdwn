@@ -1,0 +1,4 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+
+These are posts which can't be easily classified.

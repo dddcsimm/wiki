@@ -1,0 +1,40 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software software/misc]]
+
+
+No longer having an excuse for not creating my web site (researched
+a ISP, check; set up machine, check; ran through other items on the
+to do list; check), I natually had had to create new ones.
+Thus I embarked on a long process of educating myself about colour
+theory. It was an interesting journey. I had never understood the
+horse shoe shaped chart the used for colour calibrations; I have a lot
+to learn. And all the theory in the world does not make it easier for
+me to select a color scheme that does not suck.
+
+The pages I ran into fell into four categories; those that talked
+about <a href="/software/misc/color-links.html#theory">Color Theory and
+Physics</a>, a very scant few that dealt with 
+<a href="/software/misc/color-links.html#design">design</a>, lots of
+<a href="/software/misc/color-links.html#schemes">practical</a> web page
+construction sites that went into detail about color schemes and
+tutorials, and a bunch of <a href="/software/misc/color-links.html#math">math
+stuff</a>. Hopefully these shall be useful to someone.
+
+The grand culmination of all this research was a 
+<a href="/download/gen_color.pl">perl script</a>
+that takes a color in hex notation, and generates a color report --
+for example. here is a <a href="/software/misc/dee3ff.html">report
+for #DEE3FF</a>, which is the basis for one of the themes for this page.
+Of course, the generated page, though very nice in telling me how I
+can create a color scheme based on my initial choice of a basis
+color, did not actually help --- since the colors initially selected
+clashed wildly with the graphic at the top. I had to scrap the
+initial choices and start over, though having the program made the
+process less painful than it would have been.
+
+
+I need to polish up the perl script, and flesh out the descriptions
+of the links it creates, and perhaps add more command line options,
+or stuff. bling-bling is always important, especially for code.
+

@@ -1,0 +1,28 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag misc]]
+
+A while ago, my [[shortcut debpkg="guessnet"]] setup started
+messing up, just before a business trip, and I did not have the time
+to debug the error. After a quick consult on IRC, I installed and
+configured [[shortcut debpkg="laptop-net"]], which worked. 
+
+While I had a working package that would let me carry my laptop from
+home to LUG to office, and various trips with Hotel networks once in a
+while, I always had to tell the system which scheme to use, since
+several of the networks used similar IP addresses and topologies
+(welcome to the world of NAT). I have never been comfortable with the
+fact that [[shortcut debpkg="laptop-net"]] did not consider MAC
+addresses while making its determinations.
+
+[[shortcut debpkg="laptop-net"]], on the other hand, is like a
+combination of [[shortcut debpkg="ifplugd"]],
+[[shortcut debpkg="intuitively"]], and
+[[shortcut debpkg="switchconf"]], except better since it is all
+integrated and works seamlessly. [[shortcut debpkg="guessnet"]]
+does seem to work better for me, though, if for nothing else since it
+can actually determine where the laptop finds itself. I have
+successfully integrated [[shortcut debpkg="guessnet"]] in with
+[[shortcut debpkg="ifplugd"]], and made sure that things play nice
+even with [[shortcut debpkg="hotplug"]] in the picture. So I am a
+happy Guessnet camper once again.

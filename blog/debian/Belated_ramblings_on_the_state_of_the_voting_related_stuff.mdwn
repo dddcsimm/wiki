@@ -1,0 +1,24 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian]]
+
+Well, as most of us have gathered, yet another DPL election
+session came to a close. The highlights from a technical standpoint
+this year were that 
+<a href="/cgi-bin/archzoom.cgi/srivasta@debian.org--2003-primary/devotee/?expand">Devotee</a>
+was modified mid-stream to grok encrypted ballots (early encrypted
+ballots, though rejected, contributed by testing devotee). The other,
+more visible, high light was that devotee now spits out dot graphs to
+depict the pairwise contests in the Beat matrix, and the resulting
+graphical representation of the results were published. The reaction
+being mostly positive, I went back and punched in graphs on most of
+previous results that were at all complex and could benefit from the
+graph diagrams.
+
+While I was changing the vote pages, I responded to criticism of the
+navigation panel (or the lack thereof) on the vote pages, and the
+result(after a couple of false starts) is aesthetically more
+pleasing (well, to me it is).
+
+Hmm. Bits from the secretary ain't ever gonna happen. As this entry
+shows, they are deadly dull.

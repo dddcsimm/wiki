@@ -1,0 +1,13 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag misc]]
+
+This has been a long time coming; I've wanted to set up something
+like this ever since I saw Alan Cox's <a href="http://www.linux.org.uk/diary/">diary</a>.
+Now that Judy has expressed an interest in keeping a
+<a href="/">family blog</a>, there was no excuse for further
+procrastination (not that that often stops one).  Of course, exactly
+because there was no excuse for procrastination, I proceeded to
+procrastinate; I had to find a mechanism of determining pleasing color
+schemes which was better than trial and a lot of errors.
+

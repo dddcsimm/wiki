@@ -1,0 +1,70 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software]]
+
+What is an appliance? A refrigerator is a prime example: I can walk
+to a refrigerator in Hong Kong, and know how to use it: I open the
+door, put in my beer, and after passage of time, it becomes
+cold. Open door, take out now cold beverage. Done.
+
+A simple Axe, on the other hand, is a tool. One needs to learn how to
+use it -- in experienced hands, an axe can splinter a match stick. In
+inexperienced hands, on the other hand, an axe hitting at the wrong
+angle can bounce off the wood you are chopping and take off your
+foot. Please note that there is nothing complicated about an axe -- so
+mere complexity is not what distinguishes a tool from an appliance.
+
+<!-- more -->
+
+An axe is a versatile tool, though. It can be used to fell
+trees. Firefighters use it to rescue people by going through
+doors. Dwarwen warriors use it as a weapon of  war. It come in
+versions that can be lightly thrown, or wielded two handed for
+telling effect. And remember, the term <em>hacker</em> comes from
+those who created furniture using axes.
+
+Tools need to be learned. However, mastery of a tool can lead to
+wondrous creations -- think furniture (I have never heard of any
+significant refrigerator-fu, I fear). 
+
+This brings us to interface design. I use my computer as a tool of my
+trade. It is what I do, and I have invested effort in leaning how to
+use it effectively. I understand there are people who want to use
+computers as a typewriter appliance; and proclaim they have no desire
+to invest time required to master computers as a tool. Please
+understand that this has nothing to do with novices; a apprentice may
+well be uninitiated in the intricacies of a tool at the inception of
+his career, but can still be committed to mastering it.
+
+For the most part I can accept the view point of the people who want
+to use computers as appliances -- though I personally feel that is a
+waste of a general purpose computer. I have no interest in catering to
+that viewpoint. Unfortunately, there is a vast difference between user
+interfaces for people who want appliances, and those who want a
+versatile tool -- and I fear the user interfaces are being hijacked by
+people belonging to the former set. (Anecdote: I used to go to a
+travel agent, using Sabre software -- each keystroke was bound to some
+kind of macro,and she could scan through several alternatives through
+multiple airlines faster than orbitz can. Using a menu driven UI wold
+take me half an hour to do what she did in seconds). I see
+applications getting bloated with user interfaces designed for the
+infrequent user, with little care being given to the needs of the
+people who <span class="underline">are</span> intent on speed and ease
+of operation, not on flattening the learning curve down to nothing.
+
+<strong>Update</strong>: As <a href="http://raw.no/personal/blog/">Tollef Fog Heen</a>
+<a href="http://raw.no/personal/blog/tech/2004-06-19-13-05_user_interfaces">points out</a>, 
+the critical distinction is frequency of use: for items one uses
+frequently it is worth paying the cost of climbing the learning
+curve, and flexibility and ease of operation count for far more than
+the cost of learning to use the tool. For items used but infrquently,
+one has pay the cost of the learning curve many times over; and thus
+it would make sense to minimize the curve.  Not all interface design
+ought to cater to the sentiment that these programs are used but
+infrequently. And, in the old days, I could learn the use of a
+program that best suited my needs, figure out common command
+switches, and <em>script them</em>, and never really have to re-climb
+the curve.
+
+Thanks for listening.
+

@@ -1,0 +1,16 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian debian/official]]
+
+Well, all but one, since we still do not have one of the contributions
+in. I also think we have an agreement about the timing of the IRC
+debate, so we are well on our way to having a properly educated and
+primed electorate. As always, look at the
+<a href="http://vote.debian.org/2005/vote_001">vote page</a> for
+details. 
+
+While working on my key-signing-helper script, I came across examples
+of <code>IO::Select</code> usage that I think shall benefit
+<tt>devotee</tt>, though I am leery of changing things this close to a
+vote. Oh, well, I guess the new gpg output processing code shall see
+the light of day with the first GR of the season.

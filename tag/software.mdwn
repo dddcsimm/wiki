@@ -1,0 +1,5 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+
+This is a category that contains all my posts related to software.
+

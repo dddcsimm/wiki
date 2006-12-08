@@ -1,0 +1,79 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian]]
+
+I have talked <a href="http://www.golden-gryphon.com/blog/manoj/debian/manoj.2004.06.03.golden_gryphon">earlier</a>
+about the crumbling consensus in Debian, which was nice, but did not
+delve deep enough into the reasons for the crumbling tendency to try
+to arrive at an consensus.
+
+I can see bunches of people jumping up and down screaming
+<q>communication! communication! communication!</q>. Yes, but; have
+people complaining about lack of communication ever looked for a
+cause why communication in the project has deteriorated (and no,
+frequent flame--fests do not count as communication)?
+
+<!-- more -->
+
+The facile explanation is that people who fail to communicate, or
+fail to respond, are either overly busy (which does not hold water
+since the people examples being flouted are actually doing visible
+and often extensive work), just plain lazy (again, easily refuted),
+impossible to communicate with (and there are equal examples of
+people who have no problem communicating with the same people), or
+just plain secretive and malicious and holding a grudge against
+people. 
+
+With my experience with people in the project, I find it hard to
+credit the theory that people are strongly for a hidden, secret big
+boy club in Debian. Despite recurrent and no longer funny references
+(always unsubstantiated) about a Debian Cabal, I have not yet found
+any actual instantiation of the so called super secretive cabal. I
+know these folks, guys, and I am not buying a super secretive cabal.
+
+But surely there must be some fire under all this smoke, right? Yes,
+but not in the manner that people think, I suspect.
+
+I think the same phenomena is at work that causes lack of consensus
+efforts in Debian; and the root cause is partially the growth of the
+project (resulting in people no longer being acquainted with the
+other participants), and the perception of Debian as an faceless
+institution, rather than a convivial set of people trying to have fun
+and put together a distribution focussed on excellence.
+
+I say this, since I have seen the growing tendency to treat classes
+of volunteers as faceless, nameless, institutions: we talk about
+DAM's, ftp-masters, list-masters -- anonymous, faceless,
+institutions that one may then chastise with little need to cater to
+their feeling (since when do institutions have feelings?). This is a
+similar phenomena to people treating other cars far more rudely than
+they would if they were talking to the driver face to face. The
+increasing hostility, expressed as increasingly pointless flame wars,
+and increasingly hostile mails to the people in visible positions in
+Debian (often verging to obnoxiously rude demands), whittle away at
+the motivation of the people doing additional work in Debian beyond
+their packages.
+
+Now, given that most developers do not care to do more than cater to
+their own packages (the DPL has said several teams, including
+security, are overworked, and have been asking for volunteers. Policy
+has been looking for new blood as well, and I have been lucky enough
+to find one person who actually started out by doing the scut work,
+rather than ask for spoon feeding and a gilt-edg4ed invitation) -- we
+have a few people putting in far more labour into the project, above
+and beyond the talk of maintaining packages.  The tasks these people
+perform is becoming increasingly thankless, to the point a few have
+taken to ignoring the most unpleasant communication in the interests
+of sanity. Since they respond still to nicer communications, it may
+appear there is a cabal -- but this is basic human nature, avoiding
+experiences that have, in the past, proven to be unpleasant and
+unproductive. 
+
+So what do I propose? The same thing I proposed before: I suggest that
+we try not to lose sight of who we are fundamentally: we are a group
+of people who have found common cause to volunteer our time to make
+the best OS out there. Treat developers like people. I would like to
+think we are a bunch of folks having fun -- and working together for
+what is still a common goal. Look at the big picture. Don't let the
+end goal be lost in the petty details.
+

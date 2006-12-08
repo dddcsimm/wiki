@@ -1,0 +1,4 @@
+[[pagestats ]]
+
+[[inline pages="blog/* and !*/Discussion" show="10"]]
+

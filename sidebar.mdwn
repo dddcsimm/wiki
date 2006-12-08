@@ -1,0 +1,16 @@
+####Relevant Links
+
+* [Debian Packages](/software.xhtml)
+* [GPG key](/download/gpg.asc.txt)
+* [PGP key](/download/pgp.asc.txt)
+* [My *other* blog](/)
+
+---
+
+---
+
+[ ![Valid XHTML 1.1](/media/images/valid-xhtml11.png)](http://validator.w3.org/check?uri=referer)
+[ ![Valid CSS!](/media/images/vcss.png)](http://jigsaw.w3.org/css-validator/)
+[ ![Linux Counter #69681](/media/images/manoj/certificate.png)](http://counter.li.org/)
+[ ![RSS Valid](/media/images/rssvalid.gif)](http://feedvalidator.org/)
+[ ![Ikiwiki](/media/icons/ikiwiki_button.png)](http://ikiwiki.kitenet.net/)

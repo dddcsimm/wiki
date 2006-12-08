@@ -1,0 +1,36 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian]]
+
+Suppose I have a set of Trade Marks, all legally set up and
+registered. I write up some software, and I am so enamored of my Marks
+that I intertwine them with every bit of my code (hey, they look
+pretty, OK, which is why I make them my Marks). Indeed, the effort of
+ripping them out would be essentially the same as rewriting the
+code. I, then, being the free software guy that I am, license the code
+under the MIT license.
+
+However, I do love my marks -- so I have an aggressive trade mark
+enforcement policy, and I actively pursue usage of my marks by anybody
+unless they have approval from me -- and I don't allow them to use my
+mark if they have modified my code (I mean, who knows what butchery of
+my mark and my reputation shall then ensue?)
+
+Should this piece of software be considered free by Debian? While the
+freedom to modify and distribute the software is effectively been taken
+away from the users of my software, there are those who argue that the
+software is free, since the freedom has been taken away by  Trade Mark
+law, and not copyright law. By a strict reading of the letter of the
+[DFSG][dfsg], they claim that since only copyright licenses are
+mentioned, any other abrogation of freedom does not count. This is
+wrong. 
+
+The bottom line is whether the users have the freedom to modify the
+software, not exactly _how_ the restriction of freedom was
+achieved. One should be looking at the freedoms, the so called
+**spirit** of the social contract, and not a strict interpretation of
+the exact wording of what is supposed to be a guideline, anyway (and
+yes, I know that the _guideline_ argument has lent itself to abuse in
+times past).
+
+[dfsg]: http://www.debian.org/social_contract

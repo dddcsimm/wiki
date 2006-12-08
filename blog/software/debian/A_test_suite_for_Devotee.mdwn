@@ -1,0 +1,48 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software software/debian]]
+
+I have been thinking about informally going through NM (perhaps with
+an AM who wants some practice) for a while now (and have been
+procrastinating about it like many real-life DD candidates :-).  I have
+planned on using Devotee (DEbian VOTe EnginE) as the package I use to
+get through NM. So, pursuant to packaging Devotee, I am trying to add
+a test suite to the package. In order to run a decent test, I need a
+set of ballots -- signed ballots -- at least some of which are signed
+by keys in the Debian key-ring. I have put together a dummy vote on my
+own box, with the topic being voted upon being <em>What is your
+favorite color of the rainbow?</em>. 
+<a href="http://people.debian.org/~terpstra/message/20041023.082149.9d298492.en.html">Here</a> is the ballot.  Please note that any emailed
+ballot is likely to end up in a GPL'd package, open for all the world
+to see, so please consider that before voting. Oh, and the
+interesting 
+<a href="http://www.golden-gryphon.com/~vote/rainbow.html">stats are here</a>.
+
+<!-- more -->
+
+So, why am I embarking on this strange course of going through NM even
+though I am already a Debian developer? Well, I've been in the project
+since well before there was a new maintainer process.  I just felt
+like contributing, and, one day, just
+<a href="http://lists.debian.org/debian-devel/1995/11/msg00343.html">emailed</a>
+the devel list, and I was in. No checks, no key signatures required
+(not even a key was needed, unless my memory is failing me). I have a
+theoretical knowledge of what NM entails, but no real gut feeling for
+what the various stages feel like, nor how hard they are to get
+through.
+
+I have always wanted to contribute to the NM effort, but I have never
+felt comfortable with trying to change -- or even participate as an
+account manager -- with so little understanding of what an applicant
+is going through.
+
+One of the concerns with me trying to go through NM is that I would be
+taking valuable resources away from the list of real candidates who
+are stuck in the queue, and mostly for my own selfish
+reasons. However, I have been assured by current AM's that adding
+another candidate to their list would not significantly alter their
+workload, so I have decided to proceed.
+
+So please, do help develop a test suite for Devotee by voting for your
+favorite color. Pretty soon I shall be looking for a sponsor for
+Devotee, and an advocate.

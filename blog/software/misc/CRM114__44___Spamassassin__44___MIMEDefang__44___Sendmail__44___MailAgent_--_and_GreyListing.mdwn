@@ -1,0 +1,45 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software  software/misc]]
+
+I have been fairly comfortable with my current mail filtering
+solution. Unlike some other blogs on [Planet](http://planet.debian.org/),
+when last I was doing exhaustive checks, I had not had a false
+positive in six months (now I just do random spot checks). The false
+negatives creep up from a few a week to a few a day (with a mail feed
+of about 1k emails a day). And the stuff that is classified as a
+definite spam is `REJECT`ed (I do keep a copy), which means that a
+legitimate correspondent would have an idea something went wrong
+(unless they are ignoring such bounces form their own
+`MAILER-DAEMON`). 
+
+Part of the reason for this satisfactory performance is that I use a
+layered approach, with several tools playing off each other,
+ameliorating each others mistakes.  Admittedly, this took painful
+training -- I created a `testcrm` user, and bounced a copy of every
+mail I got to it using a `.forward`. Then, over a course of two
+months, I would painstakingly go over the classification, training on
+error, until the failure rates dropped to levels I felt comfortable
+with, and moved the CRM114 and Spamassassin configuration over for my
+own use.
+
+I recently added a hand crafted [Greylisting][] implementation to
+[MIMEDefang][] -- in good MIMEDefang tradition, this is a heavily
+tweaked version of an [implementation][] on the mailing [list][],
+using PostgreSQL. I have modified it to not greylist every single new
+email that comes my way, but to only greylist stuff that CRM114 and
+Spamassassin have been unable to classify strongly as Spam or
+ham. mail that has been strongly classified already, in turn, affects
+greylisting. 
+
+Here is the <a href="/download/greylist.sql">SQL code</a> for the
+implementation, and the 
+<a href="/software/misc/mimedefang-filter.html">mimedefang-filter</a>
+itself, showing how I integrate CRM114 and Spamassassin along with
+greylisting in a Sendmail Milter.
+
+Have fun.
+[Greylisting]: http://projects.puremagic.com/greylisting/
+[MIMEDefang]: http://packages.debian.org/mimedefang
+[list]: http://lists.roaringpenguin.com/mailman/listinfo/mimedefang
+[implementation]: http://lists.roaringpenguin.com/pipermail/mimedefang/2004-June/023043.html

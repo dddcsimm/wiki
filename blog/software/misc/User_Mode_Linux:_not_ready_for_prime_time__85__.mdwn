@@ -1,0 +1,63 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software software/misc]]
+
+I have been using uml (actually, [[shortcut debpkg="pbuilder-uml"]])
+for a while to build my packages and ensure that the build
+dependencies were sane. Unfortunately, in sometime in the last month
+or so, something broke: now uml just hangs with the lines
+<pre>
+Initializing stdio console driver
+Netdevice 0
+</pre>
+
+Since I have wanted to get back to playing with
+<strong>SELinux</strong>, and since Russel Coker has deprecated 2.4
+based LSM patches ( [[shortcut debpkg="kernel-patch-2.4-lsm"]]), I
+decided to try to compile my own 2.6 based UML, especially since I
+heard tell on IRC that it was feasible to do so. Thats when the fun
+started. 
+
+<!-- more -->
+
+Well, it started ok. Google quickly found the <a
+href="http://user-mode-linux.sourceforge.net/">user mode linux home
+page</a>, from where I down loaded the UML patches. People on IRC
+pointed me to <a
+href="http://www.user-mode-linux.org/~blaisorblade/">updated host and
+skas patches</a> for the 2.6.7 kernels. The patches applied, though
+with some fuzz.
+
+There was some initial confusion (you really need to specify
+<code>ARCH=um</code> all over, even when configuring cleaning -- took
+me a few minutes of confusion to figure that out). Then the kernel
+refused to compile. I tried all kinds of different host patches, but
+to no avail. Finally, I had to go on <em>#uml</em> for help, and I
+was told to turn off <strong>CONFIG_HIGH_MEM</strong>. That got the
+kernel compiled.
+
+But then I kept getting the hangs while trying to get an initial network
+connection. Turns out that I had taken the dictates of the HOWTO too
+literally, which tell you to take the defaults. That is fine for 2.4
+uml's -- for 2.6 uml's, the defaults do not compile in anything. I
+compiled in all kinds of network methods.
+
+Compile, run, and get a hang trying to get an initial
+console. Hmm. Go back and compile in input methods. Does not hang now
+-- it just warns it can't open an initial console (though it pops up
+xterms all over. This time it is the lack of a devfs that rootstrap
+needs. Compile in devfs.
+
+And now things segfault in the UML since the libc is trying to get
+native posix threads library, not yet supported in UML. I tried all
+kinds of methods trying to set LD_ASSUME_KERNEL=2.4.17, but to no
+avail (Look at <a
+href="http://marc.theaimsgroup.com/?l=user-mode-linux-devel&amp;m=107450100910873&amp;w=2">this
+thread</a> on the uml devel list.) 
+
+I give up. Getting a 2.6.7 UML running is too hard, and I am
+certainly not a kernel compilation newbie. I gave a go to the 2.4.26
+kernel based UML with the latest patches and all (still on a 2.6.7
+host with SKAS3), and the uml does not even start. And the 2.4.26 UML
+would not have SELINUX in it, so my motivation is at an ebb. (or
+nadir, really).

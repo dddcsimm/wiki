@@ -1,0 +1,39 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software software/debian]]
+
+I have long been interested in moving the debian-policy package away
+from CVS, but had never quite managed to gather enough motivation to
+do the switch. Debian policy has long had an Alioth project, but I
+finally managed to file a support ticket, and nag Wichert into
+creating the arch project for policy.
+
+The first step was to convert the CVS version into an arch repository,
+and this is where [[shortcut debpkg="cscvs"]] comes in. cscvs is
+nice, but I am told that Canonical has a better, private version, and
+helpful folks there offered to do a managed conversion to arch for me
+using these cutting edge tools. I declined, being persnickety enough
+to want to convert Debian technical policy using tools in Debian
+itself. And, apart from two change-sets (numbers 117 and 125), cscvs
+managed to do the conversion to arch (the
+[[shortcut debpkg="bazaar"]] flavour) nicely on its own (well,
+after a few false starts as I climbed the learning curve). Came to 283
+change-sets. Have a look at [my Debian policy branch][local].
+It can be registered at 
+<code>http://arch.debian.org/arch/private/srivasta/archive-etch/</code>.
+
+The next step was to create a baz archive on <tt>arch.debian.org</tt>,
+and use Clint's ACL recipe to allow people in the <tt>dbnpolicy</tt>
+group to have write access. And then, since I wanted this branch to
+also have the full set of distinct patch logs, I cycled through all
+286 patches in my local branch, replayed and committed them into the
+remote branch one by one. You may [browse][remote] the public, or
+release, branch as well. This version can be registered at
+<code>http://arch.debian.org/arch/dbnpolicy/etch/</code>.
+
+
+
+[local]: http://www.golden-gryphon.com/cgi-bin/archzoom.cgi/srivasta@debian.org--etch?expand?css=bright.css
+[remote]: http://www.golden-gryphon.com/cgi-bin/archzoom.cgi/debian-policy@lists.debian.org--etch?expand?css=bright.css
+
+

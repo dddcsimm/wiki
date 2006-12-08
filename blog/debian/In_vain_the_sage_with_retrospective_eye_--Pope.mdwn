@@ -1,0 +1,95 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian]]
+
+It has been a tumultuous decade of involvement with Debian for me. I
+had been on the mailing list since mid 1994, but I was reasonably
+happy with my SLS system (installed using 40 floppies, including about
+a dozen for just X11 alone), and while I found Debian intriguing, I
+was not about to go through the pain of a brand new install until I
+felt that the new project was viable in the long term :-)
+
+I actually jumped ship in the spring of '95 and installed 0.93R5. The
+next step came with [Bug  1766][first], my very first bug report:
+<q>Bug in script checksecurity in package cron</q>, on 25 Oct 1995.
+
+Once in, I rapidly went to the next phase: Here is the sum toto of the
+NM process I went through: my [Hello, World][helloworld] mail. Those
+were the days :-). There was nothing between my ITP and the
+[upload][upload]. 
+
+
+My first significant package was <code>kernel-package</code>, since I
+was always missing something in the [series of steps][OldKernel]
+needed to build a kernel, and I started getting into it in the summer
+of '96. This is where the second part of my apprenticeship started --
+even though I had 3-4 packages in the archive, my kernel images were
+not yet trusted; so I sent my images to my <q>sponsor</q> (Hi Simon),
+who then uploaded the images to master.
+
+Somewhat later, I also was involved in the early design stages
+of apt, and the dependency sorting algorithms.
+
+While I was fairly silent during the whole DFSG/SC debates (to the
+extent I was labelled a mindless follower of Bruce --heh), I took an
+active part in the constitution debates (possibly due to the fallout
+of the [beach story][beach]. Anyway, I seemed to want to [get us a
+constitution][ratify], after it had seemed stalled for months.
+
+It is interesting to note how the technical committee was initially
+setup, there was a [proposal][proposal], and then Ian Jackson responded
+by saying he wanted to appoint the ctte members, since he had been
+around for a while and was also the DPL. The earliest data I can find
+is from [June of '98][ctte], as seen in a mail later that year, when
+the initial list of committee members was created (I also seem to
+recall I was not on the list initially, but I was added in the early
+days, before the committee was actually formed).
+
+I was interested in the technical policy fairly [early][early], taking
+a stance that policy was more than just a bunch of ignorable
+guidelines. Eventually, a [thread that tried to reach a
+compromise][other] gave us something like the views we (well, I) hold
+today -- including what happens when packages [do not follow
+policy][follow], and about policy [editors][editors]. And
+[abuse][power] of power. About this time, the policy Czar resigned,
+burned out, and hounded by accusations of delusion of power.
+
+So I first [proposed the whole policy editor and consensus
+approach][NewPolicy] to letting policy evolve, which eventually led to
+a formal [delegation][delegation] recently.
+
+[Brian Basset][secretary] was our very first secretary. My first
+involvement with things that would lead on to the secretaries job
+started with trying to do [voting for policy][policyvote]. Then,
+around 2000, our the secretary and treasurer Darren Benham went MIA,
+and Raul, as the chair of the technical committee, had to take over
+and run the DPL election for 2001 -- and forgot that DPL elections are
+supposed to be secret ballots. Ben Collins tapped me for the
+secretaries position mid-2001, as I recall.
+
+It is hard, in a decade or so, to find anything I have not touched --
+but NM is one such area. Apart from an early pre-current-NM [mail][nm],
+I have not been very involved in NM. Or the Debian installer. Or
+Debconf. Hmm. I seem to have drifted away from things that Joey Hess
+is involved in, which is a pity, he is high on the list of people I
+respect in the project, and this lack of interaction with as time goes
+on irks me.
+
+[first]: http://lists.debian.org/debian-devel/1995/10/msg00331.html
+[helloworld]: http://lists.debian.org/debian-devel/1995/11/msg00343.html
+[upload]: http://lists.debian.org/debian-devel/1995/12/msg00266.html
+[OldKernel]: http://lists.debian.org/debian-devel/1996/04/msg01595.html
+[beach]: http://lists.debian.org/deity/1998/03/msg00071.html
+[ctte]: http://lists.debian.org/debian-devel/1998/12/msg00578.html
+[ratify]: http://lists.debian.org/debian-devel/1998/09/msg00506.html
+[nm]: http://lists.debian.org/debian-devel/1998/10/msg02937.html
+[proposal]: http://lists.debian.org/debian-devel/1998/04/msg00268.html
+[early]: http://lists.debian.org/debian-devel/1998/04/msg02184.html
+[another]: http://lists.debian.org/debian-devel/1998/04/msg01899.html
+[follow]: http://lists.debian.org/debian-devel/1998/04/msg01911.html
+[editors]: http://lists.debian.org/debian-devel/1998/04/msg01779.html
+[power]: http://lists.debian.org/debian-devel/1998/04/msg01921.html
+[NewPolicy]: http://lists.debian.org/debian-devel/1998/08/msg00470.html
+[delegation]: http://lists.debian.org/debian-devel-announce/2005/06/msg00017.html
+[secretary]: http://lists.debian.org/debian-devel/1998/04/msg00218.html
+[policyvote]: http://lists.debian.org/debian-devel/1998/08/msg01302.html

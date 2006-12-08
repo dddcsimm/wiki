@@ -1,0 +1,38 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag software software/security]]
+
+Well, yes, that sounds somewhat pompous. But I do think this is a
+worthwhile release goal; from where I stand I think that hard-hat
+security is a critical option for any OS to remain viable in the
+current security conscious environment, and Debian, after a period of
+being well ahead of the curve (thanks to Russell Coker, Colin Walters,
+Brian May, and others), has fallen well behind entities like Red Hat
+and Gentoo when it comes to providing a hardened, secure platform.
+
+So, along with a few other people (Greg T. Norris, Lorenzo
+Garcia-Heirro), I have started a 
+<a href="http://www.golden-gryphon.com/software/security/selinux.xhtml">mini
+ project</a> 
+to bring Debian's SELinux patched packages back in sync with the
+latest upstream and the latest SELinux patches, and to make it easier
+for Debian developers to access SELinux patches. The only package that
+is ready to go is <code>coreutils</code>, and that is thanks to Greg.
+
+I've just come back from the <a href="http://selinux-symposium.org/">Se-Linux symposium</a>,
+followed by the <a href="http://cplug.net/conference/">Central
+Pennsylvania LUG Security conference</a>, which was a lot of fun. I
+also managed to get myself talked into upgrading to the
+<a href="http://www.x.org">X Org</a> server, which is to be
+3expected after spending two days sitting Next to Jim Gettys at a
+conference watching the neat gizmos.
+
+<!-- more -->
+
+And, if I get through this key signing process, I may get my key
+connectivity ranking up again (also thanks to getting it signed by
+Russell Coker). Of course, due to my weird key signing 
+<a href="/software/security/keysign.xhtml">protocol</a> this is more
+tedious than the norm, but hey, that's what you get for trying to add
+value to your signature.
+

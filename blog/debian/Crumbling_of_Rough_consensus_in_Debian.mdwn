@@ -1,0 +1,55 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian]]
+
+I am not the only one to be struck with the realization that there is
+very little effort at building consensus going on in Debian of
+late. Positions are presented, the active participants rapidly become
+polarized, and things rapidly head to counting hands; the largest of
+the polarized camps then carries the day. This certainly is not how
+things used to be.
+
+And it is not as if the absence of an effort to come to a rough
+consensus has made the lists any less acrimonious; so this reduced
+tendency to enter into a dialogue with people that disagree with one
+has not made the lists any friendlier.
+
+I think a couple of otherwise useful institutions have contributed to
+this malaise; the first is the <a href="http://www.debian.org/devel/constitution">constitution</a>.
+Though accepted with relief and absolute unanimity (this is the only
+unanimous vote we have ever had), it has its flaws: it is written in
+pseudo-legalese, which practically invites picayune nitpicking and
+contentious debate over minor points of order. We spend far more time
+debating over the form of the trees, and miss the forest.  At the time
+the constitution was being crafted, we were reeling from absolutely
+any rules governing conduct and any delineation of powers of people in
+the project, we had an informally defined Project leader, and we
+probably did not submit the constitution to the review it required, so
+starved were we for any semblance of order.
+
+The second is stems from an constitutionally defined process, the
+general resolution: though something like a GR mechanism is a must
+for a project the size of Debian, the facility with which one can
+vote on multiple options simultaneously has lead to people just
+throwing up amendments that they like, and brute forcing the most
+popular amendment through a vote. There is no effort to compromise,
+and no effort to ameliorate the 
+<a href="http://www.victorianweb.org/philosophy/mill/liberty.html">tyranny
+of the majority</a>.  There is no effort to even begin to find a
+common solution, instead people seem to be offended if an option
+exactly matching their sentiments is not on the ballot.
+
+Added to the growing unease about the lack of communication or
+openness in the organization (with the vague muttering about <q>the cabal</q>
+in Debian), this lack of communication (which is what this tendency
+not to convince the rest of the project of the merits of one's ideas
+is, really) leads to us making flawed decisions -- and then
+scrambling to put Humpty Dumpty together again.
+
+So what is to be done?  I suggest that we try not to lose sight of
+who we are fundamentally: we are a group of people who have found
+common cause to <span class="underline">volunteer</span> our time to
+make the best OS out there. I would like to think we are a bunch of
+folks having fun -- and working <em>together</em> for what is still
+a common goal. Look at the big picture. Don't let the end goal be
+lost in the petty details.

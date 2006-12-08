@@ -1,0 +1,66 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[tag debian]]
+
+There have been various people positing that Debian is a
+democracy. It's not, thank god. Yes, we do occasionally vote on
+issues, but that does not a democracy make.
+
+Another theory often advanced (usually as a counter to the democracy
+theory) is that Debian is a meritocracy. Again, this is not true: as
+above, there are shades of truth (as in merit, in theory, is held in
+reverence in Debian).
+
+<!-- more -->
+
+Why is it not a democracy? Well, we do not decide on issues based on
+popularity (else we'd be distributing windows share-ware). We make
+decisions based on technical merits, and principles we have agreed on
+(the Social Contract, for one). A developer is the Czar for the
+packages maintained by him/her, for example. 
+
+Decisions, for the most part, are taken by those who do the work (in
+flex, and fvwm, I have made decisions that are fairly unpopular with
+the user base, but, in my opinion, the correct ones). A developer has
+control over his or her package. The NM team decides to accept (or
+not) applicants -- but not through GR's. The DPL decides who should
+get funded for debconf -- in consultation with other people, but not
+via a vote. In a sense, Debian is a volunteerocracy -- <strong>Those
+who do, rule.</strong>
+
+Why do I say it is not a meritocracy? Well, there is no evidence that
+merit is a gating factor for entry into the project, or a position in
+Debian. Sure, a modicum of bare competence and a base demonstration
+of judgement is required, both for entry into the project, and for
+appointment to a delegate's job; but this is a minimum threshold,
+really. The important jobs are fulfilled by people who took it upon
+themselves, who went in and started working (my first real package,
+kernel-package, was just me getting tired of remembering all the
+steps needed to compile kernels, and the resulting kernel images were
+quietly accepted after a probation period). So, merit is not the
+gating factor -- demonstrating readiness to do the work trumps
+ability.
+
+I am sure there are a large number of more meritorious people in the
+wings who never stepped up to the plate and volunteered; and they
+would lose out to people who stepped up and presented something. We
+are a volunteerocracy, not a meritocracy.
+
+Why do I say thank god above? Do we really want Debian to be a
+democracy? I am not a domain expert in any but a small subset of
+technical topics, and I would hesitate to have my opinion overrule
+the domain expert's. And yet that is what going for popularity gives
+you. In all but a handful of topics, most of us represent mediocrity,
+and only the domain expert represents expertise; decisions by laymen,
+as opposed to the experts, lead to mediocrity.
+
+So, do we really want democracy?  Rule by the unwashed masses?
+Governance by the least common denominator? Taking the popular route,
+over determining the correct one? How can you create the best
+distribution ever by bending over backwards to pander to mediocrity?
+Would one want to select leaders based on how cute they look, or how
+well they kiss babies (which seems to be the basis we pick
+politician's by)?
+
+Thanks for listening.
+
