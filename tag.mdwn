@@ -1,0 +1,10 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+
+# Classification of blog posts
+
+Since this is a wiki related to mainly my interaction with Debian and
+free software, most of the posts fall in fairly narrow categories. It
+would make for a more interesting tag cloud if this were a general
+purpose blickie.
+ 
