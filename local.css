@@ -668,8 +668,29 @@ li.tag a:hover {
   border-bottom: solid #030003 1px;
 }
 
-div#feedlink { 
+div#backlinks { 
   clear: right;
+}
+div#backlinks ul {
+  list-style: none;
+}
+div#backlinks li {
+  list-style: none;
+  padding: 2px;
+  margin: 2px;
+}
+div#backlinks li a {
+  text-decoration: none;
+}
+div#backlinks li a:link, div#backlinks li a:visited { 
+  text-decoration: none;
+}
+div#backlinks li a:hover { 
+  text-decoration: none;
+  border-bottom: solid #030003 1px;
+}
+
+div#feedlink { 
   margin: 15px;
   padding: 5px;
 }
@@ -950,9 +971,9 @@ acronym {
 /* PAGECLOUD */
 
 .pagecloud {
-	float: left;
-	width: 90%;
-	padding: 5px;
+  float: right;
+  width: 50%;
+  padding: 15px;
 }
 
 .pagecloud a:hover {
