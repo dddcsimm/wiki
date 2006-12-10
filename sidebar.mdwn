@@ -7,14 +7,28 @@
 
 ---
 
-####Categories
-* [[Debian|categories/debian]]
-     * [[Debian official|categories/debian/official]]
-* [[Miscellaneous|categories/misc]]
-* [[Software|categories/software]]
-     * [[Debian Software|categories/software/debian]]
-     * [[Miscellaneous Software|categories/software/misc]]
-     * [[Security|categories/software/security]]
+####Categories([[pagecount pages="blog/* and !*/Discussion"]])
+
+* [[Debian([[pagecount pages="link(tag/debian) and !blog and !tag"]])|categories/debian]]
+     * [[Official([[pagecount pages="link(tag/debian/official) and !blog and !tag"]])|categories/debian/official]]
+* [[Software([[pagecount pages="link(tag/software) and !blog and !tag"]])|categories/software]]
+     * [[Debian([[pagecount pages="link(tag/software/debian) and !blog and !tag"]])|categories/software/debian]]
+     * [[Miscellaneous([[pagecount pages="link(tag/software/misc) and !blog and !tag"]])|categories/software/misc]]
+     * [[Security([[pagecount pages="link(tag/software/security) and !blog and !tag"]])|categories/software/security]]
+* [[Miscellaneous([[pagecount pages="link(tag/misc) and !blog and !tag"]])|categories/misc]]
+
+---
+
+####Archives
+
+[[calendar type="year" months_per_row="6"  pages="blog/* and !*/Discussion"]]
+
+[[calendar type="month" pages="blog/* and !*/Discussion"]]
+
+
+<h4>Indices</h4>
+
+[[map pages="archives/* and !*/Discussion"]]
 
 ---
 

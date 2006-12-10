@@ -237,6 +237,72 @@ div.navblock ul li ul li a {
 div.navblock ul li ul li {
   width: 19em;
 }
+
+div.map { 
+  float: none;
+  width: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left:		auto; 
+  margin-right:		auto;
+  padding: 0px;
+  border: none;
+  background-color: inherit;  /* #cea; */
+}
+div.map ul { 
+  float: none;
+  width: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left:		auto; 
+  margin-right:		auto;
+  border: none;
+  padding: 0px;
+  background-color: inherit;  /* #cea; */
+}
+div.map ul li { 
+  float: none;
+  width: auto;
+  border: none;
+  margin: 6px auto 6px auto;
+  color: #dfd;  /* #cea; */
+  background-color: #dfd;  /* #cea; */
+}
+div.map ul li a { 
+  text-align: left;
+  color: blue;
+  float: none;
+  width: auto;
+  border: none;
+  background-color: inherit;  /* #cea; */
+}
+div.map ul li ul { 
+  float: none;
+  width: auto;
+  border: none;
+  margin: 0px;
+  padding: 0px 0px 5px 0px;
+  background-color: inherit;  /* #cea; */
+}
+div.map ul li ul li { 
+  display: inline;
+  float: none;
+  width: auto;
+  border: none;
+  background-color: #C0C7E3;  /* #cea; */
+}
+div.map ul li ul li a { 
+  display: inline;
+  color: Black;
+  float: none;
+  width: auto;
+  border: outset #505773 1px;
+  background-color: inherit;  /* #cea; */
+}
+
+
+
+
 div.navblock hr {
   clear: both;
   padding-top: 0.5ex;
@@ -304,7 +370,7 @@ div.navheadlines {
 div.navsearch { 
 }
 
-div.navyearcalendar{ 
+div.calendar{ 
   margin-bottom: 10px;
   margin-top: 5px;
   margin-left: auto;
@@ -339,8 +405,11 @@ table.year-calendar {
 }
 
 caption.month-calendar-head, caption.year-calendar-head {
-	font-size:		110%;
-	font-weight:		bold;
+  margin-left:		auto; 
+  margin-right:		auto;
+  font-size:		110%;
+  font-weight:		bold;
+  background-color: #dfd;
 }
 th.month-calendar-day-head, th.year-calendar-subhead {
 	font-weight:		normal;
