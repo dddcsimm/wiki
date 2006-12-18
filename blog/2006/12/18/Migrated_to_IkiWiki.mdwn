@@ -1,0 +1,67 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Migrated to Ikiwiki"]]
+[[tag software misc]]
+
+[[template id="icon" icon="/media/icons/ikiwiki_button.png" alt="Ikiwiki"]]
+
+Well, this is first post. I have managed to migrate my blog over to
+Ikiwiki, including all the historical posts.  The reasons for
+migration was that development on my older blogging mechanism,
+[Blosxom](http://sourceforge.net/projects/blosxom/ "Blosxom"), entered
+a hiatus, though recently it has been revived on sourceforge.  I like
+the fact that [IkiWiki](http://ikiwiki.kitenet.net/ "IkiWiki") is
+based on a revision control system, and that I know the author pretty
+darned well :-).
+
+One of my primary requirements for the migration was that I be able to
+replicate all the functionality of my existing Blog, and this included
+the look and feel (which I do happen to like, despite wincing I see
+from some visitors to my pages) of my blog. This meant replicating the
+page template and CSS from my blog.  
+
+I immediately ran into problems: for example, my CSS markup for my
+blogs was based on being able to markup components of the date of the
+entry (day, day of week, month, etc) and achieve fancy effects; and
+there was no easy way to use preexisting functionality of
+[IkiWiki](http://ikiwiki.kitenet.net/ "IkiWiki") to present the
+information to the page template. Thus was born the *varioki* plugin;
+which attempts to provide a means to add variables for use in ikiwiki
+templates, based on variables set by the user in the ikiwiki
+configuration file. This is fairly powerful, allowing for uses like:
+
+        varioki => {
+          'motto'    => '"Manoj\'s musings"',
+          'toplvl'   => 'sub {return $page eq "index"}',
+          'date'     => 'sub { return POSIX::strftime("%d", gmtime((stat(srcfile($pagesources{$page})))[9])); }'
+          'arrayvar' => '[0, 1, 2, 3]',
+          'hashvar'  => '{1, 1, 2, 2}'
+        },
+
+
+The next major stumbling block was archive browsing for older
+postings; Blosxom has a nice calendar plugin that uses a calendar
+interface to let the user navigate to older blog postings.  Since I
+really liked the way this looks, I set about scratching this itch as
+well; and now ikiwiki has attained parity vis. a vis. calendar plugins
+with Blosxom.
+
+The calendar plugin, and the archive index pages, led me start
+thinking about the physical layout of the blog entries on the file
+system.  Since the [tagging
+mechanism](http://ikiwiki.kitenet.net/plugins/tag.html) used in
+ikiwiki does not depend on the location in the file system (an
+improvement over my Blosxom system), I could layout the blog postings
+in a more logical fashion.  I ended up taking Roland Mas' advice and
+arranging for the blog postings to be created in files like:
+
+     blog/year,omth/date/simple_title.mdwn
+
+The archives contain annual and monthly indices, and the calendar
+front end provides links to recent postings and to recent monthly
+indices. So, a few additions to the arch hook scripts, and perhaps an
+script to automatically create the directory structure for new posts,
+and to automatically create annual and monthly indices as needed, and
+I'll have a low threshold of effort blogging work flow for blog entries,
+and I might manage to blog more often than the two blog postings I
+have had all through the year so far.

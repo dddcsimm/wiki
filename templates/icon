@@ -1,0 +1,3 @@
+<div class="icon">
+  <img src="<TMPL_VAR icon>"<TMPL_IF NAME="alt"> alt="<TMPL_VAR alt>" </TMPL_IF>/>
+</div><!-- icon -->
