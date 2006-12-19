@@ -1,0 +1,53 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Mail Filtering With CRM114: Introduction"]]
+[[tag software spam]]
+
+I have a fairly sophisticated Spam filtering mechanism setup, using
+*MIMeDefang* for SMTP level rejection of Spam, *grey-listing* for
+mails not obviously ham or Spam, and using both *crm114* and
+*spamassassin* for discrimination, since they compensate for each
+other when one of them can't tell what it is looking at.  People have
+often asked me to write up the details of my setup, and the support
+infrastructure, and I have decided to oblige. What follows is a series
+of blog posts detailing how I set about redoing my crm114 setup, with
+enough detail that interested parties can tag along.
+
+I noticed that the new crm114 packages have a new facility called
+mailtrainer, which can be used to setup initial css database
+files. I liked the fact that it can run over the training data several
+times, it can keep back portions of the training data as a control
+group, and you can tell it to keep on going until it gets a certain
+number of mails discriminated correctly.  This is cool, since I have a
+corpus of about 15K Spam and 16K ham messages, mostly stored on my
+previous train-on-error practice (whenever crm114 classified a message
+incorrectly, I train it, and store all training emails).  I train
+whenever crm114 and spamassassin disagree with each other.
+
+This would also be a good time to switch from crm114's mailfilter to
+the new mailreaver, which is the new, 3rd Generation mail filter
+script for crm114. It is easier to maintain, and since it flags mails
+for which it is unsure, and you ought to train all such mails anyway,
+it learns faster.
+
+Also, since the new packages come with a brand new discrimination
+algorithms which are supposed to be as accurate but also faster, but
+may store data in incompatible ways, I figured that it might be time
+to redo my CRM mail filter from the ground up.  The default now is 
+"osb unique microgroom". This change requires me to empty out the css
+files.
+
+I also decided to change my learning scripts to not send command via
+email to a 'testcrm' user, instead, now I train the filter using a
+command line mode. Apart from saving mails incorrectly classified into
+folders *ham* and *junk* (Spam was already taken), I have a script
+that grabs and saves mails which are classified differently by crm114
+and spamassassin from my incoming mail spool and saves it into a
+*grey.mbox* file, which I can manually separate out into *ham* and
+*junk*. Then I have a processing script, that takes the ham and junk
+folders and trains spamassassin, or crm114, or both; and stashes the
+training files away into my cached corpus for the future.
+
+In subsequent blog postings, I'll walk people through how I setup and
+initialized my filter, and provide examples of the scripts I used,
+along with various and sundry missteps and lessons learned and all.
