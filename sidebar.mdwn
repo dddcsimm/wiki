@@ -16,6 +16,7 @@
      * [[Miscellaneous([[pagecount pages="link(tag/software/misc) and !blog and !tag"]])|categories/software/misc]]
      * [[Security([[pagecount pages="link(tag/software/security) and !blog and !tag"]])|categories/software/security]]
 * [[Miscellaneous([[pagecount pages="link(tag/misc) and !blog and !tag"]])|categories/misc]]
+* [[Spam([[pagecount pages="link(tag/spam) and !blog and !tag"]])|categories/spam]]
 
 ---
 

@@ -1,6 +1,6 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
-[[tag software]]
+[[tag software spam]]
 
 It is funny that people say that no one has written software that does
 Beysian filtering in order to reject Spam at the SMTP level, just when
@@ -51,6 +51,6 @@ improves.
 
 My [filter](/software/misc/mimedefang-filter.html) is available for
 examination.  See also [the older
-posting](blog/manoj/software/misc/manoj.2005.05.21.golden_gryphon),
+posting](/blog/manoj/blog/2005/05/21/CRM114__44___Spamassassin__44___MIMEDefang__44___Sendmail__44___MailAgent_--_and_GreyListing.html),
 like the time honoured tradition of [/.](http://slashdot.org/), this
 posting is a duplicate.
