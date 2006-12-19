@@ -1,0 +1,7 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+
+Like anyone who spends a lot of time online, participating in
+discussions on newsgroups and on multiple mailing lists, I have to
+deal with Spam. I have managed to get fairly effective at doing this,
+and I tend to blog about it.
