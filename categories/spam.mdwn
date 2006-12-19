@@ -1,0 +1,7 @@
+[[meta title="Blog postings related to fighting spam"]]
+[[inline pages="link(tag/spam) and !blog and !tag" show="10" rootpage="blog"]]
+
+Like anyone who spends a lot of time online, participating in
+discussions on newsgroups and on multiple mailing lists, I have to
+deal with Spam. I have managed to get fairly effective at doing this,
+and I tend to blog about it.

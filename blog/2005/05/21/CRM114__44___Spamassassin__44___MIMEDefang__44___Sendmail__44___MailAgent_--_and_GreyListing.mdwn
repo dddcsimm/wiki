@@ -1,6 +1,6 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
-[[tag software  software/misc]]
+[[tag software spam software/misc]]
 
 I have been fairly comfortable with my current mail filtering
 solution. Unlike some other blogs on [Planet](http://planet.debian.org/),
