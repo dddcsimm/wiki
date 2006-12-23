@@ -1,0 +1,95 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Mail Filtering With CRM114: Part 1"]]
+[[tag software spam]]
+
+
+The first step is to configure the CRM114 files, and these are now in
+pretty good shape as shipped with Debian. All that I needed to do was
+set a password, say that I'd use openssl base64 -d, and stick with the
+less verbose defaults (so no munging subjects, no saving all mail, no
+saving rejects, etc, since I have other mechanisms that do all
+that). The comments in the configuration files are plenty good enough.
+This part went off like a breeze; the results can be [found
+here.](/software/misc/mailfilter.cf.html)
+
+The next step was to create new, empty .css files. I have noticed
+that creating more buckets makes crm114 perform better, so I go with
+larger than norm crm114 .css files.  I have no idea if this is the
+right thing to do, but I make like Nike and just do it.  At some point
+I'll ask on the crm114-general mailing list.
+
+     % cssutil -b -r -S 4194000 spam.css
+     % cssutil -b -r -S 4194000 nonspam.css
+
+Now we have a blank slate; at this time the filter knows nothing, and
+is equally likely to call something Spam or non-Spam.  We are now
+ready to learn. So, I girded my loins, and set about feeding my whole
+mail corpus to the filter:
+
+    /usr/share/crm114/mailtrainer.crm               \
+       --spam=/backup/classify/Done/Spam/           \
+       --good=/backup/classify/Done/Ham/            \
+       --repeat=100 --streak=35000 |                \
+             egrep -i '^ +|train|Excell|Running'
+
+And this failed spectacularly (see [[debbug 399306]]). Faced with
+unexpected segment violations, and not being proficient in crm114's
+rather arcane syntax, I was forced to speculation: I assumed (as it
+turns out, incorrectly) that if if you throw too many changes at the
+crm114 database, things rapidly escalate out of control. I went o to
+postulate that as my mail corpus was gathered over a period of errors,
+the characteristic of Spam drifted over time, and what I consider Spam
+has also evolved. So, some parts of the early corpus are at variance
+with the more recent bits.
+
+Based on this assumption, I created a [wrapper
+script](/software/misc/train.sh.html) which did what Clint has called
+*training to exhaustion* -- it iterated over the corpus several times,
+starting with a small and geometrically increasing chunk size.  Given
+the premise I was working under, it does a good job of training crm114
+on a localized window of Spam: it feeds chunks of the corpus to the
+trainer, with each successive chunk overlapping the previous and
+succeeding chunks, and ensuring that crm114 is happy at any given
+chunk of the corpus. Then it doubles the chunk size, and tries goes at
+it again.  All very clever, and all pretty wrong.
+
+I also created another script to
+[retrain](/software/misc/retrain.sh.html) crm114, which was less
+exhaustive than the previous one, but did incorporate any further
+drift in the nature of Spam.  I no longer use these scripts; but I
+would like to record them for posterity as an indication of how far
+one can take an hypothesis.
+
+What it did to was have crm114 learn without segfaulting -- and show
+me that there was a problem in the corpus. I noticed that in some
+cases the trainer would find a pair of mail messages, classify them
+wrongly, and retrain and refute -- iteration after iteration, back and
+forth. I noticed this when I added the egrep filter above, and was not
+drowning in the needless chatter from the trainer.  It turns out, I
+had very similar emails (sometimes, even the same email) in the Ham
+and the Spam corpus, and no wonder crm114 was throwing hissy
+fits. Having small chunks ensured that I had not too many such errors
+in any chunk;and crm114 did try to forget a mail differently
+classified in an older chunk and learn whatever this chunk was trying
+to teach it.  The downside was that the count of the differences
+between ham nd Spam went down, and the similarities increased -- which
+meant that the filter was not as good at separating ham and Spam as it
+could have been.
+
+So my much vaunted mail corpus was far from clean -- over the years, I
+had misclassified mails, been wishy-washy and changed my mind about
+what was and was not Spam. I have a script that uses md5sums to find
+duplicate files in a directory, and found, to my horror, that there
+were **scores** of duplicates in the corpus. After eliminating
+outright duplicates, I started examining anything that showed up with
+an ***ER*** (error, refute) tag in the trainer output; on the second
+iteration of the training script these were likely to be
+misclassification. I spent days examining my corpus and cleaning it
+out; and was gratified to see the ratio of differences to similarities
+between ham and Spam css files climb from a shade under 3 to around
+7.35.
+
+Next post we'll talk about lessons learned about training, and how a
+nominal work flow of training on errors and training when classifiers
+disagree can be set up.
