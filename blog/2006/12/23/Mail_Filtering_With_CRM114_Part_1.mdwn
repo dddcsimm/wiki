@@ -6,12 +6,13 @@
 
 The first step is to configure the CRM114 files, and these are now in
 pretty good shape as shipped with Debian. All that I needed to do was
-set a password, say that I'd use openssl base64 -d, and stick with the
+set a password, say that I'd use *openssl base64 -d*, and stick with the
 less verbose defaults (so no munging subjects, no saving all mail, no
 saving rejects, etc, since I have other mechanisms that do all
 that). The comments in the configuration files are plenty good enough.
-This part went off like a breeze; the results can be [found
-here.](/software/misc/mailfilter.cf.html)
+This part went off like a breeze; the results can be 
+[found here](/software/misc/mailfilter.cf.html) (most of the values are
+still the upstream default).
 
 The next step was to create new, empty .css files. I have noticed
 that creating more buckets makes crm114 perform better, so I go with
