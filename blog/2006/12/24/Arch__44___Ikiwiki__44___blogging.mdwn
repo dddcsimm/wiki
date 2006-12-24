@@ -1,0 +1,47 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Arch, Ikiwiki, blogging"]]
+[[tag software/misc]]
+
+One of the reasons I have only blogged 21 times in thirty months is
+because of the very kludgey work flow I had for blogging; I had to
+manually create the file, and then scp by hand, and ensure that any
+ancillary files were in place on the remote machine that serves up my
+blogs. 
+
+After moving to ikiwiki, and thus arch, there would be even more
+overhead, were it not so amenable to scripting.  Since this is arch,
+and therefore creating branches and merging is both easy and natural,
+I have two sets of branches -- one set related to the templates and
+actual blog content I server on my local, development box, and a
+parallel set of branches that I publish.  The devel branches are used
+by ikiwiki on my local box; the remote ikiwiki uses the publish
+branch.  So I can make changes to my hearts content on the devel
+branch, and the merge into my publish branch. When I commit the
+publish branches, the hook function ensure that there is a fresh
+checkout of the publish branch on the remote server, and that ikiwiki
+is run to regenerate web pages to reflect the new commit.
+
+The hook functions are nice, but not quite enough to make bloggin as
+effortless as it could be.  With the movge to ikiwiki, and
+dissociation of classification and tagging from the file system
+layout, I have followed the lead of Roland Mas and organized my blog
+layout by date; posts are put in *blog/$year/$month/$escaped_title*.
+The directory hierarchy might not exist for a new year or month.  A
+blog posting may also show in in two different archive indices: the
+annual archive index for the year, and a monthly index page created
+for every month I blog in. However, at the time of writing, there is
+no annual index for the next year (2007), or the next month (January
+2007).  These have to be created as required.
+
+All this would get quite tedious, and indeed, would frequently remain
+undone -- were it not for automation. To make my life easier, I have
+[blogit!](/software/misc/blogit.html), which takes care of the
+niggling details.  When called with the title of the prospective post;
+this script figures out the date, ensures that the blog directory
+structure exists, creating path components and adding them to the
+repository as required, creates a blog entry template, adds the blog
+entry to the repository, creates the annual or the monthly archive
+index and adds *those* to the repository as needed, and finally, calls
+emacs on the blog posting file. ***whew***.
+
