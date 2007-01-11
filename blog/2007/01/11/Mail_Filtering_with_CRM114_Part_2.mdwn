@@ -1,0 +1,97 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Mail Filtering with CRM114: Part 2"]]
+[[tag software spam]]
+
+
+
+## Or, Cleanliness is next to godliness
+
+The last time when I blogged about Spam fighting
+[[blog/2006/12/23/Mail_Filtering_With_CRM114_Part_1]], I left y'all
+with visions of non-converging learning, various ingeneous ways of
+workign around a unclean corpus, and perhaps a sinking feeling that
+this whole thing was more fragile than it ought to be.
+
+During this eriod of flailing around, trying to get *mailtrainer*
+to learn the full corpus correctly, I upgraded to an unpackaged
+version of crm114. Thanks to the excellent packaging effort by the
+maintianers, this was dead easy: get the debian sources using
+*apt-get source crm114*, download tghe new tarball from crm114
+upstream, cp the debian dir over, and just edit the changelog file to
+reflect the new version. I am currently running my own, statically
+linked **20061103-Blame Dalkey.src-1**.
+
+Cleaning the corpus made a major difference to the quality of
+discrimination. As mentioned earlier, I examined every mail that was
+initially incorrectly classified during learning. Now, there are two
+ways this can happen: That the piece of mail was correctly placed in
+the corpus, but had a feature that was different from those learned
+before; or that it was wrongly classified by me. When I started the
+chances were almost equally likely; I have now hopefully eliminated
+most of the misclassifications.  When *mailtrainer* goes into
+cycles, retraining on a couple of emails round after round, you almost
+certainly are trying to train in conflicting ways.  Cyclic retraining
+is almost always a human's error in classification.
+
+Some of the errors discovered were not just misclassifications: some
+where things that were inappropriate mail, but not Spam; for instance
+there was the whole conversation where someone one subscribed
+debian-devel to another mailing list, there was the challenge, the
+subscription notice, the un-subscription, challenge, and notice -- all
+of which were inappropriate, and interrupted the flow, and contributed
+to the noise -- but were not really Spam. I had, in a fit of pique,
+labelled them as Spam; but they were really like any other mailing
+list subscription conversations, which I certainly want to see for my
+subscriptions. crm114 did register the conversations as Spam and
+non-Spam, as requested, but that increased the similarity between Spam
+and non-Spam features -- and probably decreased the accuracy.  I've
+since decided to train only on Spam, not on inappropriate mails; and
+let Gnus keep inappropriate mails from my eyes.
+
+I've also waffled over time about whether or not to treat
+**newsletters** from Dr. Dobbs Journal or USENIX as Spam or not --
+now my rule of thumb is that since I signed up for them at some point,
+they are not Spam -- though I don't feel guilty about letting 
+[[debpkg mailagent]] squirrel them away mostly out of sight.
+
+A few tips about using mailtrainer:
+
+* Make sure you have a clean corpus
+* Try and make it so that your have roughly equal numbers of Ham and Spam
+* Don't let mailtrainer quit after a set number of rounds. I use a
+  ridiculous repeat count of about 100 -- never expecting to reach
+  anywhere close to that. Instead, I set the streak to a number =
+  number of Spam + number of Ham + 10. This means that mailtrainer
+  does not quit until it has processed every email in the corpus
+  correctly without needing to retrain.  Letting mailtrainer quit
+  after it repeated the corpus twice, but before it got a streak of
+  correct classifications left me with a filter with **horrible**
+  accuracy. 
+* Make sure you have a clean corpus (yes, really)
+* While the ratio of similarities between *.css* files to the
+  differences between *.css* files is a fun metric, and I use it
+  as an informal, rough benchmark while training, it is not really
+  correlated to accuracy, so don't get hung up on it, like I was.
+  Usually, the value I get when training from scratch on my corpus is
+  somewhere around 7.5; but over time the ratio degrades (falling to
+  about 5), while the filter accuracy keeps increasing.
+* Train only on errors. The good news is that both *mailtrainer*
+  and *mailreaver* already do so, so this is easy rule to
+  follow. The reason is that you should only be doing minimal
+  training, in case you have to modify/change the underlying rule in
+  the future. So your filter should be trained to correctly classify
+  the mails you get, but don't shoot for overwhelming scores.
+* Use mailreaver. It has the nice behaviour of asking for retraining
+  when it is unsure of some mail, and it caches mail for some time
+  which really helps in training and rebuilding *.css* files.  The
+  reason mailreaver learns faster than mailtrainer is just this
+  feature, I think.
+* Stash mails you train on in your corpus, and don't hesitate to
+  re-run mailtrainer over your corpus again after you have been
+  training the unsure emails. When you train single emails, the
+  changed filter may no longer correctly classify some email in the
+  corpus you train with. Running mailtrainer over the corpus adjusts
+  the filter to correctly classify every mail again.  I generally
+  retrain about once a week, though I no longer retrain from scratch,
+  unless I change the classification algorithm.
