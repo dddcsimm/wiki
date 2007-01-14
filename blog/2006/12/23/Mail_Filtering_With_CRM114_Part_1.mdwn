@@ -20,15 +20,16 @@ larger than norm crm114 .css files.  I have no idea if this is the
 right thing to do, but I make like Nike and just do it.  At some point
 I'll ask on the crm114-general mailing list.
 
-     % cssutil -b -r -S 4194000 spam.css
-     % cssutil -b -r -S 4194000 nonspam.css
+
+        % cssutil -b -r -S 4194000 spam.css
+        % cssutil -b -r -S 4194000 nonspam.css
 
 Now we have a blank slate; at this time the filter knows nothing, and
 is equally likely to call something Spam or non-Spam.  We are now
 ready to learn. So, I girded my loins, and set about feeding my whole
 mail corpus to the filter:
 
-    /usr/share/crm114/mailtrainer.crm               \
+     /usr/share/crm114/mailtrainer.crm               \
        --spam=/backup/classify/Done/Spam/           \
        --good=/backup/classify/Done/Ham/            \
        --repeat=100 --streak=35000 |                \

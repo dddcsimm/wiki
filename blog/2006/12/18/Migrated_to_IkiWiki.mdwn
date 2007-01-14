@@ -1,6 +1,6 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
-[[meta title="Migrated to Ikiwiki"]]
+[[meta title="I am now an Ikiwiki user!"]]
 [[tag software misc]]
 
 [[template id="icon" icon="/media/icons/ikiwiki_button.png" alt="Ikiwiki"]]
@@ -55,7 +55,7 @@ improvement over my Blosxom system), I could layout the blog postings
 in a more logical fashion.  I ended up taking Roland Mas' advice and
 arranging for the blog postings to be created in files like:
 
-     blog/year,omth/date/simple_title.mdwn
+     blog/year/month/date/simple_title.mdwn
 
 The archives contain annual and monthly indices, and the calendar
 front end provides links to recent postings and to recent monthly

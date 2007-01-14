@@ -9,8 +9,8 @@
 
 The last time when I blogged about Spam fighting
 [[blog/2006/12/23/Mail_Filtering_With_CRM114_Part_1]], I left y'all
-with visions of non-converging learning, various ingeneous ways of
-workign around a unclean corpus, and perhaps a sinking feeling that
+with visions of non-converging learning, various ingenious ways of
+working around a unclean corpus, and perhaps a sinking feeling that
 this whole thing was more fragile than it ought to be.
 
 During this eriod of flailing around, trying to get *mailtrainer*

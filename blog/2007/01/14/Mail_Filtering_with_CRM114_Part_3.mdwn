@@ -1,0 +1,127 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Mail Filtering with CRM114: Part 3"]]
+[[tag software spam]]
+
+
+# Uphold, maintain, sustain: life in the trenches #
+
+Now that I have a
+[[baseline|blog/2007/01/11/Mail_Filtering_with_CRM114_Part_2]] filter,
+how do I continue to train it, without putting too much of an effort?
+There are two separate activities here, firstly selecting the mails to
+be used in training, and secondly, automating the training and saving
+to the mail corpus.  On going training is essential; Spam mutates, and
+even ham changes over time, and well trained filters drift. However,
+if training disrupts normal work-flow, it won't happen; so a minimally
+intrusive set of tools is critical
+
+## Selecting mail to train filters ##
+
+There are three broad categories of mails that fit the criteria:
+
+### 1. Misclassified mail ###
+This is where human judgement comes in, to separate the wheat from the
+chaff.
+
+* misclassified Spam. I do nothing special for this category -- I
+  assume that I would notice these mails, and when I do, I just save
+  them in a _junk_ folder, for latter processing. The volume of
+  such messages has fallen to about one or two a month, and having
+  them slip though is not a major problem in the first place
+* misclassified ham  is far more critical, and, unfortunately,
+  somewhat harder to get right, since you do want to reject the worst
+  of the Spam at the SMTP level. A mistake here is worse than a false
+  negative: all that happens with a false negative is that you curse,
+  save to the junk folder for later retraining, and mode on. With
+  missed Ham, you never know what you might have missed -- and hope it
+  is nothing important.
+
+    * If one of the two filters did the right thing, then the
+      [mlg](/software/misc/mlg.html) script can catch it -- more on it
+      below. The only thing to remember to do is to look carefully at the
+      _grey.mbox_ folder that is produced.  While this is not good to
+      have misclassified ham, at least this sub-category is easy to
+      detect.
+    * If both filters misclassified it, this would then mean a human
+      would have to catch the error.  The good news is that I haven't
+      had very many mails fall into this category (the last one I know
+      about was in the late summer of 2005). How can one be sure that
+      there are not ham messages falling through the cracks all the
+      time? The idea is to accept mail with scores one would normally
+      discard, and treat this as a canary in a mine: no ham should
+      ever show up in these _realspam_ messages. My schema for
+      handling Spam is shown in the figure below.
+
+    I try and keep all the mail that I have rejected in quarantine for
+    about a month or so, and so can retrieve a mail if informed about
+    a mistaken rejection.  I also do spot checks once in a while,
+    though as time has gone on with no known false positives, the
+    frequency of my checks has dropped.
+
+### 2. Partially misclassified mail ###
+
+This is mail correctly classified overall, but misclassified by either
+crm114, or spamassassin, but not both. This is an early warning sign,
+and is more common than mail that is misclassified, since usually the
+filter that is wrong is wrong weakly.  But this is the point where
+training should occur, so that the filter does not drift to the point
+that mails are misclassified. Again, the
+[mlg](/software/misc/mlg.html) script catches this.
+
+### 3. Mail that crm114 is unsure about ###
+
+This is Mail correctly classified, but something that *mailreaver* is
+unsure about -- and this category is why *mailreaver* learns faster
+than _mailtrainer_.
+
+
+## Spam handling and disposition ##
+
+At this point I should say something about how I generally handle
+mails scored as Spam by the filters.
+<span class="storypic">
+[[img images/spam-handling.png alt="Spam handling schema"]].
+</span>
+As you can see, the mail handling is simple; depending on the combined
+score given to the mail by the filters. The handling rules are:
+
+* score <= 5.0: Accept unconditionally
+* 5.0 < score <= 15: Grey list
+* 15 < score: reject
+
+So, any mail with score less than 15 is accepted, potentially
+after grey-listing. The disposition is done according to the following
+set of rules:
+
+* score <= 0:  Classify into folder based on origin
+* 0 < score  <= 10: file into _Spam_ (some of this survived grey-listing) 
+* 10 < score: file into _realspam_ (Must have survived grey-listing)
+
+In the last 18+months, I have not seen a Ham mail in my _realspam_
+folder; chances of Ham being rejected are pretty low. My Spam folder
+gets a ham message every few months, but these are usually
+spamassassin misclassifying things; and [mlg](/software/misc/mlg.html)
+detects those. I have not seen one of these in the last 6 months. So
+my _realspam_ canary has done wonders for my peace of mind.  With
+ideally trained filters, _spam_ and _realspam_ folders would
+be empty.
+
+
+## mail list grey ##
+
+I have created a script called [mlg](/software/misc/mlg.html) ("Mail
+List Grey") that I run periodically over my mail folder, that picks
+out mails that either (a) are classified differently by spamassassin
+and crm114, or (b) are marked as _unsure_ by _mailreaver_. The
+script takes these mails and saves them into a _grey.mbox_
+folder. I tend to run them over Spam and non-Spam folders in different
+runs, so that the _grey.mbox_ folder can be renamed to either
+*ham* or *junk*, in the vast majority of the cases.  Only for
+misclassified mails do I have to individually pick the misplaced email
+and classify it separately from the rest of the emails in that batch.
+
+At this point, I should have mail mbox folders called *ham* and/or
+*junk*, which are now ready to be used for training either crm114 or
+spamassassin or both. Processing these folders is the subject of the
+next article in this series.

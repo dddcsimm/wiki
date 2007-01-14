@@ -653,13 +653,16 @@ div.imagecomments {
 span.storypic { 
   float: right;
   padding: 0;
-  margin: 3px 3px 15px 15px;
+  border: none;
+  margin: 5px 5px 5px 5px;
   /* 
      border-left: 2px solid #6f7b34;
      border-bottom: 2px solid #6f7b34;
      */
 }
-
+span.storypic img { 
+  border: none;
+}
 
 /* The permalinks associated with the story */
 div.story-links { 
