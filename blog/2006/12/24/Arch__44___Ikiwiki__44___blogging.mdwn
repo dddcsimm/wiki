@@ -34,7 +34,7 @@ for every month I blog in. However, at the time of writing, there is
 no annual index for the next year (2007), or the next month (January
 2007).  These have to be created as required.
 
-All this would get quite tedious, and indeed, would frequently remain
+All this would get *quite* tedious, and indeed, would frequently remain
 undone -- were it not for automation. To make my life easier, I have
 [blogit!](/software/misc/blogit.html), which takes care of the
 niggling details.  When called with the title of the prospective post;
