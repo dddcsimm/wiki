@@ -38,3 +38,4 @@
 [ ![Linux Counter #69681](/media/images/manoj/certificate.png)](http://counter.li.org/)
 [ ![RSS Valid](/media/images/rssvalid.gif)](http://feedvalidator.org/check.cgi?url=http%3A//www.golden-gryphon.com/blog/manoj/index.rss)
 [ ![Ikiwiki](/media/icons/ikiwiki_button.png)](http://ikiwiki.info/)
+[ ![hacker emblem](/media/images/hacker.png)](http://www.catb.org/hacker-emblem/)
