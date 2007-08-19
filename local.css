@@ -266,7 +266,7 @@ div.map ul li {
   border: none;
   margin: 6px auto 6px auto;
   color: #dfd;  /* #cea; */
-  background-color: #dfd;  /* #cea; */
+  background-color: #cea;  /* #cea; */
 }
 div.map ul li a { 
   text-align: left;
@@ -332,7 +332,7 @@ div.actions ul li a:hover {
 }
 
 ul.headlines { 
-  display: compact;
+  display:compact;
 }
         
 li.headlines_date { 
