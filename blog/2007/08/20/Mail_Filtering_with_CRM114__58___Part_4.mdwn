@@ -1,0 +1,97 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Mail Filtering with CRM114: Part 4"]]
+[[tag software spam]]
+
+# Training the Discriminators
+
+It has been a while since I posted on this category -- actually, it
+has been a long while since my last blog. When I 
+[[last|blog/2007/01/14/Mail_Filtering_with_CRM114_Part_3]] left you, 
+I had mail (mbox format) folders called *ham* and/or *junk*, which
+were ready to be used for training either **CRM114** or
+**Spamassassin** or both.
+
+## Setting up Spamassassin ##
+
+
+This post lays the groundwork for the training, and details how things
+are set up. The first part is setting up **Spamassassin**. One of the
+things that bothered me about the default settings for
+**Spamassassin** was how swiftly Bayes information was expired;
+indeed, it seems really eager to dumb the Bayes information (don't
+they trust their engine?). I have spent some effort building a large
+corpus, and keeping ti clean, but **Spamassassin** would discard most
+of the information from the DB after training over my corpus, and the
+decrease in accuracy was palpable. To prevent this information from
+leeching away, I firstly increased the size of the database, and
+turned off automatic expiration, by putting the following lines into
+*~/.spamassassin/user_prefs*:
+
+    bayes_expiry_max_db_size  4000000
+    bayes_auto_expire         0
+
+I also have regularly updated spam rules from the
+[spamassassin rules emporium](http://www.rulesemporium.com/) to
+improve the efficiency of the rules; my current
+[user_prefs](/software/misc/user_prefs.html) is available as an example.
+
+
+## Initial training ##
+
+I keep my *Spam/Ham* corpus under the directory
+`/backup/classify/Done`, in the subdirectories `Ham` and `Spam`. At
+the time of writing, I have approximately 20,000 mails in each of
+these subdirectories, for a total of 41,000+ emails.
+
+I have created a couple of scripts to train the discriminators from
+scratch using the extant Spam corpus; and these scripts are also used
+for re-learning, for instance, when I moved from a 32-bit machine to a
+64-bit one, or when I change **CRM114** discrimators. I generally run
+them from `~/.spamassassin/` and `~/var/lib/crm114` (which contains my
+**CRM114** setup) directories.
+
+I have found that training **Spamassassin** works best if you
+alternate Spam and Ham message chunks; and
+[this Spamassassin learning script](/software/misc/re-learn-sa.html)
+delivers chunks of 50 messages for learning.
+
+With **CRM114**, I have discovered that it is not a good idea to stop
+learning based on the number of times the corpus has been gone over;
+since stopping before all messages i the Corpus are correctly handled
+is also disastrous. So I set the repeat count to a ridiculously high
+number, and tell `mailtrainer` to continue training until a streak
+larger than the sum of Spam and Ham messages has occurred. 
+[This CRM114 trainer script](/software/misc/re-learn-crm114.html)
+does the hob nicely; running it under `screen` is highly recommend.
+
+
+# Routine updates #
+
+Coming back to where we left off, we had mail (mbox format) folders
+called *ham* and/or *junk* sitting in the local mail delivery
+directory, which were ready to be used for training either **CRM114**
+or **Spamassassin** or both. 
+
+There are two scripts that help me automate the training. The first
+script, called [mail-process](/software/misc/mail-process.html), does
+most of the heavy listing. This processes a bunch of mail folders,
+which are supposed to contain mail which is either all ham or all
+spam, indicated by the command line arguments. We go looking though
+every mail, and any mail where either the **CRM114** or the
+**Spamassassin** judgement was not what we expected, we strip out mail
+gathering headers, and then we save the mail, one to a file, and we
+train the approprite filter. This ensures that we only train on error,
+and it does not matter if we accidentally try to train on correctly
+classified mail, since that would be a no-op (apart from increasing
+the size of the corpus).
+
+The second script, called [mproc](/software/misc/mproc.html) is a
+convenience front-end; it just calls `mail-process` with the proper
+command line arguments, and feeds them the *ham* and *junk* in
+sequence; and takes no arguments.  So, after human classification,
+just calling `mproc` does the classification.
+
+This pretty much finishes the series of posts I had in mind about spam
+filtering, I hope it has been useful.
+
