@@ -542,6 +542,7 @@ div.blogDate {
   line-height: 110%;
   font-weight: normal;
   padding: 3px 2px;
+	margin-left: 0.4em;
   margin-bottom: 10px;
   margin-top: 3px;
 }
