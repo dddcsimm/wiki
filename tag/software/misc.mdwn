@@ -1,4 +1,0 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-
-This a category for postings about miscellaneous software.

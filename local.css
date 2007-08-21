@@ -176,6 +176,9 @@ div.navblock h4 {
   font-size:155%;
   line-height: 80%;
 }
+div.navblock h4 img {
+  border: none;
+}
 
 div.navblock li {
   list-style: none;
@@ -196,7 +199,7 @@ div.navblock ul li {
   font-weight: bold;
 }
 /* Make the links stick out a bit. */
-div.navblock li a {
+div.navblock ul li a {
   display: block;
   color: black;
   background-color: #dfd;
@@ -205,16 +208,19 @@ div.navblock li a {
   width: 100%;
   border: 1px dotted black; 
 }
-div.navblock li a:link, div.navblock li a:visited { 
+div.navblock ul li a img {
+  border: none;
+}
+div.navblock ul li a:link, div.navblock ul li a:visited { 
   text-decoration: none;
 }
 
-div.navblock li a:hover { 
+div.navblock ul li a:hover { 
   text-decoration: underline;
   border-bottom: solid blue 1px;
 }
 
-div.style_list div.navblock li { 
+div.style_list div.navblock ul li { 
   margin-left: 1em;
 }
 
@@ -234,8 +240,8 @@ div.navblock ul li ul li a {
   border: 1px dotted black;
   background-color: #ace;  /* #cea; */
 }
-div.navblock ul li ul li {
-  width: 19em;
+div.navblock ul li ul li a img {
+  border: none;
 }
 
 div.map { 

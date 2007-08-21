@@ -1,7 +1,7 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
 [[meta title="Mail Filtering with CRM114: Part 3"]]
-[[tag software spam]]
+[[tag spam]]
 
 
 # Uphold, maintain, sustain: life in the trenches #
