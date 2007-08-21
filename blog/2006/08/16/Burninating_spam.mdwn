@@ -1,6 +1,6 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
-[[tag software spam]]
+[[tag spam]]
 
 It is funny that people say that no one has written software that does
 Beysian filtering in order to reject Spam at the SMTP level, just when

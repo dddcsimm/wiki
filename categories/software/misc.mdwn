@@ -1,2 +1,0 @@
-[[meta title="Blog postings about miscellaneous software"]]
-[[inline pages="link(tag/software/misc) and !blog and !tag" show="10" rootpage="blog"]]

@@ -1,0 +1,72 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Arch Hook"]]
+[[tag software/arch]]
+
+All the version control systems I am familiar with run scripts on
+checkout and commit to take additional site specific actions, and arch
+is no different.  Well, actually, arch is perhaps different in the
+sense that arch runs a script on almost _all_ actions, namely,
+`~/.arch-params/hook` script. Enough information is passed in to make
+this mechanism one of the most flexible I have had the pleasure to
+work with.
+
+In my [hook](/software/misc/hook.html) script, I do the following things:
+
+* On a commit, or an initial import
+    * For my publicly replicated repositories (and only for my public
+      repositories), the script creates a full source tree in the
+      repository for every 20th commit. This can speed up subsequent
+      calls to get for that and subsequent revisions, since users do
+      not have to get the base version and all patches.
+    * For the public repositories, the script removes older cached
+      versions, keeping two cached versions in place. I assume there
+      is not much demand for versions more than 40 patches out of
+      date; and so having to download a few extra patches in that
+      uncommon case is not a big issue.
+    * If it is an ikiwiki commit, the script makes sure that it
+      updates the checked out sources of the wiki on the webserver,
+      and rebuilds the wiki.
+    * If this is a commit to an archive for which I have a
+      corresponding `-MIRROR` defined, the script updates the mirror
+      now, and logs an informational message to the screen.
+    * There is special handling for my Debian packages.
+          * If the category matches one of my packages, the script
+            looks to see if any bugs have been closed in this commit,
+            and, if so, sends the log to the bug, and tags it fixed.
+          * If the category being checked in is one that corresponds
+            to one of my Debian packages, or to the `./debian`
+            directory that belongs to one of my packages, then the
+            script sends a cleaned up change log by mail to the
+            *packages.qa.debian.org*. People can subscribe to the
+            mailing list setup for each package to get commit logs, if
+            they so desire.
+          * Arch has the concept of a grab file, and people can get
+            all the components of a software package by just feeding
+            arch either the grab file (either locally, or via a http
+            URL). The script makes sure that a arch config file is
+            created , as well as a grab file (using the script
+            [arch\_create\_config](/software/misc/arch_create_config.html)),
+            and uploads the grab file to to a public location (using
+            the script
+            [arch\_upload\_grab](/software/misc/arch_upload_grab.html))
+            mentioned in `./debian/control` for all my packages.
+          * For commits to the Debian policy package, the script also
+            sends mail to the policy list with full commit logs. This
+            is a group maintained package, so changes to this are
+            disseminated slightly more volubly.
+          * Whenever a new category, branch, or version is added to
+            the repository corresponding to the Debian policy package,
+            the script sends mail to the policy list. Again, changes
+            to the Policy repository are fairly visible.
+    * The scripts send myself mail, for archival purposes, whenever a
+      new category or branch is created in any of my repositories (but
+      not for every revision).
+    * Additional action is taken to ensure that versions are cached in
+      the local revision library. I am no longer sure if this is
+      strictly needed.
+
+I'd be happy to hear about what other people add to their commit
+scripts, to see if I have missed out on anything.
+
+

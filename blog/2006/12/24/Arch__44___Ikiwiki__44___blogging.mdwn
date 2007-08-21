@@ -1,7 +1,7 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
 [[meta title="Arch, Ikiwiki, blogging"]]
-[[tag software/misc]]
+[[tag software software/ikiwiki]]
 
 One of the reasons I have only blogged 21 times in thirty months is
 because of the very kludgey work flow I had for blogging; I had to
@@ -22,7 +22,7 @@ publish branches, the hook function ensure that there is a fresh
 checkout of the publish branch on the remote server, and that ikiwiki
 is run to regenerate web pages to reflect the new commit.
 
-The hook functions are nice, but not quite enough to make bloggin as
+The hook functions are nice, but not quite enough to make blogging as
 effortless as it could be.  With the movge to ikiwiki, and
 dissociation of classification and tagging from the file system
 layout, I have followed the lead of Roland Mas and organized my blog

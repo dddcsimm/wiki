@@ -1,6 +1,6 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
-[[tag software software/misc]]
+[[tag misc]]
 
 I have been using uml (actually, [[debpkg pbuilder-uml]])
 for a while to build my packages and ensure that the build
