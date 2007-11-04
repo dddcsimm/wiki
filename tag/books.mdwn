@@ -1,0 +1,7 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+
+This is a category that contains entries about the books that I read.
+Since reading books is a major part of my life, this makes for an useful
+category.
+

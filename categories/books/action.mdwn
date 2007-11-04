@@ -1,0 +1,2 @@
+[[meta title="Blog postings about my action/adventure books I am reading"]]
+[[inline pages="link(tag/books/action) and !blog and !tag" show="10" rootpage="blog"]]
