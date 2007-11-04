@@ -688,6 +688,29 @@ a.story-permalink {
   float: right;
 }
 
+span.pagedate, p.postedon { 
+  text-align: left;
+  font-family: cursive;
+  font-size: 75%;
+  padding: 1px;
+  margin: 1px;
+}
+span.pagedate:first-letter, p.postedon:first-letter { 
+  text-transform: uppercase;
+  color: #739e60;
+  font-size: 155%;
+  font-family: cursive;
+  /*  padding: 0em; float: left; */
+}
+
+div.pagelicense { 
+  text-align: left;
+  float: left;
+  font-family: cursive;
+  font-size: 75%;
+  padding: 1px;
+  margin: 1px;
+}
 /* And, finally, the story itself */
 div.value { 
   margin-left: 0.5em;
