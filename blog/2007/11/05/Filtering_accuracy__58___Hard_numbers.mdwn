@@ -1,0 +1,240 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Filtering accuracy: Hard numbers"]]
+[[tag spam]]
+
+I have often posted on the accuracy of my mail filtering mechanisms on
+the mailing lists (I have not had a false positive in years, and I
+stash all discards/rejects locally, and do spot checks frequently; and
+I went through 6 months of exhaustive checks when I put this system in
+place). False negatives are down to about 3-4 a month (0.019%). Yes, that is
+right: I am claiming that my classification correctness record is
+99.92 (99.98% accuracy for messages my classifiers are sure about).
+Incorrectly classified unsure ham is about 3-4(0.019%) a month;
+incorrectly classified unsure Spam is roughly the same, perhaps a
+little higher. Adding these to the incorrect classification, my best
+estimate of not confidently classified mail is 0.076%, based on the
+last 60 days of data (which is what gets you the 99.92%).
+
+I get unsure/retrain messages at the rate of about 20 a day (about
+3.2% of non-spam email) -- about 2/3'rds of which are classified
+correctly; but either SA and crm114 disagree, or crm114 is unsure.  So
+I have to look at about 20 messages a day to see if a ham message
+slipped in there; and train my filters based on these; and the process
+is highly automated (just uses my brain as a classifier).  The mail
+statistics can be seen on my [mail server.](http://golden-gryphon.com/mail/)
+
+Oh, my filtering front end also switches between reject/discard and
+turns grey listing on and off based on whether or not the mail is
+coming from mailing lists/newsletters I have authorized;
+[mimedefang-filter](/software/misc/mimedefang-filter.html)
+
+However, all these numbers are manually gathered, and I still have not
+gotten around to automating my setup's overall accuracy, but now I
+have some figures on <em>one</em> of the two classifies in my system.
+Here is the data from CRM114.  I'll
+[update the numbers](/software/spam/crm114_accuracy.html) below via cron.
+
+
+First, some context: when training CRM114 using the
+<code>mailtrainer</code> command, one can specify to leave out a
+certain percentage of the training set in the learn phase, and run a
+second pass over the mails so skipped to test the accuracy of the
+training.  The way you do this is by specifying a regular expression
+to match the file names.  Since my training set has message numbers,
+it was simple to use the least significant two digits as a regexp; but
+I did not like the idea of always leaving out the same messages.  So I
+now generate two sets of numbers for every training run, and leave out
+messages with those two trailing digits, in effect reserving 2% of all
+mails for the accuracy run.
+
+An interesting thing to note is the assymetry in the accuracy:
+CRM114 has never identified a Spam message incorrectly. This is
+because the training mechanism is skewed towards letting a few
+spam messages slip through, rather than let a good message slip
+into the spam folder.  I like that. So, here are the accuracy 
+numbers for CRM114; adding in Spamassassin into the mix only
+improves the numbers.  Also, I have always felt that a freshly
+learned css file is somewhat brittle -- in the sense that if one
+trains an <q>unsure</q> message, and then tried to TUNE (Train
+Until No Errors) the css file, a large number of runs through
+the training set are needed until the thing stabilizes. So it
+is as if the learning done initially was  minimalistic, and
+adding the information for the new unsure message required all
+kinds of tweaking. After a while TOEing (Training on Errors)
+and TUNEing, this brittleness seems to get hammered out of the
+CSS files. I also expect to see accuracy rise as the css files
+get less brittle -- The table below starts with data from a newly
+minted .css file.
+
+<div class="center">
+<table class="raised" title="Training Results" width="100%">
+<caption><strong>Accuracy number and validation regexp</strong></caption>
+<tr>
+<th>Date</th>
+<th>Corpus</th>
+<th colspan="3">Ham</th>
+<th colspan="3">Spam</th>
+<th colspan="3">Overall</th>
+<th>Validation</th>
+</tr>
+<tr>
+<th>&nbsp;</th>
+<th>Size</th>
+<th>Count</th>
+<th>Correct</th>
+<th>Accuracy</th>
+<th>Count</th>
+<th>Correct</th>
+<th>Accuracy</th>
+<th>Count</th>
+<th>Correct</th>
+<th>Accuracy</th>
+<th>Regexp</th>
+</tr>
+<tr>
+<th style="text-align: center;">Wed Oct 31 10:22:23 UTC 2007</th>
+<th style="text-align: right;">43319</th>
+<th style="text-align: right;"> 492</th>
+<th style="text-align: right;"> 482</th>
+<th style="text-align: right;">97.967480</th>
+<th style="text-align: right;"> 374</th>
+<th style="text-align: right;"> 374</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 866</th>
+<th style="text-align: right;"> 856</th>
+<th style="text-align: right;">98.845270</th>
+<th style="text-align: center;">[1][6][_][_]|[0][3][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Wed Oct 31 17:32:44 UTC 2007</th>
+<th style="text-align: right;">43330</th>
+<th style="text-align: right;"> 490</th>
+<th style="text-align: right;"> 482</th>
+<th style="text-align: right;">98.367350</th>
+<th style="text-align: right;"> 378</th>
+<th style="text-align: right;"> 378</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 868</th>
+<th style="text-align: right;"> 860</th>
+<th style="text-align: right;">99.078340</th>
+<th style="text-align: center;">[3][7][_][_]|[2][3][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Thu Nov  1 03:01:35 UTC 2007</th>
+<th style="text-align: right;">43334</th>
+<th style="text-align: right;"> 491</th>
+<th style="text-align: right;"> 483</th>
+<th style="text-align: right;">98.370670</th>
+<th style="text-align: right;"> 375</th>
+<th style="text-align: right;"> 375</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 866</th>
+<th style="text-align: right;"> 858</th>
+<th style="text-align: right;">99.076210</th>
+<th style="text-align: center;">[2][0][_][_]|[7][9][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Thu Nov  1 13:47:55 UTC 2007</th>
+<th style="text-align: right;">43345</th>
+<th style="text-align: right;"> 492</th>
+<th style="text-align: right;"> 482</th>
+<th style="text-align: right;">97.967480</th>
+<th style="text-align: right;"> 376</th>
+<th style="text-align: right;"> 376</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 868</th>
+<th style="text-align: right;"> 858</th>
+<th style="text-align: right;">98.847930</th>
+<th style="text-align: center;">[1][2][_][_]|[0][2][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Sat Nov  3 18:27:00 UTC 2007</th>
+<th style="text-align: right;">43390</th>
+<th style="text-align: right;"> 490</th>
+<th style="text-align: right;"> 480</th>
+<th style="text-align: right;">97.959180</th>
+<th style="text-align: right;"> 379</th>
+<th style="text-align: right;"> 379</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 869</th>
+<th style="text-align: right;"> 859</th>
+<th style="text-align: right;">98.849250</th>
+<th style="text-align: center;">[4][1][_][_]|[6][4][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Sat Nov  3 22:38:12 UTC 2007</th>
+<th style="text-align: right;">43394</th>
+<th style="text-align: right;"> 491</th>
+<th style="text-align: right;"> 482</th>
+<th style="text-align: right;">98.167010</th>
+<th style="text-align: right;"> 375</th>
+<th style="text-align: right;"> 375</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 866</th>
+<th style="text-align: right;"> 857</th>
+<th style="text-align: right;">98.960740</th>
+<th style="text-align: center;">[3][1][_][_]|[7][8][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Sun Nov  4 05:49:45 UTC 2007</th>
+<th style="text-align: right;">43400</th>
+<th style="text-align: right;"> 490</th>
+<th style="text-align: right;"> 483</th>
+<th style="text-align: right;">98.571430</th>
+<th style="text-align: right;"> 377</th>
+<th style="text-align: right;"> 377</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 867</th>
+<th style="text-align: right;"> 860</th>
+<th style="text-align: right;">99.192620</th>
+<th style="text-align: center;">[4][6][_][_]|[6][8][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Sun Nov  4 13:35:15 UTC 2007</th>
+<th style="text-align: right;">43409</th>
+<th style="text-align: right;"> 490</th>
+<th style="text-align: right;"> 485</th>
+<th style="text-align: right;">98.979590</th>
+<th style="text-align: right;"> 377</th>
+<th style="text-align: right;"> 377</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 867</th>
+<th style="text-align: right;"> 862</th>
+<th style="text-align: right;">99.423300</th>
+<th style="text-align: center;">[3][7][_][_]|[7][9][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Sun Nov  4 19:22:02 UTC 2007</th>
+<th style="text-align: right;">43421</th>
+<th style="text-align: right;"> 490</th>
+<th style="text-align: right;"> 486</th>
+<th style="text-align: right;">99.183670</th>
+<th style="text-align: right;"> 379</th>
+<th style="text-align: right;"> 379</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 869</th>
+<th style="text-align: right;"> 865</th>
+<th style="text-align: right;">99.539700</th>
+<th style="text-align: center;">[7][2][_][_]|[9][4][_][_]</th>
+</tr>
+<tr>
+<th style="text-align: center;">Mon Nov  5 05:47:45 UTC 2007</th>
+<th style="text-align: right;">43423</th>
+<th style="text-align: right;"> 490</th>
+<th style="text-align: right;"> 489</th>
+<th style="text-align: right;">99.795920</th>
+<th style="text-align: right;"> 378</th>
+<th style="text-align: right;"> 378</th>
+<th style="text-align: right;">100.000000</th>
+<th style="text-align: right;"> 868</th>
+<th style="text-align: right;"> 867</th>
+<th style="text-align: right;">99.884790</th>
+<th style="text-align: center;">[4][0][_][_]|[8][3][_][_]</th>
+</tr>
+</table>
+</div>
+
+
+As you can see, the accuracy numbers are trending up, and already are
+nearly up to the values observed on my production system.
