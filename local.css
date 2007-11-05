@@ -994,7 +994,7 @@ div.skip                  { display: none }
    */
 table.raised {
   border-collapse: collapse; /*separate; */
-  border: outset 5pt;
+  border: outset 2pt;
   border-spacing: 0pt;
   /* border-spacing: 5pt; */
 }
@@ -1003,8 +1003,10 @@ table.raised {
    td { border: inset 2pt }
 th { border: inset 2pt }
 */
-table.raised td             { border: 1px solid; padding: 1em; }
-table.raised th             { border: 2px solid; padding: 1em; }
+table.raised td             { border: 1px solid; padding: 0.1em; }
+table.raised th             { border: 2px solid; padding: 0.1em; }
+
+
 
 /* Shouldn't the definition term be bold by default? */
 dt {font-weight: bold;}
