@@ -1,0 +1,113 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Continuous Automated Build and Integration Environment"]]
+[[tag software]]
+
+One of the things I have been tasked to do in my current assignment is
+to create a dashboard of the status of various software components
+created by different contractors (participating companies) in the
+program.  These software components are built by different
+development groups, utilizing unlike toolsets, languages and tools --
+though I was able to get an agreement on the VCS (subversion --
+yuck). Specifically, one should be able to tell which components
+pass pre-build checks, compile, can be installed, and pass unit and
+functional tests.  There should be nightly builds, as well as builds
+whenever someone checks in code on the "release" branches. And, of
+course, the dashboard should be HTTP accessible, and be bright and, of
+course, shiny.
+
+My requirements were that since the whole project is not Java, there
+should be no dependencies on maven or ant or eclipse projects (or
+make, for that matter); that it should be able to do builds on
+multiple machines (license constraints restrict some software to
+Solaris or Windows), not suck up too much time from my real job (this
+is a service, if it is working well, you get no credit, if it fails,
+you are on the hot seat). And it should be something I can easily
+debug, so no esoteric languages (APL, haskell -- and Python :P)
+
+So, using *continuous integration* as a google search term, I found
+the comparison matrix at
+[Damage Control](http://damagecontrol.codehaus.org/Continuous+Integration+Server+Feature+Matrix)
+
+I looked at anthill, and cruisecontrol, and the major drawback people
+seemed to think it had was that configuration was done by editing an
+XML file, as opposed to a (by some accounts, buggy) UI is not much of
+a factor for me. (See [this](http://mikemason.ca/2004/08/12/), and
+[also this](http://c2.com/cgi/wiki?AntHillvsCruiseControl) ).  I also like
+the fact that it seems easier to plug in other components. I am
+uncomfortable with free software that has a "commercial" sibling; we
+have been burned once by UML software with those characteristics.
+
+Cruisecontrol, Damagecontrol, Tinderbox1 & tinderbox2, Continuum, and
+Sin match.  I tried to see the demo versions; Sin's link led me to a
+site selling Myrtle Beach condo's, never a good sign. Continuum and
+Damagecontrol were currently down, so I could not do an evaluation.
+So, here are the ones I could get to with working demo pages:
+http://cclive.thoughtworks.com/ and
+http://tinderbox.mozilla.org/showbuilds.cgi?tree=SeaMonkey
+
+Cruisecontrol takes full control, checking things out of source
+control; and running the tests; which implies that all the software
+does build and run on the same machine -- this is not the case
+for me. Also, CC needs to publish the results/logs in XML; which seems
+to be a good fit for the java world; but might be a constraint for my
+use case.
+
+I like the tinderbox dashboard better, based on the information
+presented; but that is not a major issue.  It also might be better
+suited for a distributed, open source development model; cruisecontrol
+seems slightly more centralized -- more on this below. cruisecontrol is
+certainly more mature; and we have some experience with it.  Tinderbox
+has a client/server model, and communicates via EMAIL to a number of
+machines where the actual build/testing is done.  This seems good.
+
+Then there is [flamebox](http://flamebox.sourceforge.net/) -- nice
+dashboard, derivative of tinderbox2; and seems pretty simple (perhaps
+too simple); and easily modifiable. 
+
+However, none of these *seemed* right. There was too much of an
+assumption of a build and test model -- and few of them seemed to be a
+good fit for a distributed, Grid-based software development; so I
+continued looking.
+
+<span class="storypic">
+[[img images/cabie.png size=255x330 alt="Cabie screen shot"]].
+</span>
+
+I finally decided [CABIE](http://cabie.tigris.org/)
+
+> Continuous Automated Build and Integration Environment. Cabie is a
+> multi-platform, multi-cm client/server based application providing
+> both command line and web-based access to real time build monitoring
+> and execution information. Cabie builds jobs based upon
+> configuration information stored in MySQL and will support virtually
+> any build that can be called from the command line. Cabie provides a
+> centralized collection point for all builds providing web based
+> dynamic access, the collector is SQL based and provides information
+> for all projects under Cabie's control. Cabie can be integrated with
+> bug tracking systems and test systems with some effort depending on
+> the complexity of those systems. With the idea in mind that most
+> companies create build systems from the ground up, Cabie was
+> designed to not have to re-write scripted builds but instead to
+> integrate existing build scripts into a smart collector. Cabie
+> provides rapid email notification and RSS integration to quickly
+> handle build issues. Cabie provides the ability to run builds in
+> parallel, series, to poll jobs or to allow the use of scripted
+> nightly builds. Cabie is perfect for agile development in an
+> environment that requires multiple languages and tools. Cabie
+> supports Perforce, Subversion and CVS. The use of a backend broker
+> allows anyone with perl skills to write support for additional CM
+> systems.
+
+The nice people at Yo Linux have provided a
+[Tutorial](http://www.yolinux.com/TUTORIALS/CabieBuildSystem.html) for
+the process.  I did have to make some changes to get things working
+(mostly in line with the changes recommended in the tutorial, but not
+exactly the same.  I have sent the patches upstream, but upstream is
+not sure how much of it they can use, since there has been major
+progress since the last release. 
+
+The upstream is nice and responsive, and have added support in
+unreleased versions for using virtual machines to run the builds in
+(they use that to do the solaris/windows builds), improved the web
+interface using (shudder) PHP, and and all kinds of neat stuff.
