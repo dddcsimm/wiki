@@ -11,6 +11,7 @@
 
 * [[Books([[pagecount pages="link(tag/books) and !blog and !tag"]])|categories/books]]
    * [[Classics([[pagecount pages="link(tag/books/classics) and !blog and !tag"]])|categories/books/classics]]
+   * [[Fantasy([[pagecount pages="link(tag/books/fantasy) and !blog and !tag"]])|categories/books/fantasy]]
 * [[Debian([[pagecount pages="link(tag/debian) and !blog and !tag"]])|categories/debian]]
      * [[Official([[pagecount pages="link(tag/debian/official) and !blog and !tag"]])|categories/debian/official]]
 * [[Software([[pagecount pages="link(tag/software) and !blog and !tag"]])|categories/software]]
