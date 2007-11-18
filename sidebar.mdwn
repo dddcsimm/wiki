@@ -20,9 +20,10 @@
      * [[Debian([[pagecount pages="link(tag/software/debian) and !blog and !tag"]])|categories/software/debian]]
      * [[IkiWiki([[pagecount pages="link(tag/software/ikiwiki) and !blog and !tag"]])|categories/software/ikiwiki]]
      * [[Security([[pagecount pages="link(tag/software/security) and !blog and !tag"]])|categories/software/security]]
-* [[Miscellaneous([[pagecount pages="link(tag/misc) and !blog and !tag"]])|categories/misc]]
+* [[Movies([[pagecount pages="link(tag/movies) and !blog and !tag"]])|categories/movies]]
 * [[Spam([[pagecount pages="link(tag/spam) and !blog and !tag"]])|categories/spam]]
 * [[Travel([[pagecount pages="link(tag/travel) and !blog and !tag"]])|categories/travel]]
+* [[Miscellaneous([[pagecount pages="link(tag/misc) and !blog and !tag"]])|categories/misc]]
 
 ---
 
