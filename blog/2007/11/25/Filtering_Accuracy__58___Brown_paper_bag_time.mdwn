@@ -19,7 +19,8 @@ corpus in chunks. I cam up with an [initialization
 script](/software/misc/init-train.sh.html) to feed my corpus to a
 blank css file in 200 mail chunks; and, while it was at it, renumber
 the corpus mails (over the years, as I cleaned the corpus, gaps had
-appeared in the numbering).
+appeared in the numbering). I have also updated the 
+[retraining script](/software/misc/re-learn-crm114.html)
 
 Voila. I am getting a new set of css files which do not appear to show
 any errors for mails crm114 has already learned about -- in other
