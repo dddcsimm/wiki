@@ -1,0 +1,39 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Filtering Accuracy: Brown paper bag time"]]
+[[tag spam]]
+
+After posting about
+[filtering accuracy](2007/11/05/Filtering_accuracy__58___Hard_numbers)
+I got to thinking about the test I was using.  It appeared to me that
+there should be no errors in the mails that crm114 had already been
+trained upon -- but here I was, coming up with errors when I trained
+the css files until there were no errors, and then used a reg exp that
+tried to find the accuracy of classification for _all_ the files, not
+just new ones. This did not make sense.
+
+The only explanation was that my css files were not properly created
+-- and I thought to try an experiment where isntead of trying to throw
+my whole corpus as one chunk at a blank css file, I would feed the
+corpus in chunks. I cam up with an [initialization
+script](/software/misc/init-train.sh.html) to feed my corpus to a
+blank css file in 200 mail chunks; and, while it was at it, renumber
+the corpus mails (over the years, as I cleaned the corpus, gaps had
+appeared in the numbering).
+
+Voila. I am getting a new set of css files which do not appear to show
+any errors for mails crm114 has already learned about -- in other
+words, for mails it has seen, the accuracy is now 100%, not 99.5% as
+it was a couple of days ago.
+
+While it is good news in that my classification accuracy is better
+than it was last week; the bad news is that I no longer have concrete
+number on accuracy for crm114 anymore -- the mechanism used now gives
+100% accuracy all the time.  The funny thing is, I recall going
+through this analysis a couple of years ago, where I predicted that
+one could only check for accuracy with a test corpus that had the same
+characteristics as real mail inflow, and which had not been used for
+learning. That wold mean I would have classified testing corpus that
+could improve the efficiency of my filter, but was not being used to
+provide accuracy numbers -- I have gone for improving the filter, at
+the cost of knowing how accurate they actually are. 
