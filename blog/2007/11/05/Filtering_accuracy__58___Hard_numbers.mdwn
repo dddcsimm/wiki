@@ -3,6 +3,9 @@
 [[meta title="Filtering accuracy: Hard numbers"]]
 [[tag spam]]
 
+**UPDATE:** This posting has severe flaws, which were discovered
+subsequently.  Please ignore.
+
 I have often posted on the accuracy of my mail filtering mechanisms on
 the mailing lists (I have not had a false positive in years, and I
 stash all discards/rejects locally, and do spot checks frequently; and
@@ -35,6 +38,10 @@ have some figures on <em>one</em> of the two classifies in my system.
 Here is the data from CRM114.  I'll
 [update the numbers](/software/spam/crm114_accuracy.html) below via cron.
 
+
+**UPDATE:** *The css files used below were malformed, and the process
+of creating them detailed below is flawed. Please see newer postings
+in this category.*
 
 First, some context: when training CRM114 using the
 <code>mailtrainer</code> command, one can specify to leave out a
