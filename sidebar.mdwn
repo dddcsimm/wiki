@@ -13,6 +13,7 @@
    * [[Classics([[pagecount pages="link(tag/books/classics) and !blog and !tag"]])|categories/books/classics]]
    * [[Espionage([[pagecount pages="link(tag/books/espionage) and !blog and !tag"]])|categories/books/espionage]]
    * [[Fantasy([[pagecount pages="link(tag/books/fantasy) and !blog and !tag"]])|categories/books/fantasy]]
+   * [[Sci-Fi([[pagecount pages="link(tag/books/scifi) and !blog and !tag"]])|categories/books/scifi]]
 * [[Debian([[pagecount pages="link(tag/debian) and !blog and !tag"]])|categories/debian]]
      * [[Official([[pagecount pages="link(tag/debian/official) and !blog and !tag"]])|categories/debian/official]]
 * [[Software([[pagecount pages="link(tag/software) and !blog and !tag"]])|categories/software]]
