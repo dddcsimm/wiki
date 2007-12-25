@@ -1,7 +1,7 @@
 [[meta author="Manoj"]]
 [[meta license="GPL"]]
 [[meta title="The way of the wolf"]]
-[[tag books/scifi]]
+[[tag books books/scifi]]
 
 This is a SCi-Fi series from E. E. Knight. It is not often that one
 comes across a brand new series in fantasy or science fiction; and
