@@ -10,9 +10,11 @@
 ####Categories([[pagecount pages="blog/* and !*/Discussion"]])
 
 * [[Books([[pagecount pages="link(tag/books) and !blog and !tag"]])|categories/books]]
+   * [[Action([[pagecount pages="link(tag/books/action) and !blog and !tag"]])|categories/books/action]]
    * [[Classics([[pagecount pages="link(tag/books/classics) and !blog and !tag"]])|categories/books/classics]]
    * [[Espionage([[pagecount pages="link(tag/books/espionage) and !blog and !tag"]])|categories/books/espionage]]
    * [[Fantasy([[pagecount pages="link(tag/books/fantasy) and !blog and !tag"]])|categories/books/fantasy]]
+   * [[Fiction([[pagecount pages="link(tag/books/fiction) and !blog and !tag"]])|categories/books/fiction]]
    * [[Sci-Fi([[pagecount pages="link(tag/books/scifi) and !blog and !tag"]])|categories/books/scifi]]
 * [[Debian([[pagecount pages="link(tag/debian) and !blog and !tag"]])|categories/debian]]
      * [[Official([[pagecount pages="link(tag/debian/official) and !blog and !tag"]])|categories/debian/official]]
