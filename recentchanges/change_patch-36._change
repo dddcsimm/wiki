@@ -1,0 +1,38 @@
+[[meta author="""Manoj Srivastava <srivasta@debian.org>
+"""]]
+
+[[meta authorurl="""http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link"""]]
+
+[[meta title="""change to sidebar.mdwn
+ on Tales from the Gryphon"""]]
+<div class="metadata">
+<span class="desc"><br />Changed pages:</span>
+<span class="pagelinks">
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=sidebar.mdwn%0A&amp;do=recentchanges_link">sidebar.mdwn
+</a>
+
+
+</span>
+<span class="desc"><br />Changed by:</span>
+<span class="committer">
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link">Manoj Srivastava <srivasta@debian.org>
+</a>
+
+</span>
+<span class="desc"><br />Commit type:</span>
+<span class="committype">tla</span>
+<span class="desc"><br />Date:</span>
+<span class="changedate">03:38:25 PM 11/08/2007</span>
+</div>
+<div class=changelog>
+
+
+Add the fantsy books section.
+<br />
+
+
+</div>
+<!-- patch-36 -->

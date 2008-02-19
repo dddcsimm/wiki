@@ -1,0 +1,62 @@
+[[meta author="""Manoj Srivastava <srivasta@debian.org>
+"""]]
+
+[[meta authorurl="""http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link"""]]
+
+[[meta title="""change to blog/Guessnet:_welcome_back.mdwn
+ blog/software/Burninating_spam.mdwn
+ blog/software/debian/Moving_policy_to_arch.debian.org.mdwn
+ blog/software/misc/User_Mode_Linux:_not_ready_for_prime_time__85__.mdwn
+ blog/software/security/Using_SELinux_UMLs:_A_recipe.mdwn
+ on Tales from the Gryphon"""]]
+<div class="metadata">
+<span class="desc"><br />Changed pages:</span>
+<span class="pagelinks">
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2FGuessnet%3A_welcome_back.mdwn%0A&amp;do=recentchanges_link">blog/Guessnet: welcome back.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2Fsoftware%2FBurninating_spam.mdwn%0A&amp;do=recentchanges_link">blog/software/Burninating spam.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2Fsoftware%2Fdebian%2FMoving_policy_to_arch.debian.org.mdwn%0A&amp;do=recentchanges_link">blog/software/debian/Moving policy to arch.debian.org.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2Fsoftware%2Fmisc%2FUser_Mode_Linux%3A_not_ready_for_prime_time__85__.mdwn%0A&amp;do=recentchanges_link">blog/software/misc/User Mode Linux: not ready for prime time&#85;.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2Fsoftware%2Fsecurity%2FUsing_SELinux_UMLs%3A_A_recipe.mdwn%0A&amp;do=recentchanges_link">blog/software/security/Using SELinux UMLs: A recipe.mdwn
+</a>
+
+
+</span>
+<span class="desc"><br />Changed by:</span>
+<span class="committer">
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link">Manoj Srivastava <srivasta@debian.org>
+</a>
+
+</span>
+<span class="desc"><br />Commit type:</span>
+<span class="committype">tla</span>
+<span class="desc"><br />Date:</span>
+<span class="changedate">04:13:05 AM 12/08/2006</span>
+</div>
+<div class=changelog>
+
+
+Fix shortcut usage
+<br />
+
+
+</div>
+<!-- patch-2 -->
