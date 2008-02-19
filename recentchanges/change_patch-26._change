@@ -1,0 +1,60 @@
+[[meta author="""Manoj Srivastava <srivasta@debian.org>
+"""]]
+
+[[meta authorurl="""http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link"""]]
+
+[[meta title="""change to archives/2007/08 blog/2007/08/.arch-ids/=id
+ blog/2007/08/20/.arch-ids/=id
+ blog/2007/08/20/Mail_Filtering_with_CRM114__58___Part_4.mdwn
+ local.css
+ on Tales from the Gryphon"""]]
+<div class="metadata">
+<span class="desc"><br />Changed pages:</span>
+<span class="pagelinks">
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=archives%2F2007%2F08&amp;do=recentchanges_link">archives/2007/08</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2007%2F08%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2007/08/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2007%2F08%2F20%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2007/08/20/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2007%2F08%2F20%2FMail_Filtering_with_CRM114__58___Part_4.mdwn%0A&amp;do=recentchanges_link">blog/2007/08/20/Mail Filtering with CRM114&#58; Part 4.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=local.css%0A&amp;do=recentchanges_link">local.css
+</a>
+
+
+</span>
+<span class="desc"><br />Changed by:</span>
+<span class="committer">
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link">Manoj Srivastava <srivasta@debian.org>
+</a>
+
+</span>
+<span class="desc"><br />Commit type:</span>
+<span class="committype">tla</span>
+<span class="desc"><br />Date:</span>
+<span class="changedate">12:25:44 AM 08/20/2007</span>
+</div>
+<div class=changelog>
+
+
+Added final blog entry for spam filtering.
+<br />
+
+
+</div>
+<!-- patch-26 -->

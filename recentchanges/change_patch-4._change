@@ -1,0 +1,92 @@
+[[meta author="""Manoj Srivastava <srivasta@debian.org>
+"""]]
+
+[[meta authorurl="""http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link"""]]
+
+[[meta title="""change to categories/.arch-ids/=id
+ categories/debian categories/debian/.arch-ids/=id
+ categories/debian/official categories/misc.mdwn
+ categories/software.mdwn
+ categories/software/.arch-ids/=id
+ categories/software/debian.mdwn
+ categories/software/misc.mdwn
+ categories/software/security.mdwn
+  on Tales from the Gryphon"""]]
+<div class="metadata">
+<span class="desc"><br />Changed pages:</span>
+<span class="pagelinks">
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">categories/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fdebian&amp;do=recentchanges_link">categories/debian</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fdebian%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">categories/debian/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fdebian%2Fofficial&amp;do=recentchanges_link">categories/debian/official</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fmisc.mdwn%0A&amp;do=recentchanges_link">categories/misc.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fsoftware.mdwn%0A&amp;do=recentchanges_link">categories/software.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fsoftware%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">categories/software/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fsoftware%2Fdebian.mdwn%0A&amp;do=recentchanges_link">categories/software/debian.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fsoftware%2Fmisc.mdwn%0A&amp;do=recentchanges_link">categories/software/misc.mdwn
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=categories%2Fsoftware%2Fsecurity.mdwn%0A&amp;do=recentchanges_link">categories/software/security.mdwn
+</a>
+
+
+
+...
+
+
+</span>
+<span class="desc"><br />Changed by:</span>
+<span class="committer">
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link">Manoj Srivastava <srivasta@debian.org>
+</a>
+
+</span>
+<span class="desc"><br />Commit type:</span>
+<span class="committype">tla</span>
+<span class="desc"><br />Date:</span>
+<span class="changedate">12:53:43 PM 12/08/2006</span>
+</div>
+<div class=changelog>
+
+
+Added category navigation, and made sure our css validates.
+<br />
+
+
+</div>
+<!-- patch-4 -->

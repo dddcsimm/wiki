@@ -1,0 +1,96 @@
+[[meta author="""Manoj Srivastava <srivasta@debian.org>
+"""]]
+
+[[meta authorurl="""http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link"""]]
+
+[[meta title="""change to blog/2004/.arch-ids/=id
+ blog/2004/05/.arch-ids/=id
+ blog/2004/05/31/.arch-ids/=id
+ blog/2004/06/.arch-ids/=id
+ blog/2004/06/03/.arch-ids/=id
+ blog/2004/06/18/.arch-ids/=id
+ blog/2004/07/.arch-ids/=id
+ blog/2004/07/14/.arch-ids/=id
+ blog/2004/07/19/.arch-ids/=id
+ blog/2004/07/27/.arch-ids/=id
+  on Tales from the Gryphon"""]]
+<div class="metadata">
+<span class="desc"><br />Changed pages:</span>
+<span class="pagelinks">
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F05%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/05/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F05%2F31%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/05/31/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F06%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/06/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F06%2F03%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/06/03/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F06%2F18%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/06/18/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F07%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/07/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F07%2F14%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/07/14/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F07%2F19%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/07/19/.arch-ids/=id
+</a>
+
+
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=blog%2F2004%2F07%2F27%2F.arch-ids%2F%3Did%0A&amp;do=recentchanges_link">blog/2004/07/27/.arch-ids/=id
+</a>
+
+
+
+...
+
+
+</span>
+<span class="desc"><br />Changed by:</span>
+<span class="committer">
+
+<a href="http://anzu.internal.golden-gryphon.com/ikiwiki-bin/ikiwiki.cgi?page=Manoj%20Srivastava%20%3Csrivasta%40debian.org%3E%0A&amp;do=recentchanges_link">Manoj Srivastava <srivasta@debian.org>
+</a>
+
+</span>
+<span class="desc"><br />Commit type:</span>
+<span class="committype">tla</span>
+<span class="desc"><br />Date:</span>
+<span class="changedate">01:46:42 PM 12/08/2006</span>
+</div>
+<div class=changelog>
+
+
+Reorganize the archive based on date.
+<br />
+
+
+</div>
+<!-- patch-5 -->
