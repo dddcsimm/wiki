@@ -20,6 +20,7 @@
      * [[Official([[pagecount pages="link(tag/debian/official) and !blog and !tag"]])|categories/debian/official]]
 * [[Software([[pagecount pages="link(tag/software) and !blog and !tag"]])|categories/software]]
      * [[Arch([[pagecount pages="link(tag/software/arch) and !blog and !tag"]])|categories/software/arch]]
+     * [[Git([[pagecount pages="link(tag/software/git) and !blog and !tag"]])|categories/software/git]]
      * [[Debian([[pagecount pages="link(tag/software/debian) and !blog and !tag"]])|categories/software/debian]]
      * [[IkiWiki([[pagecount pages="link(tag/software/ikiwiki) and !blog and !tag"]])|categories/software/ikiwiki]]
      * [[Security([[pagecount pages="link(tag/software/security) and !blog and !tag"]])|categories/software/security]]
