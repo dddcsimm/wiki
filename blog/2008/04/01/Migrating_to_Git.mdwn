@@ -1,0 +1,46 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Migrating to Git"]]
+[[tag software software/git]]
+
+
+I have been using Arch to package my Debian packages since 2003;
+which means that Arch has had a good long run as my SCM of choice. I
+have been using CVS for a few years before I moved to arch, and the
+migration took me about six months, since it involved a while new
+philosophy of packaging; I am hoping that migrating to git would not
+involve such a major paradigm shift, and thus be less disruptive and
+time consuming. What follows is a narrative of my efforts to get
+educated about Git.
+
+[This article](/software/misc/git.html#sec-2) is meant to be an
+annotated, selective, organized set of links to information about
+Git. How does it differ from the myriad of other link collections
+about Git proliferating on the web? Well, the value add is in the
+annotations and the organization: while not quite a narrative of my
+exploration, this is an idealized version of what I think my discovery
+process should have been, to be most effective.  Staging the
+information is important; google finds one lots of information that is
+incomprehensible to someone just coming to Git.  This selection of
+links _is_ actually selective; I have included only pointers to
+resources that fed me information at the level that I could handle at
+that stage, and I have eliminated links to information that was not
+new at that point. I have tried to select the best (in terms of
+information and clarity) of breed for each kind of information source
+I have come across so far.
+
+There is a caveat: while still a beginner, though I am able to better
+judge now what is confusing to a beginner than I shall be when I have
+become more familiar with the system, I am still enough of a novice
+not to trust my judgement on what really is best practice. I can fix
+the latter as I gain experience, but then I'll need to be careful not
+to overload on complexity too early in the learning curve.
+
+On the down side, [this selection](/software/misc/git.html#sec-2) is
+subjective, and probably shall be even in the long term: I include
+what appealed to me, and will probably miss loads of pointers to
+information that I have not yet come across. However, I hope this will
+make it easier for other people to reach the same goal: use git for
+their version control needs.
+
+Have fun.
