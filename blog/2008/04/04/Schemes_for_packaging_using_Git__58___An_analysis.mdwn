@@ -1,0 +1,41 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Schemes for packaging using Git: An analysis"]]
+[[tag software software/git]]
+
+
+"Are you rebasing or merging?" seems to be the 64 thousand dollar
+question over in [vcs-pkg](http://vcs-pkg.org/) discussions. Various
+people have offered their preferences, and indeed, several case
+studies of work flows have been presented, what is lacking is an
+_analysis_ of the work-flow; an exploration of which methodology has
+advantages, and whether there are scenarios in which the _other_ work
+flow would have been better.
+
+Oh, what are all these work flows about, you ask?  Most of the issues
+with packaging software for distributions have a few things in common:
+there is a mainline or upstream source of development. There are zero
+or more independent lines of development or ongoing bug fixes that are
+to be managed. And then there is the tree from which the distribution
+package is to be built. All this talk about packaging software work
+flows is how to best manage asynchronous development upstream and in
+the independent lines of development, and how to create a coherent,
+debuggable, integrated tree from which to build the distributions
+package.
+
+The rebasing question goes to the heart of how to handle the
+independent lines of development using git; since these lines of
+development are based off the main line of development, and must be
+periodically synchronized.  [Here is a first
+look](/software/misc/packaging.html#sec-2) at a couple of important
+factors that will have bearing on that question, and packaging
+software for a distribution using Git in general. This is heavily
+geared towards git (nothing else does rebases so easily, I think), but
+some of the concepts should be generic.  I am not considering the
+stacked set of quilt patches source controlled with Git in this
+article (I don't understand that model well enough to do an analysis)
+
+As a teaser, there is a third answer: neither. You can just add an
+independent line of development, and just let it sit: don't rebase,
+and don't merge; and in some circumstances that is a winning
+strategy. 
