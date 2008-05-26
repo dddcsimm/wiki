@@ -8,11 +8,11 @@
 * * * * *
 
 
-I spend a lot of time workin in front of a screen (many hours in a
+I spend a lot of time working in front of a screen (many hours in a
 dimly lit room) and eye fatigue is an issue. A consistent color
 scheme, especially one which is easy on the eyes, is important -- and
 it also helps to have way of doing that where the directives are not
-all scattered all over my elisp setup. Enter 
+all scattered all over my Emacs-lisp setup. Enter 
 [Emacs Color Themes](https://gna.org/projects/color-theme),
 available as the Debian package [[!debpkg emacs-goodies]]. Aided with a 
 [HSL color picker](http://www.workwithcolor.com/hsl-color-schemer-01.htm),
