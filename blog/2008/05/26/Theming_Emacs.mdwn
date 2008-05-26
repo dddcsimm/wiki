@@ -1,0 +1,56 @@
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[meta title="Theming Emacs"]]
+[[tag software]]
+
+I spend a lot of time workin in front of a screen (many hours in a
+dimly lit room) and eye fatigue is an issue. A consistent color
+scheme, especially one which is easy on the eyes, is important -- and
+it also helps to have way of doing that where the directives are not
+all scattered all over my elisp setup. Enter 
+[Emacs Color Themes](https://gna.org/projects/color-theme),
+available as the Debian package [[!debpkg emacs-goodies]]. Aided with a 
+[HSL color picker](http://www.workwithcolor.com/hsl-color-schemer-01.htm),
+I set around trying to create a dark color theme for Emacs.
+
+It does not help that I am blue-green color blind, so subtle
+variations are often lost on me. I do want to use color contrast to
+increase productivity, but I also want to avoid the jarring angry
+fruit salad look, and so I am in the process of crafting a logical
+color scheme that is high contrast enough for me, without being too
+unpleasing.
+
+In circumstances where there a lot of related faces that can be
+viewed, for example, the Gnus group buffer, consistent and logical
+color choices are the only sane option. Gnus groups can be news
+(bluish) or mail (greenish), have states (large number of under
+messages, normal, and empty). The large number unread groups have
+highest luminosity (appear brighter), and the empty one have lower
+luminosity (appear greyer), but have the same gue and saturation.
+Sub states and group priorities are rendered using a color series
+which has constant luminosity and saturation, and vary in hue by a
+constant separation -- so all the related groups have the same
+brightness ({mail,news}/{unread,normal,empty}), and a graded
+selection of foreground colors.  It sounds more complicated that it
+looks. The eye is drawn naturally to the unread groups, and first
+to the mail, then USENET groups (which is my preference).
+
+Similar color variations occur for individual messages in a group;
+high scoring messages bubble to the top, and have a higher
+luminosity.  This color schema has made me slightly faster at
+reading mail/USENET.
+
+In the message itself, quoted mail messages from different people
+are color coordinated, with high contrast between citations that are
+close to each other in the hierarchy, so it is less likely that one
+misunderstands who said what in a long conversation.
+
+The [resulting scheme]((/software/misc/manoj-colors.el.html) covers
+programming languages, Gnus, Erc, mail, org-mode, CUA-mode, apt-utils,
+bbdb, compilation buffers, changelog mode, diff and ediff, eshell, and
+more.  This has allowed me to consolidate all my color directives into
+a single file, and is in a format that might be usable by others.  See
+the [wiki page](http://www.emacswiki.org/cgi-bin/wiki?ColorTheme) for
+details about how to use and switch color themes in Emacs.
+
+Enjoy.
