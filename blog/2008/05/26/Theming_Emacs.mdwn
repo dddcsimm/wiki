@@ -3,6 +3,11 @@
 [[meta title="Theming Emacs"]]
 [[tag software]]
 
+* * * * *
+**Update** Added screenshots
+* * * * *
+
+
 I spend a lot of time workin in front of a screen (many hours in a
 dimly lit room) and eye fatigue is an issue. A consistent color
 scheme, especially one which is easy on the eyes, is important -- and
@@ -20,29 +25,30 @@ fruit salad look, and so I am in the process of crafting a logical
 color scheme that is high contrast enough for me, without being too
 unpleasing.
 
-In circumstances where there a lot of related faces that can be
-viewed, for example, the Gnus group buffer, consistent and logical
+[[!img images/groups.png size=182x206 class="floatr" alt="Gnus
+Groups"]] In circumstances where there a lot of related faces that can
+be viewed, for example, the Gnus group buffer, consistent and logical
 color choices are the only sane option. Gnus groups can be news
 (bluish) or mail (greenish), have states (large number of under
 messages, normal, and empty). The large number unread groups have
 highest luminosity (appear brighter), and the empty one have lower
-luminosity (appear greyer), but have the same gue and saturation.
-Sub states and group priorities are rendered using a color series
-which has constant luminosity and saturation, and vary in hue by a
-constant separation -- so all the related groups have the same
-brightness ({mail,news}/{unread,normal,empty}), and a graded
-selection of foreground colors.  It sounds more complicated that it
-looks. The eye is drawn naturally to the unread groups, and first
-to the mail, then USENET groups (which is my preference).
+luminosity (appear greyer), but have the same gue and saturation.  Sub
+states and group priorities are rendered using a color series which
+has constant luminosity and saturation, and vary in hue by a constant
+separation -- so all the related groups have the same brightness
+({mail,news}/{unread,normal,empty}), and a graded selection of
+foreground colors.  It sounds more complicated that it looks. The eye
+is drawn naturally to the unread groups, and first to the mail, then
+USENET groups (which is my preference).
+
 
 Similar color variations occur for individual messages in a group;
-high scoring messages bubble to the top, and have a higher
-luminosity.  This color schema has made me slightly faster at
-reading mail/USENET.
-
-In the message itself, quoted mail messages from different people
-are color coordinated, with high contrast between citations that are
-close to each other in the hierarchy, so it is less likely that one
+[[!img images/gnus.png class="floatr" size=182x208 alt="Gnus Groups"]]
+high scoring messages bubble to the top, and have a higher luminosity.
+This color schema has made me slightly faster at reading mail/USENET.
+In the message itself, quoted mail messages from different people are
+color coordinated, with high contrast between citations that are close
+to each other in the hierarchy, so it is less likely that one
 misunderstands who said what in a long conversation.
 
 The [resulting scheme](/software/misc/manoj-colors.el.html) covers

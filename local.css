@@ -988,6 +988,8 @@ p.caption {text-indent: 0; }
 span.skip                 { display: none }
 div.skip                  { display: none }
 
+.floatr { float: right }
+.floatl { float: left }
 
 /*
    * Get a nice, 3d look for tables
