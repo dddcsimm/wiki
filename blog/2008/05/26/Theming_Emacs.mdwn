@@ -45,7 +45,7 @@ are color coordinated, with high contrast between citations that are
 close to each other in the hierarchy, so it is less likely that one
 misunderstands who said what in a long conversation.
 
-The [resulting scheme]((/software/misc/manoj-colors.el.html) covers
+The [resulting scheme](/software/misc/manoj-colors.el.html) covers
 programming languages, Gnus, Erc, mail, org-mode, CUA-mode, apt-utils,
 bbdb, compilation buffers, changelog mode, diff and ediff, eshell, and
 more.  This has allowed me to consolidate all my color directives into
