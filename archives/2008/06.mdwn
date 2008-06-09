@@ -1,0 +1,5 @@
+[[meta title="Archives for 2008/06"]]
+[[meta author="Manoj"]]
+[[meta license="GPL"]]
+[[inline pages="blog/* and !*/Discussion and creation_year(2008) and creation_month(06)" rootpage="blog" atom="no" rss="no" show="0"]]
+

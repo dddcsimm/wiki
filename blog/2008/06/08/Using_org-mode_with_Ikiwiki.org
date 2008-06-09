@@ -1,0 +1,41 @@
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Using org-mode with Ikiwiki"]]
+[[!tag software software/ikiwiki]]
+#+TITLE:     Using org-mode for Ikiwiki
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta\@debian.org
+#+DATE:      <Sun Jun  8 23:22:24 CDT 2008>
+#+LANGUAGE:  en
+#+TEXT:      Using org mode to write ikiwiki posts
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+
+I have been much taken by [[http://orgmode.org/][org-mode]] in Emacs recently. Firstly, this
+has allowed me to actually effectively implement the tenets of
+"Getting things done", which is amazing by itself. I always used to
+start with great enthusiasm, which rarely lasted longer than a
+week. Until org-mode. Then this is so amazingly flexible. It has
+better handling of tables and even a spreadsheet mode than anything I
+have used --- and it has a pretty decent HTML export function. I
+practically live in org-mode on work days now. I strongly recommend
+org-mode, from things like agendas, TODO lists, calendars,
+appointments, articles, and now Ikiwiki posts.
+
+I rarely ever use markdown, apart from blogging using Ikiwiki -- and
+thus, since I blog so infrequently, I rarely ever remember all the
+syntax. On the other hand, org-mode syntax is now at my finger tips --
+so I decided it was time to write a Ikiwiki plugin so I can now write
+my blog posts using syntax I can actually remember. It is still rough
+around the edges -- firstly, this requires emacs23 (or, on Debian,
+there is the unofficial emacs-snapshot package), secondly, it uses
+hueristic hacks to prune away the bits of the stand alone HTML page
+that org-mode creates; all I can say is that it currently works for
+me, as you can see from this post. How git this is for mainlne
+inclusion is another matter.
+
+The code is here: [[http://www.golden-gryphon.com/software/misc/org.pm.html][org.pm]]. It can be dropped in to the Ikiwiki plug-in
+directory, and that's all you need.  With this, Ikiwiki pre-process
+things in the input file, and then passes it to emacs to htmlize it.

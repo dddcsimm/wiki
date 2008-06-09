@@ -972,6 +972,14 @@ p.caption {text-indent: 0; }
 .name { font-size: 4em; text-align: center }
 .oops { font-family: Jester, "Comic Sans MS", sans-serif }
 
+pre {
+  border: 1pt solid #AEBDCC;
+  background-color: #F3F5F7;
+  padding: 5pt;
+  font-family: courier, monospace;
+  font-size: 90%;
+}
+
 
 /*
    * This is used to create rules and additional markers for
@@ -1017,6 +1025,15 @@ dt {font-weight: bold;}
    * into the following content
    */
 dd {margin-bottom: 0.66em;}
+
+
+.title { text-align: center; }
+.todo  { color: red; }
+.done { color: green; }
+.timestamp { color: grey }
+.timestamp-kwd { color: CadetBlue }
+.tag { background-color:lightblue; font-weight:normal }
+.target { }
 
 .titletext
 {
