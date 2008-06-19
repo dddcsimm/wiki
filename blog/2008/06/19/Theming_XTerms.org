@@ -51,7 +51,7 @@ I set the colors for /rxvt/ as well as /xterm/. Now, the most
 noticeable effect of these changes is if using the color option for
 /ls/, therefore the next thing to do was to configure the colors used
 by /ls/ using a utility dedicated for that task, namely,
-/dircolors/. By trial and error, I modified the default configurati0on
+/dircolors/. By trial and error, I modified the default configuration
 provided by /dircolors/ and ended up with
 #+BEGIN_HTML
 [[dir_colors|miscellaneous/dir_colors.html]],
