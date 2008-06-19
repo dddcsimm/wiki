@@ -17,7 +17,7 @@
 
 After successfully
 #+BEGIN_HTML
-[[Theming_Emacs]],
+[[blog/2008/05/26/Theming_Emacs]],
 #+END_HTML
 I decoded to turn my efforts to
 providing more copacetic colors in other aspects of my working
