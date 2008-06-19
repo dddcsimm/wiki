@@ -1,0 +1,61 @@
+#+STARTUP: hidestars
+#+TITLE:     Theming XTerms
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta\@debian.org
+#+DATE:      <2008-06-19 Thu>
+#+LANGUAGE:  en
+#+TEXT:      Or configuring LS COLORS
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Theming XTerms"]]
+[[!tag software]]
+
+
+After successfully
+#+BEGIN_HTML
+[[Theming_Emacs]],
+#+END_HTML
+I decoded to turn my efforts to
+providing more copacetic colors in other aspects of my working
+environment. I'll write more about my effort to write my own color
+theme for
+#+BEGIN_HTML
+[[!debpkg fvwm]]
+#+END_HTML
+when it is closer to being done. For now, I'll
+concentrate on "ANSI Colors" in XTerms, and how one may theme those.
+The old Tektronics (or ANSI) terminals had 8 colors, namely, 
+/black, red, green, yellow, blue, magenta, cyan/,
+and /white/. These colors had a normal, and a *bright* mode. The
+default set of colors is OK, but is not optimal, since they have to
+work on both dark and light backgrounds; however, I use mostly dark
+background colors.
+
+#+BEGIN_HTML
+[[!img images/xterm.png class="floatr" size=96x50 alt="ls colors"]] 
+#+END_HTML
+Given that, I set to design my own colors, using fully laturated
+colors, with a base luminosity of 70, and equally spaced in chroma --
+and used the same saturation and chroma, but a luminosity of 80, for
+the bright set. This results in a pleasant pastely set of colors,
+which are e4asy on the eyes, when used on very dark backgrounds. 
+The configuration can be seen in
+#+BEGIN_HTML
+[[XTerm|miscellaneous/xterm_color.html]].
+#+END_HTML
+I set the colors for /rxvt/ as well as /xterm/. Now, the most
+noticeable effect of these changes is if using the color option for
+/ls/, therefore the next thing to do was to configure the colors used
+by /ls/ using a utility dedicated for that task, namely,
+/dircolors/. By trial and error, I modified the default configurati0on
+provided by /dircolors/ and ended up with
+#+BEGIN_HTML
+[[dir_colors|miscellaneous/dir_colors.html]],
+#+END_HTML
+with the results as you see.
+
+
