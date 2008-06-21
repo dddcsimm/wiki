@@ -82,7 +82,7 @@ So, here is a screen-shot of this in action: I start from my home
 directory, go to a directory not under version control, go to a
 project under git, then a different project with uncommitted files,
 and then finally to a subversion checkout. All with an angry fruit
-salad of colors warrantied to make Martin Kraft claw his eyes
+salad of colors warrantied to make Martin Krafft claw his eyes
 #+BEGIN_HTML
 out  [[smileys/biggrin.png]] .
 #+END_HTML
