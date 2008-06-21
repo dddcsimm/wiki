@@ -1,0 +1,108 @@
+#+STARTUP: hidestars
+#+TITLE:     The Command Prompt
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Fri Jun 20 23:31:11 2008>
+#+LANGUAGE:  en
+#+TEXT:      Or theming PS1 
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The Command Prompt"]]
+[[!tag software]]
+
+
+
+I am not fanatical about my command prompt.  No sirree, not me. It is
+just that I spend half my life either staring at an Emacs window, or
+at an xterm command prompt; so even a marginal boost in productivity
+goes a long way. And I am often logged in over ssh to machines half a
+continent away, and am still comfortable enough on the Linux VT to
+spend time there, and I often do not have the GUI gew-gaws feeding me
+data. Hmm. Data. inpuuut. No. *Must focus*.
+
+With all these open xterms and Emacs terminal mode frames floating
+around, it is easy to lose track of where I am on each terminal, and
+what the working directory is. So I want my command prompt to help me
+keep track of where I am. If the terminal is an xterm, the title can be
+setup like
+: "user@host:../shotened/path/to/current/working/dir"
+I want to know what machine, id (am I root?), and directory I am
+in. If I am deep down in the labyrinths of some work related directory
+tree, I want the path to be pruned, from the left, one component at a
+time. However, this does not help me on the console; so I also want
+the path to be in the command prompt; but it should not take up too
+much of the command line; and ideally, should just go away as I type a
+longish command. Gawd, I love zsh.
+
+I once did a analysis of the command history. The most often used
+command sequences were
+: cd some-place, ls
+So. /pwd/ and /ls/. I really really want to see the directory listing
+when I change directory to a new one. As one grows old, memorizing the
+directory contents for dozens of machines all the time taxes the gray
+cells a bit. So, I figure, why _not_ let the command prompt handle all
+that? Having the current working dir always visible cuts down a heck
+of a lot on the /pwd/ commands, and so all that's left is to insist
+that the command prompt thingy _always_ run /ls/ after a change
+directory. Simple enough. Saves on typing. And time. And this is _not_
+just some crazy talk.
+
+I want help with noticing whether the previous command exited with an
+error status (useful for commands that normally do not create an
+output). 
+
+If I am logged in to a machine on battery power, I want to know
+that. I also like visual cues to the amount of power remaining (good
+for my laptop on the long flights). I don't want to have to know f the
+machine uses APM or ACPI, I just want my prompt color to change as
+the power fades.
+
+I want my command prompt to let me know if I am in a directory which
+is under version control, and if so, what branch I am on. (I
+occasionally have to come in contact with arch, bzr, git, subversion,
+svk, and mercurial). If I am in a version controlled project, where I
+am relative to the root of the checked out tree is often more
+important than the absolute path, so I want to see relative paths, not
+absolute paths.
+
+I want to know if there are uncommitted files in the working
+directory. Visually. I want to be reminded if I am in the middle of an
+ongoing
+: rebase -i .
+This is not asking for too much, is it?
+
+#+BEGIN_HTML
+[[!img images/prompt.png class="floatr" size=100x86 alt="Command Prompt"]]
+#+END_HTML
+So, here is a screen-shot of this in action: I start from my home
+directory, go to a directory not under version control, go to a
+project under git, then a different project with uncommitted files,
+and then finally to a subversion checkout. All with an angry fruit
+salad of colors warrantied to make Martin Kraft claw his eyes
+#+BEGIN_HTML
+out  [[smileys/biggrin.png]] .
+#+END_HTML
+If you use zsh, then just grab hold of  
+#+BEGIN_HTML
+[[this|miscellaneous/prompt_manoj_setup.html]], 
+#+END_HTML
+and then do:
+: autoload -U promptinit
+: promptinit
+: prompt manoj
+This might be a bit of a hit on slow machines, but even my laptop is a
+core 2 duo, so I do not find it noticeable.
+
+Oh, and if you liked this article, you might also like
+#+BEGIN_HTML
+[[blog/2008/05/26/Theming_Emacs]],
+#+END_HTML
+and
+#+BEGIN_HTML
+[[blog/2008/06/19/Theming_XTerms]].
+#+END_HTML
+
