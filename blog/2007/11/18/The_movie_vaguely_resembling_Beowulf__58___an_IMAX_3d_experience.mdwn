@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The movie vaguely resembling Beowulf: an IMAX 3d experience"]]
-[[tag Movies]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The movie vaguely resembling Beowulf: an IMAX 3d experience"]]
+[[!tag Movies]]
 
 
 This should really be titled "A movie vaguely representing Beowulf, but

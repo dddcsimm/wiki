@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag software software/security]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag software software/security]]
 
 I finally got around to updating the SELinux UML
 <a href="/software/security/Se-Linux-uml.xhtml">recipe</a>

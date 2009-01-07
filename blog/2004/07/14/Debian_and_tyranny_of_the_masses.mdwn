@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian]]
 
 There have been various people positing that Debian is a
 democracy. It's not, thank god. Yes, we do occasionally vote on

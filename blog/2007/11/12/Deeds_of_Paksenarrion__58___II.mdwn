@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Deeds of Paksenarrion: II"]]
-[[tag books books/fantasy]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Deeds of Paksenarrion: II"]]
+[[!tag books books/fantasy]]
 
 *Divided Allegiance* is the middle of the trilogy, the one that I hate
 reading. Not because Ms Moon's book is bad, which it is not, it is

@@ -1,26 +1,26 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag misc]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag misc]]
 
-A while ago, my [[debpkg guessnet]] setup started
+A while ago, my [[!debpkg guessnet]] setup started
 messing up, just before a business trip, and I did not have the time
 to debug the error. After a quick consult on IRC, I installed and
-configured [[debpkg laptop-net]], which worked. 
+configured [[!debpkg laptop-net]], which worked. 
 
 While I had a working package that would let me carry my laptop from
 home to LUG to office, and various trips with Hotel networks once in a
 while, I always had to tell the system which scheme to use, since
 several of the networks used similar IP addresses and topologies
 (welcome to the world of NAT). I have never been comfortable with the
-fact that [[debpkg laptop-net]] did not consider MAC
+fact that [[!debpkg laptop-net]] did not consider MAC
 addresses while making its determinations.
 
-[[debpkg laptop-net]], on the other hand, is like a combination of
-[[debpkg ifplugd]], [[debpkg intuitively]], and [[debpkg switchconf]],
+[[!debpkg laptop-net]], on the other hand, is like a combination of
+[[!debpkg ifplugd]], [[!debpkg intuitively]], and [[!debpkg switchconf]],
 except better since it is all integrated and works
-seamlessly. [[debpkg guessnet]] does seem to work better for me,
+seamlessly. [[!debpkg guessnet]] does seem to work better for me,
 though, if for nothing else since it can actually determine where the
-laptop finds itself. I have successfully integrated [[debpkg
-guessnet]] in with [[debpkg ifplugd]], and made sure that things play
-nice even with [[debpkg hotplug]] in the picture. So I am a happy
+laptop finds itself. I have successfully integrated [[!debpkg
+guessnet]] in with [[!debpkg ifplugd]], and made sure that things play
+nice even with [[!debpkg hotplug]] in the picture. So I am a happy
 Guessnet camper once again.

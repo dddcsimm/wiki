@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The White Company"]]
-[[tag books books/classics ]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The White Company"]]
+[[!tag books books/classics ]]
 I had somehow managed to miss out on [The White
 Company](http://en.wikipedia.org/wiki/The_White_Company) while I was
 growing up and devouring all of Sherlock Holmes stories and *The Lost

@@ -1,2 +1,2 @@
-[[meta title="Blog postings about general books I am reading"]]
-[[inline pages="link(tag/books/fiction) and !blog and !tag" show="10" rootpage="blog"]]
+[[!meta title="Blog postings about general books I am reading"]]
+[[!inline pages="link(tag/books/fiction) and !blog and !tag" show="10" rootpage="blog"]]

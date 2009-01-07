@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Back from DC"]]
-[[tag travel]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Back from DC"]]
+[[!tag travel]]
 
 Both Judy and I managed to make it to DC for the annual company
 Christmas dinner, held this year at the tail end of January, since we

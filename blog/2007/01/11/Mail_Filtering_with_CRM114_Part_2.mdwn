@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Mail Filtering with CRM114: Part 2"]]
-[[tag spam]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Mail Filtering with CRM114: Part 2"]]
+[[!tag spam]]
 
 
 
@@ -53,7 +53,7 @@ I've also waffled over time about whether or not to treat
 **newsletters** from Dr. Dobbs Journal or USENIX as Spam or not --
 now my rule of thumb is that since I signed up for them at some point,
 they are not Spam -- though I don't feel guilty about letting 
-[[debpkg mailagent]] squirrel them away mostly out of sight.
+[[!debpkg mailagent]] squirrel them away mostly out of sight.
 
 A few tips about using mailtrainer:
 

@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Fear is the key"]]
-[[tag books books/action]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Fear is the key"]]
+[[!tag books books/action]]
 
 This is an old favorite from Alistair Maclean, and I'm revisiting this
 after some 20 odd years since the last time I read it. This books is

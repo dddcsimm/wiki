@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian]]
 
 Suppose I have a set of Trade Marks, all legally set up and
 registered. I write up some software, and I am so enamored of my Marks

@@ -1,5 +1,5 @@
-[[meta title="Archives for 2007"]]
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[inline pages="blog/* and !*/Discussion and creation_year(2007)" rootpage="blog" atom="no" rss="no" show="0"]]
+[[!meta title="Archives for 2007"]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!inline pages="blog/* and !*/Discussion and creation_year(2007)" rootpage="blog" atom="no" rss="no" show="0"]]
 

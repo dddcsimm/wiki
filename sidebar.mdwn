@@ -7,40 +7,40 @@
 
 ---
 
-####Categories([[pagecount pages="blog/* and !*/Discussion"]])
+####Categories([[!pagecount pages="blog/* and !*/Discussion"]])
 
-* [[Books([[pagecount pages="link(tag/books) and !blog and !tag"]])|categories/books]]
-   * [[Action([[pagecount pages="link(tag/books/action) and !blog and !tag"]])|categories/books/action]]
-   * [[Classics([[pagecount pages="link(tag/books/classics) and !blog and !tag"]])|categories/books/classics]]
-   * [[Espionage([[pagecount pages="link(tag/books/espionage) and !blog and !tag"]])|categories/books/espionage]]
-   * [[Fantasy([[pagecount pages="link(tag/books/fantasy) and !blog and !tag"]])|categories/books/fantasy]]
-   * [[Fiction([[pagecount pages="link(tag/books/fiction) and !blog and !tag"]])|categories/books/fiction]]
-   * [[Sci-Fi([[pagecount pages="link(tag/books/scifi) and !blog and !tag"]])|categories/books/scifi]]
-* [[Debian([[pagecount pages="link(tag/debian) and !blog and !tag"]])|categories/debian]]
-     * [[Official([[pagecount pages="link(tag/debian/official) and !blog and !tag"]])|categories/debian/official]]
-* [[Software([[pagecount pages="link(tag/software) and !blog and !tag"]])|categories/software]]
-     * [[Arch([[pagecount pages="link(tag/software/arch) and !blog and !tag"]])|categories/software/arch]]
-     * [[Git([[pagecount pages="link(tag/software/git) and !blog and !tag"]])|categories/software/git]]
-     * [[Debian([[pagecount pages="link(tag/software/debian) and !blog and !tag"]])|categories/software/debian]]
-     * [[IkiWiki([[pagecount pages="link(tag/software/ikiwiki) and !blog and !tag"]])|categories/software/ikiwiki]]
-     * [[Security([[pagecount pages="link(tag/software/security) and !blog and !tag"]])|categories/software/security]]
-* [[Movies([[pagecount pages="link(tag/movies) and !blog and !tag"]])|categories/movies]]
-* [[Spam([[pagecount pages="link(tag/spam) and !blog and !tag"]])|categories/spam]]
-* [[Travel([[pagecount pages="link(tag/travel) and !blog and !tag"]])|categories/travel]]
-* [[Miscellaneous([[pagecount pages="link(tag/misc) and !blog and !tag"]])|categories/misc]]
+* [[Books([[!pagecount pages="link(tag/books) and !blog and !tag"]])|categories/books]]
+   * [[Action([[!pagecount pages="link(tag/books/action) and !blog and !tag"]])|categories/books/action]]
+   * [[Classics([[!pagecount pages="link(tag/books/classics) and !blog and !tag"]])|categories/books/classics]]
+   * [[Espionage([[!pagecount pages="link(tag/books/espionage) and !blog and !tag"]])|categories/books/espionage]]
+   * [[Fantasy([[!pagecount pages="link(tag/books/fantasy) and !blog and !tag"]])|categories/books/fantasy]]
+   * [[Fiction([[!pagecount pages="link(tag/books/fiction) and !blog and !tag"]])|categories/books/fiction]]
+   * [[Sci-Fi([[!pagecount pages="link(tag/books/scifi) and !blog and !tag"]])|categories/books/scifi]]
+* [[Debian([[!pagecount pages="link(tag/debian) and !blog and !tag"]])|categories/debian]]
+     * [[Official([[!pagecount pages="link(tag/debian/official) and !blog and !tag"]])|categories/debian/official]]
+* [[Software([[!pagecount pages="link(tag/software) and !blog and !tag"]])|categories/software]]
+     * [[Arch([[!pagecount pages="link(tag/software/arch) and !blog and !tag"]])|categories/software/arch]]
+     * [[Git([[!pagecount pages="link(tag/software/git) and !blog and !tag"]])|categories/software/git]]
+     * [[Debian([[!pagecount pages="link(tag/software/debian) and !blog and !tag"]])|categories/software/debian]]
+     * [[IkiWiki([[!pagecount pages="link(tag/software/ikiwiki) and !blog and !tag"]])|categories/software/ikiwiki]]
+     * [[Security([[!pagecount pages="link(tag/software/security) and !blog and !tag"]])|categories/software/security]]
+* [[Movies([[!pagecount pages="link(tag/movies) and !blog and !tag"]])|categories/movies]]
+* [[Spam([[!pagecount pages="link(tag/spam) and !blog and !tag"]])|categories/spam]]
+* [[Travel([[!pagecount pages="link(tag/travel) and !blog and !tag"]])|categories/travel]]
+* [[Miscellaneous([[!pagecount pages="link(tag/misc) and !blog and !tag"]])|categories/misc]]
 
 ---
 
 ####Archives
 
-[[calendar type="year" months_per_row="6"  pages="blog/* and !*/Discussion"]]
+[[!calendar type="year" months_per_row="6"  pages="blog/* and !*/Discussion"]]
 
-[[calendar type="month" pages="blog/* and !*/Discussion"]]
+[[!calendar type="month" pages="blog/* and !*/Discussion"]]
 
 
 <h4>Indices</h4>
 
-[[map pages="archives/* and !*/Discussion"]]
+[[!map pages="archives/* and !*/Discussion"]]
 
 ---
 

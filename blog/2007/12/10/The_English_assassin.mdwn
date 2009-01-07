@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The English assassin"]]
-[[tag books books/espionage]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The English assassin"]]
+[[!tag books books/espionage]]
 
 This is the first of a trilogy that Silva has written around the Nazi
 looting of the wealth of the Jews of Europe, specifically the art, in

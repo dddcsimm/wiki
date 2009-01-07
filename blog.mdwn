@@ -1,1 +1,1 @@
-[[inline pages="blog/* and !*/Discussion" show="10" rootpage="blog"]]
+[[!inline pages="blog/* and !*/Discussion" show="10" rootpage="blog"]]

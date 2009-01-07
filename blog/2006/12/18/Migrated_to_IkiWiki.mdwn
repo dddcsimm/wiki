@@ -1,9 +1,9 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="I am now an Ikiwiki user!"]]
-[[tag misc]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="I am now an Ikiwiki user!"]]
+[[!tag misc]]
 
-[[template id="icon" icon="/media/icons/ikiwiki_button.png" alt="Ikiwiki"]]
+[[!template id="icon" icon="/media/icons/ikiwiki_button.png" alt="Ikiwiki"]]
 
 Well, this is first post. I have managed to migrate my blog over to
 Ikiwiki, including all the historical posts.  The reasons for

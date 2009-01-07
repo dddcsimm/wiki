@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian]]
 
 It has been a tumultuous decade of involvement with Debian for me. I
 had been on the mailing list since mid 1994, but I was reasonably

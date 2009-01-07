@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The kill artist"]]
-[[tag books books/espionage]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The kill artist"]]
+[[!tag books books/espionage]]
 
 The first Gabriel Allon novel by Daniel Silva.  It feels much better
 than the Michael Osborne series; I can begin to feel that Gabriel is

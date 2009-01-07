@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Deeds of Paksenarrion"]]
-[[tag books books/fantasy]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Deeds of Paksenarrion"]]
+[[!tag books books/fantasy]]
 
 *Sheep Farmers Daughter* is an old favourite, which I have read lord
 only knows how many times. Elizabeth Moon has written a gritty,

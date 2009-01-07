@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="A death in Vienna"]]
-[[tag books books/espionage]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="A death in Vienna"]]
+[[!tag books books/espionage]]
 
 The final part of the Nazi escapees and the collaborators that helped
 them.  This book takes aim at the Swiss banking system, flush with

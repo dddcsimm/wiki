@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Mail Filtering With CRM114: Introduction"]]
-[[tag spam]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Mail Filtering With CRM114: Introduction"]]
+[[!tag spam]]
 
 I have a fairly sophisticated Spam filtering mechanism setup, using
 *MIMeDefang* for SMTP level rejection of Spam, *grey-listing* for

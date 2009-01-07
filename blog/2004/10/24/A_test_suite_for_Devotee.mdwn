@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag software software/debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag software software/debian]]
 
 I have been thinking about informally going through NM (perhaps with
 an AM who wants some practice) for a while now (and have been

@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Tai-Pan"]]
-[[tag books books/fiction]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Tai-Pan"]]
+[[!tag books books/fiction]]
 
 And old favorite from James Clavell. I have lost track of how often I
 have read this book -- often enough, certainly, that certain chapters

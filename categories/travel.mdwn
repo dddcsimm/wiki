@@ -1,2 +1,2 @@
-[[meta title="Blog postings related to travelling"]]
-[[inline pages="link(tag/travel) and !blog and !tag" show="10" rootpage="blog"]]
+[[!meta title="Blog postings related to travelling"]]
+[[!inline pages="link(tag/travel) and !blog and !tag" show="10" rootpage="blog"]]

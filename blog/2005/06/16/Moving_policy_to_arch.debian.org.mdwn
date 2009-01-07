@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag software software/debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag software software/debian]]
 
 I have long been interested in moving the debian-policy package away
 from CVS, but had never quite managed to gather enough motivation to
@@ -9,14 +9,14 @@ finally managed to file a support ticket, and nag Wichert into
 creating the arch project for policy.
 
 The first step was to convert the CVS version into an arch repository,
-and this is where [[debpkg cscvs]] comes in. cscvs is
+and this is where [[!debpkg cscvs]] comes in. cscvs is
 nice, but I am told that Canonical has a better, private version, and
 helpful folks there offered to do a managed conversion to arch for me
 using these cutting edge tools. I declined, being persnickety enough
 to want to convert Debian technical policy using tools in Debian
 itself. And, apart from two change-sets (numbers 117 and 125), cscvs
 managed to do the conversion to arch (the
-[[debpkg bazaar]] flavour) nicely on its own (well,
+[[!debpkg bazaar]] flavour) nicely on its own (well,
 after a few false starts as I climbed the learning curve). Came to 283
 change-sets. Have a look at [my Debian policy branch][local].
 It can be registered at 

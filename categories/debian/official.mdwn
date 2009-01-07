@@ -1,2 +1,2 @@
-[[meta title="Blog postings about my official duties in Debian"]]
-[[inline pages="link(tag/debian/official) and !blog and !tag" show="10" rootpage="blog"]]
+[[!meta title="Blog postings about my official duties in Debian"]]
+[[!inline pages="link(tag/debian/official) and !blog and !tag" show="10" rootpage="blog"]]

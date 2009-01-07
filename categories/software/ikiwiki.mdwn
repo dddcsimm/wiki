@@ -1,2 +1,2 @@
-[[meta title="Blog postings about my IkiWiki setup"]]
-[[inline pages="link(tag/software/ikiwiki) and !blog and !tag" show="10" rootpage="blog"]]
+[[!meta title="Blog postings about my IkiWiki setup"]]
+[[!inline pages="link(tag/software/ikiwiki) and !blog and !tag" show="10" rootpage="blog"]]

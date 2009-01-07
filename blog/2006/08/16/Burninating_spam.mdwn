@@ -1,16 +1,16 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag spam]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag spam]]
 
 It is funny that people say that no one has written software that does
 Beysian filtering in order to reject Spam at the SMTP level, just when
-I felt like writing up my [[debpkg mimedefang]] setup. I
+I felt like writing up my [[!debpkg mimedefang]] setup. I
 am of the school of thought that the only acceptable method of dealing
 with spam is to reject it at the SMTP protocol level. To accomplish
-this, I run [[debpkg crm114]] and
-[[debpkg spamassassin]] from my
+this, I run [[!debpkg crm114]] and
+[[!debpkg spamassassin]] from my
 <em>mimedefang-filter</em>, which runs as a <em>milter</em> while my
-[[debpkg sendmail]] is processing mail. I also do
+[[!debpkg sendmail]] is processing mail. I also do
 conditional grey listing, more on that below.
 
 The reason for running two different Spam detection mechanisms is that
@@ -23,7 +23,7 @@ roughly a 800 mails a day volume, I get about one or two spam messages
 a day, and did not ever reject a mail I manually would classify as ham
 in the 6 months n which I double checked every decision taken by my
 system, and in the spot checks I continue to perform. While this is
-not as good a record as the author of  [[debpkg crm114]]
+not as good a record as the author of  [[!debpkg crm114]]
 reports, it is good enough for me.
 
 The grey listing: since I try to be conservative, and opt to lean
