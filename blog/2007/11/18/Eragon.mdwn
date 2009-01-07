@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Eragon"]]
-[[tag movies]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Eragon"]]
+[[!tag movies]]
 
 I liked the book.  Sure, it is "The Lord of the Rings" meets "Star
 Wars", but, the book had a nice flow -- and it was written by a

@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The children of men"]]
-[[tag movies]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The children of men"]]
+[[!tag movies]]
 
 A nicely placed movie about a bleak future, and how people cope with
 despair and desperate times. While it did not quite come together in

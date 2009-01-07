@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian debian/official]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian debian/official]]
 
 I finally got time from my day job to set up the infrastructure for a
 vote. This entailed setting up a temporary vote key (the key I had set

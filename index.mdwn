@@ -1,4 +1,4 @@
-[[pagestats pages="tag/*"]]
+[[!pagestats pages="tag/*"]]
 
-[[inline pages="blog/* and !*/Discussion" show="10"]]
+[[!inline pages="blog/* and !*/Discussion" show="10"]]
 

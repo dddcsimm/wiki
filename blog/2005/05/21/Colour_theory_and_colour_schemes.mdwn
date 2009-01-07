@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag misc]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag misc]]
 
 
 No longer having an excuse for not creating my web site (researched

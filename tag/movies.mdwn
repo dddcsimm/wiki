@@ -1,5 +1,5 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
 
 This is a category that contains entries about the movies I see.
 

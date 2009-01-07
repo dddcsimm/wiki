@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag software]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag software]]
 
 What is an appliance? A refrigerator is a prime example: I can walk
 to a refrigerator in Hong Kong, and know how to use it: I open the

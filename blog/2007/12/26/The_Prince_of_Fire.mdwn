@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The Prince of Fire"]]
-[[tag books books/espionage]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The Prince of Fire"]]
+[[!tag books books/espionage]]
 
 This novel brings Allon's past, and present, deeper into the lime
 light; and Silva's writing is beginning to take on the human touch

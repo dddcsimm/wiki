@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The confessor"]]
-[[tag books books/espionage]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The confessor"]]
+[[!tag books books/espionage]]
 
 In this, the second of his trilogy exploring the various ways in which
 Nazi war criminals tried to escape the consequences of their actions

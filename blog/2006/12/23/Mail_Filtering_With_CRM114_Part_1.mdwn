@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Mail Filtering With CRM114: Part 1"]]
-[[tag spam]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Mail Filtering With CRM114: Part 1"]]
+[[!tag spam]]
 
 
 The first step is to configure the CRM114 files, and these are now in
@@ -35,7 +35,7 @@ mail corpus to the filter:
        --repeat=100 --streak=35000 |                \
              egrep -i '^ +|train|Excell|Running'
 
-And this failed spectacularly (see [[debbug 399306]]). Faced with
+And this failed spectacularly (see [[!debbug 399306]]). Faced with
 unexpected segment violations, and not being proficient in crm114's
 rather arcane syntax, I was forced to speculation: I assumed (as it
 turns out, incorrectly) that if if you throw too many changes at the

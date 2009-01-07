@@ -1,8 +1,8 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag misc]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag misc]]
 
-I have been using uml (actually, [[debpkg pbuilder-uml]])
+I have been using uml (actually, [[!debpkg pbuilder-uml]])
 for a while to build my packages and ensure that the build
 dependencies were sane. Unfortunately, in sometime in the last month
 or so, something broke: now uml just hangs with the lines
@@ -13,7 +13,7 @@ Netdevice 0
 
 Since I have wanted to get back to playing with
 <strong>SELinux</strong>, and since Russel Coker has deprecated 2.4
-based LSM patches ( [[debpkg kernel-patch-2.4-lsm]]), I
+based LSM patches ( [[!debpkg kernel-patch-2.4-lsm]]), I
 decided to try to compile my own 2.6 based UML, especially since I
 heard tell on IRC that it was feasible to do so. Thats when the fun
 started. 

@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Arch Hook"]]
-[[tag software/arch]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Arch Hook"]]
+[[!tag software/arch]]
 
 All the version control systems I am familiar with run scripts on
 checkout and commit to take additional site specific actions, and arch

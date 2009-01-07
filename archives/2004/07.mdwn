@@ -1,4 +1,4 @@
-[[meta title="Archives for 2004/07"]]
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[inline pages="blog/* and !*/Discussion and creation_year(2004) and creation_month(07)" rootpage="blog" atom="no" rss="no" show="0"]]
+[[!meta title="Archives for 2004/07"]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!inline pages="blog/* and !*/Discussion and creation_year(2004) and creation_month(07)" rootpage="blog" atom="no" rss="no" show="0"]]

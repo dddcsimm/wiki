@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag software software/security]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag software software/security]]
 
 Well, yes, that sounds somewhat pompous. But I do think this is a
 worthwhile release goal; from where I stand I think that hard-hat

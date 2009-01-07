@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian debian/official]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian debian/official]]
 
 Well, all but one, since we still do not have one of the contributions
 in. I also think we have an agreement about the timing of the IRC

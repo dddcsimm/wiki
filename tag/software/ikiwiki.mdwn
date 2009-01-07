@@ -1,5 +1,5 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
 
 This a category for postings about the IkiWiki Plugins I have been building, and blog posts about my
 IkiWiki setup. 

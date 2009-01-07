@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Flags of our fathers"]]
-[[tag movies]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Flags of our fathers"]]
+[[!tag movies]]
 
 This was a good movie. Perhaps I'm guilty of heresy in saying this,
 but it was not a great movie. It did come as somewhat of a surprise to

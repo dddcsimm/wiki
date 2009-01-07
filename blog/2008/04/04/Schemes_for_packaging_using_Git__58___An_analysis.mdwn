@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Schemes for packaging using Git: An analysis"]]
-[[tag software software/git]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Schemes for packaging using Git: An analysis"]]
+[[!tag software software/git]]
 
 
 "Are you rebasing or merging?" seems to be the 64 thousand dollar

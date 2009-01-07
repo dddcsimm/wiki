@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Filtering accuracy: Hard numbers"]]
-[[tag spam]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Filtering accuracy: Hard numbers"]]
+[[!tag spam]]
 
 **UPDATE:** This posting has severe flaws, which were discovered
 subsequently.  Please ignore.

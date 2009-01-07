@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="300, and the history channel perspective."]]
-[[tag movies]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="300, and the history channel perspective."]]
+[[!tag movies]]
 
 Yes, this is about a movies based on a comic based on a movie from the
 50's. And they did a wonderful job of conveying to comic book feel --

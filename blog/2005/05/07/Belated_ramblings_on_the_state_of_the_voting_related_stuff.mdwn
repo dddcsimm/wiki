@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian]]
 
 Well, as most of us have gathered, yet another DPL election
 session came to a close. The highlights from a technical standpoint

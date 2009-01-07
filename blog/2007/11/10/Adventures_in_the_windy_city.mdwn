@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Adventures in the windy city"]]
-[[tag travel]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Adventures in the windy city"]]
+[[!tag travel]]
 
 I have just come back from a half week stay at the Hilton Indian Lakes
 resort (which is the second time in a month that I have stayed at a

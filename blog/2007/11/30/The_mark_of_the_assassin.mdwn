@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The mark of the assassin"]]
-[[tag books books/espionage]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The mark of the assassin"]]
+[[!tag books books/espionage]]
 
 Based on the [[The_Secret_Servant]], I ordered a whole slew of books
 from the same author, including this one. I am still impressed by the

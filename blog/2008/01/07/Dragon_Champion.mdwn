@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Dragon Champion"]]
-[[tag books books/fantasy]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Dragon Champion"]]
+[[!tag books books/fantasy]]
 
 Given how much I am enjoying the vampire Earth series from
 E. E. Knight, I thought I would check out the Age of Fire series from

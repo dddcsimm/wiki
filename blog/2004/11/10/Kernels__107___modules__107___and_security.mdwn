@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag misc]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag misc]]
 
 Now that the tmpfs patch has come out in an official
 [2.6.9-selinux1.patch.gz](http://www.nsa.gov/selinux/patches/2.6.9-selinux1.patch.gz),

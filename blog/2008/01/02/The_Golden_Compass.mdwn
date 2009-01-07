@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="The Golden Compass"]]
-[[tag books books/fantasy]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The Golden Compass"]]
+[[!tag books books/fantasy]]
 
 Since there has been so much uproar caused by the movie, I decided I
 would have a look at the trilogy -- though I generally have not been

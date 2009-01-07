@@ -1,7 +1,7 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[meta title="Tale of the Thunderbolt"]]
-[[tag books books/scifi]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Tale of the Thunderbolt"]]
+[[!tag books books/scifi]]
 
 Back to the Vampire Earth series by E. E. Knight. After an mildly
 interesting start, the book turns decidedly soporific, It is a

@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian]]
 
 I am not the only one to be struck with the realization that there is
 very little effort at building consensus going on in Debian of

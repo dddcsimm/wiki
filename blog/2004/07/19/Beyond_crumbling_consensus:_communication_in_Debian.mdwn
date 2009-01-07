@@ -1,6 +1,6 @@
-[[meta author="Manoj"]]
-[[meta license="GPL"]]
-[[tag debian]]
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!tag debian]]
 
 I have talked <a href="http://www.golden-gryphon.com/blog/manoj/debian/manoj.2004.06.03.golden_gryphon">earlier</a>
 about the crumbling consensus in Debian, which was nice, but did not
