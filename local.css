@@ -259,11 +259,11 @@ div.map ul {
   float: none;
   width: auto;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 2px;
   margin-left:		auto; 
   margin-right:		auto;
   border: none;
-  padding: 0px;
+  padding: 2px;
   background-color: inherit;  /* #cea; */
 }
 div.map ul li { 
@@ -283,10 +283,11 @@ div.map ul li a {
   background-color: inherit;  /* #cea; */
 }
 div.map ul li ul { 
+  display: inline;
   float: none;
   width: auto;
   border: none;
-  margin: 0px;
+  margin: 6px auto 6px auto;
   padding: 0px 0px 5px 0px;
   background-color: inherit;  /* #cea; */
 }
@@ -302,7 +303,19 @@ div.map ul li ul li a {
   color: Black;
   float: none;
   width: auto;
+  padding: 1px;
+  margin: 6px auto 6px auto;
   border: outset #505773 1px;
+  background-color: inherit;  /* #cea; */
+}
+div.map ul li ul li a.mapitem { 
+  display: inline;
+  color: Black;
+  float: none;
+  width: auto;
+  padding: 1px;
+  margin: 6px auto 6px auto;
+  border: outset #505773 2px;
   background-color: inherit;  /* #cea; */
 }
 
