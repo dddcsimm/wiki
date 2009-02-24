@@ -1,0 +1,196 @@
+#+TITLE:     Rethinking UCF
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta\@debian.org
+#+DATE:      <2009-02-24 Tue>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Rethinking ucf"]]
+[[!tag software software/debian]]
+
+
+There has been some discussion on the Debian development mailing list
+#+BEGIN_HTML
+ [[!img images/ucf-old-activity.png  class="floatr" size=223x217 alt="Tortured activity diagram"]]
+#+END_HTML
+about adding hooks into ucf, to allow people to do things like
+committing files into different SCM branches. So, I thought I would
+help people out by letting them tell me where hooks would be useful,
+and so decided to do an activity diagram for ucf. Gawd, what a mess. I
+mean, I wrote this thing, and it boggles even my mind. See the figure
+for how horrendous code can get when it grows organically.
+
+So, I decided to re-factor/redesign ucf, see if I could create a less
+complex activity diagram. On analysis, it turns out that ucf has just
+five  actions it may perform, and which action it takes depends on
+which of eight possible states the configuration file is in.
+
+#+BEGIN_HTML
+[[!more  linktext="Gory details follow" text="""
+#+END_HTML
+
+* Actions
+
+- When called to do so, it can purge references to a configuration
+  file from the database.
+  + <<PURGE>>: Purge references to the configuration file from
+    the database
+- When given a new file and a destination, ucf can take three actions
+  + <<CFG-REP>>: Replace the configuration file at the destination
+    path with the new file, and record the md5sum of the new file in
+    the database
+  + <<MD5-UPD>>: Update the md5sum of the new file in the database,
+    but not replace the destination file
+  + <<NOP>>: Do nothing.
+  + <<ASK>>: Ask the user whether to update the hash, or to replace
+    the configuration file as well. 
+
+That's it. Just five actions that ucf can take. Which of the four
+actions it takes is determined by a decision tree.  The purge action
+is fairly simple, and the decision to take that route is
+unremarkable.  When ucf can not decide on the proper action, it
+asks. The asking is the whole rationale for ucf, anyway.
+
+
+* State Machine
+
+It turns out there are eight different states in which the
+configuration file can be when ucf is called.
+- <<CS1-NEW-PKG>>: This is a new configuration file, which has not been
+  see by the system. In this case, there is no destination file, and
+  there is no record of the file in the database.
+- This is a configuration file that has been seen on the system, but
+  has gone missing (possibly due to user deletion). There are two sub
+  cases:
+  + <<CS2-DELETED>>: The new file is the same as one we have seen before
+    (no change in upstream version), or
+  + <<CS3-DEL-UP-CHNG>>: There is a new upstream version of the file,
+    and the user has deleted the local version.
+- This is a configuration file that has been seen on the system, and a
+  version of the file is present at the destination. Now, there are a
+  few cases here:
+  + <<CS4-NO-CHG>>: All three files are the same (old, destination,
+    new). There has been no change.
+  + <<CS5-NEW-UP>>: The old and destination files are the same (no user
+    change), but there has been a new upstream version.
+  + <<CS6-OBSOLETE-OLD>>: The new and destination files are the same
+    (same changes locally and in upstream), but the old version is
+    different.
+  + <<CS7-LOCAL-CHG>>: The new and old files are the same, but the
+    destination file has been locally changed.
+  + <<CS8-NEW-UP-LOCAL-CHG>>: All three files are different. The file at
+    the destination has been modified (not the same as either the old
+    or the new upstream file).
+- There is a destination file, but we have no record of it in the
+  database. Perhaps this is a package newly converted to ucf, or the
+  ucf DB was hosed. At this point, we try to determine whether the
+  file at the destination corresponds to a historical version
+  + If the maintainer has provided a file or a directory containing
+    the hash of older versions of the configuration file, see if the
+    file at the destination matches. If it does, This is case
+    [[CS4-NO-CHG ]]
+  + If there is a default md5sum, instead of the directory or file,
+    check against that. If there is a match, this is case [[CS5-NEW-UP ]]
+  + If there is no match, we have either a case [[CS5-NEW-UP ]] or a case
+    [[CS6-OBSOLETE-OLD ]]
+
+* Behavior
+
+
+*** Flags affecting behaviour
+
+There are three flags that determine the policy of ucf: 
++ <<CONFFNEW>>: Prefer the new configuration file always
++ <<CONFOLD>>:  Prefer the old version always
++ <<CONFFMISS>>: Recreate configuration file is missing.  (overriding
+  possible user deletion) 
+
+*** Disposition
+
+The disposition of the cases is as follows.
+- [[CS0-PURGE ]]:: Purge references
+  + [[PURGE ]] : Purge references to the file
+- [[CS1-NEW-PKG ]]:: New file or package.
+  + [[CFG-REP ]]: Replace File. We install the upstream version,
+    regardless of the flags.
+- [[CS2-DELETED ]] :: User deletion, no upstream changes
+  + [[CFG-REP ]]  : [[CONFFMISS ]]=1. Replace file. The user has
+    specifically asked to have missing configuration files recreated.
+  + [[CFG-REP ]] : [[CONFFNEW ]]=1: Replace file. The user has
+    specifically asked for the new file to be used, no matter what.
+  + [[MD5-UPD ]] : [[CONFOLD ]]=1: Update MD5sum.
+  + [[MD5-UPD ]] : Otherwise, Update MD5sum. The user deleted the
+    configuration file, and nothing has changed since then.
+- [[CS3-DEL-UP-CHNG ]] :: User deletion, with upstream changes.
+  + [[CFG-REP ]] : [[CONFFMISS ]]=1. Replace file. The user has
+    specifically asked to have missing configuration files recreated.
+  + [[CFG-REP ]] : [[CONFFNEW ]]=1: Replace file. The user has
+    specifically asked for the new file to be used, no matter what.
+  + [[MD5-UPD ]] : [[CONFOLD ]]=1: Update MD5sum.
+  + [[ASK ]] : Otherwise, Ask. While the user did delete the configuration
+    file, but there have been upstream changes, so the user should be
+    given an option to change their mind.
+- [[CS4-NO-CHG ]] :: Nothing to do.
+  + [[NOP ]] :  Take No Action
+- [[CS5-NEW-UP ]] :: New upstream, no local changes
+  + [[CFG-REP ]]: [[CONFFNEW ]]=1: Replace file. The user has
+    specifically asked for the new file to be used, no matter what.
+  + [[MD5-UPD ]] : [[CONFOLD]]=1: Update MD5sum.
+  + [[CFG-REP ]] : Otherwise, Replace file. The user has not made any
+    local changes, so the default is to upgrade the file.
+- [[CS6-OBSOLETE-OLD ]] :: Local and upstream in sync
+  + [[MD5-UPD]]: Update MD5sum, regardless of the flags.
+- [[CS7-LOCAL-CHG ]] :: No upstream changes
+  + [[CFG-REP ]] : [[CONFFNEW ]]=1: Replace file. This is
+    tricky. While there has been no upstream change, the user prefers
+    to keep files the same as the upstream, so user changes are
+    actually reverted here.
+  + [[MD5-UPD ]] : [[CONFOLD ]]=1: Update MD5sum.
+  + [[MD5-UPD ]] : Otherwise, Update MD5sum. The user has made local
+    changes, so the default is to not upgrade the file (in any case,
+    there has been no change upstream, so nothing to upgrade, really).
+- [[CS8-NEW-UP-LOCAL-CHG ]] :: Local and upstream changes. This is the
+  meat-and-potatoes case.
+  + [[NOP ]]: [[CONFOLD ]] == 1 : Take no action
+  + [[ASK ]]: Otherwise, Ask. This is required by policy, so as to not
+    override the user changes.
+
+* In Summary
+
+In Tabular form:
+#+CAPTION: UCF Actions
+#+LABEL: tbl:ucf-act
+| Case                  | NONE     | [[CONFFMISS ]] | [[CONFFNEW ]] | [[CONFOLD ]] |
+|-----------------------+----------+------------+-----------+----------|
+| [[CS0-PURGE ]]            | [[PURGE ]]   | [[PURGE ]]     | [[PURGE ]]    | [[PURGE ]]   |
+| [[CS1-NEW-PKG ]]          | [[CFG-REP ]] | [[CFG-REP ]]   | [[CFG-REP ]]  | [[CFG-REP ]] |
+| [[CS2-DELETED ]]          | [[MD5-UPD ]] | [[CFG-REP ]]   | [[CFG-REP ]]  | [[MD5-UPD ]] |
+| [[CS3-DEL-UP-CHNG ]]      | [[ASK ]]     | [[CFG-REP ]]   | [[CFG-REP ]]  | [[MD5-UPD ]] |
+| [[CS4-NO-CHG ]]           | [[NOP ]]     | [[NOP ]]       | [[NOP ]]      | [[NOP ]]     |
+| [[CS5-NEW-UP ]]           | [[CFG-REP ]] | [[CFG-REP ]]   | [[CFG-REP ]]  | [[MD5-UPD ]] |
+| [[CS6-OBSOLETE-OLD ]]     | [[MD5-UPD ]] | [[MD5-UPD ]]   | [[MD5-UPD ]]  | [[MD5-UPD ]] |
+| [[CS7-LOCAL-CHG ]]        | [[MD5-UPD ]] | [[MD5-UPD ]]   | [[CFG-REP ]]  | [[MD5-UPD ]] |
+| [[CS8-NEW-UP-LOCAL-CHG ]] | [[ASK ]]     | [[ASK ]]       | [[ASK ]]      | [[MD5-UPD ]] |
+|-----------------------+----------+------------+-----------+----------|
+
+* Flow of control in UCF
+
+This brings me up to the re-factor. There are distinct stages in ucf's
+activity:
+1. Parse command line options, and configuration file.
+2. Sanity checks.
+3. Short circuit if purging
+4. Set up debconf
+5. Determine which of the 8 scenarios best fit the configuration
+   file. 
+6. Based on the policy flags, determine action to take.
+
+#+BEGIN_HTML
+""" ]]
+#+END_HTML
+
+
