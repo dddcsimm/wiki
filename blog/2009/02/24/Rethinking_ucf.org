@@ -112,12 +112,12 @@ There are three flags that determine the policy of ucf:
 *** Disposition
 
 The disposition of the cases is as follows.
-- [[CS0-PURGE ]]:: Purge references
+- <<CS0-PURGE>>:: Purge references
   + [[PURGE ]] : Purge references to the file
-- [[CS1-NEW-PKG ]]:: New file or package.
+- <<CS1-NEW-PKG>>:: New file or package.
   + [[CFG-REP ]]: Replace File. We install the upstream version,
     regardless of the flags.
-- [[ CS2-DELETED ]]:: User deletion, no upstream changes
+- <<CS2-DELETED>>:: User deletion, no upstream changes
   + [[CFG-REP ]]  : [[CONFFMISS ]]=1. Replace file. The user has
     specifically asked to have missing configuration files recreated.
   + [[CFG-REP ]] : [[CONFFNEW ]]=1: Replace file. The user has
@@ -125,7 +125,7 @@ The disposition of the cases is as follows.
   + [[MD5-UPD ]] : [[CONFOLD ]]=1: Update MD5sum.
   + [[MD5-UPD ]] : Otherwise, Update MD5sum. The user deleted the
     configuration file, and nothing has changed since then.
-- [[CS3-DEL-UP-CHNG ]]:: User deletion, with upstream changes.
+- <<CS3-DEL-UP-CHNG>>:: User deletion, with upstream changes.
   + [[CFG-REP ]] : [[CONFFMISS ]]=1. Replace file. The user has
     specifically asked to have missing configuration files recreated.
   + [[CFG-REP ]] : [[CONFFNEW ]]=1: Replace file. The user has
@@ -134,7 +134,7 @@ The disposition of the cases is as follows.
   + [[ASK ]] : Otherwise, Ask. While the user did delete the configuration
     file, but there have been upstream changes, so the user should be
     given an option to change their mind.
-- [[ CS4-NO-CHG ]]:: Nothing to do.
+- <<CS4-NO-CHG>>:: Nothing to do.
   + [[NOP ]] :  Take No Action
 - [[ CS5-NEW-UP ]]:: New upstream, no local changes
   + [[CFG-REP ]]: [[CONFFNEW ]]=1: Replace file. The user has
@@ -142,9 +142,9 @@ The disposition of the cases is as follows.
   + [[MD5-UPD ]] : [[CONFOLD ]]=1: Update MD5sum.
   + [[CFG-REP ]] : Otherwise, Replace file. The user has not made any
     local changes, so the default is to upgrade the file.
-- [[ CS6-OBSOLETE-OLD ]]:: Local and upstream in sync
+- <<CS6-OBSOLETE-OLD>>:: Local and upstream in sync
   + [[MD5-UPD ]]: Update MD5sum, regardless of the flags.
-- [[ CS7-LOCAL-CHG ]]:: No upstream changes
+- <<CS7-LOCAL-CHG>>:: No upstream changes
   + [[CFG-REP ]] : [[CONFFNEW ]]=1: Replace file. This is
     tricky. While there has been no upstream change, the user prefers
     to keep files the same as the upstream, so user changes are
@@ -153,7 +153,7 @@ The disposition of the cases is as follows.
   + [[MD5-UPD ]] : Otherwise, Update MD5sum. The user has made local
     changes, so the default is to not upgrade the file (in any case,
     there has been no change upstream, so nothing to upgrade, really).
-- [[CS8-NEW-UP-LOCAL-CHG ]]:: Local and upstream changes. This is the
+- <<CS8-NEW-UP-LOCAL-CHG>>:: Local and upstream changes. This is the
   meat-and-potatoes case.
   + [[NOP ]]: [[CONFOLD ]] == 1 : Take no action
   + [[ASK ]]: Otherwise, Ask. This is required by policy, so as to not
