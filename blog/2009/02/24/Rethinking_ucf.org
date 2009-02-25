@@ -136,7 +136,7 @@ The disposition of the cases is as follows.
     given an option to change their mind.
 - <<CS4-NO-CHG>>:: Nothing to do.
   + [[NOP ]] :  Take No Action
-- [[ CS5-NEW-UP ]]:: New upstream, no local changes
+- <<CS5-NEW-UP>>:: New upstream, no local changes
   + [[CFG-REP ]]: [[CONFFNEW ]]=1: Replace file. The user has
     specifically asked for the new file to be used, no matter what.
   + [[MD5-UPD ]] : [[CONFOLD ]]=1: Update MD5sum.
