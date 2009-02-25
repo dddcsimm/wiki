@@ -1,0 +1,92 @@
+#+TITLE:     A day in the life of a Debian hacker
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Wed Feb 25 00:33:42 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="A day in the life of a Debian hacker"]]
+[[!tag software software/git]]
+
+
+I have been meaning to write this up for a long time now, since I
+#+BEGIN_HTML
+ [[!img images/git_workflow.png  class="floatr" size=131x173
+ alt="Packaging activity diagram"]]
+#+END_HTML
+vaguely made a promise to do so last Debconf. I have also been
+wondering about the inefficiencies in my work-flow, but I kept
+postponing my analysis since there were still large gaps in my
+packaging automation since I moved off Arch as my SCM of
+choice. However, recently I have taken a sabbatical from Debian, so
+I've had time to complete bits and pieces of my package building
+framework, enough so that I could no longer justify putting off the
+analysis. I tried writing it up, but the result confused even me; so I
+instead recorded every shell command during a recent series of
+packaging tasks, and converted that into a nice, detailed, activity
+diagram that you see over here. This is as efficient a work-flow as I
+have been able to come up with.
+
+#+BEGIN_HTML
+[[!more  linktext="details here" text="""
+#+END_HTML
+
+
+I use the usual suspects, /uscan/, /git/, /pristine-tar/,
+/git\_load\_dirs/, /dch/, /dpkg/, /lintian/, /dupload/, and three
+scripts that I wrote myself to help with automation. I build using a
+SELinux vitual machine in enforcing mode, but I have not included the
+steps taken to setup or tear down the virtual machine in the
+work-flow. I have not used /pbuilder/, since I did not like some of
+the choices (/pbuilder-uml/ used to underlay the host machine fs on the
+virtual machine, and then create a chroot in the virtual machine,
+which was too convoluted for me) and I like watching SELinux AVC
+warnings to see if the build system does something funky.  The result
+has been a work-flow that is virtual machine flavor agnostic. I also
+do not use /topgit/, since I dislike on principle serializing the
+features in my feature branches, but that is the topic of a whole new
+blog entry.
+
+The three scripts I have written are:
+
+- stage\_release :: Copies my current git directory, its submodules
+  (for =./debian=), and the submodules of the submodules
+  (=./debian/common=), and stages it into a file system mounted in my
+  virtual machine (my vitual machine does not have access to the
+  non-staging area on the host). It also gets rid of git specific
+  directories from the exported sources. It knows about the layout and
+  location of my working area, so I can call =stage_release <pkg
+  name>= from anywhere in the file system.
+- remote\_build :: This script lives in the virtual machine, and is used
+  to be run via ssh. It mounts the host staging directory, copies
+  files to the build user home directory, ensures that the build
+  dependencies are satisfied, and runs /dpkg-buildpackage/ --
+  *twice*. Then it copies the results back out to the staging results
+  directory on the host machine, for further testing.
+- tag\_release :: This script, which also knows the work directory
+  location and layout, parses the =debian/changelog=, derives a tag
+  based on the changelog entry, tags the =./debian= directory, and the
+  top level package /master/ branch, and pushes the sources and the
+  tags to the public repository ionce I have uploaded the package to
+  the archives. I generally delay the tagging and upload, so as to be
+  able to use /--amend/ while I quietly fix typos locally.
+
+#+BEGIN_HTML
+""" ]]
+#+END_HTML
+
+
+Along with a git commit hook script, that parses the commit log and
+adds pending tags to bugs closed in the commit, the figure above
+represents my complete work-flow -- down to the details of every /cd/
+command I executed. I think there are too many steps still.
+
+Feedback and commentary would be appreciated, as well as any
+suggestions to improve efficiency.
+
+
+
