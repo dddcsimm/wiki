@@ -1,8 +1,8 @@
 /* <blosxcss description="An original Blosxcss compliant style for the Golden Gryphon." > */
 /* <blosxcss name="Golden Gryphon" > */
-
+/* http://www.webspaceworks.com/resources/fonts-web-typography/60/ */
 body { 
-  font-family: Helvetica, "Times New Roman", Georgia, Utopia, serif;
+  font-family: "Times New Roman", Times, Georgia, Utopia, serif;
   color: #313373;
   background-color: #EBFFFF; /* #D3EBD2; #dee3ff; */
   margin: 0;
@@ -53,13 +53,13 @@ div#masthead h1 {
 }
 
 div#masthead h2 {
-  font-family: helvetica, Verdana, "Myriad Web", Syntax, sans-serif; 
+  font-family: helvetica, "Bitstream Vera Sans", Geneva, sans-serif; 
   font-weight: bold; 
   font-size: large;
 }
 
 div#masthead h3 {
-  font-family: helvetica, Verdana, "Myriad Web", Syntax, sans-serif; 
+  font-family: Helvetica, "Bitstream Vera Sans", Geneva, sans-serif; 
   font-size: large;
 }
 
@@ -151,7 +151,7 @@ div#wrapper {
 /* Now comes the acual navigation panel, which contains blocks for navigation */
 div#navpanel { 
   background-color: #83CEFF;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
-  font-family: Verdana,Geneva,Arial,sans-serif; 
+  font-family: Helvetica, Tahoma, Arial,sans-serif; 
   font-size: x-small;
   padding: 5px 10px 5px 5px;
   margin-right: 10px;
@@ -483,7 +483,7 @@ td.month-calendar-day-link,
 td.month-calendar-day-nolink,
 td.month-calendar-day-this-day,
 td.month-calendar-day-future {
-  font-family:		Georgia,"New Century Schoolbook",Times,serif;
+  font-family: "Times New Roman", Times, Georgia, Utopia, serif;
 }
 
 td.year-calendar-month-link, 
