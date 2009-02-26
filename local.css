@@ -10,14 +10,10 @@
   ******    General font  *******
    ****     Sans Serif    ****
   Arial, Helvetica Neue, Helvetica, sans-serif - p,t
-  Century Gothic, Apple Gothic, sans-serif - p,t
-  Franklin Gothic Medium, Arial Narrow Bold, Arial, sans-serif - p,t
-  Futura, Century Gothic, AppleGothic, sans-serif - p,t
-  Impact, Haettenschweiler, Arial Narrow Bold, sans-serif - p,t
   Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif - p,t
 
    ****     Serif    ****
-  Cambria, Georgia, Times, Times New Roman, serif - p,t
+  Cambria, Georgia, Palatino Linotype, Palatino, Times, Times New Roman, serif - p,t
   Copperplate Light, Copperplate Gothic Light, serif - p,t
   Times, Times New Roman, Georgia, serif - p,t
 
@@ -33,6 +29,10 @@
   Helvetica, Helvetica Neue, Arial, sans-serif - t
   Trebuchet, Tahoma, Arial, sans-serif - t
   Verdana, Geneva, Tahoma, sans-serif - t
+  Century Gothic, Apple Gothic, sans-serif - t
+  Franklin Gothic Medium, Arial Narrow Bold, Arial, sans-serif - t
+  Futura, Century Gothic, AppleGothic, sans-serif - t
+  Impact, Haettenschweiler, Arial Narrow Bold, sans-serif - t
 
    ****     Serif    ****
   Baskerville, Times, Times New Roman, serif - t
@@ -57,7 +57,7 @@
 
  */
 body { 
-  font-family: "Times New Roman", Times, Georgia, Utopia, serif;
+  font-family: Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", Times, Georgia, Utopia, serif;
   color: #313373;
   background-color: #EBFFFF; /* #D3EBD2; #dee3ff; */
   margin: 0;
@@ -538,7 +538,7 @@ td.month-calendar-day-link,
 td.month-calendar-day-nolink,
 td.month-calendar-day-this-day,
 td.month-calendar-day-future {
-  font-family: "Times New Roman", Times, Georgia, Utopia, serif;
+  font-family: "Palatino Linotype", Palatino, "Times New Roman", Times, Georgia, Utopia, serif;
 }
 
 td.year-calendar-month-link, 
@@ -1209,7 +1209,7 @@ ol.upperroman { list-style-type: upper-roman }
 ol.upperalpha { list-style-type: upper-alpha }
 ol.withalpha  { list-style-type: lower-alpha }
 
-li.serif      { font-family: Cambria, Georgia, Times, "Times New Roman", serif }
+li.serif      { font-family: Cambria, Georgia, "Palatino Linotype", Palatino, Times, "Times New Roman", serif }
 li.sans-serif { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
 li.fantasy    { font-family: fantasy   }
 li.monospace  { font-family: "Courier New", Courier, monospace }
