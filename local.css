@@ -679,6 +679,7 @@ div.blogDate {
 /* The day of the week */
 span.day { 
   float: left;
+  width: auto;
   font-size: xx-large;
   line-height: 100%;
   font-weight: normal;
@@ -691,6 +692,7 @@ span.day {
 /* The year */
 span.dow { 
   float:right;
+  width: auto;
   font-size: xx-large;
   line-height: 100%;
   font-weight: normal;
@@ -754,6 +756,7 @@ div.story div.headers h4 {
 div.icon {
   background-color: #dee3ff; 	/* #D3EBD2;  */
   float:right;
+  width: auto;
   margin: 0;
   border: 0;
 }
@@ -778,6 +781,7 @@ div.imagerow {
 }
 div.image {
   float: left;
+  width: auto;
   margin: 5px 8% 5px 8%;
   text-align:center;
 }
@@ -800,6 +804,7 @@ div.imagecomments {
 
 span.storypic { 
   float: right;
+  width: auto;
   padding: 0;
   border: none;
   margin: 5px 5px 5px 5px;
@@ -826,6 +831,7 @@ a.story-category {
 }
 
 a.story-permalink { 
+  width: auto;
   float: right;
 }
 
@@ -846,6 +852,7 @@ span.pagedate:first-letter, p.postedon:first-letter {
 
 div.pagelicense { 
   text-align: left;
+  width: auto;
   float: left;
   font-family: cursive;
   font-size: 75%;
@@ -1137,8 +1144,8 @@ pre {
 span.skip                 { display: none }
 div.skip                  { display: none }
 
-.floatr { float: right }
-.floatl { float: left }
+.floatr { float: right;   width: auto; }
+.floatl { float: left;   width: auto; }
 
 /*
    * Get a nice, 3d look for tables
