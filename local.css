@@ -282,10 +282,22 @@ div.map {
   border: none;
   background-color: inherit;  /* #cea; */
 }
+
+div.map span.selflink { 
+  float: left;
+  display: inline;
+  color: Red;
+  width: auto;
+  margin-top: -5px;
+  padding-top: -5px;
+  border: outset #505773 2px;
+  background-color: inherit;  /* #cea; */
+}
+
 div.map ul { 
   float: none;
   width: auto;
-  margin-top: 0px;
+  margin-top: -5px;
   margin-bottom: 2px;
   margin-left:		auto; 
   margin-right:		auto;
