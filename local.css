@@ -108,13 +108,13 @@ div#masthead h1 {
 }
 
 div#masthead h2 {
-  font-family: helvetica, "Bitstream Vera Sans", Helvetica Neue, Arial, Geneva, sans-serif; 
+  font-family: helvetica, "Bitstream Vera Sans", "Helvetica Neue", Arial, Geneva, sans-serif; 
   font-weight: bold; 
   font-size: large;
 }
 
 div#masthead h3 {
-  font-family: Helvetica, "Bitstream Vera Sans", Helvetica Neue, Arial, Geneva, sans-serif; 
+  font-family: Helvetica, "Bitstream Vera Sans", "Helvetica Neue", Arial, Geneva, sans-serif; 
   font-size: large;
 }
 
@@ -343,9 +343,8 @@ div.map span.selflink {
   float: left;
   display: inline;
   color: Red;
-  width: auto;
+  width: 4em;
   margin-top: -5px;
-  padding-top: -5px;
   border: outset #505773 2px;
   background-color: inherit;  /* #cea; */
 }
@@ -424,6 +423,7 @@ div.navblock hr {
 
 div.actions { 
   float: right;
+  width: auto;
   padding: 0px;
   margin: 0px;
 }
@@ -446,7 +446,7 @@ div.actions ul li a:hover {
 }
 
 ul.headlines { 
-  display:compact;
+  list-style: inside;
 }
         
 li.headlines_date { 
@@ -597,6 +597,7 @@ img.badge {
 /* An alternate panel */
 div#altpanel { 
   float: right;
+  width: auto;
   display: none;
 }
 
@@ -650,6 +651,7 @@ div.content-header {
 
 div.gotchi {
   float:right;
+  width: auto;
   margin: 0;
   border: 0;
 }
@@ -1032,7 +1034,7 @@ p.initial:first-letter
   /*  padding: 0em; float: left; */
 }
 #bigchar {
-  background-color: red;
+  color: red;
   color: white;
   font-size: 28pt;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -1169,9 +1171,9 @@ dd {margin-bottom: 0.66em;}
 .title { text-align: center; }
 .todo  { color: red; }
 .done { color: green; }
-.timestamp { color: grey }
-.timestamp-kwd { color: CadetBlue }
-.tag { background-color:lightblue; font-weight:normal }
+.timestamp { color: gray }
+.timestamp-kwd { color: rgb(05, 158, 160) }
+.tag { background-color: rgb(173, 216, 230); font-weight:normal }
 .target { }
 
 .titletext
