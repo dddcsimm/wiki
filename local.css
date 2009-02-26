@@ -45,7 +45,7 @@ div#masthead h1 {
   text-align: left;
   padding-left: 5%;
   font-variant: small-caps;
-  font-family: helvetica, Verdana, "Myriad Web", Syntax, sans-serif; 
+  font-family: Impact, Charcoal, sans-serif; 
   font-weight: bold; 
   font-size: xx-large;
   text-transform: capitalize;
@@ -63,10 +63,11 @@ div#masthead h3 {
   font-size: large;
 }
 
-/* This is the description */
+/* This is the Title */
 div#masthead h4 {
   color: #313373;
-  text-align: right; 
+  font-family: Ravie, fantasy, sans-serif;;
+  text-align: center; 
   margin: 0.1em;
 }
 /* Just a placeholder. Probably should not even be here */
