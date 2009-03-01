@@ -1,0 +1,107 @@
+#+TITLE:     Functional ucf
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta\@debian.org
+#+DATE: <2009-03-01 Sun>
+#+LANGUAGE: en
+#+OPTIONS:   H:0 num:nil toc:nil \\n:nil \@:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+#+STYLE: <link href="/styles/simple_screen.css" type="text/css" rel="stylesheet" media="screen" />
+#+STYLE: <link href="/styles/simple_print.css"  type="text/css" rel="stylesheet" media="print" />
+#+STYLE: <link href="/styles/common.css"        type="text/css" rel="stylesheet" />
+
+* Rethinking UCF Redux
+
+I have been thinking some more about how to improve ucf. One of the
+things that struck me was that there are only five actions that ucf
+can take, and the decision about the actions depends on the state it
+finds the configuration file in on the target machine, and there are
+only eight of those.  Now, thinking back to my days as a VLSI designer
+back in the halcyon days of electrical engineering, This is a pretty
+simple state machine. It is not as neat as it could be (where just
+three variables would be needed to keep track of things, but still, it
+bears investigation. This would be a way for converting the current
+procedural /ucf/ into a functional programming model.
+
+So. Here are the boolean variables that I check to see what state the
+configuration file is in:
+- \rho : Are we doing a purge?
+- \epsilon : Does the destination file exist?
+- \theta : Is there a record of this configuration file?
+- \upsilon : Has there been an upstream change?
+- \lambda : Has the user made a local change?
+
+We also use an optimization, in the case where the destination file is
+already the same as the new file -- but this is only an optimization,
+and probably not worth the cost of determining whether or not the file
+is the same. But, in case we care:
+
+- \chi : Is the destination file already current?
+
+Now, there are some flags that affect the behavior -- and the values
+can be one of three flags set, or none. That means there are four
+possible cases, and these can be represented by just two booleans:
+
+- \eta,\Omega == 0,0: No flags set
+
+- \eta,\Omega == 0,1: *CONFMISS*
+
+- \eta,\Omega == 1,0: *CONFNEW*
+
+- \eta,\Omega == 1,1: *CONFOLD*
+
+Now this becomes an exercise in logic minimization.
+
+The cases that I talked about in the previous blog posting can be
+expressed in terms of these variables:
+
+\begin{align*}
+CS1 &= \overline{\rho}\: \overline{\epsilon} \:\overline{\theta} \\
+CS2 &= \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon} \\
+CS3 &= \overline{\rho}\: \overline{\epsilon} \:\theta \: \upsilon \\
+CS4 &= \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\overline{\lambda} \\
+CS5 &= \overline{\rho}\: \epsilon \: \theta \:\upsilon \: \overline{\lambda} \\
+CS6 &= \overline{\rho}\: \epsilon \: \theta \:\upsilon \:\lambda \: \chi \\
+CS7 &= \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\lambda \\
+CS8 &= \overline{\rho}\: \epsilon \: \theta \:\upsilon \:\lambda \:\overline{\chi}
+\end{align*}
+
+So, looking at the table at the bottom of the posting, we can see that
+the four actions can be expressed as:
+
+\begin{align*}
+purge &= \rho \\
+nop &= cs4 \\
+    &= \overline{\rho} \:\epsilon \:\theta \:\overline{\upsilon} \:\overline{\lambda} \\
+ask &= CS3 \:\overline{\eta} \:\overline{\Omega} + CS8 ( \overline{\eta} \:\overline{\Omega} + \overline{\eta} \:\Omega + \eta \:\overline{\Omega} ) \\
+    &= \overline{\rho} \:\overline{\epsilon} \:\theta \:\upsilon \:\overline{\eta} \:\overline{\Omega} + \overline{\rho} \:\epsilon \:\theta \:\upsilon \:\lambda \:\overline{\chi} ( \overline{\eta} \: \overline{\Omega} + \overline{\eta} \:\Omega + \eta \: \overline{\Omega} ) \\
+    &= \overline{\rho} \:\overline{\epsilon} \:\theta \:\upsilon \:\overline{\eta} \:\overline{\Omega} + \overline{\rho} \:\epsilon \:\theta \:\upsilon \:\lambda \:\overline{\chi} \:\overline{\eta} \:\overline{\Omega} + \overline{\rho} \:\epsilon \: \theta \:\upsilon \:\lambda \:\overline{\chi} \:\overline{\eta} \:\Omega + \overline{\rho} \:\epsilon \: \theta \:\upsilon \:\lambda \:\overline{\chi} \: \eta \: \overline{\Omega} \\
+    &= \overline{\rho} \:\overline{\epsilon} \:\theta \:\upsilon \:\overline{\eta} \:\overline{\Omega} + \overline{\rho} \:\epsilon \:\theta \:\upsilon \:\lambda \:\overline{\chi} \:\overline{\eta} \:\Omega + \overline{\rho} \:\epsilon \:\theta \:\upsilon \:\lambda \:\overline{\chi} \:\overline{\Omega} \\
+    &= \overline{\rho} \:\theta \:\upsilon ( \overline{\epsilon} \:\overline{\eta} \:\overline{\Omega} + \:\epsilon \:\lambda \:\overline{\chi} (\:\overline{\eta} \:\Omega + \:\overline{\Omega} )) \\
+update &= CS2 ( \:\overline{\eta} \:\overline{\Omega} + \:\eta \:\Omega) + CS3 \:\eta \:\Omega + CS5 \:\eta \:\Omega + CS6 + CS7 ( \:\overline{\eta} \:\overline{\Omega} + \:\overline{\eta} \:\Omega + \:\eta \:\Omega) + CS8 \:\eta \:\Omega \\
+       &= \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon} ( \:\overline{\eta} \:\overline{\Omega} + \:\eta \:\Omega) + \overline{\rho}\: \overline{\epsilon} \:\theta \: \upsilon \:\eta \:\Omega + CS5 \:\eta \:\Omega + \overline{\rho}\: \epsilon \: \theta \:\upsilon \:\lambda \: \chi + \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\lambda ( \:\overline{\eta} \:\overline{\Omega} + \:\overline{\eta} \:\Omega + \:\eta \:\Omega) + \overline{\rho}\: \epsilon \: \theta \:\upsilon \:\lambda \:\overline{\chi} \:\eta \:\Omega \\
+       &= \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon} \:\overline{\eta} \:\overline{\Omega} + \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon} \:\eta \:\Omega + \overline{\rho}\: \overline{\epsilon} \:\theta \: \upsilon \:\eta \:\Omega + CS5 \:\eta \:\Omega + \overline{\rho}\: \epsilon \: \theta \:\upsilon \:\lambda \: \chi + \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\lambda \:\overline{\eta} \:\overline{\Omega} + \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\lambda \:\overline{\eta} \:\Omega + \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\lambda \:\eta \:\Omega + \overline{\rho}\: \epsilon \: \theta \:\upsilon \:\lambda \:\overline{\chi} \:\eta \:\Omega \\
+       &= \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon} \:\overline{\eta} \:\overline{\Omega} + \overline{\rho}\: \overline{\epsilon} \:\theta \:\eta \:\Omega + \overline{\rho}\: \epsilon \:\theta \: \upsilon \: \overline{\lambda} \:\eta \:\Omega + \overline{\rho}\: \epsilon \:\theta \: \upsilon \:\lambda \:\eta \:\Omega \:\overline{\chi} + \overline{\rho}\: \epsilon \:\theta \: \upsilon \:\lambda \: \chi + \overline{\rho}\: \epsilon \:\theta \:\overline{\upsilon} \:\lambda \:\overline{\eta} \:\overline{\Omega} + \overline{\rho}\: \epsilon \:\theta \:\overline{\upsilon} \:\lambda \:\Omega \\ 
+       &= \overline{\rho} \:\theta  ( \:\overline{\epsilon} ( \:\overline{\upsilon} \:\overline{\eta} \:\overline{\Omega} +  \:\eta \:\Omega ) + \:\epsilon ( \:\upsilon \: ( \overline{\lambda} \:\eta \:\Omega + \:\lambda ( \:\eta \:\Omega \:\overline{\chi} + \:\chi)) +                     \:\overline{\upsilon} \:\lambda ( \:\overline{\eta} \:\overline{\Omega} + \:\Omega ))) \\ 
+replace &= CS1 + CS2 \:\overline{\eta} \:\Omega + CS2 \:\eta \:\overline{\Omega} + CS3 \:\overline{\eta} \:\Omega + CS3 \:\eta \:\overline{\Omega} + CS5 \:\overline{\eta} \:\overline{\Omega} + CS5 \:\overline{\eta} \:\Omega + CS5 \:\eta \:\overline{\Omega} + CS7 \:\eta \:\overline{\Omega} \\
+        &= \overline{\rho}\: \overline{\epsilon} \:\overline{\theta}  +  \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon}  \:\overline{\eta} \:\Omega +  \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon}  \:\eta \:\overline{\Omega} +  \overline{\rho}\: \overline{\epsilon} \:\theta \: \upsilon  \:\overline{\eta} \:\Omega +  \overline{\rho}\: \overline{\epsilon} \:\theta \: \upsilon  \:\eta \:\overline{\Omega} + \overline{\rho}\: \epsilon \: \theta \:\upsilon \: \overline{\lambda}  \:\overline{\eta} \:\overline{\Omega} + \overline{\rho}\: \epsilon \: \theta \:\upsilon \: \overline{\lambda}  \:\overline{\eta} \:\Omega + \overline{\rho}\: \epsilon \: \theta \:\upsilon \: \overline{\lambda}  \:\eta \:\overline{\Omega} +  \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\lambda  \:\eta \:\overline{\Omega} \\
+        &= \overline{\rho} \:\overline{\epsilon} \:\overline{\theta}  +           \overline{\rho} \:\overline{\epsilon} \:\theta                                   \:\overline{\eta} \:\Omega +           \overline{\rho} \:\overline{\epsilon} \:\theta                                   \:\eta            \:\overline{\Omega} +           \overline{\rho} \:\epsilon            \:\theta            \:\upsilon             \:\overline{\eta}                     \:\overline{\lambda}  +           \overline{\rho} \:\epsilon            \:\theta            \:\upsilon             \:\eta            \:\overline{\Omega} \:\overline{\lambda}  +           \overline{\rho} \:\epsilon            \:\theta            \:\overline{\upsilon}  \:\eta            \:\overline{\Omega} \:\lambda             \\
+        &= \overline{\rho} ( \:\overline{\epsilon} ( \:\overline{\theta}  + \:\theta ( \:\overline{\eta} \:\Omega + \:\eta \:\overline{\Omega} )) + \:\epsilon \:\theta  ( \:\upsilon \:\overline{\lambda}   ( \:\overline{\eta} +  \:\eta \:\overline{\Omega} )  + \:\overline{\upsilon}  \:\eta \:\overline{\Omega} \:\lambda ))            \\
+\end{align*}
+
+If we ignore the optimization of looking to see if the destination is
+the same as the new file when we are replacing the configuration file,
+we can get:
+
+\begin{align*}
+update &= CS2 ( \:\overline{\eta} \:\overline{\Omega} + \:\eta \:\Omega) + CS3 \:\eta \:\Omega + CS5 \:\eta \:\Omega + CS7 ( \:\overline{\eta} \:\overline{\Omega} + \:\overline{\eta} \:\Omega + \:\eta \:\Omega) + CS8 \:\eta \:\Omega \\
+       &= \overline{\rho}\: \overline{\epsilon} \:\theta \: \overline{\upsilon} ( \:\overline{\eta} \:\overline{\Omega} + \:\eta \:\Omega) + \overline{\rho}\: \overline{\epsilon} \:\theta \: \upsilon \:\eta \:\Omega + \overline{\rho}\: \epsilon \: \theta \:\upsilon \: \overline{\lambda}  \:\eta \:\Omega + \overline{\rho}\: \epsilon \: \theta \:\overline{\upsilon} \:\lambda ( \:\overline{\eta} \:\overline{\Omega} + \:\overline{\eta} \:\Omega + \:\eta \:\Omega) + \overline{\rho}\: \epsilon \: \theta \:\upsilon \:\lambda \:\overline{\chi} \:\eta \:\Omega \\
+       &= \overline{\rho} \:\theta \:\overline{\epsilon} \:\overline{\upsilon}           \:\overline{\eta} \:\overline{\Omega} +          \overline{\rho} \:\theta \:\overline{\epsilon}                                 \:\eta            \:\Omega  +          \overline{\rho} \theta \:\epsilon \: \:\upsilon            \:\overline{\lambda}  \:\eta            \:\Omega  +          \overline{\rho} \theta \:\epsilon \: \:\overline{\upsilon} \:\lambda           \:\overline{\eta} \:\overline{\Omega} +          \overline{\rho} \theta \:\epsilon \: \:\overline{\upsilon} \:\lambda                             \:\Omega  \\
+       &= \overline{\rho} \:\theta ( \:\overline{\epsilon} ( \:\overline{\upsilon} \:\overline{\eta} \:\overline{\Omega} + \:\eta \:\Omega )  +                                     \:\epsilon \: ( \:\upsilon \:\overline{\lambda}  \:\eta            \:\Omega  +          \:\overline{\upsilon} \:\lambda    (       \:\overline{\eta} \:\overline{\Omega} + \:\Omega)))  \\
+\end{align*}
+
+This should not be hard to code -- assuming, of course, that I have not made
+a mistake above.
+
+

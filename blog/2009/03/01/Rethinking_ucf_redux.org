@@ -1,0 +1,42 @@
+#+TITLE:     Rethinking ucf redux
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Sun Mar  1 14:18:08 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Rethinking ucf redux"]]
+[[!tag software software/debian]]
+
+
+
+I have been thinking some more about how to improve ucf. One of the
+things that struck me was that based on my earlier
+#+BEGIN_HTML
+[[analysis|blog/2009/02/24/Rethinking_ucf]] 
+#+END_HTML
+there are only five actions that ucf
+can take, and the decision about the actions depends on the state it
+finds the configuration file in on the target machine, and there are
+only eight of those.  Now, thinking back to my days as a VLSI designer
+back in the halcyon days of electrical engineering, This is a pretty
+simple state machine. It is not as neat as it could be (where just
+three variables would be needed to keep track of things, but still, it
+bears investigation. This would be a way for converting the current
+procedural /ucf/ into a functional programming model.
+
+Hop over
+#+BEGIN_HTML
+[[here|miscellaneous/functional_ucf]] 
+#+END_HTML
+for a look at how that
+went --- it was fun, and afforded me an opportunity to demonstrate how
+well /org/ handles
+#+BEGIN_HTML
+[[images/LaTeX.png]]
+#+END_HTML
+snippets.
