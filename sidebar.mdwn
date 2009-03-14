@@ -44,12 +44,33 @@
 
 ---
 
-<div style="margin:0px;">
-  <embed width="190" height="300" src="http://www.goodreads.com/images/widget/widget2.swf" quality="high" wmode="transparent" FlashVars="id=2110201&amp;shelf=read&amp;title=Manoj's bookshelf: read&amp;sort=date_added&amp;order=d&amp;params=amazon,,dest_site,"></embed>
+<script type="text/javascript" src="/software/js/identica-badge.js">
+{
+   "user":"srivasta",
+   "server":"identi.ca",
+   "width":"275",
+   "height":"150",
+   "background":"#335A9F",
+   "headerBackground":"transparent",
+   "evenBackground":"#ace",
+   "oddBackground":"Blue",
+   "headerColor":"White",
+   "border":"solid 1px #00165B",
+   "padding":"1px",
+   "headerText":""
+}
+</script>
+
+
+<div class="center" style="margin-left: auto; margin-right: auto;">
+	<a href="http://www.goodreads.com/user/show/2110201" target="_blank"><img style="margin-left: auto; margin-right: auto;" alt="Widget_logo" border="0" height="32" src="http://www.goodreads.com/images/widget/widget_logo.gif" title="my goodreads profile" width="190" /></a>
 </div>
-<div style="margin:0px;">
-	<a href="http://www.goodreads.com/user/show/2110201" target="_blank"><img alt="Widget_logo" border="0" height="32" src="http://www.goodreads.com/images/widget/widget_logo.gif" title="my goodreads profile" width="190" /></a>
+<div style="margin-left: auto; margin-right: auto;">
+  <embed width="275" height="300" src="http://www.goodreads.com/images/widget/widget2.swf" quality="high" wmode="transparent" FlashVars="id=2110201&amp;shelf=read&amp;title=Manoj's bookshelf: read&amp;sort=date_added&amp;order=d&amp;params=amazon,,dest_site,"></embed>
 </div>
+
+---
+
 
 [ ![Valid XHTML 1.1](/media/images/valid-xhtml11-blue.png)](http://validator.w3.org/check?uri=referer)
 [ ![Valid CSS!](/media/images/vcss.png)](http://jigsaw.w3.org/css-validator/)
