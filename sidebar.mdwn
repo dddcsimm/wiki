@@ -63,10 +63,16 @@
 
 
 <div class="center" style="margin-left: auto; margin-right: auto;">
-	<a href="http://www.goodreads.com/user/show/2110201" target="_blank"><img style="margin-left: auto; margin-right: auto;" alt="Widget_logo" border="0" height="32" src="http://www.goodreads.com/images/widget/widget_logo.gif" title="my goodreads profile" width="190" /></a>
+     <span style="color: #382110">My Books:</span><br/>
+     <a href="http://www.goodreads.com/review/list/2110201&amp;shelf=read">
+        <img style="margin-left: auto; margin-right: auto;" alt="Widget_logo" border="0" height="32" src="http://www.goodreads.com/images/widget/widget_logo.gif" title="My Read Shelf" width="190" /></a>
 </div>
 <div style="margin-left: auto; margin-right: auto;">
-  <embed width="275" height="300" src="http://www.goodreads.com/images/widget/widget2.swf" quality="high" wmode="transparent" FlashVars="id=2110201&amp;shelf=read&amp;title=Manoj's bookshelf: read&amp;sort=date_added&amp;order=d&amp;params=amazon,,dest_site,"></embed>
+  <embed width="275px"  src="http://www.goodreads.com/images/widget/widget2.swf"  quality="high" wmode="transparent"  FlashVars="id=2110201&amp;shelf=currently-reading&amp;title=Currently  Reading&amp;sort=date_added&amp;order=d&amp;params=amazon,,dest_site,"></embed>
+</div>
+
+<div class="center" style="margin-left: auto; margin-right: auto;font-size: 0.8em;">
+<script src="http://www.goodreads.com/review/grid_widget/2110201.Read?num_books=24&amp;order=d&amp;shelf=read&amp;sort=date_added&amp;widget_id=1237318613" type="text/javascript" charset="utf-8"></script>
 </div>
 
 ---
