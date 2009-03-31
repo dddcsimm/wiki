@@ -1,0 +1,223 @@
+#+TITLE:     Fighting FUD: Working with openssl
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Tue Mar 31 14:59:44 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Fighting FUD: Working with openssl"]]
+[[!tag sysadmin]]
+
+Unfortunately, there is so much FUD associated with doing your own
+certificates, either based on how complex the operation is (which led
+to my previous supervisor insisting I use something like ~tinyca~),
+and now to my employer succumbing to the FUD and shelling out several
+hundreds, perhaps several thousands, of dollars a year for something
+we could  well have handled in house.
+
+Public key infrastructure, in the form of the =X509= standard, is the
+underpinning of most of the secured communications over the 'net these
+days. The big winner in the transport protocols, ~TLS~, and its
+predecessor, ~SSL~, support =X509= certificates. There are several
+ways of getting your own services their own ~X509~ certs; one of which
+I am exploring below.
+
+One may, or course, opt to get a commercially signed certificate, and
+various companies are eager to do just that for you. They also charge
+about $400 per annum per certificate for the privilege of doing
+so. While there is some marginal benefit of doing so (some web
+browsers come with the commercial public certificate built in,
+allowing for an out of band distribution of the public cert), the
+benefit accrued is in the order or pennies, in my opinion, not
+hundreds of dollars, unless you are providing banking or retail
+services, where the end users might be justified in being paranoid.
+
+Why is there so much FUD your own certificates?  Especially about how
+hard it is do to your own? As you can see below, it only takes three
+commands you have to master in order to set up your own private
+certifying authority, and sign your own certificates. The only
+marginal issue is that the user needs to verify your certificate out
+of band (if, really, they want to bother). Most people just accept the
+certificate, in my experience.
+
+The sole benefit that commercial entities provide is that they verify
+the identity of the person asking for the certificate, with varying
+degrees of diligence. For a Class 1 cert the CA usually just verifies
+that the email address of the requester was confirmed. For $400/year.
+For a Class two cert, they look up the company in a credit bureau
+records. A class 3 certs does an ID check with a notary public
+present, or a government issued ID. 
+
+So, a class 3 cert is somewhat less diligent than becoming a Debian
+developer. Or getting your key signed at a Debian conference. As to
+the security aspects, or wondering whether to trust the information
+present on a designated web site, I have no idea how it helps verify
+any of those things in any way.
+
+So the web site is run by a person with a government provided ID, and
+who has a few hundred dollars to burn. So what?
+
+Me, I just sign my own certificates. And I think most small business
+web  sites and mail servers are perfectly well served by using their
+own certificates. And there are just three simple commands that enable
+them to do this, in the Linux world.
+
+So what are these three commands? 
+#+BEGIN_HTML
+[[!more  linktext="Gory practical details and recipes hidden here" text="""
+#+END_HTML
+
+
+** Recipe for doing your own certificate work
+
+If you want to create your own SSL certificates for things such as
+Apache you need a CA.  Before generating your OpenSSL CA you should
+edit your openssl.cnf file to save yourself time. This file is used
+every time you use OpenSSL and it stores the defaults for many of the
+things that you are prompted for every time. 
+
+In Debian, the configuration file lives in =/etc/ssl/openssl.conf=
+One of the things I generally do is set ~default_days~ to 3650, or ten
+years. The other things to set are the default values, usually for
+things that rarely or never change, like locations.
+~countryName_default = US~, ~stateOrProvinceName_default = TN~, and 
+~localityName_default = Woodbury~.  I generally copy the ~CA_Default~
+section into a ~CA_Gryphon~ section, and set default locations for
+where I keep files for that CA.
+
+It is also perhaps a good idea to standardize the location of the
+certificates and the keys and such. Since this should be fairly
+private information, a good idea is to put it under /root, and chmod
+0700 the directory.
+
+One suggestion is to create =/root/ssl=, and under that create a
+directory for each CA (yes, I have multiple CA's, since I have done
+this for work as well, and I work from home). For this article, I am
+going to use =/root/ssl/gryphon/= as the location for my CA.
+
+For each =CA=, we can then create subdirectories =certs=, =private=,
+and =newcerts=. Also, a serial file and an index file could be
+created:
+:  # echo 1000 > /root/ssl/gryphon/serial
+:  # touch       /root/ssl/gryphon/index.txt
+
+** The certifying authority
+
+It is easy to create a new certifying authority. Make sure you
+remember the password for the CA for as long as you want to keep using
+the CA.
+
+#+BEGIN_SRC shell-mode
+# Command 1
+cd ~root/ssl/gryphon
+openssl req -new -x509 -days 3650 -extensions v3_ca \
+            -keyout private/cakey.pem -out cacert.pem \
+            -config /etc/ssl/openssl.cnf
+#+END_SRC
+
+This should create =~root/ssl/gryphon/cacert.pem= and
+=~root/ssl/gryphon/private/cakey.pem=  files.
+
+** Generating an SSL certificate
+
+There are a few steps involved here.
+
+*** Creating a Request
+
+If you have a key, perhaps generated by =openssl genrsa=, and want to
+use that, use ~-key~ instead of the ~-newkey~ option. The ~-nodes~
+option ensures the resulting key is not encrypted, which makes sense
+for servers, since otherwise the server would ask for a password
+everytime the service was started.
+
+#+BEGIN_SRC shell-mode
+# Command 2
+cd ~root/ssl/gryphon
+openssl req -new -nodes -newkey rsa:2048  \
+	-out requests/foo-example-req.pem \
+	-keyout private/foo-example-key.pem \
+	-config /etc/ssl/openssl.cnf
+#+END_SRC
+
+
+Enter *.yourdomain for the common name if you wish to use this cert
+for all subdomains also, otherwise just enter the full address of the
+web server. If you enter a challenge password you will be prompted for the
+password everytime your server starts or reboots. Also, Note: If you
+are planning on using this CSR to create a self-signed certificate,
+then at the prompt "Common Name (eg, YOUR name) []:", enter the fully
+qualified domain name (FQDN) of your web server. This will prevent a
+"domain name mismatch" error box from appearing when clients connect
+to your web site.  
+
+
+*** Generating the new cert
+
+#+BEGIN_SRC shell-mode
+# Command 3
+cd ~root/ssl/gryphon
+openssl ca -keyfile  private/cakey.pem \
+        -cert certs/cacert.pem         \
+	-config /etc/ssl/openssl.cnf   \
+	-out certs/foo-example-cert.pem \
+	-infiles requests/foo-example-req.pem
+#+END_SRC
+
+And you are done. This is it. Just repeat steps 2 and 3 for any other
+certificate you need.
+
+*** Self signed certificates
+
+A self signed certificate could also be generated, if you did not want
+to use the CA set up above (this is mostly for academic interest). The
+~-x509~ option says that we want a seld signed cert.
+
+#+BEGIN_SRC shell-mode
+cd ~root/ssl/gryphon
+openssl req -x509 -days 365                    \
+            -in   requests/foo-example-req.pem \
+            -key  private/foo-example-key.pem  \
+            -out certs/foo-example-cert.pem
+#+END_SRC
+
+If all we wanted was a self signed cert, we could have eliminated the
+request generation entirely:
+
+#+BEGIN_SRC shell-mode
+cd ~root/ssl/gryphon
+openssl req -x509 -days 365 -newkey rsa:2048 -nodes  \
+            -keyout private/foo-example-key.pem \
+            -out certs/foo-example-cert.pem
+#+END_SRC
+
+** Inspecting entities
+
+*** Looking at requests
+
+: openssl req -text -noout -in  requests/foo-example-req.pem
+
+*** Looking at certificates
+
+:  openssl x509 -text -noout -in  certs/foo-example-cert.pem
+
+*** Looking at the issuer hash
+
+:  openssl x509 -in certs/foo-example-cert.pem -noout -issuer -issuer_hash
+
+*** Matching keys and certificates
+
+: openssl x509 -in certs/foo-example-cert.pem -noout -modulus
+: openssl rsa -in private/foo-example-key.pem -noout -modulus
+
+
+#+BEGIN_HTML
+""" ]]
+#+END_HTML
+
+In conclusion, creating your own certifying authority is trivial, and
+certainly not worth several hundreds of dollars every year, and the
+functionality provided is identical.
