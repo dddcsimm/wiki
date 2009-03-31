@@ -1,0 +1,2 @@
+[[!meta title="Blog postings related to systems administration"]]
+[[!inline pages="link(tag/sysadmin) and !blog and !tag" show="10" rootpage="blog"]]
