@@ -1,0 +1,15 @@
+[[!_comment format=mdwn
+ username="http://kbloom.myopenid.com/"
+ subject="Re: comment 3"
+ date="2009-04-01T19:33:50Z"
+ content="""
+\"I do not think that logically follows.\"
+
+Sorry. That's becuase your blog ate the first paragraph of my post.
+
+I very frequently run into people who set up ssl-protected (but otherwise public) mailing list archives. I want to read the archives, but since the certificate is self-signed, FireFox throws up a massive warning and requires 5 clicks to make a security exception. Obviously the appropriate use here is to not use SSL, since there's nothing to protect.
+
+If your page is intended for anyone other than a small (known) audience (like private development pages or strictly personal use). Then you ought to shell out for a certificate that doesn't cause undue inconvenience to your users.
+
+It's in this context that I say if it's not worth shelling out $400 for a certificate, then it probably isn't worth encrypting.
+"""]]
