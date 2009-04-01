@@ -1,0 +1,15 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ subject="Firefox 3 and personal certs"
+ date="2009-04-01T16:14:05Z"
+ content="""
+Yes, it asks users to add an exception. The older versions of FF did not do so, the new versions indulge in the FUD.
+
+But is is easy enough to add an exception; and the process of adding the exception allows the user to examine the cert.
+
+What is the attack vector you are worried about at this time? If I had purchased a class 1 cert, you would not have been challenged, and all you would know was that I had a valid email when I bought the cert. This is not much of a security gain, and does not thwart any attack vectors that I can see.
+
+Most of the services offered by individuals and small vbusinesses not in the business of selling things on the network, that need password protection, are to protect passwords and such from going out in the clear, and to protect private data from the site (emails, private data on web pages). In most cases you need to trust the information source at the other end.
+
+At this point, the cridible attack vector you are scared about is the man in the middle attack -- and there is nothing that says the man in the middle will not buy a cheap class one cert; so your browser's screaming about it is not a good defense.
+"""]]
