@@ -1,0 +1,25 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ subject="X509 itself is fataly flawed"
+ date="2009-04-01T16:30:51Z"
+ content="""
+Well, yes. A single trusted certifying authority is a different beast
+from a web of trust angle. But from a regulation angle, regulaters and
+watchdogs can better monitor the single basket with all your eggs than
+going on an easter hunt.
+
+While usig OpenPGP with tls is a nice concept, and might work when you
+have a trusted path to the key signing the cert, the current state of
+affairs does not lend itself to wide adoption. Here are the services
+running on the host servicing this blog:
+
+- Apache HTTPS
+- Sendmail 
+- Courier IMAP and POP
+- Munin Client
+- LDAP (well, it used to run LDAP)
+
+All of them have an easy integration with PKI via openssl. How hard
+would it be for me to switch to key based TLS?
+
+"""]]
