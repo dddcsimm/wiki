@@ -1,0 +1,9 @@
+[[!_comment format=mdwn
+ username="http://trs80.ucc.asn.au/"
+ subject="easyrsa"
+ date="2009-04-01T06:46:19Z"
+ content="""
+I find the easyrsa scripts in the openvpn package much easier than running openssl directly.
+
+$400/year is way too much to pay for a normal SSL cert - I recently bought a 3 year one for $40.
+"""]]
