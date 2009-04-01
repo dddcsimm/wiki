@@ -1,0 +1,7 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ subject="easyrsa"
+ date="2009-04-01T09:07:51Z"
+ content="""
+Do you really find pkitool that much simpler than openssl itself? It just seems to be a different set of things to learn, with a few defaults set. However, this is a good tip; I was not aware of these scripts, and I had them installed on my system.
+"""]]
