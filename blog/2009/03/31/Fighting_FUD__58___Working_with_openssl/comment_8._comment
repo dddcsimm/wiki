@@ -1,0 +1,13 @@
+[[!_comment format=mdwn
+ username="https://id.mayfirst.org/dkg/"
+ subject="X.509 itself is structurally flawed"
+ date="2009-04-01T14:13:27Z"
+ content="""
+Thanks for this writeup, Manoj.  It's good to see the basic process demystified a bit.
+
+[TinyCA](http://packages.qa.debian.org/tinyca) *is* a reasonable option for folks to start with though, if they don't feel comfortable with the command line.  It sets good defaults, and provides visual menus of what the most likely next steps would be.
+
+However, the underlying problem is that [X.509 is structurally flawed](http://lair.fifthhorseman.net/~dkg/tls-centralization/) because it only allows a single issuer for any given cert.  This creates perverse (anti-secure) incentives for every participant in the communication: the CAs themselves, server administrators, and end users.
+
+Debian's adoption of OpenPGP (which has multiple signers per certificate) avoids those perverse incentives.  It would be great to see more free TLS libraries implement [RFC 5081 -- Using OpenPGP Keys for TLS Authentication](http://tools.ietf.org/html/rfc5081), as it could provide a way forward out of this situation: to set up a TLS-enabled service, you would initially create its OpenPGP key, and sign it with your own.  Then, as the need for more certifiers (e.g. the broader public) became apparent, you could contact various CAs (based on how useful you thought they would be, or based on who your users know) to add additional certifications.  This would also allow for the creation of independent certification authorities, backed and supported by users who have specific identity-authentication requirements.
+"""]]
