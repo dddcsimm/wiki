@@ -1,0 +1,6 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ date="2009-04-01T04:58:26Z"
+ content="""
+I do not  think that logically follows. I have important things in my life, but that does not imply that they are ohnly important if I throw several hundred dollars at random folks. What is critical is that there is a cryptographically secure channel for communication; and that channel is equally secure of my mail server talks to my mail client using a certificate I signed myself. Can you demonstrate that paying some random person a few hundred dollars will improce the security of the communication between my MUA and my mail server?
+"""]]
