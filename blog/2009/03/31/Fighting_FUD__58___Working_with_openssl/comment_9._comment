@@ -1,0 +1,13 @@
+[[!_comment format=mdwn
+ username="https://id.mayfirst.org/dkg/"
+ subject="dealing with compromised keys"
+ date="2009-04-01T14:21:52Z"
+ content="""
+One more thought:
+
+I note that your steps above don't mention or get into certificate revocation, managing/publishing [CRLs](http://en.wikipedia.org/wiki/Certificate_revocation_list), or [OCSP](http://en.wikipedia.org/wiki/OCSP).  This isn't a dig -- most graphical CA frontends don't do this either, from what i've seen, and frankly, most commercial CAs don't even seem to bother with it (witness the sluggish and inadequate response of most commercial CAs to the Debian OpenSSL debacle last year -- how many CRLs were updated promptly?).
+
+And most X.509 validating software doesn't bother to check CRLs or OCSP, for that matter, even if you were to provide either service.  This makes it difficult or impossible to dismiss a certificate from a compromised key, unfortunately, and most people just rely on the fact that most certificates have a short duration to protect them against such a compromise.
+
+Using OpenPGP instead, as mentioned above, offers users the ability to fetch revocations via the same means they use to fetch certifications -- via [HKP](http://tools.ietf.org/html/draft-shaw-openpgp-hkp-00) or other standard methods for keyserver access.
+"""]]
