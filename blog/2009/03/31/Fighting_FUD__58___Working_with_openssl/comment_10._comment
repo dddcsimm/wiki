@@ -12,4 +12,8 @@ What is the attack vector you are worried about at this time? If I had purchased
 Most of the services offered by individuals and small vbusinesses not in the business of selling things on the network, that need password protection, are to protect passwords and such from going out in the clear, and to protect private data from the site (emails, private data on web pages). In most cases you need to trust the information source at the other end.
 
 At this point, the cridible attack vector you are scared about is the man in the middle attack -- and there is nothing that says the man in the middle will not buy a cheap class one cert; so your browser's screaming about it is not a good defense.
+
+If people using the services are indeed concerned about the man in the
+middle attack, they can always send me email -- encrypted by gpg --
+and ask (though in practice, most people just add exceptions)
 """]]
