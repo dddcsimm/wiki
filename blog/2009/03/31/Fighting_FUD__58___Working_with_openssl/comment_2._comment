@@ -1,0 +1,9 @@
+[[!_comment format=org
+ username="http://kbloom.myopenid.com/"
+ subject="But it is a pain in the butt for users"
+ date="2009-04-01T03:28:52Z"
+ content="""
+But it is a pain in the butt for users when there are SSL protected mailing list archives with a self-signed certificate. I don't care about encryption, but I have to deal with a seriously convoluted process for making an exception.
+
+Please, if it's not worth a $400/yr certificate, it's probably not worth protecting with SSL in the first place.
+"""]]
