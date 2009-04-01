@@ -1,0 +1,19 @@
+[[!_comment format=mdwn
+ username="https://id.mayfirst.org/dkg/"
+ subject="TLS transitioning from X.509 to OpenPGP"
+ date="2009-04-01T18:42:01Z"
+ content="""
+Manoj wrote:
+
+> Well, yes. A single trusted certifying authority is a different beast from a web of trust angle. But from a regulation angle, regulaters and watchdogs can better monitor the single basket with all your eggs than going on an easter hunt.
+
+I think it's interesting to note that the hierarchical CA model used by X.509 is actually a special case of the generalized web of trust.  If you want to put all your eggs in the one basket of the commercial CAs, you could do that in the WoT: just indicate full trust in the key held by the CA.  Intermediate CAs can be implemented (if you need them) with [trust signatures](http://tools.ietf.org/html/rfc4880#section-5.2.3.13) issued by the root CA (i.e. the CA says \"this other CA can make signatures on my behalf\").
+
+So if you start with a WoT, you can implement a hierarchical model, but not the other way around.  What's worse, i'm not convinced that a \"regulator\" or \"watchdog\" who makes its money *by issuing certificates* can actually do a better job managing these validation processes than an independent network.  And as long as the centralized/hierarchical model is the only available system, no one is going to be able to effectively supplant these faulty regulators because of their near-monopolistic dominance.
+
+> All of them have an easy integration with PKI via openssl. How hard would it be for me to switch to key based TLS?
+
+Unfortunately, we're not there yet in terms of making it easy to make a transition from X.509- to OpenPGP-certified TLS.  Only one free TLS library (GnuTLS) supports RFC 5081 right now, and most tools which compile against GnuTLS don't directly implement the RFC 5081-compliant options GnuTLS makes available.
+
+One thing you could try is to install [libapache-mod-gnutls](http://packages.debian.org/libapache2-mod-gnutls) and use it instead of mod_ssl.  [mod_gnutls](http://www.outoforder.cc/projects/apache/mod_gnutls/) supports concurrent OpenPGP and X.509 certificates for apache's TLS sessions.  If you want to use the same RSA key material to back the OpenPGP certificate as you're using for the X.509 certificate, you can use `/usr/bin/pem2openpgp` from the [monkeysphere](http://packages.debian.org/monkeysphere) package.  ([monkeysphere](http://monkeysphere.info) itself uses the OpenPGP web of trust to mutually authenticate SSH connections; not TLS, but it's a demonstration that OpenPGP certificates can be used to authenticate stream-based communications).
+"""]]
