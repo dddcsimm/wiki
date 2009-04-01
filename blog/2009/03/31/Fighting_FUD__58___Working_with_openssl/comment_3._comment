@@ -2,5 +2,21 @@
  username="http://openid.golden-gryphon.com/srivasta"
  date="2009-04-01T04:58:26Z"
  content="""
-I do not  think that logically follows. I have important things in my life, but that does not imply that they are ohnly important if I throw several hundred dollars at random folks. What is critical is that there is a cryptographically secure channel for communication; and that channel is equally secure of my mail server talks to my mail client using a certificate I signed myself. Can you demonstrate that paying some random person a few hundred dollars will improce the security of the communication between my MUA and my mail server?
+I do not  think that logically follows. I have important things in my
+life, but that does not imply that they are only important if I throw
+several hundred dollars at random folks. What is critical is that
+there is a cryptographically secure channel for communication; and
+that channel is equally secure of my mail server talks to my mail
+client using a certificate I signed myself. Can you demonstrate that
+paying some random person a few hundred dollars will improve the
+security of the communication between my MUA and my mail server?
+
+As to it being painful to the end user, Yes, in some browsers there is
+a scary warning about the certifying authority signature being
+unknown, and people have to add an exception about it. So, is an user
+having to add a security exception to their browsers worth $400/year
+for me? I think so. I have web servers that provide Genealogy
+information for my family, MTA's and IMAP servers for friends, and the
+accepting the CA sig is a one time deal for services rendered. I think
+it is cheap at the price.
 """]]
