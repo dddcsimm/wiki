@@ -1085,6 +1085,50 @@ div.commitinfo {
   margin-left: 1em;
   text-align: left;
 }
+
+/* The recent changes page. */
+
+div.recentchanges { 
+  border-top: solid Blue 4px;
+  margin-left: 2em;
+  padding-left: 1em;
+}
+
+div.recentchanges div.metadata span.desc {  
+  font-variant: small-caps;
+  text-transform: capitalize;
+  font-family: Geneva, Verdana, Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; 
+  font-weight: bold; 
+  Color: rgb(5,5,112);
+  margin: 0 0.2em 0.1em 0em;  
+}
+
+div.recentchanges div.changelog {  
+  margin-top: 0.8em;
+  border-bottom: solid Blue 4px;
+  font-family: Baskerville, Times New Roman, Times, serif;
+  font-size: 120%;
+  color: #0A940B;
+}
+
+div.recentchanges div.metadata span.pagelinks {  
+  display: block;
+  color: black;
+  text-align: right;
+}
+div.recentchanges div.metadata span.pagelinks a {  
+  display: block; 
+  color: black;
+  background-color: #dfd;
+  padding: 5px;
+  font-size:95%;
+  margin-left: auto;
+}
+div.recentchanges div.metadata span.pagelinks a img {  
+  float: left;
+  color: black;
+  background-color: #dfd;
+}
 /* The rest of this should be pretty generic */
 
 tt, code, kbd, samp      { font-family: "Courier New", Courier, monospace }
