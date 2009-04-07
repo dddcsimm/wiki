@@ -1,0 +1,145 @@
+#+TITLE:     Not your father's kernel-package
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Tue Apr  7 10:31:46 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Not your father's kernel-package"]]
+[[!tag software software/debian ]]
+
+A few hours ago, a new version of kernel-package was uploaded to
+~experimental~.  This is a major change,and I would appreciate it if
+folks took it out for a spin, kicked the tires, and provide feedback
+about where this version is lacking.
+
+This is only part of the way along in this development cycle. I would
+like to add a debug-info separation, either in a different directory
+than / in the image packages, or a separate package by itself. I would
+also like to create an overlay directory for
+=/usr/share/kernel-package/=, so people can inject code or override
+the defaults for kernel-package easily. I am also willing to make any
+changes to standardize the handling of hook scripts for kernel
+packages in Debian.
+
+** =./debian/= is ephemeral
+
+=make-kpkg= removes and re-creates =./debian= on every
+invocation. This started as an exercise to protect ourselves from the
+upstream builddep functionality, that randomly cleaned out ~./debian~
+whether or not it had created it, effectively making it impossible to
+run ~dpkg-buildpackage~ easily (which is ok, if all you care about is
+the image package)
+
+This does make the ~kernel-package~ far more nimble; we now offer less
+surprise to users who did not expect stampts that the kernel-packagge
+used to not do duplicate work. Now, if you edit a couple of files in
+the kernel source, and run ~make-kpkg~, the kernel will build as
+expected. There are no more "version mismatch" errors, and the kernel
+version can be modified using ~localconfig~ as one desires. With this,
+kernel-package can routinely be used to build kernels out of the git
+tree.
+
+The con is that we no longer cater to official kernels, or to anyone who
+expected content in ./debian to persist. At some point, there are plans
+to implement an overlay directory that will shadow
+=/usr/share/kernel-package/ruleset=, but that is not yet implemented.
+In any case, the kernel team in Debian regards ~kernel-package~ to be
+broken, and have been bad mouthing it and deprecating it for a few
+years now, so this will not be a loss for them.
+
+** Get rid of the facility to patch kernel sources
+
+The patch the kernel facility was adding complexity, and failing to
+provide the flexibility required for a generic patching facility. It
+used to be useful at one point, but in the modern parlance, witht he
+widespread use of distribute version control systems, and various
+facilities to manage source and patch them, the built in version was
+clunky.  This means the ~--added-patches~ option of =make-kpkg= is
+gone, the work-around is to prepare the kernel sources _before_
+calling =make-kpkg=.
+
+
+** Remove special case code for official kernels
+
+For the longest tine (well, ever since Herbert Xu too over building
+kernel images from me), ~kernel-package~ has carried specal case code
+for official images. This has caused some problems, recently, since
+the need to preserve ~./debian~ has caused no end of problems when the
+version changed out from under ~./debian~, or when people wanted to edit
+a file and expected kernel-package to do a minimal recompile.
+
+However, sometime in the Etch release cycle, the kernel team
+deprecated ~kernel-package~ as the means of building official
+kernels. They have recently started saying they think ~kernel-package~
+is broken, and have their own recommendation for how to build kernel
+packages. Therefore, a full release cycle later, we can get rid of the
+special case rules used for official packages. Also, this allows us to
+drop ~./debian~ at the drop of a hat, and recreate it with an version
+that reflects the current state of the kernel sources.
+
+** Header package no longer create symbolic links in =/usr/src=
+
+Instead, ship an example shell script that replicates the old
+behaviour. This script can then be deployed on the target machines,
+and could be a part of a locally created kernel configuration package,
+if one needs to deploy the same behavior across a cluster of
+machines.
+
+** The postinst no longer manipulates symlinks
+
+This is a shift from previous behaviour. Any symbolic link
+manipulation must now be done with hook scripts in ~/etc/kernel/*.d~
+directories.
+
+Firstly, modern boot loaders scan the boot directory for kernel
+images, and the user no longer has to code in the path to the symbolic
+links that the kernel image package used to manipulate.
+
+Secondly, hardcoding the behaviour into the postinst made for a very
+rigid policy; and user wanted more flexibility than that. There is an
+example shipped with the package that shows a more flexible scheme
+that kept two symbolic links for version 2.4 kernels, and two symbolic
+links for 2.6 kernels; it can be easily modified to keep two links for
+2.9 kernels and two links for 2.8 kernels, or one of each, or whatever
+the user wants. 
+
+** Image postinst no longer runs a boot loader
+
+Please note that this was already the case for grub, one of the more
+popular boot loaders.
+
+Now that we have a mechanism for running arbitrary scripts when the
+image packages are manipulated, we can stop embedding the boot loader
+actions in the package itself. This means that lilo, elilo, etc will
+no longer be run directly by the post install script, and all the code
+related to detecting the boot loader, managing the configuration, and
+adding bits about bootloader documentation is all removed from the
+postinst. This allows the image package to be more flexible, since the
+end user is no longer restricted to the actions encoded in the image
+package. This is a fairly large change.
+
+It also opens the door for the user to easily use non-standard
+bootloaders, if they so desire.
+
+** The image postinst no longer creates an initramfs
+
+Instead, there are example scripts provided that will perform the
+task. These scripts will work for official kernel images as well.
+
+The initramfs scripts provided work with the =make-kpkg= images as
+well as the official images, and are thus better than the script
+shipped with =initramfs-tools= themselves, as they offer a super set of
+functionality.
+
+This also demonstrates how the posts install script communicates with
+the initramfs creation scripts so that no initramfs is generated in
+case you do not want it.
+
+
+
+
