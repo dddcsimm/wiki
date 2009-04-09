@@ -636,6 +636,7 @@ div#content h4 {
   color: #336699;
 }
 
+
 /* 
    Then we have a small area for a message, where the results from
    find, etc come
@@ -769,6 +770,8 @@ span.month {
 div.story { 
   width: 100%;
   clear:right;
+  padding-left: 1em;
+  margin-left: 1.5em;
   margin-bottom: 0.3em;
 }
 
