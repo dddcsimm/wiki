@@ -1,0 +1,53 @@
+#+TITLE:     kernel-package: Add support for kernel image debug package
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Thu Apr  9 17:03:12 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="kernel-package: Add support for kernel image debug package"]]
+[[!tag software software/debian]]
+
+
+A new version of ~kernel-package~ in Incoming at the time of writing
+adds support for creating a package which contains the Linux kernel
+debug image. This means the debugging information for the modules in
+the kernel image package, and the uncompressed vmlinux image. This
+builds on suggestions and code from Troy Heber, Theodore
+Y. Ts'o, and Dann Frazier.
+
+As support for kexec/kdump support becomes more real, it will be very
+useful to be able to build kernels that have debugging information
+available, but not necessarily to install the debugging information on
+every single client system.
+
+The =.ko= object files are stripped of the debugging information
+before they are placed in the standard /linux-image/ installation
+package.  However, before that, a copy of the vmlinux and unstripped
+=.ko= files are saved in a "/debuginfo/" package, and everything
+except for the debugging information is removed from them using
+~objcopy --keep-only-debug~.  This means that if someone ends up with
+a crash dump, they can send it to a support engineer and only the
+support engineer needs to install the debuginfo package and use the
+"/crash/" utility to debug the crash dump.  It's also useful for
+developers, since the debuginfo information can be stored somewhere
+outside of ~/lib~ for storing its debug information, for example.
+This is useful for keeping the size of the root partition small, for
+those who keep ~/~ separate from ~/usr~.
+
+The locations used are compatible also with *SystemTap*, which
+provides free software infrastructure to simplify the gathering of
+information about the running Linux system. This assists diagnosis of
+a performance or functional problem. *SystemTap* eliminates the need
+for the developer to go through the tedious and disruptive instrument,
+recompile, install, and reboot sequence that may be otherwise required
+to collect data.
+
+Also, I had to clear out some FUD about kernel-package from the
+/ircbot/ *dpkg* on the OFTC Debian IRC channel, since someone had
+implied that ~kernel-package~ was some how obsolete. As can be seen,
+it is being actively developed, and features are being added apace.
