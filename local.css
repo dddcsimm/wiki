@@ -1405,3 +1405,30 @@ acronym {
  overflow: hidden; 
 }
 
+.synComment    { color: #0000FF }
+.synConstant   { color: #0000FF }
+.synError      { color: #FFFFFF ; background: #FF0000 none }
+.synIdentifier { color: #008B8B }
+.synPreProc    { color: #A020F0 }
+.synSpecial    { color: #6A5ACD }
+.synStatement  { color: #A52A2A ; font-weight: bold }
+.synTodo       { color: #0000FF ; background: #FFFF00 none }
+.synType       { color: #2E8B57 ; font-weight: bold }
+.synUnderlined { color: #000000 ; text-decoration: underline }
+
+
+/* stuff for cookbook coloring */
+.syntaxactiveblue { color: #0032FF; }
+.syntaxactiveorange { color: #C86400; }
+.syntaxcomment { color:  #696969; }
+.syntaxdarkblue { color: #00008B; }
+.syntaxdarkcyan { color: #008B8B; }
+.syntaxdarkgreen { color: #006400; }
+.syntaxerror { color:  #e63c3c; }
+.syntaxfirebrick { color: #B22222; }
+.syntaxkeyword { color:  #871f78; }
+.syntaxname { color:  #000000; }
+.syntaxstring { color:  #23238e; }
+.syntaxtext { color:  #000000; }
+/* end stuff */
+
