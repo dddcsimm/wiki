@@ -1,0 +1,7 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ subject="Re: Great News"
+ date="2009-04-14T05:40:29Z"
+ content="""
+Well, I am not involved in backporting, but there is very little that kernel-package depends on, so there should not be a whole lot of porting that would need to be done.
+"""]]
