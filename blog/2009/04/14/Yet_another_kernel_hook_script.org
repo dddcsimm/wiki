@@ -1,0 +1,65 @@
+#+TITLE:     Yet another kernel hook script
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Tue Apr 14 00:44:08 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Yet another kernel hook script"]]
+[[!tag software software/debian]]
+
+With tonight's upload of ~kernel-package~, the recent flurry of
+activity on this package (8 uploads in 6 days) is drawing to a
+close. I think most of the functionality I started to put into place
+is now in place, and all reported regressions and bugs in the new
+12.XX version have been fixed. The only known deficiency is in the
+support of Xen dom0 images, and for that I am waiting for kernel
+version =2.6.30=, where Linus has reportedly incorporated Xen
+patches. In the meanwhile, ~kernel-package~ seems to be working well,
+and I am turning my attention to other things.
+
+But, before I go, here is another example kernel postinst hook script
+(which, BTW, looks way better with syntax highlighting CSS on my blog
+than it does in a rss feed or an aggregator site).
+
+#+BEGIN_HTML
+[[syntax language=Bash linenumbers=1 bars=1 text="""
+#! /bin/sh
+
+set -e
+
+if [ -n "$INITRD" ] && [ "$INITRD" = 'No' ]; then
+    exit 0
+fi
+version="$1"
+vmlinuz_location="$2"
+
+
+if [ -n "$DEB_MAINT_PARAMS" ]; then
+    eval set -- "$DEB_MAINT_PARAMS"
+    if [ -z "$1" ] || [ "$1" != "configure" ]; then
+        exit 0;
+    fi
+fi
+
+# passing the kernel version is required
+[ -z "$version" ] && exit 1
+
+if [  -n "$vmlinuz_location" ]; then
+    # Where is the image located? We'll place the initrd there.
+    boot=$(dirname "$vmlinuz_location")
+    bootarg="-b $boot"
+fi
+
+# Update the initramfs
+update-initramfs -c -t -k "$version" $bootarg
+
+exit 0
+"""]]
+#+END_HTML
+
+
