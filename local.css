@@ -1405,16 +1405,53 @@ acronym {
  overflow: hidden; 
 }
 
+/* This is used by the Syntax plugin for ikiwiki */
+pre.syntax  { color:#F5E8EF; background-color:#000000; font-size:10pt; font-family:Courier New, Courier, monospace;}
+.synBar        { background-color: #1A1A1A; }
+.synComment    { color: #6fb2c4; font-style:italic; } /* .slc .com */
+.synConstant   { color: #ccc6c6; }                    /* .str */
+.synError      { color: #FF0000; }
+.synIdentifier { color: #c4ac60; } /* .num */
+.synLineNumber { color: #dee394; } /* .line */
+.synPreProc    { color: #cfc631; } /* str */
+.synSpecial    { color: #ccc6c6; } /* sym */
+.synStatement  { color: #1ededc; } /* kwa kwb */
+.synTodo       { color: #1c96ed; } /* kwd */
+.synType       { color: #ecea26; font-weight: bold } /* kwc */
+.synUnderlined { color: #FFFFFF; text-decoration: underline }
+/* This is used by the Syntax plugin for ikiwiki 
+.synBar        { color: #0000FF }
 .synComment    { color: #0000FF }
 .synConstant   { color: #0000FF }
 .synError      { color: #FFFFFF ; background: #FF0000 none }
 .synIdentifier { color: #008B8B }
+.synLineNumber { color: #0000FF }
 .synPreProc    { color: #A020F0 }
 .synSpecial    { color: #6A5ACD }
 .synStatement  { color: #A52A2A ; font-weight: bold }
 .synTodo       { color: #0000FF ; background: #FFFF00 none }
 .synType       { color: #2E8B57 ; font-weight: bold }
 .synUnderlined { color: #000000 ; text-decoration: underline }
+*/
+
+/* Highlighting theme definition: */
+
+body.hl { background-color:#000000; }
+pre.hl  { color:#2346d5; background-color:#000000; font-size:10pt; font-family:Courier New, Courier, monospace;}
+.num    { color:#c4ac60; }
+.esc    { color:#ccc6c6; }
+.str    { color:#cfc631; }
+.dstr   { color:#cfc631; }
+.slc    { color:#6fb2c4; font-style:italic; }
+.com    { color:#6fb2c4; font-style:italic; }
+.dir    { color:#8080ff; }
+.sym    { color:#ccc6c6; }
+.line   { color:#dee394; }
+.kwa    { color:#1ededc; font-weight:bold; }
+.kwb    { color:#c06cf8; font-weight:bold; }
+.kwc    { color:#ecea26; }
+.kwd    { color:#1c96ed; }
+
 
 
 /* stuff for cookbook coloring */
