@@ -1,0 +1,90 @@
+#+TITLE:     Towards a generic, distribution agnostic tool for building packages from a VCS
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Thu Apr 16 16:31:13 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Towards a generic, distribution agnostic tool for building packages from a VCS"]]
+[[!tag software]]
+
+
+I have been involved in =vcs-pkg.org= since around the time it
+started, a couple of years ago. The discussion has been interesting,
+and I learned a lot about the benefits and disadvantages of
+serializing patches (and collecting integration deltas in the feature
+branches *and* the specific ordering of the feature branches) and
+maintaining integration branches (where the integration deltas are
+collected purely in the integration branch, but might tend to get lost
+in the history, and a fresh integration branch having to re-invent the
+integration deltas afresh).
+
+However, one of the things we have been lax about is getting down to
+brass tacks and getting around to being able to create generic
+packaging tools (though for the folks on the serializing patches side
+of the debate we have the excellent =quilt= and the =topgit=
+packages).
+
+I have recently mostly automated my git based work-flow, and have
+built fancy porcelain around my git repository setup. During IRC
+discussion, the =gitpkg= script came up. This seems almost usable,
+apart from not having any built-in =pristine-tar= support, and also not
+supporting =git submodules=, which make is less useful an alternative
+than my current porcelain.
+
+But it seems to me that we are pretty close to being able to create a
+distribution, layout, and patch handler agnostic script that builds
+distribution packages directly from version control, as long as we
+take care not to bind people into distributions or tool specific
+straitjackets. To these ends, I wanted to see what are the tasks that
+we want a package building script to perform. Here is what I came up
+with.
+
+1. Provide a copy of one or more upstream source tar-balls in the
+   staging area where the package will be built. This staging area may
+   or may not be the working directory checked out from the underlying
+   VCS; my experience has been that most tools of the ilk have a
+   temporary staging directory of some kind.
+2. Provide a directory tree of the sources from which the package is
+   to be built in the staging area
+3. Run one or more commands or shell scripts in the staging area to
+   create the package. These series of commands might be very
+   complex, creating and running virtual machines, chroot jails,
+   satisfying build dependencies, using copy-on-write mechanisms,
+   running unit tests and lintian/puiparts checks on the results. But
+   the building a package script may just punt on these scripts to a
+   user specified hook.
+
+The first and third steps above are pretty straight forward, and
+fairly uncontroversial. 
+
+The upstream sources may be handled by one of these three
+alternatives:
+1. compressed tar archives of the upstream sources are available, and
+   may be copied.
+2. There is a pristine-tar VCS branch, which in conjunction with the
+   upstream branch, may be used to reproduce the upstream tr archive
+3. Export and create an archive from the upstream branch, which may
+   not have the same checksum as the original branch
+
+The command to run may be supplied by the user in a configuration file
+or option, and may default based on the native distribution, to
+=dpkg-buildpackage= or =rpm=. There are a number of already mature
+mechanisms to take a source directory and upstream tar archive and
+produce packages from that point, and the wheel need not be
+re-invented.
+
+So the hardest part of the task is to present, in the staging area,
+for further processing, a directory tree of the source package, ready
+for the distribution specific build commands. This part of the
+solution is likely to be VCS specific.
+
+This post is getting long, so I'll defer presenting my evolving
+implementation of a generic =vcs-pkg= tool, ~git~ flavour, to the
+next blog post.
+
+
