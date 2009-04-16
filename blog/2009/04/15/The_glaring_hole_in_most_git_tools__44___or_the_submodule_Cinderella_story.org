@@ -1,0 +1,67 @@
+#+TITLE:     The glaring hole in most git tools, or the submodule Cinderella story
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Wed Apr 15 22:13:51 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="The glaring hole in most git tools, or the submodule Cinderella story"]]
+[[!tag software software/git]]
+
+There are a lot of little git scripts and tools being written by a lot
+of people. Including a lot of tools written by people I have a lot of
+respect for. And yet, they are mostly useless for me. Take
+git-pkg. Can't use it. Does not work with git submodules. Then there
+is our nice, new, shiny, incredibly bodacious "3.0 (git)" source
+format. Again, useless: does not cater to submodules.
+
+I like submodules. They are nice. They allow for projects to take
+upstream sources, add Debian packaging instructions, and put them into
+git. They allow you to stitch together disparate projects, with
+different authors, and different release schedules and goals, into a
+coherent, integrated, software project.
+
+Yes, I use git submodules for my Debian packaging. I think it is
+conceptually and practically the correct solution. Why submodules?
+Well, one of the first things I discovered was that most of the
+packaging for my packages was very similar -- but not identical.
+Unfortunately, the previous incarnation of my packages with a
+monolithic rules file in each ~./debian/~ directory, it was easy for
+the rules files in packages to get out of sync -- and there was no
+easy way to merge changes in the common portions an any sane automated
+fashion. The ~./debian/~ directories for all my packages package that
+they are instrumental in packaging. So, since I make the ~./debian/~
+directories branches of the same project, it is far easier to package
+a new package, or to roll out a new feature when policy changes -- the
+same commit can be applied across all the branches, and thus all my
+source packages, easily.  With a separate =debian-dir= poject, I can
+separate the management of the packaging rules from the package code
+itself.
+
+Also, I have abstracted out the really common bits across all my
+packages into a ~./debian.common~ directory, which is yet another
+project, and included in as a submodule in all the packages -- so
+there is a central place to change the common bits, without having to
+duplicate my efforts 30-odd times.
+
+Now peolpe are complaining since they have no idea how to clone my
+package repositories, since apparently no one actually pays attention
+to a file called ~.gitmodules~, and even when they do, they, and the
+tools sthye use, have no clue what  to do with it. I am tired of
+sending emails with one off-cluebats, and I am building my own
+prcelain around something I hope to presnet as a generic =cvs-pkg=
+implementation soon. The firs step is a wrapper around =git-clone=,
+that understands git submodules.
+
+So,
+#+BEGIN_HTML
+[[here|miscellaneous/clone_repo.html]] 
+#+END_HTML
+is the browsable code (there is a link in there to the downloadable
+sources too). Complete with a built in man page. Takes the same
+arguments as =git-clone=, but with fewer options. Have fun.
+

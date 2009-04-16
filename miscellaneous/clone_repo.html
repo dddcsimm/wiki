@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Clone a Git Repository, expanding submodules</title>
+<link rel="stylesheet" type="text/css" href="/styles/blacknblue.css"/>
+</head>
+<body class="hl"><pre class="hl"><span class="hl slc">#! /usr/bin/perl -w</span>
+<span class="hl slc"># File: clone_repo</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># Copyright © 2009 by Manoj Srivastava</span>
+<span class="hl slc"># This program is free software; you can redistribute it and/or modify</span>
+<span class="hl slc"># it under the terms of the GNU General Public License as published by</span>
+<span class="hl slc"># the Free Software Foundation; either version 2 of the License, or</span>
+<span class="hl slc"># (at your option) any later version.</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># This program is distributed in the hope that it will be useful,</span>
+<span class="hl slc"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="hl slc"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="hl slc"># GNU General Public License for more details.</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># You should have received a copy of the GNU General Public License</span>
+<span class="hl slc"># along with this program; if not, write to the Free Software</span>
+<span class="hl slc"># Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</span>
+<span class="hl slc">#</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># Description:</span>
+<span class="hl slc"># A wrapper around git-clone that recursively populates submodules.</span>
+<span class="hl slc"># Download <a href="/software/misc/clone_repo.txt">here.</a>
+
+
+<span class="hl kwa">use</span> <span class="hl kwd">warnings</span><span class="hl sym">;</span>
+<span class="hl kwa">use</span> <span class="hl kwd">strict</span><span class="hl sym">;</span>
+<span class="hl kwa">use</span> IO<span class="hl sym">::</span><span class="hl kwd">File</span><span class="hl sym">;</span>
+
+<span class="hl sym">=</span>head1 NAME
+
+clone_repo <span class="hl sym">-</span> like git<span class="hl sym">-</span>clone<span class="hl sym">,</span> but aware of submodules
+
+<span class="hl sym">=</span>cut
+
+<span class="hl sym">=</span>head1 SYNOPSIS
+
+ usage<span class="hl sym">:</span> clone_repo <span class="hl sym">&lt;</span>repository<span class="hl sym">&gt; [&lt;</span>directory<span class="hl sym">&gt;]</span>
+
+<span class="hl sym">=</span>cut
+
+<span class="hl sym">=</span>head1 DESCRIPTION
+
+Clones a repository into a newly created directory<span class="hl sym">,</span> just like
+C<span class="hl sym">&lt;</span>git<span class="hl sym">-</span>clone<span class="hl sym">&gt;,</span> but it also recursively initializes <span class="hl kwa">and</span> updates any
+submodules<span class="hl sym">.</span> For each repository<span class="hl sym">,</span> this creates remote<span class="hl sym">-</span>tracking branches
+<span class="hl kwa">for</span> each branch in the cloned <span class="hl kwd">repository</span> <span class="hl sym">(</span>visible using git branch
+<span class="hl sym">-</span>r<span class="hl sym">),</span> <span class="hl kwa">and</span> creates <span class="hl kwa">and</span> checks out an initial branch equal to the cloned
+repository´s currently active branch<span class="hl sym">.</span>
+
+<span class="hl sym">=</span>cut
+
+
+<span class="hl kwa">sub</span> <span class="hl kwd">find_submodules</span> <span class="hl sym">() {</span>
+  <span class="hl kwa">if</span> <span class="hl sym">(-</span>f  <span class="hl str">&quot;.gitmodules&quot;</span><span class="hl sym">) {</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">&#64;modules</span><span class="hl sym">=();</span>
+    <span class="hl kwc">my</span> <span class="hl kwb">$fh</span> <span class="hl sym">=</span> new IO<span class="hl sym">::</span><span class="hl kwd">File</span><span class="hl sym">;</span>
+    <span class="hl kwa">if</span> <span class="hl sym">(</span><span class="hl kwb">$fh</span><span class="hl sym">-&gt;</span><span class="hl kwd">open</span><span class="hl sym">(</span><span class="hl str">&quot;&lt; .gitmodules&quot;</span><span class="hl sym">)) {</span>
+      <span class="hl kwa">while</span> <span class="hl sym">(&lt;</span><span class="hl kwb">$fh</span><span class="hl sym">&gt;) {</span>
+        <span class="hl kwd">chomp</span><span class="hl sym">;</span>
+        <span class="hl kwa">next unless</span> <span class="hl kwc">/^\s*path\s*=\s*(\S*)/</span><span class="hl sym">;</span>
+        push <span class="hl kwb">&#64;modules</span><span class="hl sym">,</span> <span class="hl kwb">$1</span><span class="hl sym">;</span>
+      <span class="hl sym">}</span>
+      <span class="hl kwb">$fh</span><span class="hl sym">-&gt;</span><span class="hl kwd">close</span><span class="hl sym">();</span>
+    <span class="hl sym">}</span>
+    <span class="hl kwa">foreach</span> <span class="hl kwc">my</span> <span class="hl kwb">$name</span> <span class="hl sym">(</span><span class="hl kwb">&#64;modules</span><span class="hl sym">) {</span>
+      chdir <span class="hl kwb">$name</span><span class="hl sym">;</span>
+      <span class="hl sym">&amp;</span><span class="hl kwd">populate_submodules</span><span class="hl sym">(</span><span class="hl kwb">$name</span><span class="hl sym">);</span>
+      chdir <span class="hl str">&quot;..&quot;</span><span class="hl sym">;</span>
+    <span class="hl sym">}</span>
+  <span class="hl sym">}</span>
+<span class="hl sym">}</span>
+
+<span class="hl kwa">sub</span> <span class="hl kwd">populate_submodules</span> <span class="hl sym">() {</span>
+  <span class="hl kwa">if</span> <span class="hl sym">(-</span>f <span class="hl str">&quot;.gitmodules&quot;</span><span class="hl sym">) {</span>
+    <span class="hl kwd">system</span><span class="hl sym">(</span><span class="hl str">&quot;git submodule init&quot;</span><span class="hl sym">) ==</span> <span class="hl num">0</span> <span class="hl kwa">or</span> die <span class="hl str">&quot;submodule init in: `pwd`: $?&quot;</span><span class="hl sym">;</span>
+    <span class="hl kwd">system</span><span class="hl sym">(</span><span class="hl str">&quot;git submodule update&quot;</span><span class="hl sym">) ==</span> <span class="hl num">0</span> <span class="hl kwa">or</span> die <span class="hl str">&quot;submodule update in `pwd`: $?&quot;</span><span class="hl sym">;</span>
+    <span class="hl kwd">find_submodules</span> <span class="hl sym">();</span>
+  <span class="hl sym">}</span>
+<span class="hl sym">}</span>
+
+<span class="hl kwa">sub</span> <span class="hl kwd">main</span> <span class="hl sym">() {</span>
+  <span class="hl kwc">my</span> <span class="hl kwb">$repo</span> <span class="hl sym">=</span> <span class="hl kwb">$ARGV</span><span class="hl sym">[</span><span class="hl num">0</span><span class="hl sym">];</span>
+  <span class="hl kwc">my</span> <span class="hl kwb">$name</span><span class="hl sym">;</span>
+
+  <span class="hl kwa">if</span> <span class="hl sym">(</span><span class="hl kwb">$#ARGV</span> <span class="hl sym">&gt;</span> <span class="hl num">0</span><span class="hl sym">) {</span>
+    <span class="hl kwb">$name</span> <span class="hl sym">=</span> <span class="hl kwb">$ARGV</span><span class="hl sym">[</span><span class="hl num">1</span><span class="hl sym">];</span>
+  <span class="hl sym">}</span>
+  <span class="hl kwa">else</span> <span class="hl sym">{</span>
+    <span class="hl kwb">$name</span> <span class="hl sym">=</span> <span class="hl kwb">$ARGV</span><span class="hl sym">[</span><span class="hl num">0</span><span class="hl sym">];</span>
+    <span class="hl kwb">$name</span> <span class="hl sym">=~</span> s<span class="hl sym">,/$,,;</span>
+    <span class="hl kwb">$name</span> <span class="hl sym">=~</span> s<span class="hl sym">,</span>\<span class="hl sym">.</span>git<span class="hl sym">$,,;</span>
+    <span class="hl kwb">$name</span> <span class="hl sym">=~</span> s<span class="hl sym">,/$,,;</span>
+    <span class="hl kwb">$name</span> <span class="hl sym">=~</span> s<span class="hl sym">,^.*/,,</span><span class="hl kwd">g</span><span class="hl sym">;</span>
+  <span class="hl sym">}</span>
+
+  <span class="hl slc"># Clone the directory here</span>
+  <span class="hl kwd">system</span><span class="hl sym">(</span><span class="hl str">&quot;git clone $repo $name&quot;</span><span class="hl sym">) ==</span> <span class="hl num">0</span> <span class="hl kwa">or</span> die <span class="hl str">&quot;Could not clone $repo: $?&quot;</span><span class="hl sym">;</span>
+  chdir <span class="hl kwb">$name</span><span class="hl sym">;</span>
+  <span class="hl slc"># Process any submodules, recursively.</span>
+  <span class="hl kwd">populate_submodules</span><span class="hl sym">()</span> <span class="hl kwa">if</span> <span class="hl sym">-</span>f <span class="hl str">&quot;.gitmodules&quot;</span><span class="hl sym">;</span>
+<span class="hl sym">}</span>
+
+<span class="hl sym">&amp;</span><span class="hl kwd">main</span><span class="hl sym">;</span>
+
+<span class="hl sym">=</span>head1 B<span class="hl sym">&lt;</span>SEE ALSO<span class="hl sym">&gt;</span>
+
+B<span class="hl sym">&lt;</span>git<span class="hl sym">-</span>clone<span class="hl sym">&gt;</span>
+
+<span class="hl sym">=</span>cut
+
+<span class="hl sym">=</span>head1 BUGS
+
+None known so far<span class="hl sym">.</span>
+
+<span class="hl sym">=</span>cut
+
+<span class="hl sym">=</span>head1 AUTHOR
+
+This  was  written by Manoj Srivastava <span class="hl sym">&lt;</span>srivasta<span class="hl kwb">&#64;debian</span><span class="hl sym">.</span>org<span class="hl sym">&gt;.</span>
+
+<span class="hl sym">=</span>cut
+
+
+exit <span class="hl num">0</span><span class="hl sym">;</span>
+__END__
+</pre>
+</body>
+</html>
+<!--HTML generated by highlight 2.7, http://www.andre-simon.de/-->
