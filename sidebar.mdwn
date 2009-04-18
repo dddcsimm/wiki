@@ -78,6 +78,39 @@
 
 ---
 
+<div class="center" style="margin-left: auto; margin-right: auto;">
+<style type="text/css">
+  table.lfmWidgetchart_6e944f6f2e23c95f679a5df83b9f6341 td {
+   margin-left: auto; margin-right: auto;
+   margin-top: 2em;
+   padding-top: 2em;
+   border:0 !important;
+  }
+  table.lfmWidgetchart_6e944f6f2e23c95f679a5df83b9f6341 tr.lfmHead  a:hover {
+   background:url(http://cdn.last.fm/widgets/images/en/header/chart/recenttracks_regular_blue.png) no-repeat 0 0 !important;
+  }
+  table.lfmWidgetchart_6e944f6f2e23c95f679a5df83b9f6341 tr.lfmEmbed object {
+   float:left;
+  }
+  table.lfmWidgetchart_6e944f6f2e23c95f679a5df83b9f6341 tr.lfmFoot td.lfmConfig a:hover {
+   background:url(http://cdn.last.fm/widgets/images/en/footer/blue.png) no-repeat 0px 0 !important;;
+  }
+  table.lfmWidgetchart_6e944f6f2e23c95f679a5df83b9f6341 tr.lfmFoot
+  td.lfmView a:hover {
+   background:url(http://cdn.last.fm/widgets/images/en/footer/blue.png) no-repeat -85px 0 !important;
+  }
+  table.lfmWidgetchart_6e944f6f2e23c95f679a5df83b9f6341  tr.lfmFoot td.lfmPopup a:hover {
+   background:url(http://cdn.last.fm/widgets/images/en/footer/blue.png) no-repeat -159px 0 !important;
+  }
+</style>
+<table class="lfmWidgetchart_6e944f6f2e23c95f679a5df83b9f6341"
+       cellpadding="0" cellspacing="0" border="0" style="width:184px;">
+  <tr class="lfmHead">
+   <td><a title="srivasta: Recently Listened Tracks" href="http://www.last.fm/user/srivasta" target="_blank" style="display:block;overflow:hidden;height:20px;width:184px;background:url(http://cdn.last.fm/widgets/images/en/header/chart/recenttracks_regular_blue.png) no-repeat 0 -20px;text-decoration:none;border:0;"></a></td></tr><tr class="lfmEmbed"><td><object type="application/x-shockwave-flash" data="http://cdn.last.fm/widgets/chart/friends_6.swf" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" id="lfmEmbed_200085683" width="184" height="199"> <param name="movie" value="http://cdn.last.fm/widgets/chart/friends_6.swf" /> <param name="flashvars" value="type=recenttracks&amp;user=srivasta&amp;theme=blue&amp;lang=en&amp;widget_id=chart_6e944f6f2e23c95f679a5df83b9f6341" /> <param name="allowScriptAccess" value="always" /> <param name="allowNetworking" value="all" /> <param name="allowFullScreen" value="true" /> <param name="quality" value="high" /> <param name="bgcolor" value="6598cd" /> <param name="wmode" value="transparent" /> <param name="menu" value="true" /> </object></td></tr><tr class="lfmFoot"><td style="background:url(http://cdn.last.fm/widgets/images/footer_bg/blue.png) repeat-x 0 0;text-align:right;"><table cellspacing="0" cellpadding="0" border="0" style="width:184px;"><tr><td class="lfmConfig"><a href="http://www.last.fm/widgets/?colour=blue&amp;chartType=recenttracks&amp;user=srivasta&amp;chartFriends=1&amp;from=code&amp;widget=chart" title="Get your own widget" target="_blank" style="display:block;overflow:hidden;width:85px;height:20px;float:right;background:url(http://cdn.last.fm/widgets/images/en/footer/blue.png) no-repeat 0px -20px;text-decoration:none;border:0;"></a></td><td class="lfmView" style="width:74px;"><a href="http://www.last.fm/user/srivasta" title="View srivasta's profile" target="_blank" style="display:block;overflow:hidden;width:74px;height:20px;background:url(http://cdn.last.fm/widgets/images/en/footer/blue.png) no-repeat -85px -20px;text-decoration:none;border:0;"></a></td><td class="lfmPopup"style="width:25px;"><a href="http://www.last.fm/widgets/popup/?colour=blue&amp;chartType=recenttracks&amp;user=srivasta&amp;chartFriends=1&amp;from=code&amp;widget=chart&amp;resize=1" title="Load this chart in a pop up" target="_blank" style="display:block;overflow:hidden;width:25px;height:20px;background:url(http://cdn.last.fm/widgets/images/en/footer/blue.png) no-repeat -159px -20px;text-decoration:none;border:0;" onclick="window.open(this.href + '&amp;resize=0','lfm_popup','height=299,width=234,resizable=yes,scrollbars=yes'); return false;"></a></td></tr></table></td></tr></table>
+</div>
+
+---
+
 
 [ ![Valid XHTML 1.1](/media/images/valid-xhtml11-blue.png)](http://validator.w3.org/check?uri=referer)
 [ ![Valid CSS!](/media/images/vcss.png)](http://jigsaw.w3.org/css-validator/)
