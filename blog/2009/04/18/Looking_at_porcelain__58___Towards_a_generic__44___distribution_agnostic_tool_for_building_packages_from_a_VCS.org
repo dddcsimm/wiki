@@ -1,0 +1,125 @@
+#+TITLE:     Looking at porcelain: Towards a generic, distribution agnostic tool for building packages from a VCS
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Sat Apr 18 13:54:02 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Looking at porcelain: Towards a generic, distribution agnostic tool for building packages from a VCS"]]
+[[!tag software]]
+
+This is a continuation from
+#+BEGIN_HTML
+[[before|/blog/2009/04/16/Towards_a_generic__44___distribution_agnostic_tool_for_building_packages_from_a_VCS]].
+#+END_HTML
+ 
+
+Before I go plunging into writing code for a generic =vcs-pkg=
+implementation, I wanted to take a close look at my current, working,
+non-generic implementation: making sure that the generic
+implementation can support at least this one concrete work-flow will
+keep me grounded.
+
+One of the features of my home grown porcelain for building package
+has been that I use a fixed layout for all the packages I
+maintain. There is a top level directory for all working trees.  Each
+package gets a sub-directory under this working area. And in each
+package sub-directory, are the upstream versions, the checked out VCS
+working directory, and anything else package related. With this
+layout, knowing the package name is enough to locate the working
+directory.  This enable me to, for example, hack away at a package in
+Emacs, and when done, go to any open terminal window, and say
+=stage_release kernel-package= or =tag_releases ucf= without needing
+to know what the current directory is (usually, the packages working
+directory is several levels deep --
+=/usr/local/git/debian/make-dfsg/make-dfsg-3.91=, for instance.
+
+However, this is less palatable for a generic tool -- imposing a
+directory structure layout is pretty heavy. And I guess I can always
+create a function called ~cdwd~, or something, to take away the tedium
+of typing out long ~cd~ commands.
+
+Anyway, looking at my code, there is the information that the scripts
+seem to need in order to do their work.
+
+- *Staging area*. This is where software to be built is exported (and
+  this area is visible from my build virtual machine). 
+
+  + User specified (configuration)
+
+- *Working Area*. This is the location where all my packaging work
+  happens. Each package I work on has a sub-directory in here, and the
+  working directories for each package live in the package
+  sub-directory.  /Note: Should not be needed/.
+
+  + User specified.
+
+- *Working directory*. This is the checked out tree from the VCS, and
+  this is the place where we get the source tree from which the
+  package can be built.
+
+  + Since we know the location of the working are, if the package name
+    is known, we can just look in the package's sub-directory in the
+    working area.
+    * For =rpm= based sources, look for the ~spec~ file
+    * For Debian sources, locate ~debian/rules~
+  + If package name is not known, look for ~spec~ or ~debian/rules~ in
+    the current directory, and parse either the ~spec~ file or
+    ~debian/changelog~. 
+  + If in a VCS directory, look for the base of the tree
+    - ~tla tree-root~
+    - ~bzr info~
+    - ~git rev-parse --show cdup~
+    - ~hg root~
+    - You have to climb the tree for subversion
+  + If you are in a ~debian~ directory, and ~changelog~ and ~rules~
+    files exist
+
+  Then, look for the ~spec~ file or ~debian/rules~ in the base directory 
+
+- *package name* 
+
+  + User specified, on the command line
+  + If in the working directory of the package, can be parsed from the
+    ~spec~ or ~changelog~ files.
+
+- *upstream tar archive*
+
+  + Usually located in the parent directory of the working directory
+    (the package specific sub-directory of the working area)
+  + If ~pristine-tar~ is in use, given two trees (branches,
+    commits. etc), namely:
+    * a tree for upstream (/default: the branch ~upstream~/)
+    * a tree for the delta (/default: the branch ~pristine-tar~/)
+    The tree can be generated
+  * Given an upstream tree (/default: the branch ~upstream~/), a tar
+    archive can be generated, but is likely to be not bit-for-bit
+    identical to the original ~tar~ archive.
+
+So, if I do away with the whole working area layout convention, this
+can be reduced to just requiring the user to:
+
+- Specify *Staging area*
+- Call the script in the working directory (=dpkg-buildpackage=
+  imposes this too).
+- Either use ~pristine-tar~ or have the upstream ~tar~ archive in the
+  parent directory of the working directory
+
+
+Hmm. One user specified directory, where the results are dumped. I can
+live with that. However, ~gitpkg~ has a different concept: it works
+purely on the git objects, you feed it upto three tree objects, the
+first being the tree with sources to build, and the second and third
+trees being looked at only if the upstream tar archive can not be
+located, and passes the trees to pristine tar to re-construct the
+upstram tar.  The package name and version are constructed _after_ the
+source-tar archive is extracted to the staging area. I like the
+minimality of this.
+
+
+
+
