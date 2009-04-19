@@ -88,3 +88,11 @@ implementation of a generic =vcs-pkg= tool, ~git~ flavour, to the
 next blog post.
 
 
+
+
+
+This is continued
+#+BEGIN_HTML
+[[here|/blog/2009/04/18/Looking_at_porcelain__58___Towards_a_generic__44___distribution_agnostic_tool_for_building_packages_from_a_VCS]].
+#+END_HTML
+ 
