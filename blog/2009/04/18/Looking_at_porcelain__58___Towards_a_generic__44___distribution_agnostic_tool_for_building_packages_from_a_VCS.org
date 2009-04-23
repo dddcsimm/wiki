@@ -123,3 +123,8 @@ minimality of this.
 
 
 
+
+This is continued
+#+BEGIN_HTML
+[[here|/blog/2009/04/18/Ontologies__58___Towards_a_generic__44___distribution_agnostic_tool_for_building_packages_from_a_VCS]].
+#+END_HTML

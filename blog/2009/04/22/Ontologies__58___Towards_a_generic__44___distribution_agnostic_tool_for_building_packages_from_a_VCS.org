@@ -1,0 +1,156 @@
+#+TITLE:     Ontologies: Towards a generic, distribution agnostic tool for building packages from a VCS
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Wed Apr 22 23:04:10 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Ontologies: Towards a generic, distribution agnostic tool for building packages from a VCS"]]
+[[!tag software]]
+
+
+This is a continuation from
+#+BEGIN_HTML
+[[before|/blog/2009/04/18/Looking_at_porcelain__58___Towards_a_generic__44___distribution_agnostic_tool_for_building_packages_from_a_VCS]].
+#+END_HTML
+
+
+I am digressing a little in this post. One of the things I want to get
+out of this exercise is to learn more about Ontologies and Ontology
+editors, and on the principle that you can never learn something
+unless you build something with it (aka bone knowledge), so this is
+gathering my thoughts to get started on creating an Ontology for
+package building. Perhaps this has been done before, and better, but
+I'll probably learn more trying to create my own.
+
+Also, I am playing around with code, an odd melange of my package
+building porcelain, and ~gitpkg~, and other ideas bruited on =IRC=,
+and I don't want to blog about something that would be embarrassing in
+the long run if some of the concepts I have milling around turn out to
+not meet the challenge of first contact with reality.
+
+I want to create a ontology related to packaging software. It should
+be general enough to cater to the needs any packaging effort in a
+distribution agnostic and version control agnostic manner.  It should
+enable us to talk about packaging schemes and mechanisms, compare
+different methods, and perhaps to work towards a common interchange
+mechanism good enough for people to share the efforts spent in
+packaging software.
+
+The ontology should be able to describe common practices in packaging,
+concepts of upstream sources, versioning, commits, package versions,
+and other meta-data related to packages.
+
+#+BEGIN_HTML
+ [[!img images/vcs_pkg_concept.png  class="floatr" size=170x106
+ alt="vcs-pkg concept diagram"]]
+#+END_HTML
+I am doing this ontology primarily for myself, but I hope this might
+be useful for other folks involved in packaging software.
+
+So, here follow a set of concepts related to packaging software,
+people who like pretty pictures can click on the thumbnail on the
+right: 
+- *software* is a general term used to describe a collection of
+  computer programs, procedures and documentation that perform some
+  tasks on a computer system. 
+- *software* is what we are trying to _package_
+- *software* has /names/
+- *software* may exist as 
+  + /source code/
+  + /executable code/
+  + /packaged code/
+- *source code* is any collection of statements or declarations
+  written in some human-readable computer /programming language/.
+- *source code* is usually held in one or more text files (/blobs/).
+- A large collection of *source code* /files/ may be organized into a
+  directory tree, in which case it may also be known as a source
+  /tree/. 
+- The *source code* may be _converted_ into an /executable format/ by a
+  compiler, or executed on the fly from the human readable form with
+  the aid of an interpreter. 
+- *executable format* is the form /software/ must be in in order to be
+  run. Running means to cause a computer "to perform indicated tasks
+  according to encoded instructions." 
+- software *source code* has one or more /lines of development/. Some
+  Common specific /lines of development/ for the software to be
+  packaged are:
+  + *upstream* /line of development/
+  + *feature branch* is a /line of development/ related to a new
+    feature under development. Often the goal is to _merge_ the
+    feature branches into the /upstream/ /line of development/
+  + usually, all *feature branches* are _merged_ into the /integration
+    branch/, and the /package/ is created from the /integration branch/.
+  + *integration branch* is the /line of development/ of software that is
+    to be packaged
+- some software *lines of development* have /releases/
+- *releases* have /release dates/
+- some *releases* have /release versions/
+- *source code* may be _stored_ in a version control /repository/, and
+  maintain history.
+- *Trees* are a collection of /blobs/ and other /trees/ (directories
+  and sub-directories). A tree object describes the state of a
+  directory hierarchy at a particular given time.
+- *Blobs* are simply chunks of binary data - they are the contents of
+  files. 
+- a *tree* can be _converted_ into an /archive/ and  back
+- In git, *directories* are _represented_ by /tree/ object. They refer to
+  blobs that have the contents of files (file name, access mode, etc is
+  all stored in the tree), and to other trees for sub-directories. 
+- *Commits* (or "changesets") mark points in the history of a /line of
+  development/, and references to /parent commits/. 
+- A *commit* refers to a tree that represents the state of the files at
+  the time of the commit.  
+- *HEAD* is the most recent commit in a /line of development/ or
+  /branch/. 
+- A *working directory* is a directory that corresponds, but might not
+  be identical, to a /commit/ in the version control /repository/
+- *Commits* from the version control system can be _checked out_ into the
+  /working directory/
+- *uncommitted changes* are changes in the working directory that make
+  it different from the corresponding /commit/. Some call the working
+  directory to be in a "dirty" state.
+- *uncommited changes* be _checked in_ into the version control
+  system, creating a new /commit/
+- The *working directory* may contain a /ignore file/
+- *ignore file* contains the names of files in the /working
+  directory/ that should be "ignored" by the version control system.
+- In git, a *commit* may also contains references to /parent commits/.
+  + If there is more than one /parent commit/, then the /commit/ is a
+    /merge/
+  + If there are no /parent commits/, it is an /initial commit/
+- references, or heads, or *branches*, are movable references to a
+  /commit/. On a fresh /commit/, the head or /branch/ reference is
+  moved to the new /commit/.
+- *lines of development* are usually _stored_ as a /branch/ in the version
+  control /repository/.
+- A new *branch* may be created by _branching_ from an existing /branch/
+- a *patch* is a file that contains difference listings between two
+  /trees/.  
+- A *patch* file  can be used to transform (_patch_) one /tree/ into
+  another (/tree/).
+- A *quilt series* is a method of representing an /integration branch/
+  as a collection of a series of /patches/. These patches can be
+  applied in sequence to the /upstream/ branch to produce the
+  /integration branch/.
+- A *tag* is a named reference to a specific /commit/, and is not normally
+  moved to point to a different /commit/.
+- A *package* is an /archive/ format of /software/ created to be
+  installed by a package management system or a self-sufficient
+  installer, derived by _transforming_ a /tree/ associated with an
+  /integration branch/.
+- *packages* have /package names/
+- *package names* are related to /upstream/ /software names/
+- *packages* have /package versions/
+- *package versions* may have
+  + an /upstream version/ component
+  + a distribution or packaging specific component
+- *package versions* are related to upstream /software versions/
+- *helper packages* provide libraries and other support facilities to
+  help _compile_ an /integration branch/ ultimately yielding a /package/
+
+
