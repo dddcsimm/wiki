@@ -1,0 +1,11 @@
+[[!_comment format=mdwn
+ username="http://www-public.it-sudparis.eu/~berger_o/"
+ subject="Very interesting"
+ date="2009-04-24T09:54:59Z"
+ content="""
+May I advise you to look at EvoOnt's ontologies, in particular VOM : <http://www.ifi.uzh.ch/ddis/evo/>
+
+Also, we'm trying to address complementary ideas about bugs, and started exploring the mapping of UDD to RDF and ontologies (for bugs, packages, people)... More details starting at <https://picoforge.int-evry.fr/cgi-bin/twiki/view/Helios_wp3/Web/LinkedBugsMonitoring>
+
+See also my rant on these subjects : <http://www-public.it-sudparis.eu/~berger_o/weblog/2009/03/18/udd-export-as-rdf-data-through-d2r-and-a-corresponding-mapping-definition/>
+"""]]
