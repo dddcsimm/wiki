@@ -10,7 +10,7 @@
 [[!meta author="Manoj"]]
 [[!meta license="GPL"]]
 [[!meta title="A day in the life of a Debian hacker"]]
-[[!tag software software/git]]
+[[!tag software software/packaging software/git]]
 
 
 I have been meaning to write this up for a long time now, since I

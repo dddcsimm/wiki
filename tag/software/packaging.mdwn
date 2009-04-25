@@ -1,0 +1,5 @@
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+
+This a category for postings about source code management systems and
+software packaging.

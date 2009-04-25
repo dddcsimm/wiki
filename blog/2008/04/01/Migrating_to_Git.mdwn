@@ -1,7 +1,7 @@
 [[!meta author="Manoj"]]
 [[!meta license="GPL"]]
 [[!meta title="Migrating to Git"]]
-[[!tag software software/git]]
+[[!tag software software/packaging software/git]]
 
 
 I have been using Arch to package my Debian packages since 2003;

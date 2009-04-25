@@ -10,7 +10,7 @@
 [[!meta author="Manoj"]]
 [[!meta license="GPL"]]
 [[!meta title="The glaring hole in most git tools, or the submodule Cinderella story"]]
-[[!tag software software/git]]
+[[!tag software software/packaging software/git]]
 
 There are a lot of little git scripts and tools being written by a lot
 of people. Including a lot of tools written by people I have a lot of
