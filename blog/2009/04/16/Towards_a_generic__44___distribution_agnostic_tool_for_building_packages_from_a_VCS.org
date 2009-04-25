@@ -10,7 +10,7 @@
 [[!meta author="Manoj"]]
 [[!meta license="GPL"]]
 [[!meta title="Towards a generic, distribution agnostic tool for building packages from a VCS"]]
-[[!tag software]]
+[[!tag software software/packaging]]
 
 
 I have been involved in =vcs-pkg.org= since around the time it
