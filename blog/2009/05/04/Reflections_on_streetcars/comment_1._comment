@@ -1,0 +1,17 @@
+[[!_comment format=mdwn
+ username="https://launchpad.net/~codehelp"
+ subject="cross-compiling toolchains"
+ date="2009-05-04T07:59:47Z"
+ content="""
+If all you need is a binary toolchain based on Debian sources for ARM (Lenny) or armel (lenny, squeeze or sid), these are available via Emdebian. <a href=\"http://www.emdebian.org/tools/crosstools.html\">http://www.emdebian.org/tools/crosstools.html</a>
+Install <tt>emdebian-archive-keyring</tt> to make Secure Apt work properly, add the apt source. e.g. for unstable:
+<pre>http://www.emdebian.org/debian unstable main</pre> and use
+<pre>apt-get update
+apt-get install gcc-4.3-arm-gnu-linuxeabi g++-4.3-arm-gnu-linuxeabi</pre>
+Alternatively, install <tt>emdebian-tools</tt> and let <tt>emsetup -v -a armel</tt> do the work for you. gcc-4.4 is pending. 
+
+Emdebian has scripting to create all the binary toolchains on a semi-automated basis.
+<a href=\"http://www.emdebian.org/svn/browser/current/emdebian/trunk/buildcross/trunk\">http://www.emdebian.org/svn/browser/current/emdebian/trunk/buildcross/trunk</a>
+
+BTW - the text area to make a comment appears very narrow in epiphany - is there a way to make it wider?
+"""]]
