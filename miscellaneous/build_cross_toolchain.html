@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Source file</title>
+<link rel="stylesheet" type="text/css" href="/styles/blacknblue.css"/>
+</head>
+<body class="hl"><pre class="hl"><span class="hl slc">#!/bin/sh</span>
+
+<span class="hl slc"># Copyright (C) 2009 Manoj Srivastava.</span>
+
+<span class="hl slc"># This program is free software; you can redistribute it and/or modify</span>
+<span class="hl slc"># it under the terms of the GNU General Public License as published by</span>
+<span class="hl slc"># the Free Software Foundation; either version 2 of the License, or</span>
+<span class="hl slc"># (at your option) any later version.</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># This program is distributed in the hope that it will be useful,</span>
+<span class="hl slc"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="hl slc"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="hl slc"># GNU General Public License for more details.</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># You should have received a copy of the GNU General Public License</span>
+<span class="hl slc"># along with this program; if not, write to the Free Software</span>
+<span class="hl slc"># Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># This script is inspired by one that was written by Uwe Hermann</span>
+<span class="hl slc"># &lt;uwe&#64;hermann-uwe.de&gt;, released as public domain. The modifications</span>
+<span class="hl slc"># made are that, for the most part, it tries to use Debian sources, in</span>
+<span class="hl slc"># order to remain as compatible as possible.</span>
+
+<span class="hl slc"># Download <a href="/software/misc/build_cross_toolchain.txt">here</a></span>
+
+<span class="hl kwb">set</span> <span class="hl sym">-</span>e
+progname<span class="hl sym">=</span><span class="hl str">&quot;`basename</span> <span class="hl esc">\&quot;</span><span class="hl str">$0</span><span class="hl esc">\&quot;</span><span class="hl str">`&quot;</span>
+
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########            Utility Functions                     ##########</span>
+<span class="hl slc">######################################################################</span>
+setq<span class="hl sym">() {</span>
+    <span class="hl slc"># Variable Value Doc string</span>
+    <span class="hl kwa">if</span> <span class="hl sym">[</span> <span class="hl str">&quot;x$2&quot;</span> <span class="hl sym">=</span> <span class="hl str">&quot;x&quot;</span> <span class="hl sym">];</span> <span class="hl kwa">then</span>
+        <span class="hl kwb">echo</span> <span class="hl sym">&gt;&amp;</span><span class="hl num">2</span> <span class="hl str">&quot;$progname: Unable to determine $3&quot;</span>
+        <span class="hl kwb">exit</span> <span class="hl num">1</span><span class="hl sym">;</span>
+    <span class="hl kwa">else</span>
+        <span class="hl kwa">if</span> <span class="hl sym">[ !</span> <span class="hl str">&quot;x$Verbose&quot;</span> <span class="hl sym">=</span> <span class="hl str">&quot;x&quot;</span> <span class="hl sym">];</span> <span class="hl kwa">then</span>
+            <span class="hl kwb">echo</span> <span class="hl str">&quot;$progname: $3 is $2&quot;</span><span class="hl sym">;</span>
+        <span class="hl kwa">fi</span>
+        <span class="hl kwb">eval</span> <span class="hl str">&quot;$1=</span><span class="hl esc">\&quot;</span><span class="hl str">\$2</span><span class="hl esc">\&quot;</span><span class="hl str">&quot;</span><span class="hl sym">;</span>
+    <span class="hl kwa">fi</span>
+<span class="hl sym">}</span>
+
+withecho <span class="hl sym">() {</span>
+        <span class="hl kwb">echo</span> <span class="hl str">&quot; $&#64;&quot;</span> <span class="hl sym">&gt;&amp;</span><span class="hl num">2</span>
+        <span class="hl str">&quot;$&#64;&quot;</span>
+<span class="hl sym">}</span>
+
+usageversion <span class="hl sym">() {</span>
+        <span class="hl kwc">cat</span> <span class="hl sym">&gt;&amp;</span><span class="hl num">2</span> <span class="hl sym">&lt;&lt;</span>END
+Debian GNU<span class="hl sym">/</span>Linux <span class="hl kwb">$progname $pversion</span>.
+           Copyright <span class="hl sym">(</span>C<span class="hl sym">)</span> <span class="hl num">2009</span> Manoj Srivastava.
+This is free software<span class="hl sym">;</span> see the Artistic Licence <span class="hl kwa">for</span> copying
+conditions.  There is NO warranty.
+
+Usage<span class="hl sym">:</span> <span class="hl kwb">$progname</span>  <span class="hl sym">[</span>options<span class="hl sym">]</span>
+Options<span class="hl sym">:</span>
+  <span class="hl sym">-</span>g    <span class="hl sym">&lt;</span>X.X<span class="hl sym">&gt;</span>         The GCC major<span class="hl sym">,</span> minor versions to get. Default<span class="hl sym">:</span> <span class="hl num">4.4</span>
+  <span class="hl sym">-</span>h<span class="hl sym">,--</span><span class="hl kwb">help</span>           print this message
+  <span class="hl sym">-</span>j <span class="hl sym">&lt;</span>int<span class="hl sym">&gt;</span>            The <span class="hl sym">-</span>j argument to pass to <span class="hl kwc">make</span><span class="hl sym">,</span> to build <span class="hl kwa">in</span> parallel.
+                      default<span class="hl sym">: -</span>j <span class="hl num">2</span>
+  <span class="hl sym">-</span>n<span class="hl sym">,--</span>nop            <span class="hl str">&quot;Dry-run&quot;</span> mode <span class="hl sym">-</span> No action taken<span class="hl sym">,</span> only print commands.
+  <span class="hl sym">--</span>prefix <span class="hl sym">&lt;</span>dest<span class="hl sym">&gt;,</span>
+  <span class="hl sym">-</span>p <span class="hl sym">&lt;</span>dest<span class="hl sym">&gt;</span>           The prefix <span class="hl kwa">for</span> the installation directory <span class="hl sym">(</span>example<span class="hl sym">:</span>
+                      <span class="hl sym">/</span>usr or <span class="hl sym">/</span>usr<span class="hl sym">/</span><span class="hl kwb">local</span><span class="hl sym">)</span> Default<span class="hl sym">: /</span>usr<span class="hl sym">/</span><span class="hl kwb">local</span><span class="hl sym">/</span>ipod
+  <span class="hl sym">--</span>target <span class="hl sym">&lt;</span>target<span class="hl sym">&gt;,</span>
+  <span class="hl sym">-</span>t <span class="hl sym">&lt;</span>target<span class="hl sym">&gt;</span>         The target system to pass to the GNU confuiguration
+                      tools<span class="hl sym">,</span> <span class="hl kwa">for</span> example<span class="hl sym">,</span> arm<span class="hl sym">-</span>elf or arm<span class="hl sym">-</span>none<span class="hl sym">-</span>eabi.
+                      Default<span class="hl sym">:</span> arm<span class="hl sym">-</span>elf
+  <span class="hl sym">-</span>u <span class="hl sym">&lt;</span>URL<span class="hl sym">&gt;</span>            The URL to download newlib from<span class="hl sym">,</span> Default<span class="hl sym">:</span>
+                      <span class="hl kwc">ftp</span><span class="hl sym">://</span>sources.redhat.com<span class="hl sym">/</span>pub<span class="hl sym">/</span>newlib<span class="hl sym">/</span>newlib<span class="hl sym">-</span><span class="hl num">1.17.0</span>.<span class="hl kwc">tar</span>.gz
+END
+<span class="hl sym">}</span>
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########              Parse command line                  ##########</span>
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">#</span>
+<span class="hl slc"># Long term variables, which may be set in the config file or the</span>
+<span class="hl slc"># environment:</span>
+<span class="hl slc"># DEBUG rootdir workdir (if all original sources are kept in one dir)</span>
+<span class="hl slc">#</span>
+<span class="hl slc">#</span>
+
+TARGET<span class="hl sym">=</span>arm<span class="hl sym">-</span>elf			 <span class="hl slc"># Or: TARGET=arm-none-eabi</span>
+PREFIX<span class="hl sym">=/</span>usr<span class="hl sym">/</span><span class="hl kwb">local</span><span class="hl sym">/</span>ipod           <span class="hl slc"># Install location of your final toolchain</span>
+PARALLEL<span class="hl sym">=</span><span class="hl str">&quot;-j 2&quot;</span>			 <span class="hl slc"># Or: PARALLEL=&quot;&quot;</span>
+GCC_MAJ_MIN<span class="hl sym">=</span><span class="hl str">&quot;4.4&quot;</span>                <span class="hl slc"># The major and minor version of gcc to use</span>
+
+<span class="hl slc"># Debian does not have newlib</span>
+NEWLIB_URL<span class="hl sym">=</span><span class="hl str">'ftp://sources.redhat.com/pub/newlib/newlib-1.17.0.tar.gz'</span>
+
+action<span class="hl sym">=</span><span class="hl str">'withecho'</span>
+DEBUG<span class="hl sym">=</span><span class="hl kwd">${DEBUG:-0}</span>
+do_it<span class="hl sym">=</span><span class="hl num">1</span>
+
+<span class="hl slc"># Command line</span>
+TEMP<span class="hl sym">=</span>$<span class="hl sym">(</span>getopt <span class="hl sym">-</span>a <span class="hl sym">-</span>s bash <span class="hl sym">-</span>o g<span class="hl sym">:</span>hj<span class="hl sym">:</span>np<span class="hl sym">:</span>t<span class="hl sym">:</span>u<span class="hl sym">: --</span>long <span class="hl kwb">help</span><span class="hl sym">,</span>nop<span class="hl sym">,</span>target<span class="hl sym">:,</span>prefx<span class="hl sym">: -</span>n <span class="hl str">&quot;$progname&quot;</span> <span class="hl sym">--</span> <span class="hl str">&quot;$&#64;&quot;</span><span class="hl sym">)</span>
+<span class="hl kwa">if</span> <span class="hl sym">[</span> $? <span class="hl sym">!=</span> <span class="hl num">0</span> <span class="hl sym">] ;</span> <span class="hl kwa">then</span> <span class="hl kwb">echo</span> <span class="hl str">&quot;Terminating...&quot;</span> <span class="hl sym">&gt;&amp;</span><span class="hl num">2</span> <span class="hl sym">;</span> <span class="hl kwb">exit</span> <span class="hl num">1</span> <span class="hl sym">;</span> <span class="hl kwa">fi</span>
+
+<span class="hl slc"># Note the quotes around `$TEMP': they are essential!</span>
+<span class="hl kwb">eval set</span> <span class="hl sym">--</span> <span class="hl str">&quot;$TEMP&quot;</span>
+<span class="hl kwa">while</span> true <span class="hl sym">;</span> <span class="hl kwa">do</span>
+    <span class="hl kwa">case</span> <span class="hl str">&quot;$1&quot;</span> <span class="hl kwa">in</span>
+        <span class="hl sym">-</span>h<span class="hl sym">|--</span><span class="hl kwb">help</span><span class="hl sym">)</span> usageversion<span class="hl sym">;</span> <span class="hl kwb">exit</span> <span class="hl num">0</span>    <span class="hl sym">;</span> <span class="hl kwb">shift</span>   <span class="hl sym">;;</span>
+        <span class="hl sym">-</span>n<span class="hl sym">|--</span>nop<span class="hl sym">)</span>  action<span class="hl sym">=</span><span class="hl str">'echo'</span><span class="hl sym">;</span> do_it<span class="hl sym">=</span><span class="hl str">''</span> <span class="hl sym">;</span> <span class="hl kwb">shift</span>   <span class="hl sym">;;</span>
+        <span class="hl sym">-</span>g<span class="hl sym">)</span> GCC_MAJ_MIN<span class="hl sym">=</span><span class="hl str">&quot;$2&quot;</span>               <span class="hl sym">;</span> <span class="hl kwb">shift</span> <span class="hl num">2</span> <span class="hl sym">;;</span>
+        <span class="hl sym">-</span>j<span class="hl sym">)</span> PARALLEL<span class="hl sym">=</span><span class="hl str">&quot;-j $2&quot;</span>               <span class="hl sym">;</span> <span class="hl kwb">shift</span> <span class="hl num">2</span> <span class="hl sym">;;</span>
+        <span class="hl sym">-</span>p<span class="hl sym">|--</span>prefix<span class="hl sym">)</span> PREFIX<span class="hl sym">=</span><span class="hl str">&quot;$2&quot;</span>           <span class="hl sym">;</span> <span class="hl kwb">shift</span> <span class="hl num">2</span> <span class="hl sym">;;</span>
+        <span class="hl sym">-</span>t<span class="hl sym">|--</span>target<span class="hl sym">)</span> TARGET<span class="hl sym">=</span><span class="hl str">&quot;$2&quot;</span>           <span class="hl sym">;</span> <span class="hl kwb">shift</span> <span class="hl num">2</span> <span class="hl sym">;;</span>
+        <span class="hl sym">-</span>u<span class="hl sym">)</span> NEWLIB_URL<span class="hl sym">=</span><span class="hl str">&quot;$2&quot;</span>                <span class="hl sym">;</span> <span class="hl kwb">shift</span> <span class="hl num">2</span> <span class="hl sym">;;</span>
+        <span class="hl sym">--)</span>        <span class="hl kwb">shift</span>                   <span class="hl sym">;</span> <span class="hl kwb">break</span>   <span class="hl sym">;;</span>
+        <span class="hl sym">*)</span> <span class="hl kwb">echo</span> <span class="hl sym">&gt;&amp;</span><span class="hl num">2</span> <span class="hl str">&quot;Error!($1)&quot;</span>
+            usageversion<span class="hl sym">;</span> <span class="hl kwb">exit</span> <span class="hl num">1</span>                <span class="hl sym">;;</span>
+    <span class="hl kwa">esac</span>
+<span class="hl kwa">done</span>
+
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########           Preparation                            ##########</span>
+<span class="hl slc">######################################################################</span>
+<span class="hl kwb">export</span> PATH<span class="hl sym">=</span><span class="hl str">&quot;$PATH:$PREFIX/bin&quot;</span>
+WORKDIR<span class="hl sym">=</span>$<span class="hl sym">(</span><span class="hl kwb">pwd</span><span class="hl sym">)</span>
+<span class="hl kwb">echo</span> <span class="hl sym">&gt;&amp;</span><span class="hl num">2</span> creating working directory
+<span class="hl kwa">if</span> <span class="hl sym">[ -</span>n <span class="hl str">&quot;$do_it&quot;</span> <span class="hl sym">];</span> <span class="hl kwa">then</span>
+    MYDIR<span class="hl sym">=</span>$<span class="hl sym">(</span>mktemp <span class="hl sym">-</span>d <span class="hl sym">-</span>p <span class="hl kwb">$WORKDIR</span> <span class="hl sym">-</span>q<span class="hl sym">) ||</span> <span class="hl kwb">exit</span> <span class="hl num">2</span>
+<span class="hl kwa">else</span>
+    <span class="hl kwb">echo</span> <span class="hl str">'MYDIR=$(mktemp -d -p $WORKDIR -q) || exit 2'</span>
+    MYDIR<span class="hl sym">=</span><span class="hl str">&quot;$WORKDIR/random-string&quot;</span>
+<span class="hl kwa">fi</span>
+<span class="hl kwb">$action cd $MYDIR</span>
+<span class="hl kwb">$action</span> mkdir build
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########           Build tools                            ##########</span>
+<span class="hl slc">######################################################################</span>
+
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########              binutils                            ##########</span>
+<span class="hl slc">######################################################################</span>
+<span class="hl kwb">$action</span> apt<span class="hl sym">-</span>get <span class="hl kwb">source</span> binutils
+<span class="hl kwa">if</span> <span class="hl sym">[ -</span>n <span class="hl str">&quot;$do_it&quot;</span> <span class="hl sym">];</span> <span class="hl kwa">then</span>
+    changelog<span class="hl sym">=</span>$<span class="hl sym">(</span><span class="hl kwc">find</span> binutils<span class="hl sym">* -</span><span class="hl kwb">type</span> f <span class="hl sym">-</span>path \<span class="hl sym">*/</span>debian<span class="hl sym">/</span>changelog<span class="hl sym">)</span>
+    pkg_name<span class="hl sym">=</span><span class="hl kwd">${changelog%%/*}</span>
+<span class="hl kwa">else</span>
+    <span class="hl kwb">echo</span> <span class="hl str">'changelog=$(find binutils* -type f -path \*/debian/changelog)'</span>
+    <span class="hl kwb">echo</span> <span class="hl str">'pkg_name=${changelog%%/*}'</span>
+    pkg_name<span class="hl sym">=</span>binutils
+<span class="hl kwa">fi</span>
+
+<span class="hl kwb">$action</span> mkdir build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action cd</span> build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action</span> ..<span class="hl sym">/</span>..<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span><span class="hl sym">/</span>configure <span class="hl sym">--</span>target<span class="hl sym">=</span><span class="hl kwb">$TARGET</span> <span class="hl sym">--</span>prefix<span class="hl sym">=</span><span class="hl kwb">$PREFIX</span>  \
+          <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>interwork <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>multilib <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>as <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>ld \
+            <span class="hl sym">--</span>disable<span class="hl sym">-</span>nls
+<span class="hl kwb">$action</span> <span class="hl kwc">make</span> <span class="hl kwb">$PARALLEL</span>
+<span class="hl kwb">$action</span> <span class="hl kwc">make install</span>
+<span class="hl kwb">$action cd</span> ..<span class="hl sym">/</span>..
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########                 gcc                              ##########</span>
+<span class="hl slc">######################################################################</span>
+<span class="hl kwb">$action</span> apt<span class="hl sym">-</span>get <span class="hl kwb">source</span> gcc<span class="hl sym">-</span><span class="hl kwb">$GCC_MAJ_MIN</span>
+<span class="hl kwa">if</span> <span class="hl sym">[ -</span>n <span class="hl str">&quot;$do_it&quot;</span> <span class="hl sym">];</span> <span class="hl kwa">then</span>
+    changelog<span class="hl sym">=</span>$<span class="hl sym">(</span><span class="hl kwc">find</span> gcc<span class="hl sym">-</span><span class="hl kwd">${GCC_MAJ_MIN}</span><span class="hl sym">* -</span><span class="hl kwb">type</span> f <span class="hl sym">-</span>path \<span class="hl sym">*/</span>debian<span class="hl sym">/</span>changelog<span class="hl sym">)</span>
+    pkg_name<span class="hl sym">=</span><span class="hl kwd">${changelog%%/*}</span>
+<span class="hl kwa">else</span>
+    <span class="hl kwb">echo</span> <span class="hl str">'changelog=$(find binutils* -type f -path \*/debian/changelog)'</span>
+    <span class="hl kwb">echo</span> <span class="hl str">'pkg_name=${changelog%%/*}'</span>
+    pkg_name<span class="hl sym">=</span>gcc
+<span class="hl kwa">fi</span>
+<span class="hl sym">(</span><span class="hl kwb">cd $pkg_name</span><span class="hl sym">;</span> .<span class="hl sym">/</span>debian<span class="hl sym">/</span>rules unpack<span class="hl sym">)</span>
+gcc_pkg_name<span class="hl sym">=</span><span class="hl kwb">$pkg_name</span>
+
+<span class="hl kwb">$action</span> mkdir build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action cd</span> build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action</span> ..<span class="hl sym">/</span>..<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span><span class="hl sym">/</span>configure <span class="hl sym">--</span>target<span class="hl sym">=</span><span class="hl kwb">$TARGET</span> <span class="hl sym">--</span>prefix<span class="hl sym">=</span><span class="hl kwb">$PREFIX</span>        \
+          <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>interwork <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>multilib <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>as <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>ld \
+           <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>languages<span class="hl sym">=</span><span class="hl str">&quot;c&quot;</span> <span class="hl sym">--</span>with<span class="hl sym">-</span>newlib <span class="hl sym">--</span>without<span class="hl sym">-</span>headers          \
+              <span class="hl sym">--</span>disable<span class="hl sym">-</span>shared
+<span class="hl kwb">$action</span> <span class="hl kwc">make</span> <span class="hl kwb">$PARALLEL</span> all<span class="hl sym">-</span>gcc
+<span class="hl kwb">$action</span> <span class="hl kwc">make install</span><span class="hl sym">-</span>gcc
+<span class="hl kwb">$action cd</span> ..<span class="hl sym">/</span>..
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########                 newlib                           ##########</span>
+<span class="hl slc">######################################################################</span>
+<span class="hl kwb">$action</span> wget <span class="hl kwb">$NEWLIB_URL</span>
+<span class="hl kwb">$action</span> <span class="hl kwc">tar</span> zvvfx <span class="hl kwd">${NEWLIB_URL##*/}</span>
+<span class="hl kwa">if</span> <span class="hl sym">[ -</span>n <span class="hl str">&quot;$do_it&quot;</span> <span class="hl sym">];</span> <span class="hl kwa">then</span>
+    pkg_name<span class="hl sym">=</span><span class="hl kwd">${NEWLIB_URL##*/}</span>
+<span class="hl kwa">else</span>
+    pkg_name<span class="hl sym">=</span>newlib
+<span class="hl kwa">fi</span>
+
+<span class="hl kwb">$action</span> mkdir build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action cd</span> build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action</span> ..<span class="hl sym">/</span>..<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span><span class="hl sym">/</span>configure <span class="hl sym">--</span>target<span class="hl sym">=</span><span class="hl kwb">$TARGET</span> <span class="hl sym">--</span>prefix<span class="hl sym">=</span><span class="hl kwb">$PREFIX</span>        \
+          <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>interwork <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>multilib <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>as <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>ld \
+            <span class="hl sym">--</span>disable<span class="hl sym">-</span>nls
+<span class="hl kwb">$action</span> <span class="hl kwc">make</span> <span class="hl kwb">$PARALLEL</span>
+<span class="hl kwb">$action</span> <span class="hl kwc">make install</span>
+<span class="hl kwb">$action cd</span> ..<span class="hl sym">/</span>..
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########               gcc, again                         ##########</span>
+<span class="hl slc">######################################################################</span>
+pkg_name<span class="hl sym">=</span><span class="hl kwb">$gcc_pkg_name</span>
+<span class="hl kwb">test</span> <span class="hl sym">! -</span>d build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span> <span class="hl sym">||</span> <span class="hl kwb">$action</span> <span class="hl kwc">rm</span> <span class="hl sym">-</span>rf build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action</span> mkdir build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action cd</span> build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action</span> ..<span class="hl sym">/</span>..<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span><span class="hl sym">/</span>configure <span class="hl sym">--</span>target<span class="hl sym">=</span><span class="hl kwb">$TARGET</span> <span class="hl sym">--</span>prefix<span class="hl sym">=</span><span class="hl kwb">$PREFIX</span>        \
+          <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>interwork <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>multilib <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>as <span class="hl sym">--</span>with<span class="hl sym">-</span>gnu<span class="hl sym">-</span>ld \
+           <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>languages<span class="hl sym">=</span><span class="hl str">&quot;c&quot;</span> <span class="hl sym">--</span>with<span class="hl sym">-</span>newlib <span class="hl sym">--</span>without<span class="hl sym">-</span>headers          \
+              <span class="hl sym">--</span>disable<span class="hl sym">-</span>shared
+<span class="hl kwb">$action</span> <span class="hl kwc">make</span> <span class="hl kwb">$PARALLEL</span> all<span class="hl sym">-</span>gcc
+<span class="hl kwb">$action</span> <span class="hl kwc">make install</span><span class="hl sym">-</span>gcc
+<span class="hl kwb">$action cd</span> ..<span class="hl sym">/</span>..
+
+
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########                 gdb                              ##########</span>
+<span class="hl slc">######################################################################</span>
+<span class="hl kwb">$action</span> apt<span class="hl sym">-</span>get <span class="hl kwb">source</span> gdb
+<span class="hl kwa">if</span> <span class="hl sym">[ -</span>n <span class="hl str">&quot;$do_it&quot;</span> <span class="hl sym">];</span> <span class="hl kwa">then</span>
+    changelog<span class="hl sym">=</span>$<span class="hl sym">(</span><span class="hl kwc">find</span> gdb<span class="hl sym">* -</span><span class="hl kwb">type</span> f <span class="hl sym">-</span>path \<span class="hl sym">*/</span>debian<span class="hl sym">/</span>changelog<span class="hl sym">)</span>
+    pkg_name<span class="hl sym">=</span><span class="hl kwd">${changelog%%/*}</span>
+<span class="hl kwa">else</span>
+    <span class="hl kwb">echo</span> <span class="hl str">'changelog=$(find binutils* -type f -path \*/debian/changelog)'</span>
+    <span class="hl kwb">echo</span> <span class="hl str">'pkg_name=${changelog%%/*}'</span>
+    pkg_name<span class="hl sym">=</span>gdb
+<span class="hl kwa">fi</span>
+
+<span class="hl kwb">$action</span> mkdir build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action cd</span> build<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span>
+<span class="hl kwb">$action</span> ..<span class="hl sym">/</span>..<span class="hl sym">/</span><span class="hl kwb">$pkg_name</span><span class="hl sym">/</span>configure <span class="hl sym">--</span>target<span class="hl sym">=</span><span class="hl kwb">$TARGET</span> <span class="hl sym">--</span>prefix<span class="hl sym">=</span><span class="hl kwb">$PREFIX</span>        \
+          <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>interwork <span class="hl sym">--</span><span class="hl kwb">enable</span><span class="hl sym">-</span>multilib
+<span class="hl kwb">$action</span> <span class="hl kwc">make</span> <span class="hl kwb">$PARALLEL</span>
+<span class="hl kwb">$action</span> <span class="hl kwc">make install</span>
+<span class="hl kwb">$action cd $WORKDIR</span>
+
+<span class="hl slc">######################################################################</span>
+<span class="hl slc">##########                   fini                           ##########</span>
+<span class="hl slc">######################################################################</span>
+<span class="hl kwb">echo</span> <span class="hl sym">&gt;&amp;</span><span class="hl num">2</span> <span class="hl str">&quot;build tree left in $MYDIR&quot;</span>
+<span class="hl kwb">exit</span> <span class="hl num">0</span><span class="hl sym">;</span>
+
+</pre>
+</body>
+</html>
+<!--HTML generated by highlight 2.7, http://www.andre-simon.de/-->
