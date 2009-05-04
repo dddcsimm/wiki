@@ -1,0 +1,9 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ subject="Text area width"
+ date="2009-05-04T14:59:46Z"
+ content="""
+This is now http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=526884
+
+I have now implemented a version of that patch here.
+"""]]
