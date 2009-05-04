@@ -1,0 +1,88 @@
+#+TITLE:     Reflections on streetcars
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Mon May  4 00:08:38 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Reflections on streetcars"]]
+[[!tag software software/debian]]
+
+Recently, I have made fairly major changes to
+#+BEGIN_HTML
+[[!debpkg kernel-package]],
+#+END_HTML
+and there were some reports that I had managed to mess up cross
+compilation. And, not having a cross-compilation tool chain handy, I
+had to depend on the kindness of strangers to address that issue. And,
+given that I am much less personable than Ms Vivien Leigh, this is not
+something I particularly look forward to repeating.
+
+At the onset, building a cross compiling tool chain seems a daunting
+task.  This is not an activity one does frequently, and so one may be
+pardoned for being non-plussed by this. However, I have done this
+before, the most recent effort being creating one to compile [[http://www.rockbox.org][rockbox]]
+binaries, so I had some idea where to start. Of course, since it is
+usually years between attempts to create cross-compiling tool chains,
+I generally forget how it is all done, and have to go hunting for
+details. Thank god for google.
+
+Well, I am not the only one in the same pickle, apparently, for there
+are gobs of articles and HOWTOs out there, including some pretty
+comprehensive (and intimidating) general tool sets to designed to
+create cross compilers in the most generic fashion possible. Using
+them was not really an option, since I would forget how to drive them
+in a few months, and have a miniature version of the current problem
+again. Also, you know, I don't feel comfortable using scripts that are
+too complex for me to understand -- I mean, without understanding, how
+can there be trust?
+
+Also, this time around, I could not decide whether to cross compile
+for ~arm-elf~, as I did the last time, or for the newfangled ~armel~
+target. A need for quickly changing the target for the cross compiler
+build mechanism would be nice. Manually building the tool chain makes
+a wrong decision here expensive, and I _hate_ that.  I am also
+getting fed up with having to root around on the internet every time I
+wanted to build a cross compiler. I came across a script by *Uwe
+Hermann*, which started me down the path of creating a script, with a
+help option, to store the instructions, without trying to be /too/
+general and thus getting overly complex. However, Uwe's script hard
+coded too many things like version numbers and upstream source
+locations, and I know I would rapidly find updating the script
+irritating. Using Debian source packages would fix both of these
+issues.
+
+I also wanted to use Debian sources as far as I could, to ensure that
+my cross compiler was as compatible as I could make it, though I did
+want to use [[http://sources.redhat.com/ml/newlib/][newlib]] (I don't know why, except that I can, and the docs
+sound cool). And of course the script should have a help option and do
+proper command line parsing, so that editing the script would be
+unnecessary. 
+
+Anyway, all this effort culminated in the following script:
+#+BEGIN_HTML
+[[build_cross_toolchain|miscellaneous/build_cross_toolchain.html]],
+#+END_HTML
+surprisingly compact. So I am now all set to try and cross compile a
+kernel the next time a /kernel-package/ bug comes around. I thought
+that I would share this with the lazy web, while I was at it.
+
+Enjoy.
+
+The next thing, of course, is to get my script to create a 
+#+BEGIN_HTML
+[[!debpkg qemu]]
+#+END_HTML
+base image every week so I can move from user mode Linux to the much
+more nifty 
+#+BEGIN_HTML
+[[!debpkg kvm]],
+#+END_HTML
+which is what all the cool kids use. And then I can even create an
+/arm/ virtual machine to test my kernels with, something that user
+mode linux can't easily do.
+
