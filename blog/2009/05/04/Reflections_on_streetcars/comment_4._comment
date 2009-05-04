@@ -1,0 +1,11 @@
+[[!_comment format=mdwn
+ username="http://troglobit.myopenid.com/"
+ subject="How about Crosstool"
+ date="2009-05-04T11:12:30Z"
+ content="""
+I can really recommend <http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool> for any use case.
+
+At work we previously used Buildroot for this, but since crosstool came back to life we've successfully deployed several versions and archs of toolchains (little and big endian arm).
+
+Regards //[Joachim](http://vmlinux.org/jocke/)
+"""]]
