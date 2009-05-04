@@ -667,6 +667,24 @@ div#meat {
  *
  */
 
+div.comment-banner h1 {
+  display: block;
+  color: white;
+  background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+  height: 100px;
+  line-height: 100px;
+  font-variant: small-caps;
+  font-family: Impact, Charcoal, sans-serif; 
+  font-weight: bold; 
+  text-transform: capitalize;
+  font-size: xx-large;
+  width: auto;
+  text-align: center;
+  margin-top: 1em;
+  padding: 1px;
+  border: 4px solid black; 
+}
+
 div.comment  {
   width: auto;
   margin-left:   0px; 
@@ -674,13 +692,12 @@ div.comment  {
   padding-left: 1px;
   border: 0;
 }
-
 div.comment div.comment-subject a {
   display: block;
   color: #dee3ff;
   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
   padding: 5px;
-  font-size:125%;
+  font-size: 125%;
   width: auto;
   margin-top: 4em;
   border: 1px dotted black; 
