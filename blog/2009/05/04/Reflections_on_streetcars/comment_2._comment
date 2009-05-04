@@ -1,0 +1,18 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ subject="Re: cross-compiling toolchains"
+ date="2009-05-04T08:25:43Z"
+ content="""
+Yes -- I believe I had come across  mention of Emdebian while
+researching this time. But the problem I was trying to solve was more
+general -- and not just arm/armel/embedded architectures.  The use
+case solved by my little script is about how to create cross
+compilation from any native architecture to _any_ other architecture
+-- so I can build a *SPARC* cross compiler on my machine, with this
+script. 
+
+There is also the issue that if I use the Emdebian stuff, I would
+never learn what is going on under the hood. Now I know.
+
+
+"""]]
