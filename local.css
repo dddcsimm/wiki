@@ -1095,6 +1095,8 @@ div.recentchanges {
   border-top: solid Blue 4px;
   margin-left: 2em;
   padding-left: 1em;
+  overflow: auto;
+  width: 100%;
 }
 
 div.recentchanges div.metadata span.desc {  
@@ -1109,6 +1111,7 @@ div.recentchanges div.metadata span.desc {
 div.recentchanges div.changelog {  
   margin-top: 0.8em;
   border-bottom: solid Blue 4px;
+  display: block;
   font-family: Baskerville, Times New Roman, Times, serif;
   font-size: 120%;
   color: #0A940B;
@@ -1132,6 +1135,7 @@ div.recentchanges div.metadata span.pagelinks a img {
   color: black;
   background-color: #dfd;
 }
+
 /* The rest of this should be pretty generic */
 
 tt, code, kbd, samp      { font-family: "Courier New", Courier, monospace }
@@ -1351,6 +1355,7 @@ acronym {
   float: right;
   width: 50%;
   padding: 15px;
+  text-align: center;
 }
 
 .pagecloud a:hover {
