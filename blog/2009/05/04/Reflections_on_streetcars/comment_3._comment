@@ -1,0 +1,16 @@
+[[!_comment format=mdwn
+ username="https://launchpad.net/~codehelp"
+ subject="Emdebian has more than just arm or armel"
+ date="2009-05-04T11:01:00Z"
+ content="""
+\"But the problem I was trying to solve was more general — and not just arm/armel/embedded architectures\"
+
+I only gave those two as examples. Emdebian has pre-built binary toolchains for most Debian architectures (including m68k, ia64, mips, mipsel, sparc, hppa, powerpc and alpha) and going back as far as gcc-3.3
+http://www.emdebian.org/debian/pool/main/g/
+
+\"There is also the issue that if I use the Emdebian stuff, I would never learn what is going on under the hood. Now I know.\"
+
+True, but you've also got the assurance that the Emdebian toolchains are in widespread usage, reproducible and quite well tested.
+
+
+"""]]
