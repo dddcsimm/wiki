@@ -1007,19 +1007,8 @@ div#feedlink {
   margin:  2px;
   padding: 2px;
 }
-a.feedbutton { 
-  margin:  2px;
-  padding: 2px;
-  background-color: #FFF2F8; 
-  border: 2px outset #0040A4;;    /* #0040A4; #6f7b34; */
-}
 a.feedbutton:link, a.feedbutton:visited { 
   text-decoration: none;
-}
-
-a.feedbutton:hover { 
-  text-decoration: none;
-  border-bottom: solid #030003 1px;
 }
 
 /* Link of people who came here */
@@ -1354,6 +1343,7 @@ acronym {
 .pagecloud {
   float: right;
   width: 50%;
+  background: #f0fafa;
   padding: 15px;
   text-align: center;
 }
@@ -1370,7 +1360,7 @@ acronym {
 }
 
 .smallPC a {
-	font-size: 0.8em;
+	font-size: 0.9em;
 	color: #6A6A6A;
 	background-color: #FFFFFF;
 	text-decoration: none;
@@ -1378,13 +1368,13 @@ acronym {
 
 .normalPC a {
 	font-size: 1.0em;
-	color: #6A6A6A;
+	color: #7A4242;
 	background-color: #FFFFFF;
 	text-decoration: none;
 }
 
 .bigPC a {
-	font-size: 1.0em;
+	font-size: 1.1em;
 	color: #8A0606;
 	background-color: #FFFFFF;
 	text-decoration: none;
