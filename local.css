@@ -657,10 +657,23 @@ div.gotchi {
   border: 0;
 }
 
+
+div#meat {  
+  width: auto;
+}
+
 /*
  * Comments left by people
  *
  */
+
+div.comment  {
+  width: auto;
+  margin-left:   0px; 
+  margin-right:  auto;
+  padding-left: 1px;
+  border: 0;
+}
 
 div.comment div.comment-subject a {
   display: block;
@@ -668,18 +681,13 @@ div.comment div.comment-subject a {
   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
   padding: 5px;
   font-size:125%;
-  width: 100%;
+  width: auto;
   margin-top: 4em;
   border: 1px dotted black; 
 }
-div.comment  {
-  width: 100%;
-  margin-left:          auto; 
-  margin-right:         auto;
-}
 
 div.comment div.comment-header {
-  background-color: #dfd;
+  background-color: #dee;
   float: left;
   color: Black;                    /* #dee3ff; #D3EBD2; */
   line-height: 110%;
@@ -768,7 +776,7 @@ span.month {
  * The story starts here
  */
 div.story { 
-  width: 100%;
+  width: auto%;
   clear:right;
   padding-left: 1em;
   margin-left: 1.5em;
