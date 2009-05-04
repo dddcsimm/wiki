@@ -1,0 +1,16 @@
+[[!_comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ subject="Re: How about Crosstoll"
+ date="2009-05-04T15:21:56Z"
+ content="""
+Actually, crosstool is what I was thinking about when I said:
+        pretty comprehensive (and intimidating) general tool sets to designed to
+        create cross compilers in the most generic fashion possible
+Yes, I have seen crosstool. Like the Emdebian stuff, it is big and scary. Even with command line parsing and help functions, my script is 158 lines of code, and generates a cross compiling tool chain from sources downloaded from Debian, and nothing hard coded. I takes just 5 options, none really mandatory.
+
+There is something to be said for a miniature script that is easy to understand, and which deploys a cross compiling tool chain, and is trivially simple to learn and understand, no? I downloaded crosstool. I spent about an hour on it -- and I still had not internalized all that it did.
+
+The same holds for the Emdebian stuff -- I do not understand what is going on under the hood, and I can't change it easily. How do I, for example, say that the sources should be brought in from Debian? Or, alternately, from the FSF? (I can write a watch file for either, and run uscan to get the sources). I asked for newlib to be compiled too -- and compiled gcc with newlib. Can I easily add or remove such features from the resulting tool chain?  With a trivial script, it is easy.  With great big complex generic helper frameworks, I get lost.
+
+So writing this script did not arise out of ignorance -- I am, and was, aware of the plethora of tolls out there to do so. They just were not nimble enough to fit my needs -- and this script occupies a different niche from the grand tools and proceses.
+"""]]
