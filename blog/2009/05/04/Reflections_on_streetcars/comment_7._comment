@@ -1,0 +1,9 @@
+[[!_comment format=mdwn
+ username="http://wo.uter.be/"
+ subject="source packages"
+ date="2009-05-05T09:06:56Z"
+ content="""
+You may be interested to know that the Debian source packages actually contain support for this. Read debian/README.cross in both the binutils and gcc source packages for details.
+
+Basically, it boils down to using dpkg-cross to turn a libc package into a libc-cross package, create a file in debian/ with the architecture you want to build for, regenerate debian/control, and build the package as normal. Pretty simple, really; I've done this a lot of times
+"""]]
