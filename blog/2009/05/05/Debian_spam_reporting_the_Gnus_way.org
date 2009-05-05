@@ -1,0 +1,77 @@
+#+TITLE:     Debian spam reporting the Gnus way
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Tue May  5 03:00:45 2009>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Debian list spam reporting the Gnus way"]]
+[[!tag spam]]
+
+So, recently our email overlords graciously provided means for us
+minions to help them in their toils and help clean up the spammish
+clutter in the mailing lists by helping report the spam. And the
+provided us with a dead simple means of reporting such spam to
+them. Now, us folks who knoweth that there is but one editor, the true
+editor, and its, err, proponent is RMS, use Gnus to follow the emacs
+mailing lists, either directly, or through [[http://www.gmane.org][gmane]]. There are plenty of
+examples out there showing how to automate reporting spam to /gmane/,
+so I won't bore y'all with the details. Here I only show how one
+serves our list overlords, and smite the spam at the same time.
+
+Some background, from the Gnus info page. I'll try to keep it
+brief. There is far more functionality present if you read the
+documentation, but you can see that for yourself.
+
+#+BEGIN_QUOTE
+The Spam package provides Gnus with a centralized mechanism for
+detecting and filtering spam.  It filters new mail, and processes
+messages according to whether they are spam or ham. There are two
+"contact points" between the Spam package and the rest of Gnus:
+checking new mail for spam, and leaving a group.
+
+Checking new mail for spam is done in one of two ways: while
+splitting incoming mail, or when you enter a group. Identifying spam
+messages is only half of the Spam package's job. The second half
+comes into play whenever you exit a group buffer.  At this point,
+the Spam package does several things: it can add the contents of the
+ham or spam message to the dictionary of the filtering software, and
+it can report mail to various places using different protocols.
+#+END_QUOTE
+
+All this is very plugin and modular. The advantage is, that you can
+use various plugin front ends to identify spam and ham, or mark messages
+as you go through a group, and when you exit the group, spam is
+reported, ham and spam messages are copied to special destinations for
+future training of your filter.  Since you inspect the marks put into
+the group buffer as you read the messages, there is a human involved
+in the processing, but as much as possible can be automated away. /Do/
+read the info page on the Spam package in Gnus, it is edifying.
+
+Anyway, here is a snippet from my ~etc/emacs/news/gnusrc.el~ file,
+which can help automate the tedium of reporting spam. This is perhaps
+more like how Gnus does things than having to press a special key for
+every spam, and which does nothing to help train your filter.
+
+#+BEGIN_HTML
+[[syntax language="Common Lisp" linenumbers=1 bars=1 text="""
+(add-to-list
+ 'gnus-parameters
+ '("^nnml:\\(debian-.*\\)$"
+         (to-address . "\\1@lists.debian.org")
+         (to-list . "\\1@lists.debian.org")
+         (admin-address . "\\1-request@lists.debian.org")
+         (spam-autodetect . t)
+         (spam-autodetect-methods spam-use-gmane-xref spam-use-hashcash spam-use-BBDB)
+         (spam-process '(spam spam-use-resend))
+         (spam-report-resend-to . "report-listspam@lists.debian.org")
+         (subscribed . t)
+         (total-expire . t)
+         ))
+
+"""]]
+#+END_HTML
