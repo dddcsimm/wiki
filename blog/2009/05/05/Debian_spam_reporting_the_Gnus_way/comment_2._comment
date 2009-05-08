@@ -5,10 +5,11 @@
  content="""
 In any recent Gnus package, the info node: \"Info: (gnus)Spam Package Configuration Examples\" has information about adding to gnus-parameters: 
 
-    (\"^gmane\\.\"
+      (\"^gmane\\.\"
           (spam-process (gnus-group-spam-exit-processor-report-gmane)))
 
 I use the following in my gnus rc file (in addition to the debian related stuff above):
+
      (setq gnus-spam-autodetect-methods
           '(
             (\"^gmane\\.\" . (spam-use-blacklist
