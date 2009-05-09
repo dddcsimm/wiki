@@ -129,6 +129,15 @@ div#masthead h4 {
 div#links { 
 }
 
+
+div#information h2 {  
+  text-align: center; 
+  font-variant: small-caps;
+  font-family: Impact, Charcoal, sans-serif; 
+  font-weight: bold; 
+  font-size: xx-large;
+}
+
 /* 
    This should hold all the other segemtns that make up this page --
    all the way up to the footer.
@@ -1474,3 +1483,48 @@ pre.hl  { color:#2346d5; background-color:#000000; font-size:10pt; font-family:C
 .syntaxtext { color:  #000000; }
 /* end stuff */
 
+h2.information { 
+  font-variant: small-caps;
+  font-family: Impact, Charcoal, sans-serif; 
+  font-weight: bold; 
+  font-size: xx-large;
+  text-transform: capitalize;
+
+}
+/* Clickable Buttons  */
+.clear { /* generic container (i.e. div) for floating buttons */
+    overflow: hidden;
+    width: 100%;
+}
+
+div#information a.button {
+    background: transparent url('/media/images/bg_button_a.gif') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+}
+
+div#information a.button span {
+    background: transparent url('/media/images/bg_button_span.gif') no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+} 
+div#information a.button:active {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+div#information a.button:active span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px; /* push text down 1px */
+} 
+div#information a.button:hover span {
+    color: #111;
+} 

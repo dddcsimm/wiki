@@ -1,0 +1,3 @@
+[[!if test="enabled(linkmap)" then="""
+[[!linkmap pages="* and !blog and !blog/* and !templates and !templates/* and !recentchanges and !shortcuts and !sidebar and !sandbox and !smileys and !*/Discussion and !tag  and !tag/* and !categories/* and !archives/* and !ikiwiki and !ikiwiki/* and !*.css and !*.js and !*.png"]]
+"""]]
