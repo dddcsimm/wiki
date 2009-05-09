@@ -1,0 +1,3 @@
+[[!if test="enabled(brokenlinks)" then="""
+[[!brokenlinks pages="* and !recentchanges"]]
+"""]]

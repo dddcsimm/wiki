@@ -1,0 +1,8 @@
+[[!if test="enabled(orphans)" then="""
+
+Here's a list of orphaned pages on this wiki -- pages that no other
+page links to:
+
+[[!orphans pages="* and sidebar and !news/* and !todo/* and !bugs/* and !users/* and !recentchanges and !examples/* and !tips/* and !sandbox/* and !templates/* and !wikiicons/* and !plugins/*"]]
+
+"""]]
