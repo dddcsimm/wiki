@@ -1,0 +1,11 @@
+[[!_comment format=mdwn
+ username="https://launchpad.net/~ssm"
+ subject="Missing group parameter <-> variable"
+ date="2009-06-24T09:44:05Z"
+ content="""
+In order to set \"spam-report-resend-to\" from a group parameter, you'll need to add the following to .gnus.el:
+
+(add-to-list 'gnus-newsgroup-variables 'spam-report-resend-to)
+
+...then it works
+"""]]
