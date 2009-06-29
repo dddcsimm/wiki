@@ -1,9 +1,7 @@
 ####Relevant Links
 
-* [Debian Packages](/software.xhtml)
 * [GPG key](/download/gpg.asc.txt)
 * [PGP key](/download/pgp.asc.txt)
-* [My *other* blog](/)
 
 ---
 
