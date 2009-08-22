@@ -1,7 +1,9 @@
 ####Relevant Links
 
+* [New key](/download/C5779A1C.asc.txt)
 * [GPG key](/download/gpg.asc.txt)
 * [PGP key](/download/pgp.asc.txt)
+* [Policy](http://www.golden-gryphon.com/download/policy.20090821.txt?version=1.0&sha256sum=03b987f1eefa098c350929157e9c6ef5d234970c406e748935e65c0efcceaebb)
 
 ---
 
