@@ -1,0 +1,11 @@
+[[!comment format=mdwn
+ username="http://lj.rossia.org/users/imz/"
+ subject="list it and compare with muse-mode with ikiwiki"
+ date="2009-12-05T01:27:08Z"
+ content="""
+Hi!
+
+Perhaps listing it at http://ikiwiki.info/plugins/ would help people find it.
+
+Also, have you seen [muse.pm](http://repo.or.cz/w/muse-el.git/blob/773dc6a51a9cdc55b51d4f0b0dcb9c654f9d059b:/contrib/ikiwiki/IkiWiki/Plugin/muse.pm) from [emacs-muse--Ikiwiki integartion](http://mwolson.org/static/doc/muse/Ikiwiki.html)? Technically, it must be similar (it also calls emacs), so perhaps there are some valuable ideas in that code.
+"""]]
