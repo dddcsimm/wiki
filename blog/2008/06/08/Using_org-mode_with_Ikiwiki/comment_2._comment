@@ -1,0 +1,7 @@
+[[!comment format=mdwn
+ username="http://lj.rossia.org/users/imz/"
+ subject="Emacs' XML-RPC instead of org.pm"
+ date="2009-12-05T02:19:54Z"
+ content="""
+Also one could write the plugin (instead of org.pm) completely in Emacs Lisp (using http://www.emacswiki.org/emacs/XmlRpc ) as an [\"external plugin\"](http://ikiwiki.info/plugins/write/external/), which would be more fun (and also provide a remarkable example of an external plugin for Ikiwiki written in Emacs Lisp).
+"""]]
