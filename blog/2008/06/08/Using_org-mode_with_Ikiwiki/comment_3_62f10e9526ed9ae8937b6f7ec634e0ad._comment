@@ -1,0 +1,32 @@
+[[!comment format=mdwn
+ username="http://rodyaj.myopenid.com/"
+ subject="Just a few things"
+ date="2010-01-26T15:46:26Z"
+ content="""
+Thanks for the useful plugin.
+
+I had to comment out the line '$ret=~s/(<\/div>\s*$)//s;' near the end of the file, otherwise one of the <div> tags doesn't get closed properly. 
+
+My code blocks didn't get htmlized by default either so I also changed the beginning of the eval line to read \"--eval '(progn (autoload (quote htmlize-buffer) \\"/path/to/site-lisp/htmlize.el\\" nil t)(... 
+
+If you have emacs22 or non-standard locations for lisp files it is also worth  changing the '--batch -l' part to use ~/.mycustomfile rather than 'org'. In this file I added:
+
+(add-to-list 'load-path \"~/path/to/site-lisp\")
+(add-to-list 'load-path \"~/path/to/newer/org-mode\")
+(require 'htmlize) ;; colour for code segments
+(require 'org)
+(add-to-list 'auto-mode-alist '(\"\\.org$\" . org-mode)) ;; not sure if this is needed
+
+(setq org-export-htmlize-output-type (quote css))
+
+;;; and some of my blogging preferences
+(setq org-export-headline-levels 3 
+      org-export-with-toc nil 
+      org-export-author-info nil 
+      org-export-with-section-numbers nil  
+      org-export-skip-text-before-1st-heading nil 
+      org-empty-line-terminates-plain-lists t 
+      org-export-with-sub-superscripts nil)
+
+
+"""]]
