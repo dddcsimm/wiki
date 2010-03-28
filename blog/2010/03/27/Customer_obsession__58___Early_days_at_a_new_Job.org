@@ -1,0 +1,64 @@
+#+TITLE:     Customer obsession: Early days at a new Job
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Sat Mar 27 15:22:32 2010>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Customer obsession: Early days at a new Job"]]
+[[!tag misc]]
+
+
+I have been at Amazon.com for a very short while (I have only gotten
+one paycheck from them so far), but long enough for first impressions
+to have settled. Dress is casual, Parking is limited. Cafeteria food
+is merely OK, and is not free.
+
+There is a very flat structure at Amazon. The front line work is done
+by one-or-two pizza teams -- size  measure by the number of large
+pizzas that can feed the team. Individual experiences with the company
+largely depend on what team you happen to end up with. I think I
+lucked out here. I get to work on interesting and challenging
+problems, at scales I had not experienced before.
+
+There is an ownership culture. Every one -- including developers --
+get to own what they produce. You are responsible for our product --
+down to carrying pagers in rotation with others on your team, so that
+there is someone on call in case your product has a bug. RC (or
+customer impacting) bugs result in a conference call being invoked
+within 10-15 minutes, and all kinds of people and departments being
+folded in until the issue is  resolved.
+
+Unlike others, I find the operations burden refreshing (I come from
+working as a federal government contractor). On call pages are often
+opportunities to learn thing, and I like the investigation of the
+current burning issue du jour. I also like the fact that I get to be
+my own support staff for the most part, though I have not yet
+installed Debian anywhere here.
+
+While it seems corny, customer obsession is a concept that pervades
+the company. I find ti refreshing.  The mantra that "it's all about
+the customer experience" is actually true and enforced. Whenever a tie
+needs to be broken on how something should work the answer to this
+question is usually sufficient to break it.  Most other places the
+management was responsible for, and worried about budgets for the
+department -- this does not seem to be the case for lower to middle
+management here. We don't get infinite resources, but work is planned
+based on user experience, customer needs, and technical requirements,
+not following the drum beat of bean counters.  The focus is on the job
+to be done, not the hours punched in. 
+
+
+I can choose to work from home if I wish, modulo meetings (which one
+could dial in to, at a pinch). But then, I have a 5 mile, 12 minute
+commute. I have, to my surprise, started coming in to work at 7:30 in
+the morning (I used to rarely get out of bed before 9:30 before), and
+I plan on getting a [[http://taylorsbikeshop.com/product/08-raleigh-detour-deluxe-37604-1.htm][bike]] and seeing if I can ride my bike to work this
+summer.
+
+
+All in all, I like it here. 
