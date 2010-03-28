@@ -1,0 +1,7 @@
+[[!comment format=mdwn
+ username="http://etbe.coker.com.au/"
+ subject="Debian and EC2"
+ date="2010-03-28T19:49:36Z"
+ content="""
+So when will we see proper Debian kernels available on EC2?  It seems that you are in a good position to get some progress on this issue given your history of Debian kernel work.
+"""]]
