@@ -664,6 +664,7 @@ div.gotchi {
   width: auto;
   margin: 0;
   border: 0;
+  margin-bottom: -5ex;
 }
 
 
@@ -746,6 +747,9 @@ div.addcomment {
   margin-top: 5em;
 }
 
+div.inlinepage {
+    clear:right;
+}
 /* 
  * Here are the actual web logs. This is why we are doing this
  * page. The following elements are repeated for each entry.
@@ -754,16 +758,16 @@ div.addcomment {
 /* The date, at the top of each entry 
  */
 div.blogDate { 
-  clear:right;
+  clear: right;
   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
   color: #dee3ff;                    /* #dee3ff; #D3EBD2; */
   font-size: small;
   line-height: 110%;
   font-weight: normal;
   padding: 3px 2px;
-	margin-left: 0.4em;
+  margin-left: 0.4em;
   margin-bottom: 10px;
-  margin-top: 3px;
+  margin-top: 5ex;
 }
 /* The day of the week */
 span.day { 
@@ -1365,6 +1369,7 @@ acronym {
   background: #f0fafa;
   padding: 15px;
   text-align: center;
+  margin-bottom: -5ex;
 }
 
 .pagecloud a:hover {
