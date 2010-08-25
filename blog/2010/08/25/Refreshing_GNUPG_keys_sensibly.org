@@ -1,0 +1,51 @@
+#+TITLE:     Refreshing GNUPG keys sensibly
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Wed Aug 25 10:08:29 2010>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Refreshing GNUPG keys sensibly"]]
+[[!tag security]]
+
+It has come up on the [[http://planet.debian.org/][Planet]] recently, as well as the gnupg users
+mailing list: users need to refresh keys that they use to get updated
+information on revocations and key expiration. And there are plenty of
+examples of simple additions to ones /crontab/ to set up a key refresh.
+
+Of course, with me, things are rarely that simple. Firstly, I have my
+*GNUPGHOME* set to a non standard location; and, secondly, I like having
+my Gnus tell me about signatures on mails to the Debian mailing lists,
+so I periodically sync /debian-keyring.gpg/ into my *GNUPGHOME*. I add
+this as an additional keyring in my /gpg.conf/ file, so that in normal
+operations gnus has ready access to the keys; but I do not care to
+refresh all the keys in debian-keyring. I also prefer to trust and
+update keys in my keyring, so the commands grow a little complex.
+
+Also, I want to get keys for any signatures folks have kindly added to
+my key and uploaded to the key server (not everyone uses [[http:packages.debian.org/signing-party][caff]]), so just
+/--refresh-keys/ does not serve. Linebreaks added for readability.
+
+#+BEGIN_example
+# refresh my keys
+# Note how I have to dance around keyring specification
+45      4    *  * 4   (/usr/bin/gpg2 --homedir ~/.sec --refresh-keys
+    $(/usr/bin/gpg2 --options /dev/null --homedir ~/.sec
+      --no-default-keyring --keyring pubring.gpg --with-colons
+        --fixed-list-mode --list-keys | egrep '^pub' | cut -f5 -d: |
+            sort -u) >/dev/null 2>&1)
+
+# Get keys for new sigs on my keys (get my key by default, in case 
+# there are no unknown user IDs [do not want to re-get all keys])
+44      4    *  * 5  (/usr/bin/gpg2 --homedir ~/.sec --recv-keys
+    0xC5779A1C $(/usr/bin/gpg2  --options  /dev/null --homedir ~/.sec
+       --no-default-keyring --keyring pubring.gpg --with-colons
+         --fixed-list-mode --list-sigs 0xC5779A1C | egrep '^sig:' |
+            grep 'User ID not found' | cut -f5 -d: | sort -u) >/dev/null 2>&1)
+
+#+END_example
+
