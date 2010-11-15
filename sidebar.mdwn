@@ -46,10 +46,11 @@
 
 <script type="text/javascript" src="/software/js/identica-badge.js">
 {
-   "user":"srivasta",
+   "user":"manojsrivastava",
    "server":"identi.ca",
-   "width":"275",
-   "height":"150",
+   "headerText":" and friends",
+   "width":"210",
+   "height":"300",
    "background":"#335A9F",
    "headerBackground":"transparent",
    "evenBackground":"#ace",
