@@ -1,0 +1,54 @@
+#+TITLE:     Dear Lazyweb: How do you refresh or recreate your kvm virt periodically?
+#+AUTHOR:    Manoj Srivastava
+#+EMAIL:     srivasta@debian.org
+#+DATE:      <Sun Nov 14 21:48:14 2010>
+#+LANGUAGE:  en
+#+OPTIONS:   H:0 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:nil tags:not-in-toc
+#+INFOJS_OPT: view:showall toc:nil ltoc:nil mouse:underline buttons:nil path:http://orgmode.org/org-info.js
+#+LINK_UP:   http://www.golden-gryphon.com/blog/manoj/
+#+LINK_HOME: http://www.golden-gryphon.com/
+[[!meta author="Manoj"]]
+[[!meta license="GPL"]]
+[[!meta title="Dear Lazyweb: How do you refresh or recreate your kvm virt periodically?"]]
+[[!tag debian]]
+
+Dear Lazyweb, how do all y'all using virts recreate the build machine
+setup periodically? I have tried and failed to get
+=qemu-make-debian-root= script work for me. Going through and redoing
+it from netinst ISO is an option -- but then I need debconf preseeding
+files, and I was wondering if there are some out there. And then there
+is the whole "Oh, by the way, upgrade from Squeeze to Sid, please"
+step. The less sexy alternative is going to the master copy and
+running a /cron/ job to safe-upgrade each week, and re-creating any
+copy-on-write children. Would probably work, but I am betting there
+are less hackish solutions out there.
+
+
+First, some background. It has been an year since I interviewed for
+the job I currently hold. And nearly 10 months since I have been
+really active in Debian (apart from /Debconf/ 10). Partly it was
+trying to perform well at the new job, partly it was getting
+permissions to work on Debian from my employer. Now that I think I
+have an handle on the job, and the process for getting permissions is
+coming to a positive end, I am looking towards getting my Debian
+processes and infrastructure back up to snuff.
+
+Before the interregnum, I used to have a /UML/ machine setup to do
+builds. It was generated from scratch weekly using cron, and ran
+/SELinux/ strict mode, and I used to have an automated ssh based script
+to build packages, and dump them on my box to test them. I had local
+git porcelain to do all this and tag releases, in a nice, effortless
+work flow.
+
+Now, the glory days of /UML/ are long gone, and all the cool kids are
+using /KVM/. I have set up a kvm box, using a netinst ISO (like the
+majority of the HOWTO's say). I used [[http://madduck.net/docs/][madduck's]] [[http://slexy.org/view/s2acgjOwrr][old]]
+=/etc/networking/interfaces= set up to do networking using a public
+bridge (mostly because how cool his solution was, =virsh= can talk
+natively to a bridge for us now) and I have /NFS/, /SELinux/, /ssh/,
+and my remote build infrastructure all done, so I am ready to hop back
+into the fray once the lawyers actually ink the agreements.  All I
+have to do is decide on how to refresh my build machines periodically.
+
+And I guess I should set up =virsh=, instead of having a shell alias
+around =kvm=.  Just haven't gotten around to that.
