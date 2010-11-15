@@ -1,0 +1,8 @@
+[[!comment format=mdwn
+ username="http://openid.golden-gryphon.com/srivasta"
+ ip="67.182.138.215"
+ subject="Re: Not exactly kvm ...."
+ date="2010-11-15T16:29:08Z"
+ content="""
+Unfortunately, yes, cowdancer and friends work on plain old Linux copy-on-write format images, and I an using qcow2, for the additional functionality that coms with it. I did find a post in the virsh mailing list which talksb about using debconf  preseeding, which I will look into next weekend.
+"""]]
