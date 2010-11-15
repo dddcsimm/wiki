@@ -1,0 +1,13 @@
+[[!comment format=mdwn
+ username="http://mirsolutions.de/"
+ ip="87.139.34.156"
+ subject="Not exactly kvm, but…"
+ date="2010-11-15T12:04:27Z"
+ content="""
+sudo cowbuilder --update
+
+☺
+
+Maybe it’s worth looking into? It does run on the “host” system though, but so far,
+my sid chroot (for working in, not just cowbuilder) even runs fine on an etch system.
+"""]]
