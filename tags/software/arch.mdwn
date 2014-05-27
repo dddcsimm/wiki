@@ -1,0 +1,4 @@
+[[!meta title="pages tagged software/arch"]]
+
+[[!inline pages="tagged(software/arch)" actions="no" archive="yes"
+feedshow=10]]
