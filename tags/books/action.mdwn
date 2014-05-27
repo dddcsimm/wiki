@@ -1,0 +1,4 @@
+[[!meta title="pages tagged books/action"]]
+
+[[!inline pages="tagged(books/action)" actions="no" archive="yes"
+feedshow=10]]
