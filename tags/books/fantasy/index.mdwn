@@ -1,0 +1,4 @@
+[[!meta title="pages tagged books/fantasy"]]
+
+[[!inline pages="tagged(books/fantasy)" actions="no" archive="yes"
+feedshow=10]]
