@@ -1,0 +1,4 @@
+[[!meta title="pages tagged books/scifi"]]
+
+[[!inline pages="tagged(books/scifi)" actions="no" archive="yes"
+feedshow=10]]
