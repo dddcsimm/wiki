@@ -1,4 +1,0 @@
-[[!meta title="pages tagged software/ikiwiki"]]
-
-[[!inline pages="tagged(software/ikiwiki)" actions="no" archive="yes"
-feedshow=10]]

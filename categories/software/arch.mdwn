@@ -1,2 +1,2 @@
 [[!meta title="Blog postings about Arch version control scaffolding"]]
-[[!inline pages="link(tag/software/arch) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/software/arch) and !blog and !tag" show="10" rootpage="blog"]]

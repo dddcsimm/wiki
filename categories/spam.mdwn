@@ -1,2 +1,2 @@
 [[!meta title="Blog postings related to fighting spam"]]
-[[!inline pages="link(tag/spam) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/spam) and !blog and !tag" show="10" rootpage="blog"]]

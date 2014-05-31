@@ -1,4 +1,0 @@
-[[!meta title="pages tagged software/security"]]
-
-[[!inline pages="tagged(software/security)" actions="no" archive="yes"
-feedshow=10]]

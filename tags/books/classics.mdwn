@@ -1,4 +1,0 @@
-[[!meta title="pages tagged books/classics"]]
-
-[[!inline pages="tagged(books/classics)" actions="no" archive="yes"
-feedshow=10]]

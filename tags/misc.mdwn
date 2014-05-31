@@ -1,4 +1,0 @@
-[[!meta title="pages tagged misc"]]
-
-[[!inline pages="tagged(misc)" actions="no" archive="yes"
-feedshow=10]]

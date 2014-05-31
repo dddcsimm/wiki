@@ -1,4 +1,0 @@
-[[!meta title="pages tagged software/git"]]
-
-[[!inline pages="tagged(software/git)" actions="no" archive="yes"
-feedshow=10]]

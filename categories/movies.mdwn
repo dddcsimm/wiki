@@ -1,2 +1,2 @@
 [[!meta title="Blog postings related to movies"]]
-[[!inline pages="link(tag/movies) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/movies) and !blog and !tag" show="10" rootpage="blog"]]

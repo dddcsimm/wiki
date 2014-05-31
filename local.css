@@ -1,5 +1,3 @@
-/* <blosxcss description="An original Blosxcss compliant style for the Golden Gryphon." > */
-/* <blosxcss name="Golden Gryphon" > */
 /*
   http://www.webspaceworks.com/resources/fonts-web-typography/60/
   http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
@@ -56,620 +54,615 @@
   Palatino, Palatino Linotype, Georgia, Times, Times New Roman, serif - p
 
  */
-body { 
-  font-family: Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", Times, Georgia, Utopia, serif;
-  color: #313373;
-  background-color: #EBFFFF; /* #D3EBD2; #dee3ff; */
-  margin: 0;
+body {
+   font-family: Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", Times, Georgia, Utopia, serif;
+   color: #313373;
+   background-color: #EBFFFF; /* #D3EBD2; #dee3ff; */
+   margin: 0;
+   padding:0;
+   border:0;                        /* This removes the border around the viewport in old versions of IE */
+   width:100%;
+   min-width:600px;         /* Minimum width of layout - remove line if not required */
+   /* The min-width property does not work in old versions of Internet Explorer */
+   font-size:90%;
 }
 
 div {
-        margin: 0;
+   margin: 0;
         /* border: solid black 6px; */
 }
 span {
-        margin: 0;
+   margin: 0;
         /* border: solid black 1px; */
 }
 
-/* 
+/*
  * Layout. This is where we determine how the page is laid out.
  * Indeed, this is all the layout specific segment, the rest can be
  * abstracted out.
  */
 
-/* 
-   The masthead is at the top of the page. It contains the title of
-   the page, and the description.
- */
+/*******************************************************************/
+/*******************************************************************/
 
-div#masthead { 
-  padding: 0.01em 0.1em 0.01em 0.01em;
-  margin: 0;
+/*******************************************************************/
+/*
+ * The masthead is at the top of the page. It contains the title of
+ * the page, and the description.
+ */
+div#masthead {
+   padding: 0.01em 0.1em 0.01em 0.01em;
+   margin: 0;
 }
 /* Make the titles stand out */
 div#masthead h1 {
-  color: White;
-  background-color: #00276C; /* #6f7b34; #1A344B;#5D97CF #AA889A; #0040A4;  */
-  background-image: url('/media/images/gryphon.png');
-  background-repeat: no-repeat;
-  background-position: 95% 50%;
-  height: 150px;
-  vertical-align: 20%;
-  line-height: 150px;  
-  text-align: left;
-  padding-left: 5%;
-  font-variant: small-caps;
-  font-family: Impact, Charcoal, sans-serif; 
-  font-weight: bold; 
-  font-size: xx-large;
-  text-transform: capitalize;
-  margin: 0.1em;
+   color: White;
+   background-color: #00276C; /* #6f7b34; #1A344B;#5D97CF #AA889A; #0040A4;  */
+   background-image: url('images/icons/gryphon.png');
+   background-repeat: no-repeat;
+   background-position: 95% 50%;
+   height: 150px;
+   vertical-align: 20%;
+   line-height: 150px;
+   text-align: left;
+   padding-left: 5%;
+   font-variant: small-caps;
+   font-family: Impact, Charcoal, sans-serif;
+   font-weight: bold;
+   font-size: xx-large;
+   text-transform: capitalize;
+   margin: 0.1em;
 }
-
 div#masthead h2 {
-  font-family: helvetica, "Bitstream Vera Sans", "Helvetica Neue", Arial, Geneva, sans-serif; 
-  font-weight: bold; 
-  font-size: large;
+   font-family: helvetica, "Bitstream Vera Sans", "Helvetica Neue", Arial, Geneva, sans-serif;
+   font-weight: bold;
+   font-size: large;
 }
-
 div#masthead h3 {
-  font-family: Helvetica, "Bitstream Vera Sans", "Helvetica Neue", Arial, Geneva, sans-serif; 
-  font-size: large;
+   font-family: Helvetica, "Bitstream Vera Sans", "Helvetica Neue", Arial, Geneva, sans-serif;
+   font-size: large;
 }
-
 /* This is the Title */
 div#masthead h4 {
-  color: #313373;
-  font-family: Ravie, fantasy, sans-serif;;
-  text-align: center; 
-  margin: 0.1em;
+   color: #313373;
+   font-family: Ravie, fantasy, sans-serif;;
+   text-align: center;
+   margin: 0.1em;
 }
+/*******************************************************************/
 /* Just a placeholder. Probably should not even be here */
-div#links { 
+div#links {
 }
-
-
-div#information h2 {  
-  text-align: center; 
-  font-variant: small-caps;
-  font-family: Impact, Charcoal, sans-serif; 
-  font-weight: bold; 
-  font-size: xx-large;
-}
-
-/* 
-   This should hold all the other segemtns that make up this page --
-   all the way up to the footer.
- */
-div#container{ 
-  padding-bottom: 10px;
-}
-
+/*******************************************************************/
 /*
  * This contains the menu at the top. The menu contains three parts
  */
-div#menubar { 
-  clear: both;
-  text-align: center;
-  vertical-align: middle;
-  width: 99%;
-  padding: 0px;
-  margin: 0px;
-  border-bottom: solid 1px #EBFFFF;
+div#wrapper {
+   clear: both;
+   padding: 0.75em 0.75em 2ex 0.75em ;
+}
+div.nav-wrapper {
+   clear: both;
+   padding: 0.5em 0.5em 1.2ex 0.5em ;
+}
+
+div#menubar {
+   clear: both;
+   text-align: center;
+   vertical-align: middle;
+   width: 99%;
+   padding: 0px;
+   margin: 0px;
+   border-bottom: solid 1px #EBFFFF;
 }
 /* The leftmost bits of the menubar */
-div#menubar-left { 
-  float: left;
-  width: 33%;
-  text-align: left;
-  padding: 0px;
-  margin: 0px;
+div#menubar-left {
+   float: left;
+   width: 33%;
+   text-align: left;
+   padding: 0px;
+   margin: 0px;
   /* margin-bottom: 3px;
   margin-top: 2px; */
 }
 
 /* Then come the right side of the mneu */
-div#menubar-right { 
-  text-align: right;
-  float: right;
-  width: 33%;
-  display: inline;
-  padding: 0px;
-  margin: 0px;
+div#menubar-right {
+   text-align: right;
+   float: right;
+   width: 33%;
+   display: inline;
+   padding: 0px;
+   margin: 0px;
   /* margin-right: 5px;
   margin-bottom: 3px;
   margin-top: 2px;
   padding: 0.3em 0.3em; */
-  font-size: 70%;
-  line-height: 130%;
+   font-size: 70%;
+   line-height: 130%;
 }
 /* And, finally, the closing parts of the menu */
-div#menubar-close{ 
-  clear: both;
+div#menubar-close{
+   clear: both;
 }
 
 
+div.actions {
+   float: right;
+   width: auto;
+   padding: 0px;
+   margin: 0px;
+}
+div.actions ul li {
+   display: inline;
+   list-style: none;
+   padding: 0px;
+   margin: 0px;
+}
+div.actions ul li img {
+   border: none;
+}
+div.actions ul li a:link, div.actions ul li a:visited {
+   text-decoration: none;
+}
+
+div.actions ul li a:hover {
+   text-decoration: underline;
+   border-bottom: solid blue 1px;
+}
+
+ul.headlines {
+   list-style: inside;
+}
+
+li.headlines_date {
+   padding-left: 2px;
+}
+li.headlines_item {
+   padding-left: 1.5em;
+}
+
+/*******************************************************************/
 /* This is where the breadcrumbs go to. */
-breadcrumb a:link, breadcrumb a:visited, breadcrumb a:hover { 
-  color: #1A344B;
+breadcrumb a:link, breadcrumb a:visited, breadcrumb a:hover {
+   color: #1A344B;
 }
 
-div.breadcrumbs { 
-  padding: 0.3em 0.3em;
-  font-size: 70%;
-  line-height: 130%;
-  display: inline;
+div.breadcrumbs {
+   padding: 0.3em 0.3em;
+   font-size: 70%;
+   line-height: 130%;
+   display: inline;
 }
 
-
-/* 
+/*******************************************************************/
+/*******************************************************************/
+/*******************************************************************/
+/*
    Now we come to the navigation bar at the left. First, there is the
    wrapper that contains all:
  */
-div#wrapper { 
-  clear: both;
-  padding: 0.75em 0.75em 2ex 0.75em ;
-}
 
 /* Now comes the acual navigation panel, which contains blocks for navigation */
-div#navpanel { 
-  background-color: #83CEFF;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
-  font-family: Helvetica, Tahoma, Arial,sans-serif; 
-  font-size: x-small;
-  padding: 5px 10px 5px 5px;
-  margin-right: 10px;
-  margin-top: 1em;
-  width: 20em;
-  float: left;
-  border-right: solid 2px;
-  border-bottom: solid 2px;
-  border-right-color: #1A344B;   /* #6f7b34; */
-  border-bottom-color: #1A344B;   /* #6f7b34; */
+div#navpanel {
+   background-color: #83CEFF;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
+   font-family: Helvetica, Tahoma, Arial,sans-serif;
+   font-size: x-small;
+   padding: 5px 10px 5px 5px;
+   margin-right: 10px;
+   margin-top: 1em;
+   width: 20em;
+   float: left;
+   border-right: solid 2px;
+   border-bottom: solid 2px;
+   border-right-color: #1A344B;   /* #6f7b34; */
+   border-bottom-color: #1A344B;   /* #6f7b34; */
 }
 
-
 div#navpanel h4 {
-  margin-bottom: 0.05in;
+   margin-bottom: 0.05in;
 }
 
 div.navblock p img {
-  border: none;
+   border: none;
 }
 
-/* 
+/*
    These litle blocks contain individual navigation. Each contains a
    little h4 block as a title
  */
-div.navblock { 
-  background-color: #83CEFE;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
-  width: 20em;
-  padding: 1px 0.05em 0.05em 0.05em;
+div.navblock {
+   background-color: #83CEFE;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
+   width: 20em;
+   padding: 1px 0.05em 0.05em 0.05em;
 }
 
-div.navblock h1 { 
-  margin-top: 2px;
-  font-size:300%;
-  line-height: 120%;
+div.navblock h1 {
+   margin-top: 2px;
+   font-size:300%;
+   line-height: 120%;
 }
-div.navblock h2 { 
-  margin-top: 3px;
-  font-size:250%;
-  line-height: 100%;
+div.navblock h2 {
+   margin-top: 3px;
+   font-size:250%;
+   line-height: 100%;
 }
-div.navblock h3 { 
-  margin-top: 2px;
-  font-size:200%;
-  line-height: 90%;
+div.navblock h3 {
+   margin-top: 2px;
+   font-size:200%;
+   line-height: 90%;
 }
 /* h4 is the only one used */
-div.navblock h4 { 
-  margin-top: 2px;
-  font-size:155%;
-  line-height: 80%;
+div.navblock h4 {
+   margin-top: 2px;
+   font-size:155%;
+   line-height: 80%;
 }
 div.navblock h4 img {
-  border: none;
+   border: none;
 }
 
 div.navblock li {
-  list-style: none;
+   list-style: none;
 }
 
 div.navblock ul {
-  margin: 0px;
-  padding: 0px;
+   margin: 0px;
+   padding: 0px;
 }
 div.navblock ul li {
-  display: block;
-  float: left;
-  color: black;
-  width: 21em;
-  margin: 2px 0px 0px 0px;
-  padding: 0px;
-  text-align: right;
-  font-weight: bold;
+   display: block;
+   float: left;
+   color: black;
+   width: 21em;
+   margin: 2px 0px 0px 0px;
+   padding: 0px;
+   text-align: right;
+   font-weight: bold;
 }
 /* Make the links stick out a bit. */
 div.navblock ul li a {
-  display: block;
-  color: black;
-  background-color: #dfd;
-  padding: 5px;
-  font-size:125%;
-  width: 100%;
-  border: 1px dotted black; 
+   display: block;
+   color: black;
+   background-color: #dfd;
+   padding: 5px;
+   font-size:125%;
+   width: 100%;
+   border: 1px dotted black;
 }
 div.navblock ul li a img {
-  border: none;
+   border: none;
 }
-div.navblock ul li a:link, div.navblock ul li a:visited { 
-  text-decoration: none;
-}
-
-div.navblock ul li a:hover { 
-  text-decoration: underline;
-  border-bottom: solid blue 1px;
+div.navblock ul li a:link, div.navblock ul li a:visited {
+   text-decoration: none;
 }
 
-div.style_list div.navblock ul li { 
-  margin-left: 1em;
+div.navblock ul li a:hover {
+   text-decoration: underline;
+   border-bottom: solid blue 1px;
+}
+
+div.style_list div.navblock ul li {
+   margin-left: 1em;
 }
 
 /* Second level */
 div.navblock ul li ul li {
-  display: block;
-  float: right;
-  color: black;
-  width: 19em;
-  margin: 2px 0px 0px 0px;
-  padding: 0px;
-  text-align: right;
-  font-weight: bold;
+   display: block;
+   float: right;
+   color: black;
+   width: 19em;
+   margin: 2px 0px 0px 0px;
+   padding: 0px;
+   text-align: right;
+   font-weight: bold;
 }
 div.navblock ul li ul li a {
-  width: 100%;
-  border: 1px dotted black;
-  background-color: #ace;  /* #cea; */
+   width: 100%;
+   border: 1px dotted black;
+   background-color: #ace;  /* #cea; */
 }
 div.navblock ul li ul li a img {
-  border: none;
+   border: none;
 }
 
-div.map { 
-  float: none;
-  width: auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left:		auto; 
-  margin-right:		auto;
-  padding: 0px;
-  border: none;
-  background-color: inherit;  /* #cea; */
+div.map {
+   float: none;
+   width: auto;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-left:          auto;
+   margin-right:         auto;
+   padding: 0px;
+   border: none;
+   background-color: inherit;  /* #cea; */
 }
 
-div.map span.selflink { 
-  float: left;
-  display: inline;
-  color: Red;
-  width: 4em;
-  margin-top: -5px;
-  border: outset #505773 2px;
-  background-color: inherit;  /* #cea; */
+div.map span.selflink {
+   float: left;
+   display: inline;
+   color: Red;
+   width: 4em;
+   margin-top: -5px;
+   border: outset #505773 2px;
+   background-color: inherit;  /* #cea; */
 }
 
-div.map ul { 
-  float: none;
-  width: auto;
-  margin-top: -5px;
-  margin-bottom: 2px;
-  margin-left:		auto; 
-  margin-right:		auto;
-  border: none;
-  padding: 2px;
-  background-color: inherit;  /* #cea; */
+div.map ul {
+   float: none;
+   width: auto;
+   margin-top: -5px;
+   margin-bottom: 2px;
+   margin-left:          auto;
+   margin-right:         auto;
+   border: none;
+   padding: 2px;
+   background-color: inherit;  /* #cea; */
 }
-div.map ul li { 
-  float: none;
-  width: auto;
-  border: none;
-  margin: 6px auto 6px auto;
-  color: #dfd;  /* #cea; */
-  background-color: #cea;  /* #cea; */
+div.map ul li {
+   float: none;
+   width: auto;
+   border: none;
+   margin: 6px auto 6px auto;
+   color: #dfd;  /* #cea; */
+   background-color: #cea;  /* #cea; */
 }
-div.map ul li a { 
-  text-align: left;
-  color: blue;
-  float: none;
-  width: auto;
-  border: none;
-  background-color: inherit;  /* #cea; */
+div.map ul li a {
+   text-align: left;
+   color: blue;
+   float: none;
+   width: auto;
+   border: none;
+   background-color: inherit;  /* #cea; */
 }
-div.map ul li ul { 
-  display: inline;
-  float: none;
-  width: auto;
-  border: none;
-  margin: 6px auto 6px auto;
-  padding: 0px 0px 5px 0px;
-  background-color: inherit;  /* #cea; */
+div.map ul li ul {
+   display: inline;
+   float: none;
+   width: auto;
+   border: none;
+   margin: 6px auto 6px auto;
+   padding: 0px 0px 5px 0px;
+   background-color: inherit;  /* #cea; */
 }
-div.map ul li ul li { 
-  display: inline;
-  float: none;
-  width: auto;
-  border: none;
-  background-color: #C0C7E3;  /* #cea; */
+div.map ul li ul li {
+   display: inline;
+   float: none;
+   width: auto;
+   border: none;
+   background-color: #C0C7E3;  /* #cea; */
 }
-div.map ul li ul li a { 
-  display: inline;
-  color: Black;
-  float: none;
-  width: auto;
-  padding: 1px;
-  margin: 6px auto 6px auto;
-  border: outset #505773 1px;
-  background-color: inherit;  /* #cea; */
+div.map ul li ul li a {
+   display: inline;
+   color: Black;
+   float: none;
+   width: auto;
+   padding: 1px;
+   margin: 6px auto 6px auto;
+   border: outset #505773 1px;
+   background-color: inherit;  /* #cea; */
 }
-div.map ul li ul li a.mapitem { 
-  display: inline;
-  color: Black;
-  float: none;
-  width: auto;
-  padding: 1px;
-  margin: 6px auto 6px auto;
-  border: outset #505773 2px;
-  background-color: inherit;  /* #cea; */
+div.map ul li ul li a.mapitem {
+   display: inline;
+   color: Black;
+   float: none;
+   width: auto;
+   padding: 1px;
+   margin: 6px auto 6px auto;
+   border: outset #505773 2px;
+   background-color: inherit;  /* #cea; */
 }
-
-
-
 
 div.navblock hr {
-  clear: both;
-  padding-top: 0.5ex;
+   clear: both;
+   padding-top: 0.5ex;
 }
 
-div.actions { 
-  float: right;
-  width: auto;
-  padding: 0px;
-  margin: 0px;
-}
-div.actions ul li {
-  display: inline;
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
-}
-div.actions ul li img {
-  border: none;
-}
-div.actions ul li a:link, div.actions ul li a:visited {
-  text-decoration: none;
-}
-
-div.actions ul li a:hover { 
-  text-decoration: underline;
-  border-bottom: solid blue 1px;
-}
-
-ul.headlines { 
-  list-style: inside;
-}
-        
-li.headlines_date { 
-  padding-left: 2px;
-}
-li.headlines_item { 
-  padding-left: 1.5em;
-}
-/* 
-   These are autogenerated sections for the navbar 
+/*
+   These are autogenerated sections for the navbar
  */
-div.navcategories { 
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding: 3px;
+div.navcategories {
+   margin-top: 4px;
+   margin-bottom: 4px;
+   padding: 3px;
    font-size: 150%;
 }
 div.navcategories ul.categories {
-  padding: 2px;
-  margin-top: 5px;
-  margin-bottom:5px;
-  border-top: 1px dotted #00276C;
+   padding: 2px;
+   margin-top: 5px;
+   margin-bottom:5px;
+   border-top: 1px dotted #00276C;
 }
 
 div.navcategories ul.categories a {
-  padding: 2px;
-  margin-right: 5px;
+   padding: 2px;
+   margin-right: 5px;
 }
 
 div.navcategories li {
-  font-size: 90%;
+   font-size: 90%;
 }
-div.navheadlines { 
+div.navheadlines {
 }
-div.navsearch { 
+div.navsearch {
 }
 
-div.calendar{ 
-  margin-bottom: 10px;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
+div.calendar{
+   margin-bottom: 10px;
+   margin-top: 5px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 .calendar { }
 .calendar table {
-	margin-left:		auto; 
-	margin-right:		auto;
+   margin-left:            auto;
+   margin-right:           auto;
 }
 .calendar table .prev-link {
-	margin-left:		0; 
-	text-align:		left;
+   margin-left:            0;
+   text-align:             left;
 }
 .calendar table .next-link {
-	margin-right:		0;
-	text-align:		right;
+   margin-right:           0;
+   text-align:             right;
 }
 table.month-calendar, table.year-calendar {
-	border-collapse:	collapse; 
+   border-collapse:        collapse;
 }
 table.month-calendar  {
-  margin-left:		auto; 
-  margin-right:		auto;
-  padding: 1px;
+   margin-left:          auto;
+   margin-right:         auto;
+   padding: 1px;
 }
 table.year-calendar {
-  margin-left:		auto; 
-  margin-right:		auto;
-  padding: 2px;
+   margin-left:          auto;
+   margin-right:         auto;
+   padding: 2px;
 }
 
 caption.month-calendar-head, caption.year-calendar-head {
-  margin-left:		auto; 
-  margin-right:		auto;
-  font-size:		110%;
-  font-weight:		bold;
-  background-color: #dfd;
+   margin-left:          auto;
+   margin-right:         auto;
+   font-size:            110%;
+   font-weight:          bold;
+   background-color: #dfd;
 }
 th.month-calendar-day-head, th.year-calendar-subhead {
-	font-weight:		normal;
+   font-weight:            normal;
 }
-
 table.month-calendar {
-	text-align: 		center;
+   text-align:             center;
 }
 
 td.month-calendar-day-noday,
-td.month-calendar-day-link,
-td.month-calendar-day-nolink,
-td.month-calendar-day-this-day,
-td.month-calendar-day-future {
-  font-family: "Palatino Linotype", Palatino, "Times New Roman", Times, Georgia, Utopia, serif;
-}
+   td.month-calendar-day-link,
+      td.month-calendar-day-nolink,
+         td.month-calendar-day-this-day,
+            td.month-calendar-day-future {
+               font-family: "Palatino Linotype", Palatino, "Times New Roman", Times, Georgia, Utopia, serif;
+            }
 
-td.year-calendar-month-link, 
-td.year-calendar-month-nolink,
-td.year-calendar-this-month, 
-td.year-calendar-month-future {
-}
+td.year-calendar-month-link,
+   td.year-calendar-month-nolink,
+      td.year-calendar-this-month,
+         td.year-calendar-month-future {
+         }
 
 td.month-calendar-day-future, td.year-calendar-month-future {
-	color:			#83660F;
+   color:                  #83660F;
 }
 
 table.month-calendar {
-  background:		#C0C7E3;
-  border: 		1px solid #83660f;
+   background:           #C0C7E3;
+   border:               1px solid #83660f;
 }
 .calendar th {
-  border-bottom: 		1px dotted #83660f;
+   border-bottom:                1px dotted #83660f;
 }
 .Saturday {
-  border-left:		1px dotted #83660f;
+   border-left:          1px dotted #83660f;
 }
 .Sunday {
-  border-right:		1px dotted #83660f;
+   border-right:         1px dotted #83660f;
 }
 .Saturday, .Sunday {
-  background:		#D9FFB7; /* #F7DFDB; */
+   background:           #D9FFB7; /* #F7DFDB; */
 }
 .month-calendar-day-this-day, .year-calendar-this-month {
-  background:		#ECE1ED;
+   background:           #ECE1ED;
 }
 .year-calendar {
-  background:		#C0C7E3;
-  border: 		1px dotted #83660f;
+   background:           #C0C7E3;
+   border:               1px dotted #83660f;
 }
 
-ul.archives li ul li { 
-  padding: 2px;
-  display: inline;
+ul.archives li ul li {
+   padding: 2px;
+   display: inline;
 }
 
-
-/* 
+/*
    Just a list of validation badges
  */
-div.badges { 
-  text-align: center;
+div.badges {
+   text-align: center;
 }
 img.badge {
-  margin: 1px;
-  border: 0px;
-  text-align:center;
+   margin: 1px;
+   border: 0px;
+   text-align:center;
 }
 
 /* The navigation panel ends here */
 /* An alternate panel */
-div#altpanel { 
-  float: right;
-  width: auto;
-  display: none;
+div#altpanel {
+   float: right;
+   width: auto;
+   display: none;
 }
 
+
+/*******************************************************************/
+/*******************************************************************/
+/*******************************************************************/
 /* Now, we have the main panel */
-div#main-panel { 
-  margin-left: 16em;
-  padding-bottom: 5ex;
+div#main-panel {
+   margin-left: 16em;
+   padding-bottom: 5ex;
 }
 
 /* Now, a small amount of content before the stories start */
-div#content { 
-  padding-bottom: 5px;
-  padding-right: 10px;
-  padding-top: 0px;
-  margin-left: 0.5em;
-  clear: none;
+div#content {
+   padding-bottom: 5px;
+   padding-right: 10px;
+   padding-top: 0px;
+   margin-left: 0.5em;
+   clear: none;
 }
 
 div#content h1 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #336699;
+   font-size: 18px;
+   font-weight: bold;
+   color: #336699;
 }
 div#content h2 {
-  font-size: 16px;
-  font-weight: bold;
-  color: #336699;
+   font-size: 16px;
+   font-weight: bold;
+   color: #336699;
 }
 div#content h3 {
-  font-size: 12px;
-  font-weight: bold;
-  color: #336699;
+   font-size: 12px;
+   font-weight: bold;
+   color: #336699;
 }
 div#content h4 {
-  font-size: 12px;
-  color: #336699;
+   font-size: 12px;
+   color: #336699;
 }
 
-
-/* 
+/*
    Then we have a small area for a message, where the results from
    find, etc come
  */
 
-div.message { 
+div.message {
 }
-/* 
+/*
    Finally, any static content goes in here.
  */
-div.content-header { 
+div.content-header {
 }
 
 div.gotchi {
-  float:right;
-  width: auto;
-  margin: 0;
-  border: 0;
-  margin-bottom: -5ex;
+   float:right;
+   width: auto;
+   margin: 0;
+   border: 0;
+   margin-bottom: -5ex;
 }
 
-
-div#meat {  
-  width: auto;
+div#meat {
+   width: auto;
 }
 
 /*
@@ -678,390 +671,389 @@ div#meat {
  */
 
 div.comment-banner h1 {
-  display: block;
-  color: white;
-  background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
-  height: 100px;
-  line-height: 100px;
-  font-variant: small-caps;
-  font-family: Impact, Charcoal, sans-serif; 
-  font-weight: bold; 
-  text-transform: capitalize;
-  font-size: xx-large;
-  width: auto;
-  text-align: center;
-  margin-top: 1em;
-  padding: 1px;
-  border: 4px solid black; 
+   display: block;
+   color: white;
+   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+   height: 100px;
+   line-height: 100px;
+   font-variant: small-caps;
+   font-family: Impact, Charcoal, sans-serif;
+   font-weight: bold;
+   text-transform: capitalize;
+   font-size: xx-large;
+   width: auto;
+   text-align: center;
+   margin-top: 1em;
+   padding: 1px;
+   border: 4px solid black;
 }
 
 div.comment  {
-  width: auto;
-  margin-left:   0px; 
-  margin-right:  auto;
-  padding-left: 1px;
-  border: 0;
+   width: auto;
+   margin-left:   0px;
+   margin-right:  auto;
+   padding-left: 1px;
+   border: 0;
 }
 div.comment div.comment-subject a {
-  display: block;
-  color: #dee3ff;
-  background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
-  padding: 5px;
-  font-size: 125%;
-  width: auto;
-  margin-top: 4em;
-  border: 1px dotted black; 
+   display: block;
+   color: #dee3ff;
+   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+   padding: 5px;
+   font-size: 125%;
+   width: auto;
+   margin-top: 4em;
+   border: 1px dotted black;
 }
 
 div.comment div.comment-header {
-  background-color: #dee;
-  float: left;
-  color: Black;                    /* #dee3ff; #D3EBD2; */
-  line-height: 110%;
-  font-weight: normal;
-  padding: 3px 2px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+   background-color: #dee;
+   float: left;
+   color: Black;                    /* #dee3ff; #D3EBD2; */
+   line-height: 110%;
+   font-weight: normal;
+   padding: 3px 2px;
+   margin-bottom: 10px;
+   margin-top: 10px;
 }
 
 div.comment div.comment-header span.author {
-  float: right;
-  letter-spacing: 0.02em;
-  padding-right: 3pt;
-  border-right: 4px solid #dee3ff;  
+   float: right;
+   letter-spacing: 0.02em;
+   padding-right: 3pt;
+   border-right: 4px solid #dee3ff;
 }
 div.comment div.comment-header span.relativedate {
-  letter-spacing: 0.02em;
-  border-left: 4px solid #dee3ff;
-}  
+   letter-spacing: 0.02em;
+   border-left: 4px solid #dee3ff;
+}
 
-div.addcomment { 
-  clear: right;
-  float: none;
-  display: Block;
-  font-family: Ravie, fantasy, sans-serif;;
-  Border: 4px;  
-  line-height: 100%;
-  font-weight: normal;
-  letter-spacing: 0.02em;  
-  margin-top: 5em;
+div.addcomment {
+   clear: right;
+   float: none;
+   display: Block;
+   font-family: Ravie, fantasy, sans-serif;;
+   Border: 4px;
+   line-height: 100%;
+   font-weight: normal;
+   letter-spacing: 0.02em;
+   margin-top: 5em;
 }
 
 div.inlinepage {
-    clear:right;
+   clear:right;
 }
-/* 
+/*
  * Here are the actual web logs. This is why we are doing this
  * page. The following elements are repeated for each entry.
  */
 
-/* The date, at the top of each entry 
+/* The date, at the top of each entry
  */
-div.blogDate { 
-  clear: right;
-  background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
-  color: #dee3ff;                    /* #dee3ff; #D3EBD2; */
-  font-size: small;
-  line-height: 110%;
-  font-weight: normal;
-  padding: 3px 2px;
-  margin-left: 0.4em;
-  margin-bottom: 10px;
-  margin-top: 5ex;
+div.blogDate {
+   clear: right;
+   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+   color: #dee3ff;                    /* #dee3ff; #D3EBD2; */
+   font-size: small;
+   line-height: 110%;
+   font-weight: normal;
+   padding: 3px 2px;
+   margin-left: 0.4em;
+   margin-bottom: 10px;
+   margin-top: 5ex;
 }
 /* The day of the week */
-span.day { 
-  float: left;
-  width: auto;
-  font-size: xx-large;
-  line-height: 100%;
-  font-weight: normal;
-  letter-spacing: 0.02em;
-  margin-left: 4pt;
-  margin-right: 3pt;
-  padding-right: 3pt;
-  border-right: 4px solid #dee3ff;
+span.day {
+   float: left;
+   width: auto;
+   font-size: xx-large;
+   line-height: 100%;
+   font-weight: normal;
+   letter-spacing: 0.02em;
+   margin-left: 4pt;
+   margin-right: 3pt;
+   padding-right: 3pt;
+   border-right: 4px solid #dee3ff;
 }
 /* The year */
-span.dow { 
-  float:right;
-  width: auto;
-  font-size: xx-large;
-  line-height: 100%;
-  font-weight: normal;
-  letter-spacing: 0.02em;
-  margin-right: 4pt;
-  margin-left: 3pt;
-  padding-left: 3pt;
-  border-left: 4px solid #dee3ff;
+span.dow {
+   float:right;
+   width: auto;
+   font-size: xx-large;
+   line-height: 100%;
+   font-weight: normal;
+   letter-spacing: 0.02em;
+   margin-right: 4pt;
+   margin-left: 3pt;
+   padding-left: 3pt;
+   border-left: 4px solid #dee3ff;
 }
-span.year { 
-  padding-left: 1.5em;
+span.year {
+   padding-left: 1.5em;
 }
-span.month { 
-  padding-left: 1.5em;
+span.month {
+   padding-left: 1.5em;
 }
 
-/* 
+/*
  * The story starts here
  */
-div.story { 
-  width: auto%;
-  clear:right;
-  padding-left: 1em;
-  margin-left: 1.5em;
-  margin-bottom: 0.3em;
+div.story {
+   width: auto;
+   clear: right;
+   padding-left: 1em;
+   margin-left: 1.5em;
+   margin-bottom: 0.3em;
 }
 
 /* Each story has headers */
-div.headers { 
-  background-color: #C3FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
-  width: 16em;
-  float: left;
-  margin-right: 0.3em;
-  margin-bottom: 0.3em;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
-  border: 1px outset #0040A4;    /* #6f7b34; */
+div.story div.headers {
+   background-color: #C3FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+   width: 16em;
+   float: left;
+   margin-right: 0.3em;
+   margin-bottom: 0.3em;
+   padding-left: 0.3em;
+   padding-right: 0.3em;
+   border: 1px outset #0040A4;    /* #6f7b34; */
 }
 div.story div.headers h1 {
-  font-variant: small-caps;
-  font-size: 200%;
-  text-transform: capitalize;
-  margin: 0 0.2em 0.1em 0em;
-  border-bottom: 1px dotted #000000;
+   font-variant: small-caps;
+   font-size: 200%;
+   text-transform: capitalize;
+   margin: 0 0.2em 0.1em 0em;
+   border-bottom: 1px dotted #000000;
 }
 div.story div.headers h2 {
-  font-size: 175%;
-  margin: 0 0.2em 0.1em 0em;
-  border-bottom: 1px dotted #000000;
+   font-size: 175%;
+   margin: 0 0.2em 0.1em 0em;
+   border-bottom: 1px dotted #000000;
 }
 div.story div.headers h3 {
-  font-size: 150%;
-  margin: 0 0.2em 0.1em 0em;
-  border-bottom: 1px dotted #000000;
+   font-size: 150%;
+   margin: 0 0.2em 0.1em 0em;
+   border-bottom: 1px dotted #000000;
 }
 div.story div.headers h4 {
-  font-size: 125%;
-  margin: 0 0.2em 0.1em 0em;
-  border-bottom: 1px dotted #000000;
+   font-size: 125%;
+   margin: 0 0.2em 0.1em 0em;
+   border-bottom: 1px dotted #000000;
 }
 
 /* An icon may be associated with the story */
 div.icon {
-  background-color: #dee3ff; 	/* #D3EBD2;  */
-  float:right;
-  width: auto;
-  margin: 0;
-  border: 0;
+   background-color: #dee3ff;    /* #D3EBD2;  */
+   float:right;
+   width: auto;
+   margin: 0;
+   border: 0;
 }
 /* and an image gallery */
 div.imagegallery {
-  padding: 4px;
-  width: auto;
-  margin-bottom: 15px;
-  text-align: center;
+   padding: 4px;
+   width: auto;
+   margin-bottom: 15px;
+   text-align: center;
 }
 
-div.imagegal { 
+div.imagegal {
 }
 
-
-div.imagerow { 
-  clear: left;
-  margin-left: auto;
-  margin-right: auto;
-  padding:1px;
-  width:  80%;
+div.imagerow {
+   clear: left;
+   margin-left: auto;
+   margin-right: auto;
+   padding:1px;
+   width:  80%;
 }
 div.image {
-  float: left;
-  width: auto;
-  margin: 5px 8% 5px 8%;
-  text-align:center;
+   float: left;
+   width: auto;
+   margin: 5px 8% 5px 8%;
+   text-align:center;
 }
 
 div.single-image img {
-	/* max-width: 100%;		Not well supported yet */
-  width: 100%;
+        /* max-width: 100%;             Not well supported yet */
+   width: 100%;
 }
 
 div.image img {
-  width: auto;
+   width: auto;
 }
 
 div.imagegallery div.image p {
-	text-align: center;
+   text-align: center;
 }
-div.imagecomments { 
+div.imagecomments {
 }
 
-
-span.storypic { 
-  float: right;
-  width: auto;
-  padding: 0;
-  border: none;
-  margin: 5px 5px 5px 5px;
-  /* 
+span.storypic {
+   float: right;
+   width: auto;
+   padding: 0;
+   border: none;
+   margin: 5px 5px 5px 5px;
+  /*
      border-left: 2px solid #6f7b34;
      border-bottom: 2px solid #6f7b34;
      */
 }
-span.storypic img { 
-  border: none;
+span.storypic img {
+   border: none;
 }
 
 /* The permalinks associated with the story */
-div.story-links { 
-  margin-left: 0.15in;
-  margin-right: 0.15in;
+div.story-links {
+   margin-left: 0.15in;
+   margin-right: 0.15in;
 }
-div.story-comments { 
-  display: inline;
+div.story-comments {
+   display: inline;
 }
-a.story-category { 
-  text-align: left;
-  display: inline;
-}
-
-a.story-permalink { 
-  width: auto;
-  float: right;
+a.story-category {
+   text-align: left;
+   display: inline;
 }
 
-span.pagedate, p.postedon { 
-  text-align: left;
-  font-family: cursive;
-  font-size: 75%;
-  padding: 1px;
-  margin: 1px;
+a.story-permalink {
+   width: auto;
+   float: right;
 }
-span.pagedate:first-letter, p.postedon:first-letter { 
-  text-transform: uppercase;
-  color: #739e60;
-  font-size: 155%;
-  font-family: cursive;
+
+span.pagedate, p.postedon {
+   text-align: left;
+   font-family: cursive;
+   font-size: 75%;
+   padding: 1px;
+   margin: 1px;
+}
+span.pagedate:first-letter, p.postedon:first-letter {
+   text-transform: uppercase;
+   color: #739e60;
+   font-size: 155%;
+   font-family: cursive;
   /*  padding: 0em; float: left; */
 }
 
-div.pagelicense { 
-  text-align: left;
-  width: auto;
-  float: left;
-  font-family: cursive;
-  font-size: 75%;
-  padding: 1px;
-  margin: 1px;
+div.pagelicense {
+   text-align: left;
+   width: auto;
+   float: left;
+   font-family: cursive;
+   font-size: 75%;
+   padding: 1px;
+   margin: 1px;
 }
 /* And, finally, the story itself */
-div.value { 
-  margin-left: 0.5em;
-  padding-left: 2px;
+div.value {
+   margin-left: 0.5em;
+   padding-left: 2px;
 }
+
 /* The body of the story is here */
-div.story-body{ 
-  margin-left: 0.15in;
-  margin-right: 0.15in;
+div.story-body{
+   margin-left: 0.15in;
+   margin-right: 0.15in;
 }
 /* And the author's name */
-div.postedby{ 
-  text-align: right;
-  margin-top: 3pt;
-  margin-right: 4pt;
-  margin-left: 3pt;
-  padding: 0px 0px 0px 1em;
-  font-size: smaller;
+div.postedby{
+   text-align: right;
+   margin-top: 3pt;
+   margin-right: 4pt;
+   margin-left: 3pt;
+   padding: 0px 0px 0px 1em;
+   font-size: smaller;
 }
-span.author:first-letter, p.postedby:first-letter 
+span.author:first-letter, p.postedby:first-letter
 {
-  text-transform: uppercase;
-  color: #739e60;
-  font-family: cursive;
-  font-size: 215%;
-  padding: 0em;
-  line-height: 90%;
+   text-transform: uppercase;
+   color: #739e60;
+   font-family: cursive;
+   font-size: 215%;
+   padding: 0em;
+   line-height: 90%;
   /*  padding: 0em; float: left; */
 }
-span.author, p.postedby { 
-  padding: 2px;
-  margin: 2px;
+span.author, p.postedby {
+   padding: 2px;
+   margin: 2px;
 }
 
-div.taglink { 
-  background-color: #E6FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
-  font-variant: small-caps;
-  text-transform: capitalize;
-  padding: 0px;
-  margin: 2px;
-  border: 2px outset #0040A4;   /*  #6f7b34; */
+div.taglink {
+   background-color: #E6FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+   font-variant: small-caps;
+   text-transform: capitalize;
+   padding: 0px;
+   margin: 2px;
+   border: 2px outset #0040A4;   /*  #6f7b34; */
 }
 div.taglink ul {
-  list-style: none;
-  display: inline;
-  padding: 0px;
-  margin: 0px;
+   list-style: none;
+   display: inline;
+   padding: 0px;
+   margin: 0px;
 }
 div.taglink ul li {
-  list-style: none;
-  display: inline;
+   list-style: none;
+   display: inline;
 }
 div.taglink ul li a {
-  font-variant: small-caps;
-  text-transform: capitalize;
+   font-variant: small-caps;
+   text-transform: capitalize;
 }
 
-div.taglink ul li a:link, div.taglink ul li  a:visited { 
-  text-decoration: none;
+div.taglink ul li a:link, div.taglink ul li  a:visited {
+   text-decoration: none;
 }
-div.taglink ul li a:hover { 
-  text-decoration: none;
-  border-bottom: solid #030003 1px;
+div.taglink ul li a:hover {
+   text-decoration: none;
+   border-bottom: solid #030003 1px;
 }
 
-div#backlinks { 
-  clear: right;
+div#backlinks {
+   clear: right;
 }
 div#backlinks ul {
-  list-style: none;
+   list-style: none;
 }
 div#backlinks li {
-  list-style: none;
-  padding: 2px;
-  margin: 2px;
+   list-style: none;
+   padding: 2px;
+   margin: 2px;
 }
 div#backlinks li a {
-  text-decoration: none;
+   text-decoration: none;
 }
-div#backlinks li a:link, div#backlinks li a:visited { 
-  text-decoration: none;
+div#backlinks li a:link, div#backlinks li a:visited {
+   text-decoration: none;
 }
-div#backlinks li a:hover { 
-  text-decoration: none;
-  border-bottom: solid #030003 1px;
+div#backlinks li a:hover {
+   text-decoration: none;
+   border-bottom: solid #030003 1px;
 }
 
-div#feedlink { 
-  margin:  2px;
-  padding: 2px;
+div#feedlink {
+   margin:  2px;
+   padding: 2px;
 }
-a.feedbutton:link, a.feedbutton:visited { 
-  text-decoration: none;
+a.feedbutton:link, a.feedbutton:visited {
+   text-decoration: none;
 }
 
 /* Link of people who came here */
 div.referer {
-  padding: 2px;
-  margin: 2px;
-  font-size: x-small;
+   padding: 2px;
+   margin: 2px;
+   font-size: x-small;
 }
 div#menureferer {
-  padding: 2px;
-  margin: 2px;
-  font-size: small;
+   padding: 2px;
+   margin: 2px;
+   font-size: small;
 }
 
-span.message{ 
+span.message{
 }
 /* If there are more entries than can be displayed, here goes the
  * navigation
@@ -1070,101 +1062,134 @@ div.more_entries {
 
 }
 
+/* Thi should be moved to be just above the footer */
+div#information {
+   clear: both;
+   padding: 2px;
+   margin: 2px;
+   font-size: small;
+}
+
+h2#information {
+   font-size: 100%;
+   clear: both;
+   border-top: solid Blue 2px;
+}
+
+
+/*******************************************************************/
+/*******************************************************************/
+/*******************************************************************/
 /* We are at the foot of the page. */
-div#footer { 
-  clear: both;
-  font-size: 0.81em; 
-  text-align: center;
-  border-bottom: solid Blue 2px;
+div#page-bot {
+   clear: both;
+   font-size: 0.81em;
+   text-align: center;
+   border-bottom: solid Blue 2px;
+}
+div.page-bot {
+   clear: both;
+   font-size: 0.81em;
+   text-align: center;
+   border-bottom: solid Blue 2px;
 }
 
-div#footer hr { 
-  margin-top: 1ex;
+div#page-bot hr {
+   clear: both;
+   margin-top: 1ex;
 }
-div.footinfo { 
-  padding-top: 5px;
-  padding-bottom: 0.1px;
-  margin: 1px;
-  background-color: #00276C;
-  color: White;   /* #1A344B #6f7b34; */   
+div.page-bot hr {
+   clear: both;
+   margin-top: 1ex;
 }
 
-div.footinfo address { 
-  float: right;
-  width: 33%;
-  margin-right: 1em;
-  text-align: right;
+div.footinfo {
+   padding-top: 5px;
+   padding-bottom: 0.1px;
+   margin: 1px;
+   background-color: #00276C;
+   color: White;   /* #1A344B #6f7b34; */
 }
-div.footinfo address a:link, div.footinfo address a:visited { 
-  text-decoration: none;
-  color: #FAFFFA;
+
+div.footinfo address {
+   float: right;
+   width: 33%;
+   margin-right: 1em;
+   text-align: right;
 }
-div.footinfo address a:hover { 
-  text-decoration: none;
-  color: #FAFFFA;
-  border-bottom: solid #FAFFFA 1px;
+div.footinfo address a:link, div.footinfo address a:visited {
+   text-decoration: none;
+   color: #FAFFFA;
+}
+div.footinfo address a:hover {
+   text-decoration: none;
+   color: #FAFFFA;
+   border-bottom: solid #FAFFFA 1px;
 }
 div.updated p {
-  margin-top: -0.2ex;
-  width: 99%;
-  text-align: center;
+   margin-top: -0.2ex;
+   width: 99%;
+   text-align: center;
 }
-div.commitinfo { 
-  width: 33%;
-  float: left;
-  margin-left: 1em;
-  text-align: left;
+div.commitinfo {
+   width: 33%;
+   float: left;
+   margin-left: 1em;
+   text-align: left;
 }
 
 /* The recent changes page. */
 
-div.recentchanges { 
-  margin-left: 2em;
-  padding-left: 1em;
-  width: auto;
-  clear: none;
-  background: transparent;
-  color: inherit;
+div.recentchanges {
+   margin-left: 2em;
+   padding-left: 1em;
+   width: auto;
+   clear: none;
+   background: transparent;
+   color: inherit;
+}
+
+.recentchanges .changelog {
+   margin-top: 0.8em;
+   border-bottom: solid Blue 2px;
+   font-family: Baskerville, "Times New Roman", Times, serif;
+   font-size: 120%;
+}
+
+div.recentchanges div.metadata span.pagelinks a {
+   display: block;
+   color: black;
+   font-size:95%;
+   margin-left: auto;
+   text-align: right;
+   clear: both;
+}
+div.recentchanges div.metadata span.pagelinks a img {
+   float: left;
+   color: black;
 }
 
 
-.recentchanges .changelog {  
-  margin-top: 0.8em;
-  border-bottom: solid Blue 2px;
-  font-family: Baskerville, Times New Roman, Times, serif;
-  font-size: 120%;
-}
-
-div.recentchanges div.metadata span.pagelinks a {  
-  display: block; 
-  color: black;
-  font-size:95%;
-  margin-left: auto;
-  text-align: right;
-  clear: both;
-}
-div.recentchanges div.metadata span.pagelinks a img {  
-  float: left;
-  color: black;
-}
-
+/*******************************************************************/
+/*******************************************************************/
+/*******************************************************************/
 /* The rest of this should be pretty generic */
 
 tt, code, kbd, samp      { font-family: "Courier New", Courier, monospace }
 
-p.initial:first-letter 
+p.initial:first-letter
 {
-  font-size: 215%;
+   font-size: 215%;
   /*  padding: 0em; float: left; */
 }
 #bigchar {
-  color: red;
-  color: white;
-  font-size: 28pt;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+   color: red;
+   color: white;
+   font-size: 28pt;
+   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-/* 
+/*
    The trick here is to only indent paragraphs that follow other
    paragraphs. The first paragaph of a page doesn't need to be
    indented, and neither do paragraphs that follow a diagram, a
@@ -1180,12 +1205,12 @@ p + p { text-indent: 1.5em; margin-top : 0  }
    For example, there are P elements that are used as captions for
    images, and are centered, and thus they should not be
    indented. A simple rule 'p.caption {text-indent: 0}' takes care
-of it. 
+of it.
 
 We can now use various amounts of whitespace between paragraphs
 to indicate important breaks in the text. Let's define three
 different classes: stb (small thematic break), mtb (medium
-thematic break) and ltb (large thematic break). 
+thematic break) and ltb (large thematic break).
 */
 p.stb { text-indent: 0; margin-top: 0.83em }
 p.mtb { text-indent: 0; margin-top: 2.17em }
@@ -1201,17 +1226,15 @@ p.caption {text-indent: 0; }
 /* letter and word spacing */
 .letterspaced    {letter-spacing: 10pt;}
 .wordspaced      {word-spacing: 20px;}
-
 /* vertical alignment examples */
 .sub     {vertical-align: sub;}
 .super   {vertical-align: super;}
 
-/* text alignment properties */ 
+/* text alignment properties */
 .right   {text-align: right;}
 .left    {text-align: left;}
 .justify {text-align: justify;}
 .center  {text-align: center;}
-
 
 /*
  *   Effects
@@ -1238,13 +1261,12 @@ p.caption {text-indent: 0; }
 .oops { font-family: Jester, "Comic Sans MS", sans-serif }
 
 pre {
-  border: 1pt solid #AEBDCC;
-  background-color: #F3F5F7;
-  padding: 5pt;
-  font-family: "Courier New", courier, monospace;
-  font-size: 90%;
+   border: 1pt solid #AEBDCC;
+   background-color: #F3F5F7;
+   padding: 5pt;
+   font-family: "Courier New", courier, monospace;
+   font-size: 90%;
 }
-
 
 /*
    * This is used to create rules and additional markers for
@@ -1254,8 +1276,8 @@ pre {
 .colophon    { display:        none;      }
 .invisible {  display: none; margin: 0; padding: 0; }
 .hide        {
-  display: none;
-  color: white;
+   display: none;
+   color: white;
 }
 
 span.skip                 { display: none }
@@ -1268,9 +1290,9 @@ div.skip                  { display: none }
    * Get a nice, 3d look for tables
    */
 table.raised {
-  border-collapse: collapse; /*separate; */
-  border: outset 2pt;
-  border-spacing: 0pt;
+   border-collapse: collapse; /*separate; */
+   border: outset 2pt;
+   border-spacing: 0pt;
   /* border-spacing: 5pt; */
 }
 
@@ -1281,16 +1303,13 @@ th { border: inset 2pt }
 table.raised td             { border: 1px solid; padding: 0.1em; }
 table.raised th             { border: 2px solid; padding: 0.1em; }
 
-
-
 /* Shouldn't the definition term be bold by default? */
 dt {font-weight: bold;}
-/* 
+/*
    * Add space at the bottom of the list, or else it seems to run
    * into the following content
    */
 dd {margin-bottom: 0.66em;}
-
 
 .title { text-align: center; }
 .todo  { color: red; }
@@ -1302,30 +1321,29 @@ dd {margin-bottom: 0.66em;}
 
 .titletext
 {
-  color: black;
-  font-size: 18pt;
-  font-weight: bold;
-  margin-bottom: -10px;
+   color: black;
+   font-size: 18pt;
+   font-weight: bold;
+   margin-bottom: -10px;
 }
 
 div.titlepage {
-  margin: 1em 0;
-  padding: 1em;
-  border:   solid thin;
-  border-color:   blue;
+   margin: 1em 0;
+   padding: 1em;
+   border:   solid thin;
+   border-color:   blue;
 }
 
-h2.section 
+h2.section
 {
-  text-transform: capitalize; 
-  text-decoration: underline; 
-  margin-left: 5%; 
+   text-transform: capitalize;
+   text-decoration: underline;
+   margin-left: 5%;
 }
 /* Make the list numbering sane */
 OL OL    { list-style: lower-roman; }
 UL OL    { list-style: decimal; }
 OL OL OL { list-style: lower-alpha; }
-
 
 /*
    * Ordered Lists
@@ -1346,86 +1364,86 @@ li.overskrift { margin-top: 2ex; font-weight: bold }
 small { font-size:      .92em;  }
 big   { font-size:      1.17em; }
 
+del                       {
+   text-decoration:        line-through;
+   background:     #900;
+}
 
-del                       {       
-  text-decoration:        line-through;
-  background:     #900;
-}       
-
-ins     {       
-  text-decoration:        none;
-  background:     #060;
-}       
+ins     {
+   text-decoration:        none;
+   background:     #060;
+}
 acronym {
-  font-variant:   small-caps;
-  letter-spacing: 0.1em;
+   font-variant:   small-caps;
+   letter-spacing: 0.1em;
 }
 
 /* PAGECLOUD */
 
 .pagecloud {
-  float: right;
-  width: 50%;
-  background: #f0fafa;
-  padding: 15px;
-  text-align: center;
-  margin-bottom: -5ex;
+   float: right;
+   width: 50%;
+   background: #f0fafa;
+   padding: 15px;
+   text-align: center;
+   margin-bottom: -5ex;
+   border: 1px solid #aaa;
 }
 
 .pagecloud a:hover {
-	text-decoration: underline;
+   text-decoration: underline;
 }
 
 .smallestPC a {
-	font-size: 0.8em;
-	color: #CFCFCF;
-	background-color: #FFFFFF;
-	text-decoration: none;
+   font-size: 0.8em;
+   color: #CFCFCF;
+   background-color: #FFFFFF;
+   text-decoration: none;
 }
 
 .smallPC a {
-	font-size: 0.9em;
-	color: #6A6A6A;
-	background-color: #FFFFFF;
-	text-decoration: none;
+   font-size: 0.9em;
+   color: #6A6A6A;
+   background-color: #FFFFFF;
+   text-decoration: none;
 }
 
 .normalPC a {
-	font-size: 1.0em;
-	color: #7A4242;
-	background-color: #FFFFFF;
-	text-decoration: none;
+   font-size: 1.0em;
+   color: #7A4242;
+   background-color: #FFFFFF;
+   text-decoration: none;
 }
 
 .bigPC a {
-	font-size: 1.1em;
-	color: #8A0606;
-	background-color: #FFFFFF;
-	text-decoration: none;
+   font-size: 1.1em;
+   color: #8A0606;
+   background-color: #FFFFFF;
+   text-decoration: none;
 }
 
 .biggestPC a {
-	font-size: 1.2em;
-	color: #FF0000;
-	background-color: #FFFFFF;
-	text-decoration: none;
+   font-size: 1.2em;
+   color: #FF0000;
+   background-color: #FFFFFF;
+   text-decoration: none;
 }
 
 .gr_grid_container {
   /* customize grid container div here. eg: width: 500px; */
-  width: 250px;
+   width: 250px;
 }
 .gr_grid_book_container {
   /* customize book cover container div here */
- float: left;
- width: 39px;
- height: 60px;
- padding: 0px 0px;
- overflow: hidden; 
+   float: left;
+   width: 39px;
+   height: 60px;
+   padding: 0px 0px;
+   overflow: hidden;
 }
 
 /* This is used by the Syntax plugin for ikiwiki */
-pre.syntax  { color:#F5E8EF; background-color:#000000; font-size:10pt; font-family:Courier New, Courier, monospace;}
+pre.syntax  { color:#F5E8EF; background-color:#000000; font-size:10pt; font-family:"Courier New", Courier, monospace;}
 .synBar        { background-color: #2A2A2A; }
 .synComment    { color: #6fb2c4; font-style:italic; } /* .slc .com */
 .synConstant   { color: #ccc6c6; }                    /* .str */
@@ -1438,7 +1456,7 @@ pre.syntax  { color:#F5E8EF; background-color:#000000; font-size:10pt; font-fami
 .synTodo       { color: #1c96ed; } /* kwd */
 .synType       { color: #ecea26; font-weight: bold } /* kwc */
 .synUnderlined { color: #FFFFFF; text-decoration: underline }
-/* This is used by the Syntax plugin for ikiwiki 
+/* This is used by the Syntax plugin for ikiwiki
 .synBar        { color: #0000FF }
 .synComment    { color: #0000FF }
 .synConstant   { color: #0000FF }
@@ -1456,7 +1474,7 @@ pre.syntax  { color:#F5E8EF; background-color:#000000; font-size:10pt; font-fami
 /* Highlighting theme definition: */
 
 body.hl { background-color:#000000; }
-pre.hl  { color:#2346d5; background-color:#000000; font-size:10pt; font-family:Courier New, Courier, monospace;}
+pre.hl  { color:#2346d5; background-color:#000000; font-size:10pt; font-family:"Courier New", Courier, monospace;}
 .num    { color:#c4ac60; }
 .esc    { color:#ccc6c6; }
 .str    { color:#cfc631; }
@@ -1470,8 +1488,6 @@ pre.hl  { color:#2346d5; background-color:#000000; font-size:10pt; font-family:C
 .kwb    { color:#c06cf8; font-weight:bold; }
 .kwc    { color:#ecea26; }
 .kwd    { color:#1c96ed; }
-
-
 
 /* stuff for cookbook coloring */
 .syntaxactiveblue { color: #0032FF; }
@@ -1488,48 +1504,48 @@ pre.hl  { color:#2346d5; background-color:#000000; font-size:10pt; font-family:C
 .syntaxtext { color:  #000000; }
 /* end stuff */
 
-h2.information { 
-  font-variant: small-caps;
-  font-family: Impact, Charcoal, sans-serif; 
-  font-weight: bold; 
-  font-size: xx-large;
-  text-transform: capitalize;
+h2.information {
+   font-variant: small-caps;
+   font-family: Impact, Charcoal, sans-serif;
+   font-weight: bold;
+   font-size: xx-large;
+   text-transform: capitalize;
 
 }
 /* Clickable Buttons  */
 .clear { /* generic container (i.e. div) for floating buttons */
-    overflow: hidden;
-    width: 100%;
+   overflow: hidden;
+   width: 100%;
 }
 
 div#information a.button {
-    background: transparent url('/media/images/bg_button_a.gif') no-repeat scroll top right;
-    color: #444;
-    display: block;
-    float: left;
-    font: normal 12px arial, sans-serif;
-    height: 24px;
-    margin-right: 6px;
-    padding-right: 18px; /* sliding doors padding */
-    text-decoration: none;
+   background: transparent url('/media/images/bg_button_a.gif') no-repeat scroll top right;
+   color: #444;
+   display: block;
+   float: left;
+   font: normal 12px arial, sans-serif;
+   height: 24px;
+   margin-right: 6px;
+   padding-right: 18px; /* sliding doors padding */
+   text-decoration: none;
 }
 
 div#information a.button span {
-    background: transparent url('/media/images/bg_button_span.gif') no-repeat;
-    display: block;
-    line-height: 14px;
-    padding: 5px 0 5px 18px;
-} 
+   background: transparent url('/media/images/bg_button_span.gif') no-repeat;
+   display: block;
+   line-height: 14px;
+   padding: 5px 0 5px 18px;
+}
 div#information a.button:active {
-    background-position: bottom right;
-    color: #000;
-    outline: none; /* hide dotted outline in Firefox */
+   background-position: bottom right;
+   color: #000;
+   outline: none; /* hide dotted outline in Firefox */
 }
 
 div#information a.button:active span {
-    background-position: bottom left;
-    padding: 6px 0 4px 18px; /* push text down 1px */
-} 
+   background-position: bottom left;
+   padding: 6px 0 4px 18px; /* push text down 1px */
+}
 div#information a.button:hover span {
-    color: #111;
-} 
+   color: #111;
+}

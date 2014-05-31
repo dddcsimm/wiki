@@ -1,4 +1,0 @@
-[[!meta title="pages tagged software/packaging"]]
-
-[[!inline pages="tagged(software/packaging)" actions="no" archive="yes"
-feedshow=10]]

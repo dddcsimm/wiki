@@ -58,7 +58,7 @@ more like how Gnus does things than having to press a special key for
 every spam, and which does nothing to help train your filter.
 
 #+BEGIN_HTML
-[[syntax language="Common Lisp" linenumbers=1 bars=1 text="""
+[[!syntax language="Common Lisp" linenumbers=1 bars=1 text="""
 (add-to-list
  'gnus-parameters
  '("^nnml:\\(debian-.*\\)$"

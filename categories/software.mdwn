@@ -1,2 +1,2 @@
 [[!meta title="Software related blog postings"]]
-[[!inline pages="link(tag/software) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/software) and !blog and !tag" show="10" rootpage="blog"]]
