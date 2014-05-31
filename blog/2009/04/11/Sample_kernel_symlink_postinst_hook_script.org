@@ -24,7 +24,7 @@ script ever did.
 Have fun.
 
 #+BEGIN_HTML
-[[syntax language=Bash linenumbers=1 bars=1 text="""
+[[!syntax language=Bash linenumbers=1 bars=1 text="""
 #!/bin/sh -
 #                               -*- Mode: Sh -*- 
 # 

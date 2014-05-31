@@ -1,2 +1,2 @@
 [[!meta title="Blog postings about Packaging software"]]
-[[!inline pages="link(tag/software/packaging) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/software/packaging) and !blog and !tag" show="10" rootpage="blog"]]

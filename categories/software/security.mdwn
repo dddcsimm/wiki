@@ -1,2 +1,2 @@
 [[!meta title="Blog postings about SELinux and security software"]]
-[[!inline pages="link(tag/software/security) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/software/security) and !blog and !tag" show="10" rootpage="blog"]]

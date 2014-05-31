@@ -1,2 +1,2 @@
 [[!meta title="Blog postings about my espionage books I am reading"]]
-[[!inline pages="link(tag/books/espionage) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/books/espionage) and !blog and !tag" show="10" rootpage="blog"]]

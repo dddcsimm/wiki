@@ -27,7 +27,7 @@ But, before I go, here is another example kernel postinst hook script
 than it does in a rss feed or an aggregator site).
 
 #+BEGIN_HTML
-[[syntax language=Bash linenumbers=1 bars=1 text="""
+[[!syntax language=Bash linenumbers=1 bars=1 text="""
 #! /bin/sh
 
 set -e

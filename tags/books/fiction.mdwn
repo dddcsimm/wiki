@@ -1,4 +1,0 @@
-[[!meta title="pages tagged books/fiction"]]
-
-[[!inline pages="tagged(books/fiction)" actions="no" archive="yes"
-feedshow=10]]

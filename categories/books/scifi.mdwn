@@ -1,2 +1,2 @@
 [[!meta title="Blog postings about my Science Fiction books I am reading"]]
-[[!inline pages="link(tag/books/scifi) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/books/scifi) and !blog and !tag" show="10" rootpage="blog"]]

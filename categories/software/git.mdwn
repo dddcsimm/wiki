@@ -1,2 +1,2 @@
 [[!meta title="Blog postings about Git version control scaffolding"]]
-[[!inline pages="link(tag/software/git) and !blog and !tag" show="10" rootpage="blog"]]
+[[!inline pages="link(tags/software/git) and !blog and !tag" show="10" rootpage="blog"]]
