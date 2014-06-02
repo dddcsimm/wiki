@@ -54,6 +54,132 @@
   Palatino, Palatino Linotype, Georgia, Times, Times New Roman, serif - p
 
  */
+
+/*
+ * Color schema
+ * Context                          Background  Foreground
+ * body                             #EBFFFF     #313373
+ * div#masthead h1                  #00276C     #DEE3FF
+ * breadcrumb link                              #00276C
+ * div#navpanel                     #83CEFF
+ * div.navblock                     #83CEFF
+ * div.navblock ul li                           Black
+ * div.navblock ul li a             #DDFFDD     Black
+ * div.navblock ul li ul li                     Black
+ * div.navblock ul li ul li a       #AACCEE
+ * div.map span.selflink                        Red
+ * div.map ul li                    #CCEEAA     #ddffdd
+ * div.map ul li a                              #313373
+ * div.map ul li ul li              #DEE3FF
+ * div.map ul li ul li a                        Black
+ * div.map ul li ul li a.mapitem                Black
+ * caption.month-calendar-head      #ddffdd
+ * td.month-calendar-day-future                 #83660F
+ * table.month-calendar             #DEE3FF
+ * .Saturday                        #D9FFB7
+ * .month-calendar-day-this-day     #ECE1ED
+ * .year-calendar                   #DEE3FF
+ * calandar.border                              #83660f
+ * div#content h1,h2.h3.h4                      #00276C
+ * div.comment-banner h1            #00276C     #DEE3FF
+ * div.comment div.comment-subject  #00276C     #DEE3FF
+ * div.comment div.comment-header   #ebffff        Black
+ * div.blogDate                     #00276C     #dee3ff
+ * div.story div.headers            #DDFFDD
+ * div.story div.headers  border                #00276C
+ * div.icon                         #dee3ff
+ * span.pagedate:first-letter                   #739e60
+ * div.taglink                      #DEE3FF
+ * div.taglink ul li                #DEE3FF
+ * div.taglink border                           #00276C
+ * div.footinfo                     #00276C     #DEE3FF
+ * div.footinfo address a:link                  #DDFFDD
+ * div.recentchanges                            Black
+ * .smallestPC a                    #FFFFFF     #CFCFCF
+ * .smallPC a                       #FFFFFF     #6A6A6A
+ * .normalPC a                      #FFFFFF     #7A4242
+ * .bigPC a                         #FFFFFF     #8A0606
+ * .biggestPC a                     #FFFFFF     #FF0000
+ * pre                              #F3F5F7
+ * pre border                                   #83CEFF
+ * pre.syntax                       #000000     #F5E8EF
+ * .synBar                          #2A2A2A
+ * .synComment                                  #6fb2c4;
+ * .synConstant                                 #ccc6c6;
+ * .synError                                    #FF0000;
+ * .synIdentifier                               #c4ac60;
+ * .synLineNumber                               #ecea26;
+ * .synPreProc                                  #cfc631;
+ * .synSpecial                                  #ccc6c6;
+ * .synStatement                                #1ededc;
+ * .synTodo                                     #1c96ed;
+ * .synType                                     #ecea26;
+ * .synUnderlined                               #FFFFFF;
+ * div#information a.button                     #444
+ * div#information a.button:active              #000
+ * div#information a.button:hover               #111
+
+
+Color   wave  Hue      Sat        Value   Compl.
+#EBFFFF 507   180.00   100.000    96.080  #140000   very light shade of cyan.    B1  Background
+#313373 470   238.18    40.240    32.160  #cecc8c   medium dark shade of blue.   F1  Foreground, text color
+
+#00276C 483   218.33   100.000    21.180  #ffd893   dark shade of cyan-blue.    HB1   Dark. Headers, footer. story date back gorund. titles
+#DEE3FF 475   230.91   100.000    93.530  #211c00   very light shade of blue.   HF1   header,footer tet color taglinks, archive
+
+
+#83CEFF 492   203.71   100.000    75.690  #7c3100   light shade of cyan-blue.   NB1   Nav panel and block back gorund
+#DDFFDD 544   120.00   100.000    93.330  #220022   very light shade of green.  NB2   story headers, nav level 1
+
+Need colors for the following
+#AACCEE 488   210.00    66.670    80.000  #553311   light shade of cyan-blue.   NB3    L2 fr navigation
+#CCEEAA 563    90.00    66.670    80.000  #331155   light shade of green.       NB4   archive year
+
+#F3F5F7 488   210.00    20.000    96.080  #0c0a08   very light shade of cyan-blue. preformated and code examples
+#739E60 556   101.61    24.410    49.800  #8c619f   shade of green.                First letter of dat and author
+#83660F 592    45.00    79.450    28.630  #7c99f0   medium dark shade of yellow.   calendar future fg
+
+#FFFFFF         0.00     0.000   100.000  #000000   White
+#000000 620     0.00     0.000     0.000  #ffffff   Black
+
+#ECE1ED 434   295.00    25.000    90.590  #131e12   very light shade of magenta.   calendar today
+
+
+Tag cloud
+#CFCFCF 620     0.00     0.000    81.180  #303030   light shade of gray.
+#6A6A6A 620     0.00     0.000    41.570  #959595   shade of gray.
+#7A4242 620     0.00    29.790    36.860  #85bdbd   medium dark shade of red.
+#8A0606 620     0.00    91.670    28.240  #75f9f9   medium dark shade of red.
+#FF0000 620     0.00   100.000    50.000  #00ffff   shade of red.
+
+
+only in syntax coloring:
+#6FB2C4 499   192.71    41.870    60.200  #904d3b   medium light shade of cyan.
+#F5E8EF 414   327.69    39.390    93.530  #0a1710   very light shade of magenta-pink.
+#CCC6C6 620     0.00     5.560    78.820  #333939   light shade of red.
+#C4AC60 591    45.60    45.870    57.250  #3b539f   shade of yellow.
+#ECEA26 583    59.39    83.900    53.730  #1315d9   shade of yellow.
+#CFC631 584    56.58    62.200    50.200  #3039ce   shade of yellow.
+#1EDEDC 507   179.38    76.190    49.410  #e12123   shade of cyan.
+#1C96ED 491   204.98    85.310    51.960  #e36912   shade of cyan-blue.
+#2A2A2A 620     0.00     0.000    16.470  #d5d5d5   dark shade of gray.
+
+
+#DEE394 580    63.80    58.520    73.530  #211c6b   medium light shade of yellow-green. **merged**
+#E6FFFF 507   180.00   100.000    95.100  #190000   very light shade of cyan. **MERGED**
+#FAFFFA 544   120.00   100.000    99.020  #050005   very light shade of green. **MERGED**
+#0040A4 484   216.59   100.000    32.160  #ffbf5b   medium dark shade of cyan-blue. **merged **
+#1A344B 489   208.16    48.510    19.800  #e5cbb4   dark shade of cyan-blue. *merged
+#AEBDCC 488   210.00    22.730    74.120  #514233   medium light shade of cyan-blue. **merged **
+#D9FFB7 562    91.67   100.000    85.880  #260048   very light shade of green. **merged**
+#DDEEEE 507   180.00    33.330    90.000  #221111   very light shade of cyan.
+#C0C7E3 476   228.00    38.460    82.160  #3f381c   light shade of blue.
+#0000FF 469   240.00   100.000    50.000  #ffff00   shade of blue.
+#336699 488   210.00    50.000    40.000  #cc9966   medium dark shade of cyan-blue. **merged**
+#C3FFFF 507   180.00   100.000    88.240  #3c0000   very light shade of cyan. **merged**
+
+ */
+
 body {
    font-family: Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", Times, Georgia, Utopia, serif;
    color: #313373;
@@ -96,8 +222,8 @@ div#masthead {
 }
 /* Make the titles stand out */
 div#masthead h1 {
-   color: White;
-   background-color: #00276C; /* #6f7b34; #1A344B;#5D97CF #AA889A; #0040A4;  */
+   color: #DEE3FF;
+   background-color: #00276C; /* #6f7b34; #1A344B;#5D97CF #AA889A; #00276C;  */
    background-image: url('images/icons/gryphon.png');
    background-repeat: no-repeat;
    background-position: 95% 50%;
@@ -124,7 +250,6 @@ div#masthead h3 {
 }
 /* This is the Title */
 div#masthead h4 {
-   color: #313373;
    font-family: Ravie, fantasy, sans-serif;;
    text-align: center;
    margin: 0.1em;
@@ -225,7 +350,7 @@ li.headlines_item {
 /*******************************************************************/
 /* This is where the breadcrumbs go to. */
 breadcrumb a:link, breadcrumb a:visited, breadcrumb a:hover {
-   color: #1A344B;
+   color: #00276C;
 }
 
 div.breadcrumbs {
@@ -245,7 +370,7 @@ div.breadcrumbs {
 
 /* Now comes the acual navigation panel, which contains blocks for navigation */
 div#navpanel {
-   background-color: #83CEFF;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
+   background-color: #83CEFF;/* #EBFFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #EBFFFF; #dee3ff; */
    font-family: Helvetica, Tahoma, Arial,sans-serif;
    font-size: x-small;
    padding: 5px 10px 5px 5px;
@@ -255,8 +380,8 @@ div#navpanel {
    float: left;
    border-right: solid 2px;
    border-bottom: solid 2px;
-   border-right-color: #1A344B;   /* #6f7b34; */
-   border-bottom-color: #1A344B;   /* #6f7b34; */
+   border-right-color: #00276C;   /* #6f7b34; */
+   border-bottom-color: #00276C;   /* #6f7b34; */
 }
 
 div#navpanel h4 {
@@ -272,7 +397,7 @@ div.navblock p img {
    little h4 block as a title
  */
 div.navblock {
-   background-color: #83CEFE;/* #E6FFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #E6FFFF; #dee3ff; */
+   background-color: #83CEFF;/* #EBFFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #EBFFFF; #dee3ff; */
    width: 20em;
    padding: 1px 0.05em 0.05em 0.05em;
 }
@@ -324,7 +449,7 @@ div.navblock ul li {
 div.navblock ul li a {
    display: block;
    color: black;
-   background-color: #dfd;
+   background-color: #ddffdd;
    padding: 5px;
    font-size:125%;
    width: 100%;
@@ -360,7 +485,7 @@ div.navblock ul li ul li {
 div.navblock ul li ul li a {
    width: 100%;
    border: 1px dotted black;
-   background-color: #ace;  /* #cea; */
+   background-color: #aaccee;  /* #CCEEAA; */
 }
 div.navblock ul li ul li a img {
    border: none;
@@ -375,18 +500,8 @@ div.map {
    margin-right:         auto;
    padding: 0px;
    border: none;
-   background-color: inherit;  /* #cea; */
 }
 
-div.map span.selflink {
-   float: left;
-   display: inline;
-   color: Red;
-   width: 4em;
-   margin-top: -5px;
-   border: outset #505773 2px;
-   background-color: inherit;  /* #cea; */
-}
 
 div.map ul {
    float: none;
@@ -397,23 +512,33 @@ div.map ul {
    margin-right:         auto;
    border: none;
    padding: 2px;
-   background-color: inherit;  /* #cea; */
 }
 div.map ul li {
    float: none;
    width: auto;
    border: none;
    margin: 6px auto 6px auto;
-   color: #dfd;  /* #cea; */
-   background-color: #cea;  /* #cea; */
+   color: #ddffdd;  /* #CCEEAA; */
+   background-color: #CCEEAA;  /* #CCEEAA; */
 }
+
+
+div.map ul li span.selflink {
+   color: Red;
+   font-size: large;
+   padding-right: 3em;
+   float: none;
+   text-align: left;
+   width: auto;
+   border: none;
+}
+
 div.map ul li a {
    text-align: left;
    color: blue;
    float: none;
    width: auto;
    border: none;
-   background-color: inherit;  /* #cea; */
 }
 div.map ul li ul {
    display: inline;
@@ -422,14 +547,13 @@ div.map ul li ul {
    border: none;
    margin: 6px auto 6px auto;
    padding: 0px 0px 5px 0px;
-   background-color: inherit;  /* #cea; */
 }
 div.map ul li ul li {
    display: inline;
    float: none;
    width: auto;
    border: none;
-   background-color: #C0C7E3;  /* #cea; */
+   background-color: #DEE3FF;  /* #CCEEAA; */
 }
 div.map ul li ul li a {
    display: inline;
@@ -439,7 +563,6 @@ div.map ul li ul li a {
    padding: 1px;
    margin: 6px auto 6px auto;
    border: outset #505773 1px;
-   background-color: inherit;  /* #cea; */
 }
 div.map ul li ul li a.mapitem {
    display: inline;
@@ -449,7 +572,6 @@ div.map ul li ul li a.mapitem {
    padding: 1px;
    margin: 6px auto 6px auto;
    border: outset #505773 2px;
-   background-color: inherit;  /* #cea; */
 }
 
 div.navblock hr {
@@ -525,7 +647,7 @@ caption.month-calendar-head, caption.year-calendar-head {
    margin-right:         auto;
    font-size:            110%;
    font-weight:          bold;
-   background-color: #dfd;
+   background-color: #ddffdd;
 }
 th.month-calendar-day-head, th.year-calendar-subhead {
    font-weight:            normal;
@@ -553,11 +675,11 @@ td.month-calendar-day-future, td.year-calendar-month-future {
 }
 
 table.month-calendar {
-   background:           #C0C7E3;
+   background-color:           #DEE3FF;
    border:               1px solid #83660f;
 }
 .calendar th {
-   border-bottom:                1px dotted #83660f;
+   border-bottom:         1px dotted #83660f;
 }
 .Saturday {
    border-left:          1px dotted #83660f;
@@ -566,13 +688,13 @@ table.month-calendar {
    border-right:         1px dotted #83660f;
 }
 .Saturday, .Sunday {
-   background:           #D9FFB7; /* #F7DFDB; */
+   background-color:           #DDFFDD; /* #F7DFDB; */
 }
 .month-calendar-day-this-day, .year-calendar-this-month {
-   background:           #ECE1ED;
+   background-color:           #ECE1ED;
 }
 .year-calendar {
-   background:           #C0C7E3;
+   background-color:           #DEE3FF;
    border:               1px dotted #83660f;
 }
 
@@ -623,21 +745,21 @@ div#content {
 div#content h1 {
    font-size: 18px;
    font-weight: bold;
-   color: #336699;
+   color: #00276C;
 }
 div#content h2 {
    font-size: 16px;
    font-weight: bold;
-   color: #336699;
+   color: #00276C;
 }
 div#content h3 {
    font-size: 12px;
    font-weight: bold;
-   color: #336699;
+   color: #00276C;
 }
 div#content h4 {
    font-size: 12px;
-   color: #336699;
+   color: #00276C;
 }
 
 /*
@@ -672,8 +794,8 @@ div#meat {
 
 div.comment-banner h1 {
    display: block;
-   color: white;
-   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+   color: #DEE3FF;
+   background-color: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
    height: 100px;
    line-height: 100px;
    font-variant: small-caps;
@@ -697,8 +819,8 @@ div.comment  {
 }
 div.comment div.comment-subject a {
    display: block;
-   color: #dee3ff;
-   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+   color: #DEE3FF;
+   background-color: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
    padding: 5px;
    font-size: 125%;
    width: auto;
@@ -707,7 +829,7 @@ div.comment div.comment-subject a {
 }
 
 div.comment div.comment-header {
-   background-color: #dee;
+   background-color: #ebffff;
    float: left;
    color: Black;                    /* #dee3ff; #D3EBD2; */
    line-height: 110%;
@@ -752,7 +874,7 @@ div.inlinepage {
  */
 div.blogDate {
    clear: right;
-   background: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
+   background-color: #00276C; /* #6f7b34; #1A344B; #0040A4;  #606060 */
    color: #dee3ff;                    /* #dee3ff; #D3EBD2; */
    font-size: small;
    line-height: 110%;
@@ -808,14 +930,14 @@ div.story {
 
 /* Each story has headers */
 div.story div.headers {
-   background-color: #C3FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+   background-color: #DDFFDD; /* #C3FFFF; #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
    width: 16em;
    float: left;
    margin-right: 0.3em;
    margin-bottom: 0.3em;
    padding-left: 0.3em;
    padding-right: 0.3em;
-   border: 1px outset #0040A4;    /* #6f7b34; */
+   border: 1px outset #00276C;    /* #6f7b34; */
 }
 div.story div.headers h1 {
    font-variant: small-caps;
@@ -981,12 +1103,12 @@ span.author, p.postedby {
 }
 
 div.taglink {
-   background-color: #E6FFFF; /* #DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+   background-color: #DEE3FF; /* ##EBFFFF DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
    font-variant: small-caps;
    text-transform: capitalize;
    padding: 0px;
    margin: 2px;
-   border: 2px outset #0040A4;   /*  #6f7b34; */
+   border: 2px outset #00276C;   /*  #6f7b34; */
 }
 div.taglink ul {
    list-style: none;
@@ -995,6 +1117,7 @@ div.taglink ul {
    margin: 0px;
 }
 div.taglink ul li {
+   background-color: #DEE3FF; /* ##EBFFFF DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
    list-style: none;
    display: inline;
 }
@@ -1073,7 +1196,7 @@ div#information {
 h2#information {
    font-size: 100%;
    clear: both;
-   border-top: solid Blue 2px;
+   border-top: solid #313373 2px;
 }
 
 
@@ -1085,13 +1208,13 @@ div#page-bot {
    clear: both;
    font-size: 0.81em;
    text-align: center;
-   border-bottom: solid Blue 2px;
+   border-bottom: solid #313373 2px;
 }
 div.page-bot {
    clear: both;
    font-size: 0.81em;
    text-align: center;
-   border-bottom: solid Blue 2px;
+   border-bottom: solid #313373 2px;
 }
 
 div#page-bot hr {
@@ -1108,7 +1231,7 @@ div.footinfo {
    padding-bottom: 0.1px;
    margin: 1px;
    background-color: #00276C;
-   color: White;   /* #1A344B #6f7b34; */
+   color: #DEE3FF;   /* #1A344B #6f7b34; */
 }
 
 div.footinfo address {
@@ -1119,12 +1242,12 @@ div.footinfo address {
 }
 div.footinfo address a:link, div.footinfo address a:visited {
    text-decoration: none;
-   color: #FAFFFA;
+   color: #DDFFDD;
 }
 div.footinfo address a:hover {
    text-decoration: none;
-   color: #FAFFFA;
-   border-bottom: solid #FAFFFA 1px;
+   color: #DDFFDD;
+   border-bottom: solid #DDFFDD 1px;
 }
 div.updated p {
    margin-top: -0.2ex;
@@ -1151,7 +1274,7 @@ div.recentchanges {
 
 .recentchanges .changelog {
    margin-top: 0.8em;
-   border-bottom: solid Blue 2px;
+   border-bottom: solid #313373 2px;
    font-family: Baskerville, "Times New Roman", Times, serif;
    font-size: 120%;
 }
@@ -1261,7 +1384,7 @@ p.caption {text-indent: 0; }
 .oops { font-family: Jester, "Comic Sans MS", sans-serif }
 
 pre {
-   border: 1pt solid #AEBDCC;
+   border: 1pt solid #83CEFF;
    background-color: #F3F5F7;
    padding: 5pt;
    font-family: "Courier New", courier, monospace;
@@ -1449,7 +1572,7 @@ pre.syntax  { color:#F5E8EF; background-color:#000000; font-size:10pt; font-fami
 .synConstant   { color: #ccc6c6; }                    /* .str */
 .synError      { color: #FF0000; }
 .synIdentifier { color: #c4ac60; } /* .num */
-.synLineNumber { color: #dee394; } /* .line */
+.synLineNumber { color: #ecea26; } /* .line */
 .synPreProc    { color: #cfc631; } /* str */
 .synSpecial    { color: #ccc6c6; } /* sym */
 .synStatement  { color: #1ededc; } /* kwa kwb */
@@ -1483,7 +1606,7 @@ pre.hl  { color:#2346d5; background-color:#000000; font-size:10pt; font-family:"
 .com    { color:#6fb2c4; font-style:italic; }
 .dir    { color:#8080ff; }
 .sym    { color:#ccc6c6; }
-.line   { color:#dee394; }
+.line   { color:#ecea26; }
 .kwa    { color:#1ededc; font-weight:bold; }
 .kwb    { color:#c06cf8; font-weight:bold; }
 .kwc    { color:#ecea26; }
