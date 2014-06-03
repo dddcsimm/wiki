@@ -1,0 +1,188 @@
+/*
+  http://www.webspaceworks.com/resources/fonts-web-typography/60/
+  http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
+
+  p - balanced for paragraphs or body copy
+  t - balanced for headlines or titles
+
+  ******    General font  *******
+   ****     Sans Serif    ****
+  Arial, Helvetica Neue, Helvetica, sans-serif - p,t
+  Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif - p,t
+
+   ****     Serif    ****
+  Cambria, Georgia, Palatino Linotype, Palatino, Times, Times New Roman, serif - p,t
+  Copperplate Light, Copperplate Gothic Light, serif - p,t
+  Times, Times New Roman, Georgia, serif - p,t
+
+   ****     Monospace    ****
+  Consolas, Lucida Console, Monaco, monospace - p,t
+  Courier New, Courier, monospace - p,t
+
+
+  ******    Title font  *******
+   ****     Sans Serif    ****
+  Geneva, Verdana, Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif - t
+  GillSans, Trebuchet, Calibri, sans-serif - t
+  Helvetica, Helvetica Neue, Arial, sans-serif - t
+  Trebuchet, Tahoma, Arial, sans-serif - t
+  Verdana, Geneva, Tahoma, sans-serif - t
+  Century Gothic, Apple Gothic, sans-serif - t
+  Franklin Gothic Medium, Arial Narrow Bold, Arial, sans-serif - t
+  Futura, Century Gothic, AppleGothic, sans-serif - t
+  Impact, Haettenschweiler, Arial Narrow Bold, sans-serif - t
+
+   ****     Serif    ****
+  Baskerville, Times, Times New Roman, serif - t
+  Garamond, Hoefler Text, Palatino, Palatino Linotype, serif - t
+  Georgia, Times, Times New Roman, serif - t
+  Palatino, Palatino Linotype, Hoefler Text, Times, Times New Roman, serif - t
+
+
+  ******    Paragraph font  *******
+   ****     Sans Serif    ****
+  Geneva, Lucida Sans, Lucida Grande, Lucida Sans Unicode, Verdana, sans-serif - p
+  GillSans, Calibri, Trebuchet, sans-serif - p
+  Helvetica Neue, Arial, Helvetica, sans-serif - p
+  Trebuchet, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif - p
+  Verdana, Tahoma, Geneva, sans-serif - p
+
+   ****     Serif    ****
+  Baskerville, Times New Roman, Times, serif - p
+  Garamond, Hoefler Text, Times New Roman, Times, serif - p
+  Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif - p
+  Palatino, Palatino Linotype, Georgia, Times, Times New Roman, serif - p
+
+ */
+
+/*
+ * Color schema
+ * Context                          Background  Foreground
+ * body                             #EBFFFF     #313373           #494949    #FFFFF0 (ivory)
+ * a:link                                                                    #ffffb2
+ * a:visited                                                                 #FFF0F0
+ * a:active                                                                  #ffff74
+ * div#masthead h1                  #00276C     #DEE3FF           #000020    #FFD700
+ * .blogform, #blogform                                           #494949    #FFFFF0
+ * .blogform input                                                #494949    #FFFFF0
+ * input#searchbox                                                #494949    #FFFFF0
+ * breadcrumb link                              #00276C
+ * div#navpanel                     #83CEFF
+ * div.navblock                     #83CEFF
+ * div.navblock ul li                           Black
+ * div.navblock ul li a             #DDFFDD     Black
+ * div.navblock ul li ul li                     Black
+ * div.navblock ul li ul li a       #AACCEE
+ * div.map span.selflink                        Red
+ * div.map ul li                    #CCEEAA     #ddffdd
+ * div.map ul li a                              #313373
+ * div.map ul li ul li              #DEE3FF
+ * div.map ul li ul li a                        Black
+ * div.map ul li ul li a.mapitem                Black
+ * caption.month-calendar-head      #ddffdd
+ * td.month-calendar-day-future                 #83660F
+ * table.month-calendar             #DEE3FF
+ * .Saturday                        #D9FFB7
+ * .month-calendar-day-this-day     #ECE1ED
+ * .year-calendar                   #DEE3FF
+ * calandar.border                              #83660f
+ * div#content h1,h2.h3.h4                      #00276C
+ * div.comment-banner h1            #00276C     #DEE3FF
+ * div.comment div.comment-subject  #00276C     #DEE3FF
+ * div.comment div.comment-header   #ebffff        Black         #494949    #FFFFF0 (ivory)
+ * div.blogDate                     #00276C     #dee3ff
+ * div.story div.headers            #DDFFDD
+ * div.story div.headers  border                #00276C
+ * div.icon                         #dee3ff
+ * span.pagedate:first-letter                   #739e60
+ * div.taglink                      #DEE3FF
+ * div.taglink ul li                #DEE3FF
+ * div.taglink border                           #00276C
+ * div.footinfo                     #00276C     #DEE3FF
+ * div.footinfo address a:link                  #DDFFDD
+ * div.recentchanges                            Black
+ * .pagecloud                                                    #666666
+ * .smallestPC a                    #FFFFFF     #CFCFCF          #666666    #fff5f5
+ * .smallPC a                       #FFFFFF     #6A6A6A          #666666    #ffb2b2
+ * .normalPC a                      #FFFFFF     #7A4242          #666666    #ff7474
+ * .bigPC a                         #FFFFFF     #8A0606          #666666    #ff3636
+ * .biggestPC a                     #FFFFFF     #FF0000          #666666    #ff0000
+ * pre                              #F3F5F7                      #393949
+ * pre border                                   #83CEFF
+ * pre.syntax                       #000000     #F5E8EF
+ * .synBar                          #2A2A2A                      #2A2A2A
+ * .synComment                                  #6fb2c4;                    #FcF6F6
+ * .synConstant                                 #ccc6c6;                    #9fE2F4
+ * .synError                                    #FF0000;                    #FcF6F6
+ * .synIdentifier                               #c4ac60;                    #FF0000
+ * .synLineNumber                               #ecea26;                    #F4Dc90
+ * .synPreProc                                  #cfc631;                    #FcFa56
+ * .synSpecial                                  #ccc6c6;                    #FfF661
+ * .synStatement                                #1ededc;                    #FcF6F6
+ * .synTodo                                     #1c96ed;                    #4eFeFc
+ * .synType                                     #ecea26;                    #3cC6Fd
+ * .synUnderlined                               #FFFFFF;                    #FcFa56
+ * div#information a.button                     #444
+ * div#information a.button:active              #000
+ * div#information a.button:hover               #111
+
+
+Color   wave  Hue      Sat        Value   Compl.
+#EBFFFF 507   180.00   100.000    96.080  #140000   very light shade of cyan.    B1  Background
+#313373 470   238.18    40.240    32.160  #cecc8c   medium dark shade of blue.   F1  Foreground, text color
+
+#00276C 483   218.33   100.000    21.180  #ffd893   dark shade of cyan-blue.    HB1   Dark. Headers, footer. story date back gorund. titles
+#DEE3FF 475   230.91   100.000    93.530  #211c00   very light shade of blue.   HF1   header,footer tet color taglinks, archive
+
+
+#83CEFF 492   203.71   100.000    75.690  #7c3100   light shade of cyan-blue.   NB1   Nav panel and block back gorund
+#DDFFDD 544   120.00   100.000    93.330  #220022   very light shade of green.  NB2   story headers, nav level 1
+
+Need colors for the following
+#AACCEE 488   210.00    66.670    80.000  #553311   light shade of cyan-blue.   NB3    L2 fr navigation
+#CCEEAA 563    90.00    66.670    80.000  #331155   light shade of green.       NB4   archive year
+
+#F3F5F7 488   210.00    20.000    96.080  #0c0a08   very light shade of cyan-blue. preformated and code examples
+#739E60 556   101.61    24.410    49.800  #8c619f   shade of green.                First letter of dat and author
+#83660F 592    45.00    79.450    28.630  #7c99f0   medium dark shade of yellow.   calendar future fg
+
+#FFFFFF         0.00     0.000   100.000  #000000   White
+#000000 620     0.00     0.000     0.000  #ffffff   Black
+
+#ECE1ED 434   295.00    25.000    90.590  #131e12   very light shade of magenta.   calendar today
+
+
+Tag cloud
+#CFCFCF 620     0.00     0.000    81.180  #303030   light shade of gray.
+#6A6A6A 620     0.00     0.000    41.570  #959595   shade of gray.
+#7A4242 620     0.00    29.790    36.860  #85bdbd   medium dark shade of red.
+#8A0606 620     0.00    91.670    28.240  #75f9f9   medium dark shade of red.
+#FF0000 620     0.00   100.000    50.000  #00ffff   shade of red.
+
+
+only in syntax coloring:
+#6FB2C4 499   192.71    41.870    60.200  #904d3b   medium light shade of cyan.
+#F5E8EF 414   327.69    39.390    93.530  #0a1710   very light shade of magenta-pink.
+#CCC6C6 620     0.00     5.560    78.820  #333939   light shade of red.
+#C4AC60 591    45.60    45.870    57.250  #3b539f   shade of yellow.
+#ECEA26 583    59.39    83.900    53.730  #1315d9   shade of yellow.
+#CFC631 584    56.58    62.200    50.200  #3039ce   shade of yellow.
+#1EDEDC 507   179.38    76.190    49.410  #e12123   shade of cyan.
+#1C96ED 491   204.98    85.310    51.960  #e36912   shade of cyan-blue.
+#2A2A2A 620     0.00     0.000    16.470  #d5d5d5   dark shade of gray.
+
+
+#DEE394 580    63.80    58.520    73.530  #211c6b   medium light shade of yellow-green. **merged**
+#E6FFFF 507   180.00   100.000    95.100  #190000   very light shade of cyan. **MERGED**
+#FAFFFA 544   120.00   100.000    99.020  #050005   very light shade of green. **MERGED**
+#0040A4 484   216.59   100.000    32.160  #ffbf5b   medium dark shade of cyan-blue. **merged **
+#1A344B 489   208.16    48.510    19.800  #e5cbb4   dark shade of cyan-blue. *merged
+#AEBDCC 488   210.00    22.730    74.120  #514233   medium light shade of cyan-blue. **merged **
+#D9FFB7 562    91.67   100.000    85.880  #260048   very light shade of green. **merged**
+#DDEEEE 507   180.00    33.330    90.000  #221111   very light shade of cyan.
+#C0C7E3 476   228.00    38.460    82.160  #3f381c   light shade of blue.
+#0000FF 469   240.00   100.000    50.000  #ffff00   shade of blue.
+#336699 488   210.00    50.000    40.000  #cc9966   medium dark shade of cyan-blue. **merged**
+#C3FFFF 507   180.00   100.000    88.240  #3c0000   very light shade of cyan. **merged**
+
+ */
