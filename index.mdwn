@@ -4,22 +4,22 @@
 
 
 <hr style="clear: both;" />
-<div id="information">
-<h2 id="information">Information</h2>
+<div class="InfoLinks">
+<h2 id="InfoLinks">Information</h2>
 [[!if test="enabled(linkmap)" then="""
-<a class="button" href="info/linkmap"><span>Link Map</span></a>
+<a class="button" href="info/linkmap">Link Map</a>
 """]]
 [[!if test="enabled(map)" then="""
-<a class="button" href="info/map"><span>Page Map</span></a>
+<a class="button" href="info/map">Page Map</a>
 """]]
 [[!if test="enabled(orphans)" then="""
-<a class="button" href="info/orphans"><span>Orphan Pages</span></a>
+<a class="button" href="info/orphans">Orphan Pages</a>
 """]]
 [[!if test="enabled(brokenlinks)" then="""
-<a class="button" href="info/brokenlinks"><span>Broken Links</span></a>
+<a class="button" href="info/brokenlinks">Broken Links</a>
 """]]
 [[!if test="enabled(pagestats)" then="""
-<a class="button" href="info/pagestats"><span>Page Stats</span></a>
+<a class="button" href="info/pagestats">Page Stats</a>
 """]]
-<a class="button" href="shortcuts/"><span>Supported Shortcuts</span></a>
+<a class="button" href="shortcuts/">Supported Shortcuts</a>
 </div>

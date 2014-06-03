@@ -48,7 +48,7 @@ div#masthead {
 div#masthead h1 {
    color: #FFD700;
    background-color: #000020; /* #6f7b34; #1A344B;#5D97CF #AA889A; #00276C;  */
-   background-image: url('images/icons/gryphon.png');
+   background-image: url('images/icons/ggryphon.png');
    background-repeat: no-repeat;
    background-position: 95% 50%;
    height: 150px;
@@ -62,6 +62,7 @@ div#masthead h1 {
    font-size: xx-large;
    text-transform: capitalize;
    margin: 0.1em;
+   border-bottom: 1px solid;
 }
 div#masthead h2 {
    font-family: helvetica, "Bitstream Vera Sans", "Helvetica Neue", Arial, Geneva, sans-serif;
@@ -569,21 +570,17 @@ div#content {
 div#content h1 {
    font-size: 18px;
    font-weight: bold;
-   color: #000020;
 }
 div#content h2 {
    font-size: 16px;
    font-weight: bold;
-   color: #000020;
 }
 div#content h3 {
    font-size: 12px;
    font-weight: bold;
-   color: #000020;
 }
 div#content h4 {
    font-size: 12px;
-   color: #000020;
 }
 
 /*
@@ -649,7 +646,7 @@ div.comment div.comment-subject a {
    font-size: 125%;
    width: auto;
    margin-top: 4em;
-   border: 1px dotted black;
+   border: 1px dotted White;
 }
 
 div.comment div.comment-header {
@@ -707,6 +704,7 @@ div.blogDate {
    margin-left: 0.4em;
    margin-bottom: 10px;
    margin-top: 5ex;
+   /* border: 1px dotted; */
 }
 /* The day of the week */
 span.day {
@@ -1056,6 +1054,7 @@ div.footinfo {
    margin: 1px;
    background-color: #000020;
    color: #FFD700;   /* #1A344B #6f7b34; */
+   border-top: 1px solid;
 }
 
 div.footinfo address {
@@ -1391,7 +1390,7 @@ acronym {
 }
 
 input#searchbox {
-   background: url(mages/icons/search-bg.gif) no-repeat;
+   background: url(images/icons/search-bg.gif) no-repeat;
    background-color: #494949;
    background-position: 100% 50%;
    color: #FFFFF0;
@@ -1481,49 +1480,62 @@ pre.hl  { color:#008bff; background-color:#000035; font-size:10pt; font-family:'
 .syntaxstring { color:  #23238e; }
 .syntaxtext { color:  #000000; }
 /* end stuff */
-
-h2.information {
+div.InfoLinks h2 {
+  font-variant: small-caps;
+   font-family: Impact, Charcoal, sans-serif;
+   font-weight: bold;
+   font-size: xx-large;
+   text-transform: capitalize;
+   color: White;
+}
+h2#InfoLinks {
    font-variant: small-caps;
    font-family: Impact, Charcoal, sans-serif;
    font-weight: bold;
    font-size: xx-large;
    text-transform: capitalize;
-
+   color: White;
 }
+
+/* rsince this is inverser video, reset the links on the butpnes */
+div.InfoLinks a:link    { color:#000012; text-decoration: none;}
+div.InfoLinks a:link a:visited {color:#000012; text-decoration: none;}
+div.InfoLinks a:link a:active  {color:#000012; text-decoration: none;}
+
 /* Clickable Buttons  */
 .clear { /* generic container (i.e. div) for floating buttons */
    overflow: hidden;
    width: 100%;
 }
 
-div#information a.button {
-   background: transparent url('/media/images/bg_button_a.gif') no-repeat scroll top right;
-   color: #444;
-   display: block;
-   float: left;
-   font: normal 12px arial, sans-serif;
-   height: 24px;
-   margin-right: 6px;
-   padding-right: 18px; /* sliding doors padding */
+
+.button {
+   border-top: 1px solid #fafff8;
+   background: #ffffc4;
+   color:      #000012;
+   background: -webkit-gradient(linear, left top, left bottom, from(#faffff), to(#ffffc4));
+   background: -webkit-linear-gradient(top, #faffff, #ffffc4);
+   background: -moz-linear-gradient(top, #faffff, #ffffc4);
+   background: -ms-linear-gradient(top, #faffff, #ffffc4);
+   background: -o-linear-gradient(top, #faffff, #ffffc4);
+   padding: 8px 16px;
+   -webkit-border-radius: 17px;
+   -moz-border-radius: 17px;
+   border-radius: 17px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   font-size: 14px;
    text-decoration: none;
-}
-
-div#information a.button span {
-   background: transparent url('/media/images/bg_button_span.gif') no-repeat;
-   display: block;
-   line-height: 14px;
-   padding: 5px 0 5px 18px;
-}
-div#information a.button:active {
-   background-position: bottom right;
-   color: #000;
-   outline: none; /* hide dotted outline in Firefox */
-}
-
-div#information a.button:active span {
-   background-position: bottom left;
-   padding: 6px 0 4px 18px; /* push text down 1px */
-}
-div#information a.button:hover span {
-   color: #111;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #f0f9de;
+   background:       #f0f9de;
+   color:            #0e0e54;
+   }
+.button:active {
+   border-top-color: #e3e3ea;
+   background:       #e3e3ea;
 }
