@@ -58,7 +58,7 @@
 /*
  * Color schema
  * Context                          Background  Foreground
- * body                             #EBFFFF     #313373
+ * body                             #EBFFFF     #313373           #494949    #FFFFF0 (ivory)
  * div#masthead h1                  #00276C     #DEE3FF
  * breadcrumb link                              #00276C
  * div#navpanel                     #83CEFF
@@ -83,7 +83,7 @@
  * div#content h1,h2.h3.h4                      #00276C
  * div.comment-banner h1            #00276C     #DEE3FF
  * div.comment div.comment-subject  #00276C     #DEE3FF
- * div.comment div.comment-header   #ebffff        Black
+ * div.comment div.comment-header   #ebffff        Black         #494949    #FFFFF0 (ivory)
  * div.blogDate                     #00276C     #dee3ff
  * div.story div.headers            #DDFFDD
  * div.story div.headers  border                #00276C
@@ -182,8 +182,8 @@ only in syntax coloring:
 
 body {
    font-family: Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", Times, Georgia, Utopia, serif;
-   color: #313373;
-   background-color: #EBFFFF; /* #D3EBD2; #dee3ff; */
+   color: #FFFFF0;
+   background-color: #494949; /* #D3EBD2; #dee3ff; */
    margin: 0;
    padding:0;
    border:0;                        /* This removes the border around the viewport in old versions of IE */
@@ -278,7 +278,7 @@ div#menubar {
    width: 99%;
    padding: 0px;
    margin: 0px;
-   border-bottom: solid 1px #EBFFFF;
+   border-bottom: solid 1px #494949;
 }
 /* The leftmost bits of the menubar */
 div#menubar-left {
@@ -829,7 +829,7 @@ div.comment div.comment-subject a {
 }
 
 div.comment div.comment-header {
-   background-color: #ebffff;
+   background-color: #494949;
    float: left;
    color: Black;                    /* #dee3ff; #D3EBD2; */
    line-height: 110%;
@@ -1196,7 +1196,7 @@ div#information {
 h2#information {
    font-size: 100%;
    clear: both;
-   border-top: solid #313373 2px;
+   border-top: solid #FFFFF0 2px;
 }
 
 
@@ -1208,13 +1208,13 @@ div#page-bot {
    clear: both;
    font-size: 0.81em;
    text-align: center;
-   border-bottom: solid #313373 2px;
+   border-bottom: solid #FFFFF0 2px;
 }
 div.page-bot {
    clear: both;
    font-size: 0.81em;
    text-align: center;
-   border-bottom: solid #313373 2px;
+   border-bottom: solid #FFFFF0 2px;
 }
 
 div#page-bot hr {
@@ -1274,7 +1274,7 @@ div.recentchanges {
 
 .recentchanges .changelog {
    margin-top: 0.8em;
-   border-bottom: solid #313373 2px;
+   border-bottom: solid #FFFFF0 2px;
    font-family: Baskerville, "Times New Roman", Times, serif;
    font-size: 120%;
 }
