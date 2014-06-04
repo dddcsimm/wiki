@@ -37,8 +37,9 @@
 
 [[!calendar type="month" pages="blog/* and !*/Discussion"]]
 
+---
 
-<h4>Indices</h4>
+####Indices
 
 [[!map pages="archives/* and !*/Discussion"]]
 

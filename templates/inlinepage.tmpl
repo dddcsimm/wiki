@@ -13,7 +13,7 @@
       </TMPL_IF>                  <!--DAY-->
         <div class="headers">
           <TMPL_IF PERMALINK>
-            <a href="<TMPL_VAR PERMALINK>">Permalink</a>
+            <a href="<TMPL_VAR PERMALINK>">Permalink: <span class="storytitle"><TMPL_VAR TITLE></span></a>
             <br />
             <div class="story-links">
               <TMPL_IF TAGS>
@@ -29,7 +29,7 @@
               </TMPL_IF>          <!--TAGS-->
             </div><!-- story-links -->
           <TMPL_ELSE>
-            <a href="<TMPL_VAR PAGEURL>">Story Link</a>
+            <a href="<TMPL_VAR PAGEURL>">Link: <span class="storytitle"><TMPL_VAR TITLE></span></a>
             <br />
             <TMPL_IF TAGS>
               <div class="taglink">

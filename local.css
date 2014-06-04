@@ -29,7 +29,6 @@ span {
 
 /*******************************************************************/
 /*******************************************************************/
-
 /*******************************************************************/
 /*
  * The masthead is at the top of the page. It contains the title of
@@ -304,7 +303,6 @@ div.navblock ul li ul li {
    display: block;
    float: right;
    color: black;
-   background-color: #BBBBC0;
    width: 19em;
    margin: 2px 0px 0px 0px;
    padding: 0px;
@@ -315,11 +313,12 @@ div.navblock ul li ul li a {
    width: 100%;
    border: 1px dotted black;
    color: #000020;
-   background-color: #BBBBC0;
+   background-color: #A5A5B0;
 }
 div.navblock ul li ul li a img {
    border: none;
 }
+
 
 div.map {
    float: none;
@@ -362,7 +361,7 @@ div.map ul li span.selflink {
    text-align: center;
    width: auto;
    margin: 6px auto;
-   border: 2px outset
+   border: 2px outset;
 }
 
 div.map ul li a {
@@ -370,7 +369,8 @@ div.map ul li a {
    color: blue;
    float: none;
    width: auto;
-   border: none;
+   border: 2px outset;
+   border-radius: 1px;
 }
 div.map ul li ul {
    display: inline;
@@ -405,6 +405,7 @@ div.map ul li ul li a.mapitem {
    padding: 1px;
    margin: 6px auto 6px auto;
    border: outset #505773 2px;
+   border-radius: 3px;
 }
 
 div.navblock hr {
@@ -439,6 +440,24 @@ div.navcategories li {
 div.navheadlines {
 }
 div.navsearch {
+}
+
+
+/* calendar plugin */
+.month-calendar-day-head,
+.month-calendar-day-nolink,
+.month-calendar-day-link,
+.month-calendar-day-this-day,
+.month-calendar-day-future {
+        text-align: right;
+}
+.month-calendar-arrow A:link,
+.year-calendar-arrow A:link,
+.month-calendar-arrow A:visited,
+.year-calendar-arrow A:visited {
+        text-decoration: none;
+        font-weight: normal;
+        font-size: 150%;
 }
 
 div.calendar{
@@ -480,7 +499,6 @@ caption.month-calendar-head, caption.year-calendar-head {
    margin-right:         auto;
    font-size:            110%;
    font-weight:          bold;
-   background-color: #ddffdd;
 }
 th.month-calendar-day-head, th.year-calendar-subhead {
    font-weight:            normal;
@@ -489,46 +507,51 @@ table.month-calendar {
    text-align:             center;
 }
 
-td.month-calendar-day-noday,
-   td.month-calendar-day-link,
-      td.month-calendar-day-nolink,
-         td.month-calendar-day-this-day,
-            td.month-calendar-day-future {
-               font-family: "Palatino Linotype", Palatino, "Times New Roman", Times, Georgia, Utopia, serif;
-            }
+.year-calendar, .month-calendar {
+   background-color:           #666666;
+   color:                      #EEF0F0;
+   border-right:               1px solid #BBBB20;
+   border-bottom:              1px solid #BBBB20;
+}
 
-td.year-calendar-month-link,
-   td.year-calendar-month-nolink,
-      td.year-calendar-this-month,
-         td.year-calendar-month-future {
-         }
+.month-calendar-day-this-day, .year-calendar-this-month {
+   color:           #FFE0E0;
+   background-color:           #441010;
+}
 
+month-calendar-day-link, year-calendar-month-link {
+   color:           cyan;
+}
+
+month-calendar-head, year-calendar-head {
+   background-color: #777777;
+   color: #222244;
+}
+
+caption.month-calendar-head, caption.year-calendar-head {
+   background-color: #777777;
+   color: #222244;
+}
 td.month-calendar-day-future, td.year-calendar-month-future {
-   color:                  #83660F;
+   color:                  #FFCFB5;
 }
 
 table.month-calendar {
-   background-color:           #FFD700;
-   border:               1px solid #83660f;
+   background-color:           #666666;
+   border-right:               2px solid #BBBBBB;
+   border-bottom:               2px solid #BBBBBB;
 }
 .calendar th {
-   border-bottom:         1px dotted #83660f;
+   border-bottom:         1px dotted #000020;
 }
 .Saturday {
-   border-left:          1px dotted #83660f;
+   border-left:          1px dotted #000020;
 }
 .Sunday {
-   border-right:         1px dotted #83660f;
+   border-right:         1px dotted #000020;
 }
 .Saturday, .Sunday {
-   background-color:           #DDFFDD; /* #F7DFDB; */
-}
-.month-calendar-day-this-day, .year-calendar-this-month {
-   background-color:           #ECE1ED;
-}
-.year-calendar {
-   background-color:           #FFD700;
-   border:               1px dotted #83660f;
+   background-color:           #333333; /* #F7DFDB; */
 }
 
 ul.archives li ul li {
@@ -536,7 +559,6 @@ ul.archives li ul li {
    display: inline;
 }
 
-/*
    Just a list of validation badges
  */
 div.badges {
@@ -678,7 +700,7 @@ div.addcomment {
 div.inlinepage {
    clear:right;
    border-radius: 2em;
-   background-color: #AAAAAA;
+   background-color: #919191;
    border: solid Black;
 }
 /*
@@ -744,6 +766,8 @@ div.story {
    padding-left: 1em;
    margin-left: 1.5em;
    margin-bottom: 0.3em;
+   border-radius: 3em;
+   border: 1px outset #000020;
 }
 
 /* Each story has headers */
@@ -782,6 +806,7 @@ div.story div.headers h4 {
 
 .inline-body {
    background-color: #666666;
+   border-radius: 3em;
 }
 .story  a:link    { color:#ffffb2; text-decoration: underline }
 .story  a:hover   { border: 1px dotted; }
@@ -915,7 +940,7 @@ div.postedby{
    margin-top: 3pt;
    margin-right: 4pt;
    margin-left: 3pt;
-   padding: 0px 0px 0px 1em;
+   padding: 8px 8px 8px 1em;
    font-size: smaller;
 }
 span.author:first-letter, p.postedby:first-letter
@@ -1028,6 +1053,8 @@ div.more_entries {
 
 }
 
+
+
 /* Thi should be moved to be just above the footer */
 div#information {
    clear: both;
@@ -1042,6 +1069,9 @@ h2#information {
    border-top: solid #FFFFF0 2px;
 }
 
+/*******************************************************************/
+/*******************************************************************/
+/* Used in the NAV panel on the blog */
 
 /*******************************************************************/
 /*******************************************************************/
@@ -1136,11 +1166,211 @@ div.recentchanges div.metadata span.pagelinks a img {
    color: black;
 }
 
+div.InfoLinks h2 {
+  font-variant: small-caps;
+   font-family: Impact, Charcoal, sans-serif;
+   font-weight: bold;
+   font-size: xx-large;
+   text-transform: capitalize;
+   color: White;
+}
+h2#InfoLinks {
+   font-variant: small-caps;
+   font-family: Impact, Charcoal, sans-serif;
+   font-weight: bold;
+   font-size: xx-large;
+   text-transform: capitalize;
+   color: White;
+}
+
+/* rsince this is inverser video, reset the links on the butpnes */
+div.InfoLinks a:link    { color:#000012; text-decoration: none;}
+div.InfoLinks a:link a:visited {color:#000012; text-decoration: none;}
+div.InfoLinks a:link a:active  {color:#000012; text-decoration: none;}
+
+
+/*******************************************************************/
+/*******************************************************************/
+/*******************************************************************/
+/* These are relevant only to the blog */
+
+
+/*******************************************************************/
+/*******************************************************************/
+/*******************************************************************/
+/* Plugins */
+
+/* PAGECLOUD */
+
+.pagecloud {
+   float: right;
+   width: 45%;
+   background-color: #666666;
+   padding: 15px;
+   text-align: center;
+   margin-left: 1em;
+   margin-right: 70px;
+   margin-bottom: -5ex;
+   border: 1px solid #aaa;
+}
+
+.pagecloud a:hover {
+   text-decoration: underline;
+   border: none;
+}
+
+.smallestPC a {
+   font-size: 0.8em;
+   color: #fff5f5;
+   background-color: #666666;
+   text-decoration: none;
+   font-size: 100%;
+}
+
+.smallPC a {
+   font-size: 0.9em;
+   color: #ffb2b2;
+   background-color: #666666;
+   text-decoration: none;
+   font-size: 115%;
+}
+
+.normalPC a {
+   font-size: 1.0em;
+   color: #ff7474;
+   background-color: #666666;
+   text-decoration: none;
+   font-size: 130%;
+}
+
+.bigPC a {
+   font-size: 1.1em;
+   color: #ff3636;
+   background-color: #666666;
+   text-decoration: none;
+   font-size: 145%;
+}
+
+.biggestPC a {
+   font-size: 1.2em;
+   color: #ff0000;
+   background-color: #666666;
+   text-decoration: none;
+   font-size: 160%;
+}
+
+.blogform, #blogform {
+   padding: 10px 10px;
+   border: none;
+   background: #494949;
+   color: #FFFFF0 !important;
+   width: auto;
+   overflow: auto;
+}
+
+.blogform input{
+   background: #494949;
+   color: #FFFFF0 !important;
+}
+
+input#searchbox {
+   background: url(images/icons/search-bg.gif) no-repeat;
+   background-color: #494949;
+   background-position: 100% 50%;
+   color: #FFFFF0;
+   padding-right: 16px;
+}
+
+.gr_grid_container {
+  /* customize grid container div here. eg: width: 500px; */
+   width: 250px;
+}
+.gr_grid_book_container {
+  /* customize book cover container div here */
+   float: left;
+   width: 39px;
+   height: 60px;
+   padding: 0px 0px;
+   overflow: hidden;
+}
+
+/* This is used by the Syntax plugin for ikiwiki */
+.synBar        { background-color: #2A2A2A; }
+.synComment    { color: #9fE2F4; font-style:italic; } /* .slc .com */
+.synConstant   { color: #FcF6F6; }                    /* .str */
+.synError      { color: #FF0000; }
+.synIdentifier { color: #F4Dc90; } /* .num */
+.synLineNumber { color: #FcFa56; } /* .line */
+.synPreProc    { color: #FfF661; } /* str */
+.synSpecial    { color: #FcF6F6; } /* sym */
+.synStatement  { color: #4eFeFc; } /* kwa kwb */
+.synTodo       { color: #3cC6Fd; } /* kwd */
+.synType       { color: #FcFa56; font-weight: bold } /* kwc */
+.synUnderlined { text-decoration: underline }
+/* This is used by the Syntax plugin for ikiwiki
+.synBar        { color: #0000FF }
+.synComment    { color: #0000FF }
+.synConstant   { color: #0000FF }
+.synError      { color: #FFFFFF ; background: #FF0000 none }
+.synIdentifier { color: #008B8B }
+.synLineNumber { color: #0000FF }
+.synPreProc    { color: #A020F0 }
+.synSpecial    { color: #6A5ACD }
+.synStatement  { color: #A52A2A ; font-weight: bold }
+.synTodo       { color: #0000FF ; background: #FFFF00 none }
+.synType       { color: #2E8B57 ; font-weight: bold }
+.synUnderlined { color: #000000 ; text-decoration: underline }
+*/
+
+
+/* Style definition file generated by highlight 3.9, http://www.andre-simon.de/ */
+
+/* Highlighting theme: Navy */
+
+body.hl { background-color:#000035; }
+pre.hl  { color:#008bff; background-color:#000035; font-size:10pt; font-family:'Courier New';}
+.hl.num { color:#f87ff4; }
+.hl.esc { color:#66f5ff; }
+.hl.str { color:#ff7f66; }
+.hl.pps { color:#ffffff; }
+.hl.slc { color:#ffbb00; font-style:italic; }
+.hl.com { color:#ffbb00; font-style:italic; }
+.hl.ppc { color:#bb00ff; }
+.hl.opt { color:#ffffff; }
+.hl.lin { color:#888888; }
+.hl.kwa { color:#f8c50b; font-weight:bold; }
+.hl.kwb { color:#e1e72f; }
+.hl.kwc { color:#13d8ef; }
+.hl.kwd { color:#ffffff; }
+
+/* stuff for cookbook coloring */
+.syntaxactiveblue { color: #0032FF; }
+.syntaxactiveorange { color: #C86400; }
+.syntaxcomment { color:  #696969; }
+.syntaxdarkblue { color: #00008B; }
+.syntaxdarkcyan { color: #008B8B; }
+.syntaxdarkgreen { color: #006400; }
+.syntaxerror { color:  #e63c3c; }
+.syntaxfirebrick { color: #B22222; }
+.syntaxkeyword { color:  #871f78; }
+.syntaxname { color:  #000000; }
+.syntaxstring { color:  #23238e; }
+.syntaxtext { color:  #000000; }
+/* end stuff */
 
 /*******************************************************************/
 /*******************************************************************/
 /*******************************************************************/
 /* The rest of this should be pretty generic */
+
+div {
+   margin: 0;
+        /* border: solid black 6px; */
+}
+span {
+   margin: 0;
+        /* border: solid black 1px; */
+}
 
 tt, code, kbd, samp      { font-family: "Courier New", Courier, monospace }
 
@@ -1337,99 +1567,6 @@ acronym {
    letter-spacing: 0.1em;
 }
 
-/* PAGECLOUD */
-
-.pagecloud {
-   float: right;
-   width: 45%;
-   background-color: #666666;
-   padding: 15px;
-   text-align: center;
-   margin-left: 1em;
-   margin-right: 70px;
-   margin-bottom: -5ex;
-   border: 1px solid #aaa;
-}
-
-.pagecloud a:hover {
-   text-decoration: underline;
-   border: none;
-}
-
-.smallestPC a {
-   font-size: 0.8em;
-   color: #fff5f5;
-   background-color: #666666;
-   text-decoration: none;
-   font-size: 100%;
-}
-
-.smallPC a {
-   font-size: 0.9em;
-   color: #ffb2b2;
-   background-color: #666666;
-   text-decoration: none;
-   font-size: 115%;
-}
-
-.normalPC a {
-   font-size: 1.0em;
-   color: #ff7474;
-   background-color: #666666;
-   text-decoration: none;
-   font-size: 130%;
-}
-
-.bigPC a {
-   font-size: 1.1em;
-   color: #ff3636;
-   background-color: #666666;
-   text-decoration: none;
-   font-size: 145%;
-}
-
-.biggestPC a {
-   font-size: 1.2em;
-   color: #ff0000;
-   background-color: #666666;
-   text-decoration: none;
-   font-size: 160%;
-}
-
-.blogform, #blogform {
-   padding: 10px 10px;
-   border: none;
-   background: #494949;
-   color: #FFFFF0 !important;
-   width: auto;
-   overflow: auto;
-}
-
-.blogform input{
-   background: #494949;
-   color: #FFFFF0 !important;
-}
-
-input#searchbox {
-   background: url(images/icons/search-bg.gif) no-repeat;
-   background-color: #494949;
-   background-position: 100% 50%;
-   color: #FFFFF0;
-   padding-right: 16px;
-}
-
-.gr_grid_container {
-  /* customize grid container div here. eg: width: 500px; */
-   width: 250px;
-}
-.gr_grid_book_container {
-  /* customize book cover container div here */
-   float: left;
-   width: 39px;
-   height: 60px;
-   padding: 0px 0px;
-   overflow: hidden;
-}
 
 pre {
    border: 1pt solid;
@@ -1438,90 +1575,6 @@ pre {
    font-family: "Courier New", courier, monospace;
 }
 
-/* This is used by the Syntax plugin for ikiwiki */
-.synBar        { background-color: #2A2A2A; }
-.synComment    { color: #9fE2F4; font-style:italic; } /* .slc .com */
-.synConstant   { color: #FcF6F6; }                    /* .str */
-.synError      { color: #FF0000; }
-.synIdentifier { color: #F4Dc90; } /* .num */
-.synLineNumber { color: #FcFa56; } /* .line */
-.synPreProc    { color: #FfF661; } /* str */
-.synSpecial    { color: #FcF6F6; } /* sym */
-.synStatement  { color: #4eFeFc; } /* kwa kwb */
-.synTodo       { color: #3cC6Fd; } /* kwd */
-.synType       { color: #FcFa56; font-weight: bold } /* kwc */
-.synUnderlined { text-decoration: underline }
-/* This is used by the Syntax plugin for ikiwiki
-.synBar        { color: #0000FF }
-.synComment    { color: #0000FF }
-.synConstant   { color: #0000FF }
-.synError      { color: #FFFFFF ; background: #FF0000 none }
-.synIdentifier { color: #008B8B }
-.synLineNumber { color: #0000FF }
-.synPreProc    { color: #A020F0 }
-.synSpecial    { color: #6A5ACD }
-.synStatement  { color: #A52A2A ; font-weight: bold }
-.synTodo       { color: #0000FF ; background: #FFFF00 none }
-.synType       { color: #2E8B57 ; font-weight: bold }
-.synUnderlined { color: #000000 ; text-decoration: underline }
-*/
-
-
-/* Style definition file generated by highlight 3.9, http://www.andre-simon.de/ */
-
-/* Highlighting theme: Navy */
-
-body.hl { background-color:#000035; }
-pre.hl  { color:#008bff; background-color:#000035; font-size:10pt; font-family:'Courier New';}
-.hl.num { color:#f87ff4; }
-.hl.esc { color:#66f5ff; }
-.hl.str { color:#ff7f66; }
-.hl.pps { color:#ffffff; }
-.hl.slc { color:#ffbb00; font-style:italic; }
-.hl.com { color:#ffbb00; font-style:italic; }
-.hl.ppc { color:#bb00ff; }
-.hl.opt { color:#ffffff; }
-.hl.lin { color:#888888; }
-.hl.kwa { color:#f8c50b; font-weight:bold; }
-.hl.kwb { color:#e1e72f; }
-.hl.kwc { color:#13d8ef; }
-.hl.kwd { color:#ffffff; }
-
-/* stuff for cookbook coloring */
-.syntaxactiveblue { color: #0032FF; }
-.syntaxactiveorange { color: #C86400; }
-.syntaxcomment { color:  #696969; }
-.syntaxdarkblue { color: #00008B; }
-.syntaxdarkcyan { color: #008B8B; }
-.syntaxdarkgreen { color: #006400; }
-.syntaxerror { color:  #e63c3c; }
-.syntaxfirebrick { color: #B22222; }
-.syntaxkeyword { color:  #871f78; }
-.syntaxname { color:  #000000; }
-.syntaxstring { color:  #23238e; }
-.syntaxtext { color:  #000000; }
-/* end stuff */
-div.InfoLinks h2 {
-  font-variant: small-caps;
-   font-family: Impact, Charcoal, sans-serif;
-   font-weight: bold;
-   font-size: xx-large;
-   text-transform: capitalize;
-   color: White;
-}
-h2#InfoLinks {
-   font-variant: small-caps;
-   font-family: Impact, Charcoal, sans-serif;
-   font-weight: bold;
-   font-size: xx-large;
-   text-transform: capitalize;
-   color: White;
-}
-
-/* rsince this is inverser video, reset the links on the butpnes */
-div.InfoLinks a:link    { color:#000012; text-decoration: none;}
-div.InfoLinks a:link a:visited {color:#000012; text-decoration: none;}
-div.InfoLinks a:link a:active  {color:#000012; text-decoration: none;}
 
 /* Clickable Buttons  */
 .clear { /* generic container (i.e. div) for floating buttons */
@@ -1530,7 +1583,7 @@ div.InfoLinks a:link a:active  {color:#000012; text-decoration: none;}
 }
 
 
-.button {
+.light-button {
    border-top: 1px solid #fafff8;
    background: #ffffc4;
    color:      #000012;
@@ -1551,12 +1604,12 @@ div.InfoLinks a:link a:active  {color:#000012; text-decoration: none;}
    text-decoration: none;
    vertical-align: middle;
    }
-.button:hover {
+.light-button:hover {
    border-top-color: #f0f9de;
    background:       #f0f9de;
    color:            #0e0e54;
    }
-.button:active {
+.light-button:active {
    border-top-color: #e3e3ea;
    background:       #e3e3ea;
 }

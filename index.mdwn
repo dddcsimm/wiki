@@ -7,19 +7,19 @@
 <div class="InfoLinks">
 <h2 id="InfoLinks">Information</h2>
 [[!if test="enabled(linkmap)" then="""
-<a class="button" href="info/linkmap">Link Map</a>
+<a class="light-button" href="info/linkmap">Link Map</a>
 """]]
 [[!if test="enabled(map)" then="""
-<a class="button" href="info/map">Page Map</a>
+<a class="light-button" href="info/map">Page Map</a>
 """]]
 [[!if test="enabled(orphans)" then="""
-<a class="button" href="info/orphans">Orphan Pages</a>
+<a class="light-button" href="info/orphans">Orphan Pages</a>
 """]]
 [[!if test="enabled(brokenlinks)" then="""
-<a class="button" href="info/brokenlinks">Broken Links</a>
+<a class="light-button" href="info/brokenlinks">Broken Links</a>
 """]]
 [[!if test="enabled(pagestats)" then="""
-<a class="button" href="info/pagestats">Page Stats</a>
+<a class="light-button" href="info/pagestats">Page Stats</a>
 """]]
-<a class="button" href="shortcuts/">Supported Shortcuts</a>
+<a class="light-button" href="shortcuts/">Supported Shortcuts</a>
 </div>
