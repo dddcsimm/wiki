@@ -11,11 +11,6 @@ body {
    /* The min-width property does not work in old versions of Internet Explorer */
    font-size:90%;
 }
-/* Adjust link colors if the backgruns is not white */
-a:link    { color:#ffffb2; text-decoration: underline }
-a:hover   { border: 1px dotted; }
-a:visited {color:#FFF0F0;  text-decoration: none}
-a:active  {color:#ffff74;}
 
 div {
    margin: 0;
@@ -195,7 +190,7 @@ div.breadcrumbs {
 
 /* Now comes the acual navigation panel, which contains blocks for navigation */
 div#navpanel {
-   background-color: #83CEFF;/* #EBFFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #EBFFFF; #dee3ff; */
+   background-color: #666666;/* #EBFFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #EBFFFF; #dee3ff; */
    font-family: Helvetica, Tahoma, Arial,sans-serif;
    font-size: x-small;
    padding: 5px 10px 5px 5px;
@@ -203,10 +198,8 @@ div#navpanel {
    margin-top: 1em;
    width: 20em;
    float: left;
-   border-right: solid 2px;
-   border-bottom: solid 2px;
-   border-right-color: #000020;   /* #6f7b34; */
-   border-bottom-color: #000020;   /* #6f7b34; */
+   border-right: solid 2px #000020;
+   border-bottom: solid 2px #000020;
 }
 
 div#navpanel h4 {
@@ -222,9 +215,11 @@ div.navblock p img {
    little h4 block as a title
  */
 div.navblock {
-   background-color: #83CEFF;/* #EBFFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #EBFFFF; #dee3ff; */
+   background-color: #838383;/* #EBFFFF; #00FF00; #c3ffff; #D9FFB7; #f8dfdb; #EBFFFF; #dee3ff; */
    width: 20em;
    padding: 1px 0.05em 0.05em 0.05em;
+   border-right: solid 2px #000020;
+   border-bottom: solid 2px #000020;
 }
 
 div.navblock h1 {
@@ -273,13 +268,21 @@ div.navblock ul li {
 /* Make the links stick out a bit. */
 div.navblock ul li a {
    display: block;
-   color: black;
-   background-color: #ddffdd;
+   color: #111133;
+   background-color: #9B9BA0;
    padding: 5px;
+   padding-right:1em;
    font-size:125%;
    width: 100%;
    border: 1px dotted black;
+   border-top-right-radius:17px;
+   border-bottom-right-radius:17px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
 }
+
 div.navblock ul li a img {
    border: none;
 }
@@ -301,6 +304,7 @@ div.navblock ul li ul li {
    display: block;
    float: right;
    color: black;
+   background-color: #BBBBC0;
    width: 19em;
    margin: 2px 0px 0px 0px;
    padding: 0px;
@@ -310,7 +314,8 @@ div.navblock ul li ul li {
 div.navblock ul li ul li a {
    width: 100%;
    border: 1px dotted black;
-   background-color: #aaccee;  /* #CCEEAA; */
+   color: #000020;
+   background-color: #BBBBC0;
 }
 div.navblock ul li ul li a img {
    border: none;
@@ -344,18 +349,20 @@ div.map ul li {
    border: none;
    margin: 6px auto 6px auto;
    color: #ddffdd;  /* #CCEEAA; */
-   background-color: #CCEEAA;  /* #CCEEAA; */
+   background-color: #8B8BB0;
 }
 
-
 div.map ul li span.selflink {
-   color: Red;
+   display: block;
+   color: #2222AA;
    font-size: large;
+   padding: 1px;
    padding-right: 3em;
    float: none;
-   text-align: left;
+   text-align: center;
    width: auto;
-   border: none;
+   margin: 6px auto;
+   border: 2px outset
 }
 
 div.map ul li a {
@@ -372,13 +379,14 @@ div.map ul li ul {
    border: none;
    margin: 6px auto 6px auto;
    padding: 0px 0px 5px 0px;
+   background-color: #8B8BB0;
 }
 div.map ul li ul li {
    display: inline;
    float: none;
    width: auto;
    border: none;
-   background-color: #FFD700;  /* #CCEEAA; */
+   background-color: #8B8BB0;  /* #CCEEAA; */
 }
 div.map ul li ul li a {
    display: inline;
@@ -391,7 +399,7 @@ div.map ul li ul li a {
 }
 div.map ul li ul li a.mapitem {
    display: inline;
-   color: Black;
+   color: #555555;
    float: none;
    width: auto;
    padding: 1px;
@@ -752,7 +760,7 @@ div.story {
 
 /* Each story has headers */
 div.story div.headers {
-   background-color: #DDFFDD; /* #C3FFFF; #FFD700;  #D3EBD2; #CEFFC0; #FFF2F8; */
+   background-color: #777777; /* #C3FFFF; #FFD700;  #D3EBD2; #CEFFC0; #FFF2F8; */
    width: 16em;
    float: left;
    margin-right: 0.3em;
@@ -783,6 +791,14 @@ div.story div.headers h4 {
    margin: 0 0.2em 0.1em 0em;
    border-bottom: 1px dotted #000000;
 }
+
+.inline-body {
+   background-color: #666666;
+}
+.story  a:link    { color:#ffffb2; text-decoration: underline }
+.story  a:hover   { border: 1px dotted; }
+.story  a:visited {color:#FFF0F0;  text-decoration: none}
+.story  a:active  {color:#ffff74;}
 
 /* An icon may be associated with the story */
 div.icon {
