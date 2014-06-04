@@ -575,22 +575,6 @@ div#content {
    clear: none;
 }
 
-div#content h1 {
-   font-size: 18px;
-   font-weight: bold;
-}
-div#content h2 {
-   font-size: 16px;
-   font-weight: bold;
-}
-div#content h3 {
-   font-size: 12px;
-   font-weight: bold;
-}
-div#content h4 {
-   font-size: 12px;
-}
-
 /*
    Then we have a small area for a message, where the results from
    find, etc come
@@ -693,6 +677,9 @@ div.addcomment {
 
 div.inlinepage {
    clear:right;
+   border-radius: 2em;
+   background-color: #AAAAAA;
+   border: solid Black;
 }
 /*
  * Here are the actual web logs. This is why we are doing this
@@ -712,6 +699,7 @@ div.blogDate {
    margin-left: 0.4em;
    margin-bottom: 10px;
    margin-top: 5ex;
+   Border: 1px outset;
    /* border: 1px dotted; */
 }
 /* The day of the week */
@@ -799,6 +787,11 @@ div.story div.headers h4 {
 .story  a:hover   { border: 1px dotted; }
 .story  a:visited {color:#FFF0F0;  text-decoration: none}
 .story  a:active  {color:#ffff74;}
+
+.story-body-title {
+   text-align: center;
+   font-size: large;
+}
 
 /* An icon may be associated with the story */
 div.icon {
@@ -890,7 +883,7 @@ span.pagedate, p.postedon {
 }
 span.pagedate:first-letter, p.postedon:first-letter {
    text-transform: uppercase;
-   color: #739e60;
+   color: #C3FeB0;
    font-size: 155%;
    font-family: cursive;
   /*  padding: 0em; float: left; */
@@ -941,11 +934,12 @@ span.author, p.postedby {
 }
 
 div.taglink {
-   background-color: #FFD700; /* ##EBFFFF DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+   background-color: #AAAAAA; /* ##EBFFFF DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
    font-variant: small-caps;
    text-transform: capitalize;
-   padding: 0px;
+   padding: 3px;
    margin: 2px;
+   width: auto;
    border: 2px outset #000020;   /*  #6f7b34; */
 }
 div.taglink ul {
@@ -955,11 +949,22 @@ div.taglink ul {
    margin: 0px;
 }
 div.taglink ul li {
-   background-color: #FFD700; /* ##EBFFFF DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
+   background-color: #666666; /* ##EBFFFF DEE3FF;  #D3EBD2; #CEFFC0; #FFF2F8; */
    list-style: none;
    display: inline;
+   padding:2px;
+   border-radius: 6px;
+   margin: 2px;
+   border: 1px outset #494949;
 }
+
+div.taglink div.tag {
+   border: 1px outset #494949;
+}
+
 div.taglink ul li a {
+   padding:2px;
+   margin: 2px;
    font-variant: small-caps;
    text-transform: capitalize;
 }
@@ -1145,7 +1150,7 @@ p.initial:first-letter
   /*  padding: 0em; float: left; */
 }
 #bigchar {
-   color: red;
+   background-color: red;
    color: white;
    font-size: 28pt;
    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;

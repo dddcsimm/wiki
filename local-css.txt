@@ -185,4 +185,26 @@ only in syntax coloring:
 #336699 488   210.00    50.000    40.000  #cc9966   medium dark shade of cyan-blue. **merged**
 #C3FFFF 507   180.00   100.000    88.240  #3c0000   very light shade of cyan. **merged**
 
+
+
+
+  • month-calendar - The month calendar as a whole.
+  • month-calendar-head - The head of the month calendar (ie,"March").
+  • month-calendar-arrow - Arrow pointing to previous/next month.
+  • month-calendar-day-head - A column head in the month calendar (ie, a day-of-week abbreviation).
+  • month-calendar-day-noday, month-calendar-day-link, month-calendar-day-nolink, month-calendar-day-future,
+    month-calendar-day-this-day - The day squares on the month calendar, for days that are not in the month (before or
+    after the month itself), that don't have links, that do have links, that are in the future, or are that are the
+    current day, respectively.
+  • Sunday, Monday, Tuesday, ... - Each day square is also given a class matching its (localised) day of week, this can
+    be used to highlight weekends.
+
+  • year-calendar - The year calendar as a whole.
+  • year-calendar-head - The head of the year calendar (ie, "2007").
+  • year-calendar-arrow - Arrow pointing to previous/next year.
+  • year-calendar-subhead - For example, "Months".
+  • year-calendar-month-link, year-calendar-month-nolink, year-calendar-month-future, year-calendar-this-month - The
+    month squares on the year calendar, for months with stories, without, in the future, and currently selected,
+    respectively.
+
  */
