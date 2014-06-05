@@ -174,6 +174,7 @@ div.navblock {
    padding: 1px 0.05em 0.05em 0.05em;
    border-right: solid 2px #000020;
    border-bottom: solid 2px #000020;
+   margin-bottom: 1ex;
 }
 
 div.navblock h1 {
@@ -219,6 +220,13 @@ div.navblock ul li {
    text-align: right;
    font-weight: bold;
 }
+
+div.navblock ul li span.selflink {
+   text-align: left;
+   font-size: large;
+   padding-right: 4em;
+}
+
 /* Make the links stick out a bit. */
 div.navblock ul li a {
    display: block;
@@ -324,6 +332,48 @@ div#meat {
    width: auto;
 }
 
+div.inlinepage {
+ clear:right;
+ border-radius: 2em;
+ background-color: #919191;
+ border: solid Black;
+}
+/*
+* The story starts here
+*/
+div.story {
+ width: auto;
+ clear: right;
+ padding-left: 1em;
+ margin-left: 1.5em;
+ margin-right: 5px;
+ margin-top: 5px;
+ margin-bottom: 0.3em;
+ border-radius: 3em;
+ border: 1px outset #000020;
+}
+.inline-body {
+ background-color: #666666;
+ border-radius: 3em;
+ margin: 5px;
+}
+.story  a:link    { color:#ffffb2; text-decoration: underline }
+.story  a:hover   { border: 1px dotted; }
+.story  a:visited {color:#FFF0F0;  text-decoration: none}
+.story  a:active  {color:#ffff74;}
+
+.story-body-title {
+ text-align: center;
+ font-size: large;
+}
+/* The body of the story is here */
+div.story-body{
+ margin-left: 0.15in;
+ margin-right: 0.15in;
+ padding: 5px;
+ margin: 5px;
+}
+
 span.message{
 }
 
@@ -369,7 +419,7 @@ div.page-bot hr {
 
 div.footinfo {
    padding-top: 5px;
-   padding-bottom: 0.1px;
+   padding-bottom: 1px;
    margin: 1px;
    background-color: #000020;
    color: #FFD700;   /* #1A344B #6f7b34; */
@@ -401,6 +451,7 @@ div.commitinfo {
    float: left;
    margin-left: 1em;
    text-align: left;
+   margin-bottom: 5px;
 }
 
 
