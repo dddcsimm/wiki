@@ -3,6 +3,7 @@
 * [Github](http://github.golden-gryphon.com/)
 * [Manoj's Home](/manoj/)
 * [About Me](/manoj/about.html)
+* [My Resumé](/manoj/resume.html)
 * [GPG key](/download/C5779A1C.asc.txt)
 * [Policy](http://www.golden-gryphon.com/download/policy.20090821.txt?version=1.0&sha256sum=03b987f1eefa098c350929157e9c6ef5d234970c406e748935e65c0efcceaebb)
 
