@@ -1,5 +1,4 @@
 [[!meta title="Archives for 2010/11"]]
 [[!meta author="Manoj"]]
 [[!meta license="GPL"]]
-[[!inline pages="blog/* and !*/Discussion and creation_year(2010) and creation_month(11)" rootpage="blog" atom="no" rss="no" show="0"]]
-
+[[!inline pages="blog/2010/11/* and !*/Discussion" rootpage="blog" atom="no" rss="no" show="0"]]
